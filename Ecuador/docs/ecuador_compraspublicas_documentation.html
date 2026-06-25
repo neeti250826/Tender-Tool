@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Ecuador ComprasPublicas Documentation</title>
+</head>
+<body>
+  <h1>Ecuador ComprasPublicas Scraper</h1>
+  <p>The Ecuador script automates ComprasPublicas search, splits long date windows, waits for manual captcha entry, and exports normalized tender rows.</p>
+  <h2>Script</h2>
+  <p><code>Ecuador/scripts/ec_compraspublicas_scraper.py</code></p>
+  <h2>Run</h2>
+  <pre><code>python Ecuador/scripts/ec_compraspublicas_scraper.py --date-from 2024-01-01 --date-to 2025-12-31 --keywords "Roche|Abbott|diagnostico" --output Ecuador/output/ecuador_tenders.csv</code></pre>
+  <h2>AI Prompt</h2>
+  <pre><code>Run the Ecuador ComprasPublicas scraper. Pause for captcha if needed, then summarize date windows, rows, buyers, statuses, and missing detail fields.</code></pre>
+</body>
+</html>
+

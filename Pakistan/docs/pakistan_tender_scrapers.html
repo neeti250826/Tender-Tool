@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Pakistan Tender Scrapers Documentation</title>
+</head>
+<body>
+  <h1>Pakistan Tender Scrapers</h1>
+  <p>This folder contains Pakistan procurement scrapers for PPRA, DRAP, EPADS, ADB, and World Bank sources.</p>
+  <h2>Primary Scripts</h2>
+  <ul>
+    <li><code>Pakistan/PPRA/ppra_awarded_scraper.py</code>: public PPRA awarded contract pages.</li>
+    <li><code>Pakistan/DRAP/drap_item_scraper.py</code>: DRAP tender PDF item extraction.</li>
+    <li><code>Pakistan/EPADS/epads_item_scraper.py</code>: EPADS LOI-issued procurements.</li>
+    <li><code>Pakistan/ADB/adb_health_awards_scraper.py</code>: ADB workbook extraction.</li>
+    <li><code>Pakistan/WorldBank/worldbank_health_awards_scraper.py</code>: World Bank health-sector awards.</li>
+  </ul>
+  <h2>Run</h2>
+  <pre><code>python Pakistan/PPRA/ppra_awarded_scraper.py --date-from 2024-01-01 --date-to 2026-06-25 --max-pages 100 --translate
+python Pakistan/DRAP/drap_item_scraper.py --date-from 2024-01-01 --date-to 2026-06-25 --max-pages 5 --max-tenders 50 --headless --translate
+python Pakistan/EPADS/epads_item_scraper.py --date-from 2024-01-01 --date-to 2026-06-25 --max-pages 5 --max-tenders 50 --headless --translate
+python Pakistan/ADB/adb_health_awards_scraper.py --input Pakistan/ADB/adb_procurement_by_nationality_2016_2026.xlsx --date-from 2024-01-01 --date-to 2026-06-25
+python Pakistan/WorldBank/worldbank_health_awards_scraper.py --date-from 2024-01-01 --date-to 2026-06-25 --top 1000</code></pre>
+  <h2>AI Prompt</h2>
+  <pre><code>Run the Pakistan tender scripts from Tender-Tool, combine outputs where possible, and summarize row counts, buyers, suppliers, date coverage, medical filtering logic, and source gaps.</code></pre>
+</body>
+</html>
+

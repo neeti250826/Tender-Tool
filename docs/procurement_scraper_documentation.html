@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Procurement Scraper Documentation</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23005f73'/%3E%3Cpath d='M20 18h24v28H20z' fill='%23f8f5ee'/%3E%3Cpath d='M25 26h14M25 33h14M25 40h10' stroke='%23005f73' stroke-width='4' stroke-linecap='round'/%3E%3C/svg%3E">
+  <style>
+    :root {
+      --bg: #f3efe7;
+      --paper: #fffdf8;
+      --ink: #202225;
+      --muted: #5f646d;
+      --accent: #005f73;
+      --accent-soft: #d8eeef;
+      --line: #d7d0c2;
+      --good: #1f6f43;
+      --warn: #8d5b10;
+      --bad: #a63a32;
+      --shadow: 0 18px 40px rgba(26, 32, 44, 0.08);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(0, 95, 115, 0.08), transparent 28%),
+        linear-gradient(180deg, #f8f5ee 0%, var(--bg) 100%);
+      color: var(--ink);
+      line-height: 1.6;
+    }
+
+    .wrap {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 32px 20px 56px;
+    }
+
+    .hero {
+      background: linear-gradient(135deg, #083d4a 0%, #005f73 65%, #0a9396 100%);
+      color: #f6fffe;
+      border-radius: 24px;
+      padding: 32px;
+      box-shadow: var(--shadow);
+    }
+
+    .hero h1 {
+      margin: 0 0 8px;
+      font-size: clamp(2rem, 3.5vw, 3.2rem);
+      line-height: 1.1;
+    }
+
+    .hero p {
+      margin: 10px 0 0;
+      max-width: 880px;
+      color: rgba(246, 255, 254, 0.9);
+    }
+
+    .meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 18px;
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.12);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      font-size: 0.95rem;
+    }
+
+    section {
+      margin-top: 26px;
+      background: var(--paper);
+      border: 1px solid rgba(215, 208, 194, 0.9);
+      border-radius: 22px;
+      box-shadow: var(--shadow);
+      padding: 26px;
+    }
+
+    h2 {
+      margin: 0 0 14px;
+      font-size: 1.45rem;
+    }
+
+    h3 {
+      margin: 0 0 10px;
+      font-size: 1.1rem;
+    }
+
+    p, li {
+      color: var(--ink);
+    }
+
+    .muted {
+      color: var(--muted);
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 16px;
+    }
+
+    .card {
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 18px;
+      background: linear-gradient(180deg, #fffefb 0%, #fbf8f0 100%);
+    }
+
+    .status {
+      display: inline-block;
+      padding: 4px 10px;
+      border-radius: 999px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-bottom: 12px;
+    }
+
+    .proved {
+      background: #e7f5ec;
+      color: var(--good);
+    }
+
+    .partial {
+      background: #fff1d8;
+      color: var(--warn);
+    }
+
+    .blocked {
+      background: #fbe3e1;
+      color: var(--bad);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      overflow: hidden;
+      border-radius: 16px;
+      margin-top: 8px;
+    }
+
+    th, td {
+      padding: 12px 14px;
+      border-bottom: 1px solid var(--line);
+      text-align: left;
+      vertical-align: top;
+    }
+
+    th {
+      background: var(--accent-soft);
+      color: #14353c;
+      font-weight: 700;
+    }
+
+    tr:last-child td {
+      border-bottom: 0;
+    }
+
+    code, pre {
+      font-family: Consolas, "Courier New", monospace;
+    }
+
+    code {
+      background: #f2efe8;
+      padding: 2px 6px;
+      border-radius: 6px;
+    }
+
+    pre {
+      margin: 12px 0 0;
+      padding: 16px;
+      border-radius: 16px;
+      overflow-x: auto;
+      background: #1f2933;
+      color: #f3f7fa;
+    }
+
+    ul {
+      margin: 10px 0 0 18px;
+      padding: 0;
+    }
+
+    .path {
+      word-break: break-word;
+    }
+
+    .footer {
+      margin-top: 18px;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    @media (max-width: 720px) {
+      .hero,
+      section {
+        padding: 20px;
+      }
+
+      th, td {
+        padding: 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header class="hero">
+      <h1>Procurement Scraper Documentation</h1>
+      <p>
+        This report documents the current implementation and verified results for the
+        country-level Python scrapers built from the assessed feasible public procurement
+        sources, focused on medical, healthcare, equipment, consumables, and related tenders.
+      </p>
+      <div class="meta">
+        <span class="pill">Date window: 2024-01-01 to 2026-06-01</span>
+        <span class="pill">Report date: 2026-06-01</span>
+        <span class="pill">Workspace: C:\Users\Neeti\OneDrive\Documents\TURMECA</span>
+      </div>
+    </header>
+
+    <section>
+      <h2>Objective</h2>
+      <p>
+        Build Python scrapers in country/source folders for public procurement websites that are
+        feasible to scrape for medical or healthcare-related tenders, keep outputs within the
+        publication-date window from <code>2024-01-01</code> through <code>2026-06-01</code>,
+        populate awarded columns where the source exposes awarded data, duplicate tender-level
+        data across multiple item rows, smoke-test one page first, and then run the scraper
+        as broadly as the public source allows.
+      </p>
+    </section>
+
+    <section>
+      <h2>Current Source Status</h2>
+      <div class="grid">
+        <article class="card">
+          <div class="status partial">Partially proved</div>
+          <h3>UAE / Dubai eSupply</h3>
+          <p class="path"><code>UAE/Dubai_eSupply/dubai_esupply_scraper.py</code></p>
+          <ul>
+            <li>The source is now wired into the awarded runner and can be launched in parallel with the other awarded scrapers.</li>
+            <li>The scraper was live-tested for 2024-01-01 through 2026-06-01.</li>
+            <li>The public homepage is reachable and currently reports 0 Current Opportunities.</li>
+            <li>The homepage confirms healthcare-relevant entities such as Dubai Health Authority.</li>
+            <li>Browser-side inspection now proves separate public <code>Current Opportunities</code> and <code>Past Opportunities</code> listing pages beyond the homepage path.</li>
+            <li>The scraper now merges live fetches with saved browser-captured listing HTML, browser snapshot markdown, and saved live-eval JSON when those artifacts are present, and currently materializes 66 unique strict medical rows from 679 captured listing candidates, including the recovered `TEST KIT; TYPE: INFLUENZA A DUPLEX -BLANKET`, `COMSUMABLE ITEM (FILTERS)`, Arabic-title medical mattresses, `Calcium&amp;Triglycerides-BLANKET`, and the deeper browser-verified Dubai Academic Health rows `Tube Sealer`, `Facio Maxillary`, and `Voyager Implants`.</li>
+            <li>The UAE metadata now records the exact saved listing captures driving the current output: `current_opportunities_body.html`, `uae_current_tab_eval.json`, `uae_live_eval.json`, `past_opportunities_body.html`, `uae_past_page2_async_response.html`, `uae_past_page2_response.html`, `uae_page2_postdialog_snapshot.md`, `uae_past_live_page2_snapshot.md`, and `uae_past_live_page4_snapshot.md`.</li>
+            <li>The UAE scraper now also inventories saved detail-page captures such as `uae_detail_240780.html` and `uae_detail_241068.html` so future real detail captures can enrich listing rows. The current metadata proves both saved detail files on disk are expired-session shells rather than usable detail pages, so they do not currently recover awarded amount, supplier, or stronger status fields.</li>
+            <li><code>audit_uae_saved_coverage.py</code> now proves that those usable saved UAE captures contain <code>152</code> logical unique candidate rows and <code>0</code> remaining obvious healthcare misses, while <code>uae_past_page1_live.html</code> is only an expired-session page rather than a usable listing capture and <code>uae_tab4_page1_snapshot.md</code> is only a truncated shell rather than a hidden full results page.</li>
+            <li><code>audit_uae_filter_fields.py</code> now extracts the exact saved UAE past-opportunity filter controls and operators, including buyer organisation, publication date, supply category, project categories, the search action, and the pager field needed for a browser-backed <code>2024-01-01</code>-to-recent healthcare extraction.</li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <div class="status partial">Partially proved</div>
+          <h3>Kuwait / CAPT</h3>
+          <p class="path"><code>Kuwait/CAPT/capt_awarded_scraper.py</code></p>
+          <ul>
+            <li>Public winning-bid rows are visible on the live site.</li>
+            <li>A Ministry of Health medical award row was verified and saved.</li>
+            <li>Official CAPT board-minutes PDFs on <code>files.capt.gov.kw</code> are directly accessible and now backfill additional Ministry of Health approved rows for drugs, devices, diagnostics, laboratory materials, dialysis, and related clinical procurement.</li>
+            <li>The saved CAPT output is now intentionally narrowed to strict clinical procurement only, excluding design, construction, transport, security, meals, payment, incinerator, and other healthcare-adjacent service contracts.</li>
+            <li>After verified seed backfill and OCR-assisted review of the official <code>2024/73</code> board-minutes pages for <code>4GR030-change-principal1</code> plus the added Gulf Tender <code>38</code>, <code>451LB3</code>, and contract <code>970</code> post-award change rows, the added <code>033AK5</code> dialysis direct-contract row from official <code>2026/5</code> page <code>62</code>, and the corrected <code>2025/40</code> approved medical rows <code>057AK4</code>, <code>4TB522</code>, <code>5EY009</code>, and <code>5IN026</code>, <code>amount</code>, <code>currency</code>, and <code>awarded_value_detail</code> are now filled on all 42 CAPT rows.</li>
+            <li>The scraper now detects the current anti-bot challenge and falls back to the verified public row.</li>
+            <li>The scraper now also normalizes package-level rows where <code>item_no == notice_id</code> to <code>item_no = 1</code>, and also collapses numeric board-minutes serial values to <code>item_no = 1</code> for non-popup rows, which reduces misleading package-row numbering in the saved CSV while popup item detail remains blocked.</li>
+            <li>The CAPT scraper can now ingest saved popup JSON eval captures such as <code>capt_popup_eval.json</code> and <code>capt_popup_tab8_eval.json</code>, saved popup markdown snapshots such as <code>capt_live_popup_snapshot.md</code>, and saved raw popup HTML such as <code>capt_popup_1_2024_2025_112.html</code>. The current non-medical Abdullah Al Salem University popup snapshot was verified to parse into <code>2</code> structured winner/item/price rows, so future live medical popup captures can now be reused even when they are saved in different browser artifact formats rather than only JSON.</li>
+            <li>The CAPT popup-capture loader now also deduplicates repeated popup rows across JSON, markdown, and HTML popup artifacts, so saving the same popup more than once will not inflate future CAPT enrichment.</li>
+            <li>A local PDF inspection helper with workspace-local Arabic OCR support and an exclusion note now document that most of the extra <code>2024/73</code> and <code>2026/5</code> Ministry of Health page clusters reviewed so far are procurement-initiation, complaint, recommendation, publication, bid-security, or cancellation records rather than awarded rows. The latest review also produced one real new CAPT row from <code>2026/5</code> page <code>62</code>: direct contract <code>033AK5</code> for <code>STAY-SAFE CAPD 1.5% 2L</code> peritoneal dialysis solution from <code>Mohammad Naser Al Hajri &amp; Sons / Fresenius Medical Care</code> at <code>95,580 KWD</code>. The documented exclusions still explicitly include the <code>2024/73</code> article-17 initiation pages for <code>METOPROLOL SUCCINATE 95MG</code>, <code>SUMATRIPTAN SUCCINATE MG50</code>, <code>AUTOMATED PROTECTOR STERILE SLUSH</code>, and <code>INSULIN PUMP</code>, the <code>2025/39</code> physiotherapy-device page that turned out to be only an initial-bond extension item, and the reviewed official <code>2024/21</code> CAPT PDF candidate that turned out to contain no Ministry of Health award cluster.</li>
+            <li>Repeatable full shell automation is still blocked by anti-bot behavior.</li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <div class="status partial">Partially proved</div>
+          <h3>Pakistan / PPRA</h3>
+          <p class="path"><code>Pakistan/PPRA/ppra_awarded_scraper.py</code></p>
+          <ul>
+            <li>The medical filter is now tightened so generic non-medical <code>consumable</code> rows do not survive as false positives.</li>
+            <li>The previous saved <code>3</code> rows were reviewed and removed because they were out of scope under the strict medical-only rule.</li>
+            <li>After VPN access was enabled, the live public contracts, tender-detail, and evaluation pages are reachable again. The scraper now combines 388 verified strict-medical PPRA tender-detail fallback rows with two live healthcare evaluation rows.</li>
+            <li>The PPRA live fetch timeout is now configurable through <code>--live-timeout</code> or <code>PPRA_LIVE_TIMEOUT</code>, with a current default of <code>900</code> seconds before fallback.</li>
+            <li>The top-level awarded runner now also exposes <code>--ppra-live-timeout</code>, and a smoke run through <code>run_awarded_scrapers.py</code> confirmed that override flows into the PPRA scraper.</li>
+            <li>The strongest official PPRA fallback notices are now expanded into item-level schedules from tender-document evidence for Surgery, Dental, Physiotherapy, Diabetic/Endocrine, Gynecology/Obstetrics, Ophthalmology, Cardiology, Anesthesia, Orthopedic, Urology, Paeds, and Medicine, including the five-lot <code>TS0000002479E</code> equipment notice, 183 reagent-rental test rows from the verified local <code>TS0000001234E</code> annex extract, the four-component <code>TS0000006378E</code> MR-LINAC split, and broader category-row expansion for official notices whose titles explicitly enumerate medicines, disposables, lab kits, implants, appliances, electro-medical equipment, injectable items, surgical disposables, lab reagents, medical consumables, and medical gases.</li>
+            <li>The live PPRA healthcare evaluation rows <code>EVL00000000799</code> and <code>EVL00000000432</code> fill <code>supplier_name</code> and <code>awarded_date</code>. The reachable contracts search did not expose medical awarded-contract rows with published amounts in this pass.</li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <div class="status partial">Partially proved</div>
+          <h3>Pakistan / DRAP</h3>
+          <p class="path"><code>Pakistan/DRAP/drap_item_scraper.py</code></p>
+          <ul>
+            <li>Public archive pages and linked tender PDFs exist in the target window.</li>
+            <li>Seven official DRAP medical/lab document sources are now verified and materialized in the output.</li>
+            <li>The script now includes verified fallback seeds from official DRAP pages and PDFs.</li>
+            <li>The current verified DRAP output covers 371 item rows across seven official DRAP medical/lab sources, including the February 14, 2024 NCLB retender, the February 23, 2024 CDL Karachi chemicals/glassware prequalification source, the FTIR tender published on 2024-05-31, the January 16, 2025 laboratory-equipment tender, the September 5, 2025 chemicals/reagents/reference-standards/glassware/kits tender, and the March 25, 2026 chemicals/glassware/reference-standards/USP-standards/CRMs invitation.</li>
+            <li>The official January 16, 2025 DRAP laboratory-equipment PDF now contributes PKR tender-value and item-price figures for the eight equipment lines.</li>
+            <li>Host instability still prevents a fully proved live batch crawl in this environment.</li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <div class="status partial">Partially proved</div>
+          <h3>Pakistan / EPADS</h3>
+          <p class="path"><code>Pakistan/EPADS/epads_item_scraper.py</code></p>
+          <ul>
+            <li>Public medical item rows are reachable beyond page 1.</li>
+            <li>The parser now extracts cleaner buyer/classification fields.</li>
+            <li><code>closing_date</code> is recovered from the embedded bidding timer timestamp.</li>
+            <li>The scraper now also parses detail-page <code>Awarded Amount</code> into <code>amount</code> and <code>currency</code> when that public field is available.</li>
+            <li>After VPN access was enabled, the LOI, detail, and annual-plan pages are reachable again. The current strict medical EPADS output now contains 802 rows after detail-level false-positive pruning, including live LOI-issued medical rows where EPADS publishes awarded amounts.</li>
+            <li>The saved <code>P41081</code> first-aid-kit rows now normalize from stale <code>open</code> to <code>closed</code> after the passed <code>2026-05-29</code> closing date, and their <code>notice_url</code> now points at the verified alternate annual-plan public surface instead of only the blocked direct opportunity page.</li>
+            <li>A public <code>publication_date</code> field still has not been confirmed.</li>
+            <li>The current saved output fills <code>amount</code>, <code>currency</code>, and <code>awarded_value_detail</code> for 680 of 802 rows. Sampled public pages still do not expose <code>supplier_name</code> or <code>awarded_date</code>.</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section>
+      <h2>Verified Outputs</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Source</th>
+            <th>CSV output</th>
+            <th>Rows</th>
+            <th>publication_date filled</th>
+            <th>closing_date filled</th>
+            <th>supplier_name filled</th>
+            <th>awarded_date filled</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Dubai eSupply</td>
+            <td class="path"><code>UAE/Dubai_eSupply/output/dubai_esupply_medical_2024_2026.csv</code></td>
+            <td>66</td>
+            <td>66</td>
+            <td>66</td>
+            <td>0</td>
+            <td>0</td>
+          </tr>
+          <tr>
+            <td>CAPT</td>
+            <td class="path"><code>Kuwait/CAPT/output/capt_awarded_medical_2024_2026.csv</code></td>
+            <td>42</td>
+            <td>42</td>
+            <td>0</td>
+            <td>42</td>
+            <td>42</td>
+          </tr>
+          <tr>
+            <td>PPRA</td>
+            <td class="path"><code>Pakistan/PPRA/output/ppra_awarded_medical_2024_2026.csv</code></td>
+            <td>390</td>
+            <td>390</td>
+            <td>390</td>
+            <td>2</td>
+            <td>2</td>
+          </tr>
+          <tr>
+            <td>DRAP</td>
+            <td class="path"><code>Pakistan/DRAP/output/drap_item_medical_2024_2026.csv</code></td>
+            <td>371</td>
+            <td>371</td>
+            <td>371</td>
+            <td>0</td>
+            <td>0</td>
+          </tr>
+          <tr>
+            <td>EPADS</td>
+            <td class="path"><code>Pakistan/EPADS/output/epads_item_medical_2024_2026.csv</code></td>
+            <td>802</td>
+            <td>112</td>
+            <td>802</td>
+            <td>0</td>
+            <td>0</td>
+          </tr>
+        </tbody>
+      </table>
+      <p class="footer">
+        Counts were rechecked in the workspace on 2026-06-01 before this HTML file was updated.
+      </p>
+    </section>
+
+    <section>
+      <h2>Chrome Access</h2>
+      <p class="path"><code>chrome_access_audit.md</code></p>
+      <ul>
+        <li>Google Chrome itself is installed locally and was running during the check.</li>
+        <li>The Codex Chrome plugin bundle reports extension id <code>hehggadaopoacecdllhhajmbjkdcmajg</code>.</li>
+        <li>A read-only profile scan did not find that extension id in the scanned Chrome profile directories.</li>
+        <li>Two direct browser-bridge bootstrap attempts failed with <code>windows sandbox failed: spawn setup refresh</code>.</li>
+        <li>That means the requested Chrome route was not usable in this session for live CAPT popup work, deeper UAE pagination, or EPADS detail interaction. The latest audit now shows the native-host manifest file exists with the expected origin, but the Windows Chrome NativeMessagingHosts registry key is missing, Chrome profile enumeration is blocked by access-denied errors from this execution context, and fresh browser-bridge bootstrap attempts still fail with <code>windows sandbox failed: spawn setup refresh</code>.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Scripts And Runners</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Type</th>
+            <th>Path</th>
+            <th>Purpose</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Shared utilities</td>
+            <td class="path"><code>procurement_utils.py</code></td>
+            <td>Shared schema and normalization helpers.</td>
+          </tr>
+          <tr>
+            <td>Awarded runner</td>
+            <td class="path"><code>run_awarded_scrapers.py</code></td>
+            <td>Entry point for awarded-data sources.</td>
+          </tr>
+          <tr>
+            <td>Item-level runner</td>
+            <td class="path"><code>run_item_level_scrapers.py</code></td>
+            <td>Entry point for item-level sources.</td>
+          </tr>
+          <tr>
+            <td>Coverage audit</td>
+            <td class="path"><code>verify_capt_drap_coverage.py</code></td>
+            <td>Checks that current CAPT and DRAP CSV outputs exactly match the locally verified seed coverage, reports field-fill counts, flags raw date-range contract periods, and confirms that no out-of-scope CAPT service/facility notice IDs or DRAP notice IDs appear in the saved medical-only outputs.</td>
+          </tr>
+          <tr>
+            <td>Source script</td>
+            <td class="path"><code>UAE/Dubai_eSupply/dubai_esupply_scraper.py</code></td>
+            <td>Dubai eSupply public-listing scraper with browser-capture fallback and access-state metadata output.</td>
+          </tr>
+          <tr>
+            <td>Source script</td>
+            <td class="path"><code>Kuwait/CAPT/capt_awarded_scraper.py</code></td>
+            <td>Kuwait CAPT awarded-winning-bids scraper.</td>
+          </tr>
+          <tr>
+            <td>Verified fallback</td>
+            <td class="path"><code>Kuwait/CAPT/capt_verified_seeds.py</code></td>
+            <td>Verified fallback row used when the CAPT challenge blocks live automation.</td>
+          </tr>
+          <tr>
+            <td>Inspection helper</td>
+            <td class="path"><code>Kuwait/CAPT/capt_pdf_helper.py</code></td>
+            <td>Renders selected local CAPT PDF pages to PNG and text, with optional OCR and term matching for manual verification.</td>
+          </tr>
+          <tr>
+            <td>OCR data</td>
+            <td class="path"><code>Kuwait/CAPT/tessdata/ara.traineddata</code></td>
+            <td>Workspace-local Arabic OCR language data used by the CAPT PDF inspection helper.</td>
+          </tr>
+          <tr>
+            <td>Exclusion note</td>
+            <td class="path"><code>Kuwait/CAPT/capt_exclusion_notes.md</code></td>
+            <td>Records reviewed CAPT health-related pages that were excluded because they are not awarded-result rows.</td>
+          </tr>
+          <tr>
+            <td>Source script</td>
+            <td class="path"><code>Pakistan/PPRA/ppra_awarded_scraper.py</code></td>
+            <td>Pakistan PPRA awarded-contract scraper.</td>
+          </tr>
+          <tr>
+            <td>Source script</td>
+            <td class="path"><code>Pakistan/DRAP/drap_item_scraper.py</code></td>
+            <td>Pakistan DRAP tender-document item parser.</td>
+          </tr>
+          <tr>
+            <td>Verified fallback</td>
+            <td class="path"><code>Pakistan/DRAP/drap_verified_seeds.py</code></td>
+            <td>Verified DRAP tender seeds derived from official pages and PDFs for unstable-host fallback.</td>
+          </tr>
+          <tr>
+            <td>Source script</td>
+            <td class="path"><code>Pakistan/EPADS/epads_item_scraper.py</code></td>
+            <td>Pakistan EPADS public item-level scraper.</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section>
+      <h2>Rerun Commands</h2>
+      <p class="muted">These are the current workspace commands used to rerun the source groups.</p>
+      <pre>&amp; 'C:\Users\Neeti\anaconda3\python.exe' run_awarded_scrapers.py --date-from 2024-01-01 --date-to 2026-06-01</pre>
+      <pre>&amp; 'C:\Users\Neeti\anaconda3\python.exe' run_item_level_scrapers.py --date-from 2024-01-01 --date-to 2026-06-01 --headless</pre>
+      <pre>&amp; 'C:\Users\Neeti\anaconda3\python.exe' verify_capt_drap_coverage.py</pre>
+    </section>
+
+    <section>
+      <h2>Requirement Audit</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Requirement</th>
+            <th>Status</th>
+            <th>Notes</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Separate country/source scraper folders exist</td>
+            <td><span class="status proved">Proved</span></td>
+            <td>Country and source scripts are present under Kuwait and Pakistan folders.</td>
+          </tr>
+          <tr>
+            <td>Shared output schema exists</td>
+            <td><span class="status proved">Proved</span></td>
+            <td><code>procurement_utils.py</code> centralizes shared handling.</td>
+          </tr>
+          <tr>
+            <td>Parallel runner exists</td>
+            <td><span class="status proved">Proved</span></td>
+            <td>Separate awarded and item-level runners are present.</td>
+          </tr>
+          <tr>
+            <td>Smoke testing was done first</td>
+            <td><span class="status proved">Proved</span></td>
+            <td>Smoke CSV files exist for each source.</td>
+          </tr>
+          <tr>
+            <td>Awarded fields are filled where public data exists</td>
+            <td><span class="status partial">Partially proved</span></td>
+            <td>Strong for CAPT through forty-two verified CAPT board-minutes approval/change rows that stay inside the stricter scope of medical or clinical consumables, devices, drugs, diagnostics, laboratory materials, and related equipment, with CAPT financial fields filled on all 42 of 42 rows after OCR-assisted recovery of the 4GR030 amendment amount, the added Gulf Tender 38, 451LB3, and contract 970 post-award change rows, the added 033AK5 peritoneal-dialysis direct-contract row from meeting 2026/5 page 62, and correction of the 2025/40 medical block to the actual approved rows 057AK4, 4TB522, 5EY009, and 5IN026 while excluding the nearby non-approved 4AK056, 060AK4, and 46AKD4 rows; EPADS now fills amount/currency/awarded-value detail on 680 of 802 rows from reachable LOI/detail pages; PPRA now reaches live evaluation pages and fills supplier/date on two healthcare rows; and DRAP award-result fields are still mostly absent from the public tender-document path.</td>
+          </tr>
+          <tr>
+            <td>Tender-level fields are duplicated across multiple items</td>
+            <td><span class="status proved">Proved</span></td>
+            <td>Verified in DRAP and EPADS outputs.</td>
+          </tr>
+          <tr>
+            <td>Publication-date filtering is fully proved for all feasible sources</td>
+            <td><span class="status partial">Partially proved</span></td>
+            <td>Sample-level verified for CAPT and DRAP, materially exercised for Dubai eSupply through browser-captured public listing pages, and now live-retested for PPRA and EPADS after VPN access restored those public routes.</td>
+          </tr>
+          <tr>
+            <td>Full publicly feasible execution is complete for all sources</td>
+            <td><span class="status partial">Partially proved</span></td>
+            <td>Dubai eSupply now yields public listing rows through browser-capture fallback but is not yet fully paginated end to end; CAPT anti-bot behavior and DRAP host instability still limit full live proof, though both now have verified fallback paths; and PPRA plus EPADS public pages are reachable again after VPN access.</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section>
+      <h2>Remaining External Limitations</h2>
+      <div class="grid">
+        <article class="card">
+          <div class="status partial">Source-limited</div>
+          <h3>Dubai eSupply</h3>
+          <p>
+            The UAE source is now scripted and live-tested, and browser-backed capture proves separate
+            public current and past listing pages. The current limitation is no longer zero access, but
+            incomplete pagination: the metadata file currently records <code>public_rows_extracted</code>
+            with 66 unique saved rows from 403 captured listing candidates across multiple saved pages.
+          </p>
+        </article>
+
+        <article class="card">
+          <div class="status blocked">Blocked</div>
+          <h3>CAPT</h3>
+          <p>
+            Public winning-bid rows are visible, but repeatable shell-side automation is still
+            blocked by the site’s current anti-bot challenge flow. The repo now falls back to
+            verified public CAPT evidence from both the winning-bids page and official board-minutes
+            PDFs, including expanded 2025 Ministry of Health direct-contract approvals, instead of
+            hanging on the challenge page.
+          </p>
+        </article>
+
+        <article class="card">
+          <div class="status blocked">Blocked</div>
+          <h3>CAPT / DRAP Gaps</h3>
+          <p>
+            The remaining CAPT and DRAP gap state is now documented in
+            <code>capt_drap_gap_audit.md</code>. The current blocker is no longer repo structure
+            or parsing logic: the remaining reviewed CAPT candidates are still pre-award or
+            procedural records, and the remaining low-count DRAP notices are one-page or
+            low-detail public notices without additional item schedules exposed by the source.
+          </p>
+        </article>
+
+        <article class="card">
+          <div class="status blocked">Blocked</div>
+          <h3>DRAP</h3>
+          <p>
+            Public archive pages and PDFs exist, but the host has been intermittently unreachable
+            from this environment during full scripted verification. The repo now includes verified
+            fallback seeds from official DRAP pages and PDFs so item-level output can still be produced.
+          </p>
+        </article>
+
+        <article class="card">
+          <div class="status partial">Source-limited</div>
+          <h3>EPADS</h3>
+          <p>
+            Public LOI, item, detail, annual-plan, and timing data are reachable again after VPN access,
+            and the saved file now recovers awarded amounts for most live LOI medical rows. A confirmed
+            public <code>supplier_name</code> and <code>awarded_date</code> field still has not been found
+            on the tested public pages.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <section>
+      <h2>Related Documentation</h2>
+      <ul>
+        <li><code>source_status.md</code></li>
+        <li><code>completion_audit.md</code></li>
+        <li><code>handoff.md</code></li>
+      </ul>
+      <p class="footer">
+        This HTML report is a formatted snapshot of the current verified workspace state as of 2026-06-01.
+      </p>
+    </section>
+  </div>
+</body>
+</html>

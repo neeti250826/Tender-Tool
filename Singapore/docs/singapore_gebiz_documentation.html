@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Singapore GeBIZ Documentation</title>
+</head>
+<body>
+  <h1>Singapore GeBIZ Scrapers</h1>
+  <p>The Singapore folder contains Playwright and Selenium GeBIZ scrapers plus MDT export helpers.</p>
+  <h2>Scripts</h2>
+  <ul>
+    <li><code>Singapore/scripts/gebiz_scraper.py</code>: Playwright scraper.</li>
+    <li><code>Singapore/scripts/gebiz_scraper_selenium.py</code>: Selenium fallback.</li>
+    <li><code>Singapore/scripts/latam_spec_defaults.py</code>, <code>mdt_export.py</code>, <code>mdt_schema.py</code>: output helper modules.</li>
+  </ul>
+  <h2>Run</h2>
+  <pre><code>python Singapore/scripts/gebiz_scraper.py --date-from 2026-01-01 --date-to 2026-03-31 --query "medical" --max-pages 10 --output-target Singapore/output</code></pre>
+  <h2>AI Prompt</h2>
+  <pre><code>Run the Singapore GeBIZ scraper, save outputs to Singapore/output, then summarize pagination coverage, rows, buyers, titles, and failures.</code></pre>
+</body>
+</html>
+

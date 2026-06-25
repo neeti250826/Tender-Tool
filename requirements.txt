@@ -1,0 +1,10 @@
+beautifulsoup4
+openpyxl
+pandas
+playwright
+pymupdf
+pypdf
+requests
+selenium
+urllib3
+

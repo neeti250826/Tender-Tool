@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Kuwait CAPT Documentation</title>
+</head>
+<body>
+  <h1>Kuwait CAPT Scraper</h1>
+  <p>The Kuwait folder contains a CAPT winning-bids scraper plus PDF helper utilities.</p>
+  <h2>Scripts</h2>
+  <ul>
+    <li><code>Kuwait/CAPT/capt_awarded_scraper.py</code>: scrape CAPT winning bids and retain medical rows.</li>
+    <li><code>Kuwait/CAPT/capt_pdf_helper.py</code>: inspect local CAPT PDFs with OCR/rendering support.</li>
+    <li><code>Kuwait/CAPT/capt_verified_seeds.py</code>: verified rows and medical-scope exclusions.</li>
+  </ul>
+  <h2>Run</h2>
+  <pre><code>python Kuwait/CAPT/capt_awarded_scraper.py --date-from 2024-01-01 --date-to 2026-06-25 --max-pages 250 --headless --translate</code></pre>
+  <h2>AI Prompt</h2>
+  <pre><code>Run the Kuwait CAPT scraper, then summarize captured medical awards, exclusions, portal coverage, and PDF/manual-review gaps.</code></pre>
+</body>
+</html>
+

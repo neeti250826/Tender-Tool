@@ -1,0 +1,28 @@
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
+venv/
+env/
+
+# Runtime outputs
+**/output/*
+!**/output/.gitkeep
+*.log
+
+# Browser and scraper caches
+.playwright-mcp/
+**/pdf_cache/
+**/pdf_scan*/
+**/pdf_inspection*/
+**/*_snapshot.md
+**/*_eval.json
+**/*_response.html
+**/*_body.html
+
+# Local/editor files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
