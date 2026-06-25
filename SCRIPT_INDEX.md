@@ -175,6 +175,117 @@ Run or adapt the Vietnam tender scraper for the requested tender inputs. Save ou
 
 - `Vietnam/scripts/vietnam_tender_scraper_colab.ipynb` - Drive extracted Colab notebook.
 
+## Brazil
+
+```powershell
+python Brazil/Compras/scripts/comprasnet_api_test.py
+python Brazil/PNCP/scripts/pncp_scraper.py
+python Brazil/Saude/scripts/scrape_dispensa_saude.py
+```
+
+AI prompt:
+
+```text
+Run the relevant Brazil scraper, save outputs under Brazil/output, and summarize row counts, source coverage, filtering assumptions, and portal issues.
+```
+
+## India
+
+```powershell
+python India/eProcure/scripts/scraper_updated.py --keyword "reagents"
+python India/eProcure/scripts/extract_pdfs.py
+```
+
+AI prompt:
+
+```text
+Run the India eProcure scraper for the requested keyword or process local award PDFs, then summarize captured tenders, item extraction, captcha/PDF issues, and output files.
+```
+
+## KSA
+
+```powershell
+python KSA/scripts/nupco_awards_scraper.py
+python KSA/scripts/etimad_awards_scraper.py
+python KSA/scripts/validate_award_jsonl.py path\to\awards.jsonl
+```
+
+AI prompt:
+
+```text
+Run the KSA NUPCO or Etimad awarded tender scraper, then summarize awarded rows, supplier/amount coverage, attachment parsing gaps, and validation results.
+```
+
+## Mexico
+
+```powershell
+python Mexico/ComprasMX/scripts/src/scrape_step3.py --excel "expedientes_comprasmx_2026.xlsx"
+python Mexico/ComprasMX/scripts/src/step5_excel_export.py --jsonl combined.jsonl
+```
+
+AI prompt:
+
+```text
+Run the Mexico ComprasMX scraper or merge/export helpers, then summarize tender counts, JSONL completeness, contract/item extraction, and slow or failed URLs.
+```
+
+## Peru
+
+```powershell
+python Peru/scripts/scrape.py
+```
+
+AI prompt:
+
+```text
+Run or inspect the Peru scraper, save outputs under Peru/output, and summarize award coverage, fields captured, and any missing data.
+```
+
+## South Korea
+
+```powershell
+python South_Korea/South_Korea_2026/g2b_production_scraper_buyer_final.py
+```
+
+AI prompt:
+
+```text
+Run the South Korea G2B scraper for the requested year/date range, then summarize tender rows, item-level extraction, buyer/supplier coverage, popup failures, and resume state.
+```
+
+## Spain
+
+`Spain/drive_extracts/Spain_Tender/` preserves a Clearstate source folder named `Spain_Tender`, but the included README identifies the scripts as Ecuador ComprasPublicas tooling. Treat this as provenance unless the user confirms it is intended for Spain.
+
+## Thailand
+
+```powershell
+python Thailand/scripts/Collect_urls.py
+python Thailand/scripts/process_tender_urls_contract_period_fixed.py
+```
+
+AI prompt:
+
+```text
+Run the Thailand GProcurement workflow after Edge is opened in remote-debugging mode and Cloudflare is solved. Summarize URL count, detail rows, contract item extraction, and session/browser issues.
+```
+
+## ACEE Countries
+
+### Czechia
+
+```powershell
+python Czechia/scripts/czechia_nen_awarded_healthcare_scraper.py
+```
+
+### Poland
+
+```powershell
+python Poland/scripts/poland_ezamowienia_medical_scraper_itemdetails_v4.py
+```
+
+Egypt, Hungary, Romania, and South Africa currently include ACEE notes/reports only; no runnable source scraper was found in the curated scan.
+
 ## Pakistan
 
 ### `Pakistan/PPRA/ppra_awarded_scraper.py`

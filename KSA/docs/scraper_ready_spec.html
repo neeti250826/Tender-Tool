@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KSA Awarded Tenders Scraper Spec</title>
+  <style>
+    :root {
+      --bg: #f4f1ea;
+      --paper: #fffdf8;
+      --ink: #1f2933;
+      --muted: #52606d;
+      --line: #d9d2c3;
+      --accent: #9f3a2b;
+      --accent-soft: #f7e4de;
+      --code: #f1ede4;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Georgia, "Times New Roman", serif;
+      background: linear-gradient(180deg, #efe7d8 0%, var(--bg) 100%);
+      color: var(--ink);
+      line-height: 1.6;
+    }
+
+    .page {
+      max-width: 980px;
+      margin: 40px auto;
+      background: var(--paper);
+      border: 1px solid var(--line);
+      box-shadow: 0 20px 60px rgba(50, 40, 20, 0.08);
+    }
+
+    header {
+      padding: 40px 48px 24px;
+      border-bottom: 1px solid var(--line);
+      background: linear-gradient(135deg, #fffaf0 0%, #f7efe2 100%);
+    }
+
+    h1, h2, h3 {
+      margin: 0 0 12px;
+      line-height: 1.2;
+    }
+
+    h1 {
+      font-size: 2.3rem;
+      color: var(--accent);
+    }
+
+    h2 {
+      font-size: 1.45rem;
+      margin-top: 34px;
+      padding-top: 10px;
+      border-top: 1px solid var(--line);
+    }
+
+    h3 {
+      font-size: 1.1rem;
+      margin-top: 24px;
+    }
+
+    main {
+      padding: 24px 48px 48px;
+    }
+
+    p, li {
+      font-size: 1rem;
+    }
+
+    .lede {
+      color: var(--muted);
+      max-width: 720px;
+      margin: 0;
+    }
+
+    .pill {
+      display: inline-block;
+      margin: 8px 8px 0 0;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      color: var(--accent);
+      font-size: 0.9rem;
+    }
+
+    code {
+      font-family: Consolas, "Courier New", monospace;
+      background: var(--code);
+      padding: 0.15em 0.35em;
+      border-radius: 4px;
+    }
+
+    pre {
+      overflow-x: auto;
+      background: #2a2119;
+      color: #f9f2e8;
+      padding: 16px;
+      border-radius: 8px;
+      font-size: 0.92rem;
+    }
+
+    a {
+      color: var(--accent);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 16px 0 24px;
+      font-size: 0.96rem;
+    }
+
+    th, td {
+      border: 1px solid var(--line);
+      padding: 10px 12px;
+      text-align: left;
+      vertical-align: top;
+    }
+
+    th {
+      background: #f6efe3;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 18px;
+      margin: 18px 0 8px;
+    }
+
+    .card {
+      border: 1px solid var(--line);
+      padding: 18px;
+      background: #fffaf4;
+    }
+
+    .section-note {
+      padding: 12px 14px;
+      background: #fbf6ec;
+      border-left: 4px solid var(--accent);
+      margin: 14px 0 18px;
+    }
+
+    ul, ol {
+      padding-left: 22px;
+    }
+
+    @media (max-width: 720px) {
+      .page {
+        margin: 0;
+        border-left: 0;
+        border-right: 0;
+      }
+
+      header, main {
+        padding-left: 20px;
+        padding-right: 20px;
+      }
+
+      h1 {
+        font-size: 1.8rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header>
+      <h1>KSA Awarded Tenders Scraper Spec</h1>
+      <p class="lede">Scraper-ready extraction specification for Saudi Arabia public tender award data from NUPCO and Etimad, normalized into a shared output schema.</p>
+      <div>
+        <span class="pill">Source 1: NUPCO</span>
+        <span class="pill">Source 2: Etimad</span>
+        <span class="pill">Country: Saudi Arabia</span>
+      </div>
+    </header>
+    <main>
+      <h2>Scope</h2>
+      <p>This spec defines extraction rules for two public procurement sources:</p>
+      <ol>
+        <li><code>nupco</code></li>
+        <li><code>tenders.etimad.sa</code></li>
+      </ol>
+
+      <h2>Target Schema</h2>
+      <table>
+        <tr><th>Field</th><th>Field</th><th>Field</th></tr>
+        <tr><td><code>source</code></td><td><code>country</code></td><td><code>country_code</code></td></tr>
+        <tr><td><code>publication_date</code></td><td><code>closing_date</code></td><td><code>title</code></td></tr>
+        <tr><td><code>description</code></td><td><code>buyer</code></td><td><code>classification</code></td></tr>
+        <tr><td><code>status</code></td><td><code>currency</code></td><td><code>amount</code></td></tr>
+        <tr><td><code>awarding_agency_name</code></td><td><code>supplier_name</code></td><td><code>awarded_date</code></td></tr>
+        <tr><td><code>awarded_value_detail</code></td><td><code>contract_period</code></td><td><code>item_no</code></td></tr>
+        <tr><td><code>item_description</code></td><td><code>item_uom</code></td><td><code>item_quantity</code></td></tr>
+        <tr><td><code>item_unit_price</code></td><td><code>item_awarded_value</code></td><td><code>notice_id</code></td></tr>
+        <tr><td><code>notice_url</code></td><td><code>query_text</code></td><td><code>scraped_at_utc</code></td></tr>
+        <tr><td><code>dedup_key</code></td><td></td><td></td></tr>
+      </table>
+
+      <h2>Normalization Rules</h2>
+      <ul>
+        <li><code>country</code>: always <code>Saudi Arabia</code></li>
+        <li><code>country_code</code>: always <code>SA</code></li>
+        <li><code>scraped_at_utc</code>: ISO-8601 UTC timestamp at row creation time</li>
+        <li><code>publication_date</code>: use <code>YYYY-MM-DD</code> when date-only</li>
+        <li><code>closing_date</code>: store <code>YYYY-MM-DD</code> for Etimad; keep normalized date-only values for NUPCO as well</li>
+        <li><code>currency</code>: set to explicit source currency when present; for these two sources, use <code>SAR</code></li>
+        <li><code>description</code>: prefer tender-level description; fallback to <code>item_description</code></li>
+        <li>Filter both sources to the inclusive window <code>2024-01-01</code> through <code>2026-05-19</code> using the source-specific primary date field</li>
+      </ul>
+
+      <h2>Source 1: NUPCO</h2>
+      <div class="grid">
+        <div class="card">
+          <h3>Discovery</h3>
+          <p>Seed URL: <a href="https://www.nupco.com/en/tenders/">https://www.nupco.com/en/tenders/</a></p>
+          <p>The listing page uses scrolling to reveal more tenders. The scraper must keep scrolling until no new tender cards load.</p>
+        </div>
+        <div class="card">
+          <h3>Award Data Location</h3>
+          <p>Award data is attached to detail pages as PDFs rather than reliable structured HTML.</p>
+          <p>Typical labels include <code>Final Result</code> and <code>Tender Preliminary Result</code>.</p>
+        </div>
+      </div>
+
+      <h3>NUPCO Detail Extraction</h3>
+      <ul>
+        <li><code>notice_id</code>: tender ID from detail page</li>
+        <li><code>title</code>: tender title or PDF <code>TENDER NAME</code></li>
+        <li><code>publication_date</code>: <code>Bid Opening Date</code></li>
+        <li><code>closing_date</code>: <code>Submission Deadline</code></li>
+        <li><code>notice_url</code>: detail page URL</li>
+        <li><code>status</code>: result stage from listing/detail</li>
+        <li><code>classification</code>: same as result stage unless a better field is exposed</li>
+        <li><code>buyer</code>: <code>NUPCO</code></li>
+        <li><code>awarding_agency_name</code>: <code>NUPCO</code></li>
+        <li><code>amount</code>: <code>Tender Booklet Price</code></li>
+        <li>Apply the date filter on normalized <code>publication_date</code> before PDF-heavy parsing continues</li>
+        <li>Emit progress/debug logs for listing discovery, retries, tender processing, PDF buckets, skips, and running row totals</li>
+      </ul>
+
+      <h3>NUPCO PDF Parsing Strategy</h3>
+      <ol>
+        <li>Download all result PDFs from each tender detail page.</li>
+        <li>Prefer <code>Final Result</code> over <code>Preliminary Result</code> if both exist.</li>
+        <li>Extract text page by page and reconstruct rows from table layout.</li>
+        <li>Do not use naive line splitting; rows can wrap across lines.</li>
+        <li>Emit one row per awarded line item per supplier.</li>
+        <li>Probe item-list PDFs separately from result PDFs because item quantity can appear there even when the result PDF omits it.</li>
+        <li>Wrap HTML and PDF fetches in retry/backoff logic so intermittent remote disconnects do not terminate the full run immediately.</li>
+      </ol>
+
+      <h3>NUPCO Field Mapping</h3>
+      <table>
+        <tr><th>Field</th><th>Mapping</th></tr>
+        <tr><td><code>source</code></td><td><code>nupco</code></td></tr>
+        <tr><td><code>publication_date</code></td><td>detail page <code>Bid Opening Date</code></td></tr>
+        <tr><td><code>closing_date</code></td><td>detail page <code>Submission Deadline</code></td></tr>
+        <tr><td><code>title</code></td><td>detail title or PDF tender name</td></tr>
+        <tr><td><code>description</code></td><td>fallback to <code>item_description</code></td></tr>
+        <tr><td><code>classification</code></td><td><code>First Result</code> or <code>Final Result</code></td></tr>
+        <tr><td><code>status</code></td><td>same as classification</td></tr>
+        <tr><td><code>currency</code></td><td><code>SAR</code></td></tr>
+        <tr><td><code>amount</code></td><td>detail page <code>Tender Booklet Price</code></td></tr>
+        <tr><td><code>supplier_name</code></td><td>vendor name from PDF row</td></tr>
+        <tr><td><code>awarded_date</code></td><td>row-level date in PDF when present</td></tr>
+        <tr><td><code>awarded_value_detail</code></td><td>same numeric value as <code>amount</code></td></tr>
+        <tr><td><code>item_no</code></td><td>PDF serial or SN</td></tr>
+        <tr><td><code>item_description</code></td><td>PDF item description</td></tr>
+        <tr><td><code>item_uom</code></td><td>PDF UOM</td></tr>
+        <tr><td><code>item_quantity</code></td><td>item-list PDF quantity when present</td></tr>
+        <tr><td><code>dedup_key</code></td><td><code>nupco|{notice_id}|{status}|{item_no}|{supplier_name}|{awarded_date}</code></td></tr>
+      </table>
+
+      <div class="section-note">
+        Default these NUPCO fields to <code>null</code> unless a future document variant exposes them: <code>contract_period</code>, <code>item_unit_price</code>, <code>item_awarded_value</code>.
+      </div>
+
+      <h2>Source 2: Etimad</h2>
+      <div class="grid">
+        <div class="card">
+          <h3>Discovery</h3>
+          <p>Use the public visitor listing URL with filters already embedded in the query.</p>
+          <p>The listing page is a Vue-powered paginator. The scraper should drive the real browser pager controls, not rely on incrementing the URL alone.</p>
+          <p>Stop pagination when the visible pager no longer advances, the Next button is disabled, or the listing shows zero tender rows.</p>
+          <p>Collect <code>STenderId</code>, listing publication date, title, buyer preview, and identifiers.</p>
+        </div>
+        <div class="card">
+          <h3>Award Data Location</h3>
+          <p>The listing card is not enough. Award data is loaded through public detail-page components.</p>
+          <p>Primary target: <code>GetAwardingResultsForVisitorViewComponenet</code>.</p>
+        </div>
+      </div>
+
+      <h3>Etimad Endpoints</h3>
+      <ul>
+        <li>Detail page: <code>https://tenders.etimad.sa/Tender/DetailsForVisitor?STenderId={STenderId}</code></li>
+        <li>Award results: <code>https://tenders.etimad.sa/Tender/GetAwardingResultsForVisitorViewComponenet?tenderIdStr={STenderId}</code></li>
+        <li>Dates: <code>https://tenders.etimad.sa/Tender/GetTenderDatesViewComponenet?tenderIdStr={STenderId}</code></li>
+        <li>Relations/classification: <code>https://tenders.etimad.sa/Tender/GetRelationsDetailsViewComponenet?tenderIdStr={STenderId}</code></li>
+      </ul>
+
+      <h3>Etimad Parsing Strategy</h3>
+      <ol>
+        <li>Load the visitor listing page in a browser session and collect candidate tenders from the visible card set.</li>
+        <li>Use the rendered paginator's active page and Next button state as the source of truth for traversal.</li>
+        <li>Open each <code>DetailsForVisitor</code> page.</li>
+        <li>Call the dates and relations endpoints for notice metadata.</li>
+        <li>Call the award-results endpoint even if the listing is ambiguous.</li>
+        <li>Emit one row per awarded supplier row.</li>
+        <li>Write JSONL incrementally after each tender and checkpoint listing/detail progress so interrupted runs can resume.</li>
+      </ol>
+
+      <div class="section-note">
+        Live checks on multiple Etimad public visitor tenders found no item-level tables, BOQ tables, quantity rows, or downloadable item sheets in either the visitor detail tabs or the printable visitor report. Assume Etimad item fields are unavailable from the public visitor flow unless a specific tender exposes an extra public attachment or endpoint.
+      </div>
+
+      <h3>Etimad Field Mapping</h3>
+      <table>
+        <tr><th>Field</th><th>Mapping</th></tr>
+        <tr><td><code>source</code></td><td><code>tenders.etimad.sa</code></td></tr>
+        <tr><td><code>publication_date</code></td><td>listing page publication date</td></tr>
+        <tr><td><code>closing_date</code></td><td>dates component closing/submission date only; discard time</td></tr>
+        <tr><td><code>title</code></td><td>detail page title</td></tr>
+        <tr><td><code>description</code></td><td>detail page description</td></tr>
+        <tr><td><code>buyer</code></td><td>procuring entity</td></tr>
+        <tr><td><code>classification</code></td><td>activity/category from detail or relations component</td></tr>
+        <tr><td><code>status</code></td><td>detail page status such as <code>تم اعتماد الترسية</code></td></tr>
+        <tr><td><code>currency</code></td><td><code>SAR</code></td></tr>
+        <tr><td><code>amount</code></td><td>awarded value from award-results component</td></tr>
+        <tr><td><code>awarding_agency_name</code></td><td>same as buyer unless separate agency name appears</td></tr>
+        <tr><td><code>supplier_name</code></td><td>awarded supplier row</td></tr>
+        <tr><td><code>awarded_date</code></td><td>prefer explicit award date; otherwise use expected award date or award date from competition-related titles and dates</td></tr>
+        <tr><td><code>awarded_value_detail</code></td><td>numeric awarded value only, same as <code>amount</code></td></tr>
+        <tr><td><code>contract_period</code></td><td>Basic Information tab <code>Contract Duration</code> / contract duration field</td></tr>
+        <tr><td><code>item_description</code></td><td>extract only if a public Etimad tender exposes item-level content or a public item attachment; otherwise <code>null</code></td></tr>
+        <tr><td><code>notice_id</code></td><td>reference number preferred over tender number</td></tr>
+        <tr><td><code>dedup_key</code></td><td><code>tenders.etimad.sa|{notice_id}|{supplier_name}|{amount}</code></td></tr>
+      </table>
+
+      <div class="section-note">
+        Default these Etimad fields to <code>null</code> only if they are still absent after checking the award component, competition-related dates content, and any public visitor attachment/report content that actually exposes item data: <code>item_no</code>, <code>item_description</code>, <code>item_uom</code>, <code>item_quantity</code>, <code>item_unit_price</code>, <code>item_awarded_value</code>.
+      </div>
+
+      <h2>Shared Workflow</h2>
+      <ol>
+        <li>Start from the source discovery URL.</li>
+        <li>Build a tender queue with source-specific IDs and detail URLs.</li>
+        <li>Extract notice-level metadata.</li>
+        <li>Extract award-level data from PDFs or component endpoints.</li>
+        <li>Check auxiliary item documents or item-level sections when available.</li>
+        <li>Normalize fields into the shared schema.</li>
+        <li>Set <code>scraped_at_utc</code>.</li>
+        <li>Compute <code>dedup_key</code>.</li>
+      </ol>
+
+      <h2>Error Handling</h2>
+      <ul>
+        <li>If a detail page contains no award/result content, skip row creation.</li>
+        <li>If a NUPCO result PDF exists but parsing fails, retain the tender and PDF URL in an error queue.</li>
+        <li>If an Etimad award-results endpoint returns empty HTML, retain detail metadata for diagnostics.</li>
+        <li>When NUPCO has both result PDFs and item PDFs, merge them by item number where possible to enrich quantity fields.</li>
+        <li>When Etimad award date is missing from the award block, use the competition-related expected award date or award date before leaving it null.</li>
+        <li>For NUPCO, log retry attempts and continue through transient request or PDF-fetch failures where possible.</li>
+        <li>For Etimad, persist a checkpoint and append rows per tender so an interrupted run can resume without losing already-scraped data.</li>
+      </ul>
+
+      <h2>Example Rows</h2>
+      <h3>NUPCO Example</h3>
+      <pre>{
+  "source": "nupco",
+  "country": "Saudi Arabia",
+  "country_code": "SA",
+  "publication_date": "2024-03-18",
+  "closing_date": "2024-04-22",
+  "title": "CARDIOVASCULAR SURGERY SUPPLIES",
+  "description": "PATCH, BOVINE, SIZE: 10X15 CM (+/-1 CM), STERILE",
+  "buyer": "NUPCO",
+  "classification": "Final Result",
+  "status": "Final Result",
+  "currency": "SAR",
+  "amount": "1500.00",
+  "awarding_agency_name": "NUPCO",
+  "supplier_name": "Jana Medical",
+  "awarded_date": "2025-03-18",
+  "awarded_value_detail": "1500.00",
+  "contract_period": null,
+  "item_no": "48",
+  "item_description": "PATCH, BOVINE, SIZE: 10X15 CM (+/-1 CM), STERILE",
+  "item_uom": "each",
+  "item_quantity": "10",
+  "item_unit_price": null,
+  "item_awarded_value": null,
+  "notice_id": "NPT0009/24",
+  "notice_url": "https://www.nupco.com/en/tenders_post/...",
+  "query_text": "site:nupco.com/en/tenders result",
+  "scraped_at_utc": "2026-05-19T05:00:00Z",
+  "dedup_key": "nupco|NPT0009/24|Final Result|48|Jana Medical|2025-03-18"
+}</pre>
+
+      <h3>Etimad Example</h3>
+      <pre>{
+  "source": "tenders.etimad.sa",
+  "country": "Saudi Arabia",
+  "country_code": "SA",
+  "publication_date": "2026-05-11",
+  "closing_date": "2026-05-14",
+  "title": "CARDIOPLEGIA BLOCK ASSY , SNIFFLE VALVE HYPO S3",
+  "description": "تأمين مستلزمات وأجهزة طبية وقطع غيار لمركز الأمير سلطان لمعالجة أمراض وجراحة القلب",
+  "buyer": "مركز الأمير سلطان لأمراض وجراحة القلب",
+  "classification": "الأنشطة الطبية",
+  "status": "تم اعتماد الترسية",
+  "currency": "SAR",
+  "amount": "41745.00",
+  "awarding_agency_name": "مركز الأمير سلطان لأمراض وجراحة القلب",
+  "supplier_name": "شركة البيت العربي للتجارة",
+  "awarded_date": "2026-05-20",
+  "awarded_value_detail": "41745.00",
+  "contract_period": "1 شهر",
+  "item_no": null,
+  "item_description": null,
+  "item_uom": null,
+  "item_quantity": null,
+  "item_unit_price": null,
+  "item_awarded_value": null,
+  "notice_id": "260539004277",
+  "notice_url": "https://tenders.etimad.sa/Tender/DetailsForVisitor?STenderId=...",
+  "query_text": "TenderActivityId=11; TenderSubActivityId=1101; date range 2024-01-01 to 2026-05-19",
+  "scraped_at_utc": "2026-05-19T05:00:00Z",
+  "dedup_key": "tenders.etimad.sa|260539004277|شركة البيت العربي للتجارة|41745.00"
+}</pre>
+
+      <h2>Recommended Implementation Split</h2>
+      <ul>
+        <li><code>nupco_awards_scraper</code>: listing crawl, detail extraction, PDF download, PDF table parsing</li>
+        <li><code>etimad_awards_scraper</code>: listing crawl, detail extraction, component endpoint parsing</li>
+      </ul>
+    </main>
+  </div>
+</body>
+</html>

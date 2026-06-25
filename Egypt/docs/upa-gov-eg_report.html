@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Egypt - upa.gov.eg</title>
+  <style>
+    body { font-family: Georgia, "Times New Roman", serif; margin: 0; background: #f6f1e7; color: #201c17; }
+    main { max-width: 860px; margin: 0 auto; padding: 28px 20px 40px; }
+    .card { background: #fffaf3; border: 1px solid #d7cdbb; border-radius: 16px; padding: 24px; }
+    li { line-height: 1.55; margin-bottom: 8px; }
+    .good { color: #0f6b5b; font-weight: 700; }
+  </style>
+</head>
+<body>
+  <main>
+    <div class="card">
+      <h1>Egypt - upa.gov.eg</h1>
+      <ul>
+        <li><strong>Access:</strong> <span class="good">Public pages work normally</span>, but some downloads are gated by CAPTCHA or sign-in.</li>
+        <li><strong>Medical data:</strong> Yes, strongly medical. The public pages include pharmaceuticals, medicines, vaccines, and laboratory equipment tenders.</li>
+        <li><strong>Detail level:</strong> The public HTML exposes tender-level summary fields such as supply purpose, date, booklet price, bid bond, and booklet page count, but not item rows.</li>
+        <li><strong>Feasibility:</strong> <span class="bad">Not feasible</span> under the item-data rule because item name, item unit, and item quantity remain inside the technical-specification booklet, and that booklet is gated by a CAPTCHA download flow.</li>
+        <li><strong>Evidence note:</strong> The public tender page explicitly shows a <code>Verify CAPTCHA to Download</code> gate before releasing the technical-specification booklet.</li>
+      </ul>
+    </div>
+  </main>
+</body>
+</html>

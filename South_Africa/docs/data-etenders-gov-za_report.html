@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>South Africa - data.etenders.gov.za</title>
+  <style>
+    body { font-family: Georgia, "Times New Roman", serif; margin: 0; background: #f6f1e7; color: #201c17; }
+    main { max-width: 860px; margin: 0 auto; padding: 28px 20px 40px; }
+    .card { background: #fffaf3; border: 1px solid #d7cdbb; border-radius: 16px; padding: 24px; }
+    li { line-height: 1.55; margin-bottom: 8px; }
+    .good { color: #0f6b5b; font-weight: 700; }
+  </style>
+</head>
+<body>
+  <main>
+    <div class="card">
+      <h1>South Africa - data.etenders.gov.za</h1>
+      <ul>
+        <li><strong>Access:</strong> <span class="good">Public with OCDS API and downloads.</span></li>
+        <li><strong>Medical data:</strong> Medical tenders are publicly identifiable through titles, descriptions, and healthcare-related attachments on the official eTenders portal.</li>
+        <li><strong>Detail level:</strong> The OCDS API schema includes item fields such as description, quantity, and unit, but sampled live releases relied more on attached documents than on populated <code>tender.items</code>.</li>
+        <li><strong>Feasibility:</strong> <span class="good">Feasible</span> because tender data is public, medical tenders are public, and item name, unit, and quantity are extractable from official tender PDFs even when the structured API is sparse.</li>
+        <li><strong>Evidence note:</strong> Official public PDFs include examples such as <code>Alcohol Swabs</code>, <code>Per 200</code>, and <code>Approximate Quantity 2000</code>, plus other healthcare pricing tables with explicit quantities.</li>
+      </ul>
+    </div>
+  </main>
+</body>
+</html>
