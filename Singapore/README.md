@@ -2,6 +2,8 @@
 
 Singapore contains GeBIZ tender scrapers and MDT export helpers.
 
+Google Drive source copies were also extracted into `drive_extracts/Singapore_GeBIZ` for provenance and comparison.
+
 ## Setup
 
 ```powershell
@@ -18,6 +20,7 @@ For the Selenium fallback, install a compatible Chrome/ChromeDriver setup.
 - `scripts/gebiz_scraper_selenium.py` - Selenium fallback scraper.
 - `scripts/gebiz_scraper_notebook.ipynb` - notebook wrapper or exploratory run.
 - `scripts/latam_spec_defaults.py`, `scripts/mdt_export.py`, `scripts/mdt_schema.py` - export and schema helpers.
+- `drive_extracts/Singapore_GeBIZ/` - Drive extracted GeBIZ scaffold files (`README.md`, `requirements.txt`, `gebiz_scraper.py`, notebook).
 
 ## Run Commands
 
@@ -35,4 +38,3 @@ Run the Singapore GeBIZ scraper from Tender-Tool for the requested date range an
 ## Documentation
 
 - `docs/singapore_gebiz_documentation.html`
-

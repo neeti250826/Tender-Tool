@@ -6,11 +6,17 @@
 </head>
 <body>
   <h1>Vietnam Tender Documentation</h1>
-  <p>A local output file named <code>vietnam_tenders.csv</code> was found, but no source scraper script was found during this repository build.</p>
+  <p>Google Drive extraction added the Vietnam procurement notebook, extracted Python code cells, and tender website SOP.</p>
   <h2>Status</h2>
-  <p>No runnable Vietnam script is currently included. This folder records the missing-script state so the scraper can be recreated deliberately.</p>
+  <p><code>Vietnam/scripts/vietnam_tender_scraper_from_notebook.py</code> is notebook-derived Selenium code. It uses a hard-coded <code>TENDER_INPUTS</code> list and writes <code>vietnam_tenders.csv</code>, so update the inputs before a new run.</p>
+  <h2>Run</h2>
+  <pre><code>python Vietnam/scripts/vietnam_tender_scraper_from_notebook.py</code></pre>
+  <h2>Drive Documents</h2>
+  <ul>
+    <li><code>Vietnam/docs/Vietnam_Tender_SOP.docx</code>: portal workflow notes for <code>https://muasamcong.mpi.gov.vn</code>, Advanced Search, published date filters, closed bids, and successful bidder review.</li>
+    <li><code>Vietnam/scripts/vietnam_tender_scraper_colab.ipynb</code>: Drive extracted Colab notebook.</li>
+  </ul>
   <h2>AI Prompt</h2>
-  <pre><code>Use the Vietnam documentation folder to reconstruct a Vietnam tender scraper. Ask for or locate vietnam_tenders.csv, infer source fields and filters, identify the source portal, and create a reproducible script and README.</code></pre>
+  <pre><code>Run or adapt the Vietnam tender scraper for the requested tender inputs. Save outputs under Vietnam/output when possible, then summarize row count, successful bidder coverage, translation/manual-review needs, and any Selenium or portal-access failures.</code></pre>
 </body>
 </html>
-

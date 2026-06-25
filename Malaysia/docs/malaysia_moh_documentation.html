@@ -6,11 +6,17 @@
 </head>
 <body>
   <h1>Malaysia MOH Tender Documentation</h1>
-  <p>Local output files named <code>IVD_MOH_MY_2026_master_*.csv</code> and <code>IVD_MOH_MY_2026_shared_*.csv</code> were found, but no source scraper script was found during this repository build.</p>
+  <p>Google Drive extraction added the Malaysia MOH scraper, notebook wrapper, output helpers, and SOP document.</p>
   <h2>Status</h2>
-  <p>No runnable Malaysia script is currently included. This folder is a placeholder for recovered documentation and future scraper reconstruction.</p>
+  <p><code>Malaysia/scripts/moh_scraper.py</code> is the main runnable scraper. It targets public MOH tender results at <code>https://www.moh.gov.my/en/tender/tender-results</code>, downloads or parses tender result pages, and writes standard spec/MDT outputs using the included helper modules.</p>
+  <h2>Run</h2>
+  <pre><code>python Malaysia/scripts/moh_scraper.py --date-from 2026-03-01 --date-to 2026-03-14 --query "digital" --filter-match any --start 0 --output-target Malaysia/output --project-name MDT_2026 --website-id MY_MOH --source-label "Malaysia MOH" --region EMEA</code></pre>
+  <h2>Drive Documents</h2>
+  <ul>
+    <li><code>Malaysia/docs/MOH_Tender_SOP.docx</code>: MOH process document covering tender listings, PDFs, extraction fields, cleaning, classification, and outputs.</li>
+    <li><code>Malaysia/scripts/moh_scraper_notebook.ipynb</code>: Drive extracted notebook wrapper.</li>
+  </ul>
   <h2>AI Prompt</h2>
-  <pre><code>Use the Malaysia documentation folder to reconstruct a Malaysia MOH tender scraper. Ask for or locate the original output CSVs, infer required columns, identify the source portal, and create a reproducible script and README.</code></pre>
+  <pre><code>Run the Malaysia MOH scraper for the requested date range and medical or IVD keywords. Save outputs to Malaysia/output, then summarize row count, source-page coverage, output files, missing fields, and PDF extraction gaps.</code></pre>
 </body>
 </html>
-

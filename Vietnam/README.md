@@ -1,22 +1,35 @@
-# Vietnam Tender Documentation
+# Vietnam Tender Scripts
 
-Vietnam tender output was found locally, but no source scraper script was found in the current workspace scan.
+Vietnam contains a Google Drive extracted procurement notebook, the extracted Python code cells, and the tender website SOP.
 
-## Available Evidence
+## Setup
 
-Recovered local output filename: `vietnam_tenders.csv`.
+```powershell
+pip install pandas openpyxl selenium webdriver-manager
+```
+
+Install Chrome before running the Selenium workflow.
+
+## Scripts
+
+- `scripts/vietnam_tender_scraper_colab.ipynb` - Drive extracted Colab notebook.
+- `scripts/vietnam_tender_scraper_from_notebook.py` - Python code cells extracted from the notebook.
+
+The extracted Python script uses the notebook's hard-coded `TENDER_INPUTS` list and writes `vietnam_tenders.csv`. Edit `TENDER_INPUTS` in the script before running a new date or tender set.
 
 ## Run Command
 
-No runnable Vietnam source script is currently present in this repository.
+```powershell
+python Vietnam/scripts/vietnam_tender_scraper_from_notebook.py
+```
 
 ## AI Prompt
 
 ```text
-Review the Vietnam tender documentation in Tender-Tool/Vietnam. Confirm that no Vietnam source script is present, inspect any recovered output files if provided by the user, and draft a new scraper plan for the relevant Vietnam procurement portal.
+Run or adapt the Vietnam tender scraper from Tender-Tool for the requested tender inputs. Save outputs under Vietnam/output when possible, then summarize row count, successful bidder coverage, translation/manual-review needs, and any Selenium or portal-access failures.
 ```
 
 ## Documentation
 
 - `docs/vietnam_tenders_documentation.html`
-
+- `docs/Vietnam_Tender_SOP.docx`

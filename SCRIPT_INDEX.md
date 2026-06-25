@@ -122,6 +122,59 @@ Run the Singapore GeBIZ Selenium fallback for the same date range and compare it
 
 These are support modules. Import them from the main Singapore scraper flow rather than running them alone.
 
+### Singapore Drive extracts
+
+Google Drive source copies are preserved under `Singapore/drive_extracts/Singapore_GeBIZ/`:
+
+- `README.md`
+- `requirements.txt`
+- `gebiz_scraper.py`
+- `gebiz_scraper_notebook.ipynb`
+
+Use these for provenance or comparison before replacing the active scripts in `Singapore/scripts/`.
+
+## Malaysia
+
+### `Malaysia/scripts/moh_scraper.py`
+
+Malaysia MOH tender result scraper scaffold extracted from Google Drive.
+
+```powershell
+python Malaysia/scripts/moh_scraper.py --date-from 2026-03-01 --date-to 2026-03-14 --query "digital" --filter-match any --start 0 --output-target Malaysia/output --project-name MDT_2026 --website-id MY_MOH --source-label "Malaysia MOH" --region EMEA
+```
+
+AI prompt:
+
+```text
+Run the Malaysia MOH scraper for the requested date range and medical or IVD keywords. Save outputs to Malaysia/output, then summarize row count, source-page coverage, output files, missing fields, and PDF extraction gaps.
+```
+
+### Malaysia notebook and helpers
+
+- `Malaysia/scripts/moh_scraper_notebook.ipynb` - Drive extracted notebook wrapper.
+- `Malaysia/scripts/moh_scraper_notebook_commands.py` - extracted notebook commands.
+- `Malaysia/latam_spec_defaults.py`, `Malaysia/mdt_export.py`, `Malaysia/mdt_schema.py` - helper modules.
+
+## Vietnam
+
+### `Vietnam/scripts/vietnam_tender_scraper_from_notebook.py`
+
+Notebook-derived Selenium scraper extracted from Google Drive. It uses the hard-coded `TENDER_INPUTS` list in the script and writes `vietnam_tenders.csv`.
+
+```powershell
+python Vietnam/scripts/vietnam_tender_scraper_from_notebook.py
+```
+
+AI prompt:
+
+```text
+Run or adapt the Vietnam tender scraper for the requested tender inputs. Save outputs under Vietnam/output when possible, then summarize row count, successful bidder coverage, translation/manual-review needs, and any Selenium or portal-access failures.
+```
+
+### Vietnam notebook
+
+- `Vietnam/scripts/vietnam_tender_scraper_colab.ipynb` - Drive extracted Colab notebook.
+
 ## Pakistan
 
 ### `Pakistan/PPRA/ppra_awarded_scraper.py`
