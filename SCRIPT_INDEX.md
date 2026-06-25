@@ -2,6 +2,88 @@
 
 Run commands assume you are in the repository root.
 
+## Shared Runners And Verification Scripts
+
+### `run_awarded_scrapers.py`
+
+Runs the awarded-stage medical scrapers that have compatible command-line interfaces.
+
+```powershell
+python run_awarded_scrapers.py --date-from 2024-01-01 --date-to 2026-06-25 --headless --translate
+```
+
+AI prompt:
+
+```text
+Run the shared awarded-scrapers runner, then summarize which source scripts completed, which failed, row counts by source, and fields that need manual review.
+```
+
+### `run_item_level_scrapers.py`
+
+Runs item-level public medical scrapers for Pakistan DRAP and EPADS.
+
+```powershell
+python run_item_level_scrapers.py --date-from 2024-01-01 --date-to 2026-06-25 --headless
+```
+
+AI prompt:
+
+```text
+Run the shared item-level scraper runner, then summarize DRAP and EPADS output counts, item-level completeness, and source access problems.
+```
+
+### `combine_pakistan_awards.py`
+
+Combines Pakistan award-stage rows from the configured Pakistan sources.
+
+```powershell
+python combine_pakistan_awards.py --date-from 2024-01-01 --date-to 2026-06-25
+```
+
+AI prompt:
+
+```text
+Run the Pakistan award combiner after source scrapers finish, then summarize deduplication, final row counts, and any sources missing from the combined output.
+```
+
+### `verify_capt_drap_coverage.py`
+
+Checks selected Kuwait CAPT and Pakistan DRAP coverage assumptions.
+
+```powershell
+python verify_capt_drap_coverage.py
+```
+
+AI prompt:
+
+```text
+Run verify_capt_drap_coverage.py and summarize whether CAPT and DRAP coverage assumptions are met, including any gaps that need source inspection.
+```
+
+### `verify_output_diagnostics.py`
+
+Runs lightweight output diagnostics after scraper outputs exist.
+
+```powershell
+python verify_output_diagnostics.py
+```
+
+AI prompt:
+
+```text
+Run verify_output_diagnostics.py after scraper outputs are generated, then summarize missing files, row-count anomalies, and recommended reruns.
+```
+
+### `procurement_utils.py`
+
+Shared utility module imported by country scripts. Do not run directly.
+
+AI prompt:
+
+```text
+Inspect procurement_utils.py only if a country scraper fails. Explain which helper function is involved and patch the smallest safe fix.
+```
+
 ## Singapore
 
 ### `Singapore/scripts/gebiz_scraper.py`
@@ -167,4 +249,3 @@ AI prompt:
 ```text
 Run the Ecuador ComprasPublicas scraper for diagnostic and medical keywords. If the portal asks for captcha, pause for manual entry, then summarize output rows, date-window splits, and missing detail fields.
 ```
-

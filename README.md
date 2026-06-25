@@ -37,7 +37,8 @@ Each country folder has a `README.md` with:
 - an AI prompt you can give Codex or another AI assistant to run the script and summarize the output
 - documentation links, including generated HTML documentation where the source did not already have one
 
+For a full script-by-script command list, see `SCRIPT_INDEX.md`.
+
 ## Data Policy
 
 Generated CSV/JSONL/XLSX outputs are ignored by git under `output/` folders. This keeps the repository focused on scripts, important documentation, and reproducible instructions.
-
