@@ -1,0 +1,2243 @@
+[
+{
+"Indicator code": "CDXZZ",
+"Segment code": "1",
+"Segment name": "Centralized diagnostics (CDx)",
+"Spanish search keywords": "reactivos de laboratorio clínico; insumos de laboratorio; equipo de laboratorio clínico; analizador automatizado; comodato; equipo en comodato; arrendamiento de equipo de laboratorio; pago por prueba; precio por prueba; pruebas efectivamente realizadas; entrega según demanda; solución integral; consignación; contrato abierto; suministro de reactivos",
+"English / abbreviations": "reagents; laboratory supplies; clinical laboratory analyzer; reagent rental; cost per test",
+"Brands & analysers to look for": "Roche, Abbott, Siemens Healthineers, Beckman Coulter, Mindray, Sysmex, Snibe, Wiener, Ortho/QuidelOrtho, Bio-Rad, bioMérieux, Werfen",
+"Notes": "Parent row. Contract-type words (comodato, pago por prueba, según demanda) catch bundled lab tenders that don't name the segment."
+},
+{
+"Indicator code": "CCHEM",
+"Segment code": "1.1",
+"Segment name": "Clinical Chemistry",
+"Spanish search keywords": "química clínica; química sanguínea; bioquímica clínica; química seca; química húmeda; analizador de química; perfil bioquímico; perfil lipídico; perfil hepático; perfil renal; glucosa; creatinina; urea; nitrógeno ureico; ácido úrico; colesterol; triglicéridos; HDL; LDL; transaminasas; TGO; TGP; AST; ALT; bilirrubina; fosfatasa alcalina; GGT; amilasa; lipasa; proteínas totales; albúmina; calcio; fósforo; magnesio; electrolitos; sodio; potasio; cloro; ISE; LDH; CK; CK-MB; hierro sérico",
+"English / abbreviations": "clinical chemistry; biochemistry; ISE",
+"Brands & analysers to look for": "Roche cobas c; Abbott Architect c / Alinity c; Siemens Atellica CH / Dimension; Beckman AU; Mindray BS; Wiener; Spinreact; BioSystems; Human; Randox; Vitros (QuidelOrtho)",
+"Notes": null
+},
+{
+"Indicator code": "CCINS",
+"Segment code": "1.1.1",
+"Segment name": "CC Instruments",
+"Spanish search keywords": "analizador de química clínica; equipo de química; equipo automatizado de química; adquisición de analizador; compra de equipo de química; comodato de equipo de química; mantenimiento preventivo y correctivo de analizador",
+"English / abbreviations": "chemistry analyzer; instrument purchase; service contract",
+"Brands & analysers to look for": "cobas c 311/501/503/701; Architect c4000/c8000/c16000; Alinity c; Atellica CH; Dimension EXL; AU480/AU680/AU5800; BS-200/BS-480/BS-800; Vitros 5600",
+"Notes": "Often bundled into reagent tenders as 'equipo en comodato'; capture separately if priced."
+},
+{
+"Indicator code": "CCSAI",
+"Segment code": "1.1.1.1",
+"Segment name": "CC Standalone Instruments",
+"Spanish search keywords": "analizador de química independiente; analizador de química semiautomático; analizador de química automático; espectrofotómetro clínico; fotómetro",
+"English / abbreviations": "standalone chemistry analyzer; semi-automated",
+"Brands & analysers to look for": "Mindray BS; BioSystems A15/A25/BA200; Wiener CM; Human HumaStar; Rayto; cobas c 111",
+"Notes": null
+},
+{
+"Indicator code": "CCIAS",
+"Segment code": "1.1.1.2",
+"Segment name": "CCIA Combo systems",
+"Spanish search keywords": "sistema integrado química e inmunoensayo; plataforma consolidada; analizador modular; sistema combinado química-inmunología; serum work area",
+"English / abbreviations": "integrated chemistry-immunoassay system; consolidated platform; modular",
+"Brands & analysers to look for": "cobas 6000/8000/pro; Architect ci4100/ci8200/ci16200; Alinity ci; Atellica Solution; Dimension EXL + LOCI; Vitros 5600 XT",
+"Notes": null
+},
+{
+"Indicator code": "CCRRR",
+"Segment code": "1.1.2",
+"Segment name": "CC Reagents",
+"Spanish search keywords": "reactivos de química clínica; reactivos de bioquímica; calibradores; controles de calidad química; sueros control; kits de química; insumos para analizador de química",
+"English / abbreviations": "chemistry reagents; calibrators; QC controls",
+"Brands & analysers to look for": "As CCHEM; Bio-Rad / Randox (controles)",
+"Notes": null
+},
+{
+"Indicator code": "CCROU",
+"Segment code": "1.1.2.1",
+"Segment name": "CC Routine",
+"Spanish search keywords": "pruebas de rutina; química de rutina; glucosa; urea; creatinina; ácido úrico; colesterol; triglicéridos; HDL; LDL; TGO; TGP; bilirrubina total y directa; fosfatasa alcalina; GGT; amilasa; lipasa; proteínas totales; albúmina; calcio; fósforo; magnesio; sodio; potasio; cloro; electrolitos; LDH; CPK; CK-MB; hierro; capacidad de fijación de hierro; microalbuminuria; depuración de creatinina; lactato; amonio",
+"English / abbreviations": "routine chemistry; general chemistry",
+"Brands & analysers to look for": "As CCHEM",
+"Notes": null
+},
+{
+"Indicator code": "CCDOA",
+"Segment code": "1.1.2.2",
+"Segment name": "CC Drugs of Abuse",
+"Spanish search keywords": "drogas de abuso; drogas de abuso en orina; toxicología; detección de drogas; cannabinoides; THC; cocaína; anfetaminas; metanfetaminas; opiáceos; benzodiacepinas; barbitúricos; alcohol en sangre; etanol; tamizaje toxicológico; medicina legal",
+"English / abbreviations": "drugs of abuse; DOA; toxicology",
+"Brands & analysers to look for": "Roche, Siemens (EMIT/Syva), Abbott, Thermo (CEDIA/DRI)",
+"Notes": "Also check Instituto de Medicina Legal (ES) and Dirección de Medicina Forense / Ministerio Público (HN)."
+},
+{
+"Indicator code": "CCTDM",
+"Segment code": "1.1.2.3",
+"Segment name": "CC TDM",
+"Spanish search keywords": "monitoreo terapéutico de fármacos; niveles séricos de fármacos; dosificación de medicamentos; digoxina; vancomicina; gentamicina; amikacina; fenitoína; carbamazepina; ácido valproico; valproato; fenobarbital; litio; teofilina; metotrexato; paracetamol; salicilatos",
+"English / abbreviations": "therapeutic drug monitoring; TDM",
+"Brands & analysers to look for": "Roche, Abbott, Siemens, Thermo (QMS)",
+"Notes": "Immunosuppressants (tacrolimus, ciclosporina) go to IAISD."
+},
+{
+"Indicator code": "CCHBA",
+"Segment code": "1.1.2.4",
+"Segment name": "CC HbA1c",
+"Spanish search keywords": "hemoglobina glicosilada; hemoglobina glucosilada; hemoglobina A1c; HbA1c; A1C; glicohemoglobina; control de diabetes",
+"English / abbreviations": "HbA1c; glycated hemoglobin",
+"Brands & analysers to look for": "Bio-Rad D-10 / Variant II; Tosoh G8/G11; Arkray Adams; Roche Tina-quant; Abbott; Sebia Capillarys",
+"Notes": null
+},
+{
+"Indicator code": "CHPLC",
+"Segment code": "1.1.2.4.1",
+"Segment name": "HPLC",
+"Spanish search keywords": "HbA1c por HPLC; cromatografía líquida de alta resolución; HPLC hemoglobina glicosilada; intercambio iónico; analizador HPLC; variantes de hemoglobina; electroforesis de hemoglobina",
+"English / abbreviations": "HPLC HbA1c",
+"Brands & analysers to look for": "Bio-Rad D-10 / D-100 / Variant II Turbo; Tosoh G8/G11; Arkray Adams HA-8180",
+"Notes": null
+},
+{
+"Indicator code": "COHBA",
+"Segment code": "1.1.2.4.2",
+"Segment name": "Non-HPLC",
+"Spanish search keywords": "HbA1c por inmunoturbidimetría; HbA1c enzimático; HbA1c en analizador de química; HbA1c por afinidad de boronato; inhibición turbidimétrica",
+"English / abbreviations": "Non-HPLC HbA1c; immunoturbidimetric",
+"Brands & analysers to look for": "Roche Tina-quant HbA1c; Abbott Alinity/Architect HbA1c; Siemens; Mindray; Sebia Capillarys (electroforesis capilar)",
+"Notes": null
+},
+{
+"Indicator code": "CCSPE",
+"Segment code": "1.1.2.5",
+"Segment name": "CC Specific Proteins",
+"Spanish search keywords": "proteínas específicas; nefelometría; turbidimetría; inmunoglobulinas; IgG; IgA; IgM; IgE total; complemento C3; complemento C4; proteína C reactiva; PCR ultrasensible; factor reumatoideo; antiestreptolisina O; ASO; ASLO; transferrina; prealbúmina; haptoglobina; ceruloplasmina; cadenas ligeras libres; kappa; lambda; beta-2 microglobulina; cistatina C; microalbúmina; alfa-1 antitripsina; lipoproteína a; apolipoproteína A1; apolipoproteína B",
+"English / abbreviations": "specific proteins; nephelometry; turbidimetry",
+"Brands & analysers to look for": "Siemens BN II / BN ProSpec; Beckman Immage; Binding Site Optilite; Roche; Abbott",
+"Notes": null
+},
+{
+"Indicator code": "IAZZZ",
+"Segment code": "1.2",
+"Segment name": "Immunoassay (IA)",
+"Spanish search keywords": "inmunoensayo; inmunología; quimioluminiscencia; electroquimioluminiscencia; CLIA; ECLIA; ELISA; inmunofluorescencia; pruebas especiales de inmunología; inmunoanálisis; hormonas; marcadores tumorales; serología",
+"English / abbreviations": "immunoassay; chemiluminescence; ELISA",
+"Brands & analysers to look for": "Roche cobas e / Elecsys; Abbott Architect i / Alinity i; Siemens Atellica IM / Centaur / Immulite; Beckman Access / DxI; DiaSorin Liaison; Snibe Maglumi; Mindray CL; Ortho Vitros; bioMérieux Vidas; Tosoh AIA; Autobio",
+"Notes": null
+},
+{
+"Indicator code": "IAINS",
+"Segment code": "1.2.1",
+"Segment name": "IA Instruments",
+"Spanish search keywords": "analizador de inmunoensayo; analizador de quimioluminiscencia; equipo de inmunología; lector de ELISA; lavador de microplacas; procesador de ELISA; equipo en comodato de inmunología",
+"English / abbreviations": "immunoassay analyzer; ELISA reader/washer",
+"Brands & analysers to look for": "cobas e 411/601/801; Architect i1000/i2000; Alinity i; Atellica IM; Centaur XP; Immulite 2000; Access 2; DxI 800; Liaison XL; Maglumi 800/2000/X8; Vidas; Mindray CL-900i/CL-2000i",
+"Notes": null
+},
+{
+"Indicator code": "IABSC",
+"Segment code": "1.2.2",
+"Segment name": "IA Blood Screening",
+"Spanish search keywords": "tamizaje de donantes; banco de sangre; serología de donantes; tamizaje serológico; marcadores infecciosos en donantes; VIH-1/2 Ag/Ac; HBsAg; anti-HBc; anti-VHC; sífilis; Chagas; Trypanosoma cruzi; HTLV I/II; centro nacional de sangre; hemocentro; servicio de transfusión",
+"English / abbreviations": "blood screening; donor screening; blood bank serology",
+"Brands & analysers to look for": "Abbott Alinity s / Prism / Architect; Roche cobas e; Ortho Vitros; Grifols / Bio-Rad ELISA; Wiener Chagatest",
+"Notes": "ES: Banco Nacional de Sangre / Programa Nacional de Sangre (MINSAL), ISSS banco de sangre. HN: Cruz Roja Hondureña (Programa Nacional de Sangre), bancos de sangre de hospitales SESAL/IHSS."
+},
+{
+"Indicator code": "IARRR",
+"Segment code": "1.2.3",
+"Segment name": "IA Reagents",
+"Spanish search keywords": "reactivos de inmunoensayo; reactivos de quimioluminiscencia; reactivos de inmunología; kits ELISA; calibradores y controles de inmunoensayo; pruebas especiales",
+"English / abbreviations": "immunoassay reagents",
+"Brands & analysers to look for": "As IAZZZ",
+"Notes": null
+},
+{
+"Indicator code": "IATHY",
+"Segment code": "1.2.3.1",
+"Segment name": "IA Thyroid",
+"Spanish search keywords": "pruebas tiroideas; perfil tiroideo; hormonas tiroideas; TSH; hormona estimulante de la tiroides; T3; T4; T3 libre; T4 libre; FT3; FT4; T3 total; T4 total; anti-TPO; anticuerpos antiperoxidasa; antitiroglobulina; tiroglobulina; TSH neonatal; tamizaje neonatal",
+"English / abbreviations": "thyroid; TSH; FT4",
+"Brands & analysers to look for": "As IAZZZ; PerkinElmer/Revvity GSP / DELFIA (neonatal)",
+"Notes": "Neonatal TSH screening (tamizaje neonatal) is a separate programme tender in both countries."
+},
+{
+"Indicator code": "IAANE",
+"Segment code": "1.2.3.2",
+"Segment name": "IA Anemia",
+"Spanish search keywords": "anemia; ferritina; vitamina B12; cianocobalamina; ácido fólico; folato; folato eritrocitario; transferrina; receptor soluble de transferrina; eritropoyetina; EPO; perfil de anemia; perfil de hierro",
+"English / abbreviations": "anemia panel; ferritin; B12; folate",
+"Brands & analysers to look for": "As IAZZZ",
+"Notes": null
+},
+{
+"Indicator code": "IAHOR",
+"Segment code": "1.2.3.3",
+"Segment name": "IA Hormones",
+"Spanish search keywords": "hormonas; perfil hormonal; pruebas hormonales; endocrinología; hormonas sexuales; hormonas reproductivas",
+"English / abbreviations": "hormones; endocrinology",
+"Brands & analysers to look for": "As IAZZZ",
+"Notes": "Children cover growth, diabetes and adrenal hormones; fertility hormones (FSH, LH, prolactina, estradiol) under IAFER."
+},
+{
+"Indicator code": "IAGRH",
+"Segment code": "1.2.3.3.1",
+"Segment name": "IA Growth Hormones",
+"Spanish search keywords": "hormona de crecimiento; GH; somatotropina; IGF-1; somatomedina C; IGFBP-3",
+"English / abbreviations": "growth hormone; IGF-1",
+"Brands & analysers to look for": "As IAZZZ (Immulite, Liaison strong here)",
+"Notes": null
+},
+{
+"Indicator code": "IADBT",
+"Segment code": "1.2.3.3.2",
+"Segment name": "IA Diabetes Hormones",
+"Spanish search keywords": "insulina; péptido C; proinsulina; anticuerpos anti-insulina; anti-GAD; anticuerpos antiislotes; hormonas de diabetes",
+"English / abbreviations": "insulin; C-peptide",
+"Brands & analysers to look for": "As IAZZZ",
+"Notes": null
+},
+{
+"Indicator code": "IAADH",
+"Segment code": "1.2.3.3.3",
+"Segment name": "IA Adrenocortical Hormones",
+"Spanish search keywords": "cortisol; cortisol sérico; cortisol en orina; cortisol salival; ACTH; hormona adrenocorticotropa; aldosterona; renina; DHEA; DHEA-S; 17-hidroxiprogesterona; 17-OH progesterona; androstenediona",
+"English / abbreviations": "adrenal hormones; cortisol; ACTH",
+"Brands & analysers to look for": "As IAZZZ",
+"Notes": null
+},
+{
+"Indicator code": "IAONC",
+"Segment code": "1.2.3.4",
+"Segment name": "IA Oncology",
+"Spanish search keywords": "marcadores tumorales; marcadores oncológicos; antígeno prostático específico; PSA total; PSA libre; CEA; antígeno carcinoembrionario; CA 125; CA 15-3; CA 19-9; CA 72-4; alfafetoproteína; AFP; beta-HCG cuantitativa; HE4; ROMA; NSE; enolasa; Cyfra 21-1; calcitonina; SCC; PIVKA-II; proGRP",
+"English / abbreviations": "tumor markers; oncology",
+"Brands & analysers to look for": "As IAZZZ",
+"Notes": null
+},
+{
+"Indicator code": "IAINF",
+"Segment code": "1.2.3.5",
+"Segment name": "IA Infectious Diseases",
+"Spanish search keywords": "serología; enfermedades infecciosas; pruebas infecciosas por inmunoensayo; marcadores virales; anticuerpos IgG IgM",
+"English / abbreviations": "infectious disease serology",
+"Brands & analysers to look for": "As IAZZZ",
+"Notes": null
+},
+{
+"Indicator code": "IAHIV",
+"Segment code": "1.2.3.5.1",
+"Segment name": "HIV",
+"Spanish search keywords": "VIH; virus de inmunodeficiencia humana; VIH 1+2; VIH Ag/Ac; VIH combo; prueba de cuarta generación; antígeno p24; Western blot; inmunoblot confirmatorio; ELISA VIH; ITS/VIH",
+"English / abbreviations": "HIV Ag/Ab; HIV combo",
+"Brands & analysers to look for": "As IAZZZ; Bio-Rad Geenius (confirmatoria)",
+"Notes": "Check Global Fund (Fondo Mundial) HIV/TB grants – procured via PR (in HN often via UNDP / CHF, in ES via Plan International / MINSAL)."
+},
+{
+"Indicator code": "IASTI",
+"Segment code": "1.2.3.5.2",
+"Segment name": "STI",
+"Spanish search keywords": "sífilis; Treponema pallidum; anticuerpos treponémicos; TPHA; TPPA; FTA-ABS; RPR; VDRL; clamidia serología; herpes simple 1 y 2 IgG IgM; ITS; infecciones de transmisión sexual",
+"English / abbreviations": "syphilis; STI serology",
+"Brands & analysers to look for": "As IAZZZ; Wiener / Spinreact (RPR/VDRL)",
+"Notes": null
+},
+{
+"Indicator code": "IAHBV",
+"Segment code": "1.2.3.5.3",
+"Segment name": "HBV",
+"Spanish search keywords": "hepatitis B; HBsAg; antígeno de superficie; anti-HBs; anti-HBc total; anti-HBc IgM; HBeAg; anti-HBe; marcadores de hepatitis B; perfil de hepatitis",
+"English / abbreviations": "hepatitis B serology",
+"Brands & analysers to look for": "As IAZZZ",
+"Notes": null
+},
+{
+"Indicator code": "IAHCV",
+"Segment code": "1.2.3.5.4",
+"Segment name": "HCV",
+"Spanish search keywords": "hepatitis C; anti-VHC; anti-HCV; anticuerpos contra hepatitis C; antígeno core de hepatitis C; HCV Ag",
+"English / abbreviations": "hepatitis C serology",
+"Brands & analysers to look for": "As IAZZZ",
+"Notes": null
+},
+{
+"Indicator code": "IAMTB",
+"Segment code": "1.2.3.5.5",
+"Segment name": "TB",
+"Spanish search keywords": "tuberculosis; IGRA; interferón gamma; QuantiFERON; T-SPOT; tuberculosis latente; LAM",
+"English / abbreviations": "TB; IGRA; QuantiFERON",
+"Brands & analysers to look for": "Qiagen QuantiFERON-TB Gold Plus; Oxford Immunotec T-SPOT; Abbott Determine TB LAM",
+"Notes": "Microscopy/culture (baciloscopía, cultivo) go to MICRO; GeneXpert to MTBZZ."
+},
+{
+"Indicator code": "IADEN",
+"Segment code": "1.2.3.5.6",
+"Segment name": "Dengue",
+"Spanish search keywords": "dengue; antígeno NS1; dengue IgG; dengue IgM; dengue NS1 ELISA; arbovirus; zika; chikungunya; serología de dengue",
+"English / abbreviations": "dengue NS1/IgM/IgG",
+"Brands & analysers to look for": "Bio-Rad Platelia; Euroimmun; Panbio (Abbott); SD Bioline; InBios",
+"Notes": "High priority for both countries (endemic). Also check vigilancia epidemiológica / Laboratorio Nacional de Referencia purchases."
+},
+{
+"Indicator code": "TORCH",
+"Segment code": "1.2.3.5.7",
+"Segment name": "TORCH",
+"Spanish search keywords": "TORCH; toxoplasma IgG IgM; toxoplasmosis; rubéola IgG IgM; citomegalovirus; CMV IgG IgM; herpes simple; avidez de toxoplasma; avidez de CMV; perfil prenatal; control prenatal",
+"English / abbreviations": "TORCH panel",
+"Brands & analysers to look for": "As IAZZZ (Liaison, Vidas strong)",
+"Notes": null
+},
+{
+"Indicator code": "IAIOT",
+"Segment code": "1.2.3.5.8",
+"Segment name": "Others",
+"Spanish search keywords": "Epstein-Barr; EBV; mononucleosis; VCA; sarampión IgM; paperas; varicela zóster; Helicobacter pylori serología; Helicobacter antígeno; brucella; leptospira; leptospirosis; rickettsia; hepatitis A IgM; anti-VHA; hepatitis E; Chagas (diagnóstico clínico); amebiasis; leishmaniasis; malaria antígeno; Mycoplasma; Legionella; Aspergillus; galactomanano; Candida",
+"English / abbreviations": "other infectious serology",
+"Brands & analysers to look for": "As IAZZZ",
+"Notes": null
+},
+{
+"Indicator code": "IAFER",
+"Segment code": "1.2.3.6",
+"Segment name": "IA Fertility/Pregnancy",
+"Spanish search keywords": "fertilidad; embarazo; hormona gonadotropina coriónica; beta HCG; HCG cuantitativa; prueba de embarazo en sangre; FSH; LH; hormona folículo estimulante; hormona luteinizante; prolactina; estradiol; progesterona; testosterona total; testosterona libre; SHBG; hormona antimülleriana; AMH; perfil ginecológico",
+"English / abbreviations": "fertility; pregnancy; reproductive hormones",
+"Brands & analysers to look for": "As IAZZZ",
+"Notes": "Urine pregnancy rapid tests go to PHCGT."
+},
+{
+"Indicator code": "IACAR",
+"Segment code": "1.2.3.7",
+"Segment name": "IA Cardiac",
+"Spanish search keywords": "marcadores cardíacos; perfil cardíaco; enzimas cardíacas; troponina; péptido natriurético; BNP; NT-proBNP; CK-MB masa; mioglobina; infarto agudo de miocardio; insuficiencia cardíaca",
+"English / abbreviations": "cardiac markers",
+"Brands & analysers to look for": "As IAZZZ",
+"Notes": "Lab-based; cartridge/handheld cardiac tests go to PCARZ."
+},
+{
+"Indicator code": "IATRO",
+"Segment code": "1.2.3.7.1",
+"Segment name": "Troponin",
+"Spanish search keywords": "troponina; troponina I; troponina T; troponina ultrasensible; troponina de alta sensibilidad; hs-cTnI; hs-cTnT; cTnI; cTnT",
+"English / abbreviations": "troponin; hs-troponin",
+"Brands & analysers to look for": "Roche Elecsys TnT hs; Abbott Architect/Alinity hs-TnI; Siemens Atellica TnIH; Beckman Access hsTnI",
+"Notes": null
+},
+{
+"Indicator code": "IABNN",
+"Segment code": "1.2.3.7.2",
+"Segment name": "BNP",
+"Spanish search keywords": "BNP; péptido natriurético tipo B; péptido natriurético cerebral",
+"English / abbreviations": "BNP",
+"Brands & analysers to look for": "Abbott Architect BNP; Siemens Centaur BNP; Beckman Access BNP",
+"Notes": null
+},
+{
+"Indicator code": "IABPP",
+"Segment code": "1.2.3.7.3",
+"Segment name": "ProBNP",
+"Spanish search keywords": "NT-proBNP; pro-BNP; propéptido natriurético tipo B N-terminal; proBNP",
+"English / abbreviations": "NT-proBNP",
+"Brands & analysers to look for": "Roche Elecsys proBNP II; Siemens; Abbott Alinity; Ortho Vitros",
+"Notes": null
+},
+{
+"Indicator code": "IACOT",
+"Segment code": "1.2.3.7.4",
+"Segment name": "Other IA Cardiac",
+"Spanish search keywords": "CK-MB masa; mioglobina; dímero D cardíaco; galectina-3; ST2; homocisteína; lipoproteína asociada",
+"English / abbreviations": "other cardiac markers",
+"Brands & analysers to look for": "As IAZZZ",
+"Notes": null
+},
+{
+"Indicator code": "IACRC",
+"Segment code": "1.2.3.8",
+"Segment name": "IA Critical Care",
+"Spanish search keywords": "cuidados críticos; sepsis; marcadores de sepsis; marcadores de inflamación; procalcitonina; proteína C reactiva; interleucina 6; IL-6; presepsina",
+"English / abbreviations": "critical care; sepsis markers",
+"Brands & analysers to look for": "As IAZZZ",
+"Notes": null
+},
+{
+"Indicator code": "IACRP",
+"Segment code": "1.2.3.8.1",
+"Segment name": "CRP",
+"Spanish search keywords": "proteína C reactiva; PCR cuantitativa; PCR ultrasensible; hs-CRP; CRP",
+"English / abbreviations": "CRP; hs-CRP",
+"Brands & analysers to look for": "As IAZZZ / CCHEM (often run on chemistry analyzers)",
+"Notes": "Spanish 'PCR' = both CRP and polymerase chain reaction – read description to tag correctly."
+},
+{
+"Indicator code": "IAPCT",
+"Segment code": "1.2.3.8.2",
+"Segment name": "PCT",
+"Spanish search keywords": "procalcitonina; PCT; marcador de sepsis; BRAHMS",
+"English / abbreviations": "procalcitonin",
+"Brands & analysers to look for": "Thermo B·R·A·H·M·S licensed on Roche, Abbott, Siemens, Beckman, bioMérieux Vidas, DiaSorin, Snibe",
+"Notes": null
+},
+{
+"Indicator code": "IAIAO",
+"Segment code": "1.2.3.8.3",
+"Segment name": "Other IA Critical Care",
+"Spanish search keywords": "interleucina 6; IL-6; presepsina; lactato; ferritina (cuidado crítico); proadrenomedulina; MR-proADM",
+"English / abbreviations": "other critical care",
+"Brands & analysers to look for": "As IAZZZ",
+"Notes": null
+},
+{
+"Indicator code": "IABON",
+"Segment code": "1.2.3.9",
+"Segment name": "IA Bone Health",
+"Spanish search keywords": "salud ósea; metabolismo óseo; vitamina D; 25-hidroxivitamina D; 25-OH vitamina D; paratohormona; PTH; PTH intacta; osteocalcina; beta-crosslaps; CTX; P1NP; fosfatasa alcalina ósea; calcitonina",
+"English / abbreviations": "bone health; vitamin D; PTH",
+"Brands & analysers to look for": "As IAZZZ",
+"Notes": null
+},
+{
+"Indicator code": "IAAUI",
+"Segment code": "1.2.3.10",
+"Segment name": "IA Autoimmune",
+"Spanish search keywords": "autoinmunidad; enfermedades autoinmunes; anticuerpos antinucleares; ANA; anti-DNA; anti-dsDNA; ENA; anti-Sm; anti-RNP; anti-Ro; anti-La; anti-CCP; péptido citrulinado; ANCA; anticardiolipina; anti-beta2 glicoproteína; anticoagulante lúpico; antitransglutaminasa; celiaquía; inmunofluorescencia indirecta; HEp-2",
+"English / abbreviations": "autoimmune; ANA; anti-CCP",
+"Brands & analysers to look for": "Euroimmun; Inova (Werfen); Bio-Rad BioPlex; Phadia EliA (Thermo); Aesku; Orgentec",
+"Notes": null
+},
+{
+"Indicator code": "IACOV",
+"Segment code": "1.2.3.11",
+"Segment name": "IA Sars-Cov2",
+"Spanish search keywords": "SARS-CoV-2 anticuerpos; COVID-19 serología; anticuerpos IgG IgM COVID; anticuerpos neutralizantes; antígeno SARS-CoV-2 por inmunoensayo; coronavirus",
+"English / abbreviations": "SARS-CoV-2 antibody/antigen immunoassay",
+"Brands & analysers to look for": "As IAZZZ",
+"Notes": "Peak 2020–2022; many emergency purchases (contratación directa / emergencia)."
+},
+{
+"Indicator code": "IAALG",
+"Segment code": "1.2.3.12",
+"Segment name": "IA Allergy",
+"Spanish search keywords": "alergia; IgE específica; IgE total; panel de alérgenos; pruebas de alergia; alérgenos alimentarios; alérgenos respiratorios; ImmunoCAP",
+"English / abbreviations": "allergy; specific IgE",
+"Brands & analysers to look for": "Thermo Phadia ImmunoCAP; Siemens Immulite 3gAllergy; Euroimmun; Hycor",
+"Notes": null
+},
+{
+"Indicator code": "IAISD",
+"Segment code": "1.2.3.13",
+"Segment name": "IA Immunosuppressants",
+"Spanish search keywords": "inmunosupresores; tacrolimus; ciclosporina; sirolimus; everolimus; micofenolato; niveles de tacrolimus; trasplante renal",
+"English / abbreviations": "immunosuppressant drug monitoring",
+"Brands & analysers to look for": "Abbott Architect; Roche; Siemens; Thermo QMS",
+"Notes": null
+},
+{
+"Indicator code": "IANEU",
+"Segment code": "1.2.3.14",
+"Segment name": "IA Neurology",
+"Spanish search keywords": "neurología; biomarcadores neurológicos; S100; enolasa neuroespecífica; NSE; neurofilamento; beta amiloide; proteína tau; Alzheimer",
+"English / abbreviations": "neurology markers",
+"Brands & analysers to look for": "As IAZZZ (Roche, Fujirebio, Siemens)",
+"Notes": null
+},
+{
+"Indicator code": "IALFB",
+"Segment code": "1.2.3.15",
+"Segment name": "IA Liver Fibrosis",
+"Spanish search keywords": "fibrosis hepática; marcadores de fibrosis; ácido hialurónico; ELF; Enhanced Liver Fibrosis; M2BPGi; FibroTest",
+"English / abbreviations": "liver fibrosis",
+"Brands & analysers to look for": "Siemens ELF",
+"Notes": null
+},
+{
+"Indicator code": "IAOTH",
+"Segment code": "1.2.3.16",
+"Segment name": "IA Others",
+"Spanish search keywords": "otras pruebas de inmunoensayo; pruebas especiales; gastrina; pepsinógeno; calprotectina fecal; elastasa fecal; sangre oculta inmunológica; FIT; anticuerpos anti-receptor de TSH; inmunoglobulina E",
+"English / abbreviations": "other immunoassay",
+"Brands & analysers to look for": "As IAZZZ",
+"Notes": null
+},
+{
+"Indicator code": "LCOAG",
+"Segment code": "1.3",
+"Segment name": "Coagulation",
+"Spanish search keywords": "coagulación; hemostasia; pruebas de coagulación; tiempo de protrombina; TP; INR; tiempo de tromboplastina parcial activado; TTP; TTPa; PTT; fibrinógeno; tiempo de trombina; dímero D; factores de coagulación; coagulómetro",
+"English / abbreviations": "coagulation; hemostasis",
+"Brands & analysers to look for": "Stago STA; Werfen/IL ACL TOP; Siemens Sysmex CS/CN; Wiener; Mindray; Diagnostica Stago",
+"Notes": null
+},
+{
+"Indicator code": "COISR",
+"Segment code": "1.3.1",
+"Segment name": "Instruments & service revenue",
+"Spanish search keywords": "coagulómetro; analizador de coagulación; analizador de hemostasia; equipo de coagulación automatizado; semiautomático; comodato coagulación; mantenimiento de coagulómetro",
+"English / abbreviations": "coagulation analyzer; service",
+"Brands & analysers to look for": "Stago STA Compact Max / STA R Max / Satellite; ACL TOP 350/550/750; ACL Elite; Sysmex CS-2500/CS-5100/CA-600; Wiener Coagulómetro",
+"Notes": null
+},
+{
+"Indicator code": "COTRA",
+"Segment code": "1.3.2",
+"Segment name": "Traditional tests",
+"Spanish search keywords": "tiempo de protrombina; tromboplastina; TP; INR; TTPa; tiempo de tromboplastina parcial; cefalina; fibrinógeno; tiempo de trombina; pruebas básicas de coagulación; plasma control",
+"English / abbreviations": "PT; aPTT; fibrinogen; TT",
+"Brands & analysers to look for": "As LCOAG",
+"Notes": null
+},
+{
+"Indicator code": "COOTH",
+"Segment code": "1.3.3",
+"Segment name": "Others",
+"Spanish search keywords": "factores de coagulación; factor VIII; factor IX; factor von Willebrand; antitrombina; proteína C; proteína S; anti-Xa; heparina; anticoagulante lúpico; resistencia a proteína C activada; plasminógeno; agregación plaquetaria; tromboelastografía; tromboelastometría; TEG; ROTEM",
+"English / abbreviations": "special coagulation; factors",
+"Brands & analysers to look for": "As LCOAG; Haemonetics TEG; Werfen ROTEM",
+"Notes": null
+},
+{
+"Indicator code": "CODMR",
+"Segment code": "1.3.4",
+"Segment name": "D-Dimer",
+"Spanish search keywords": "dímero D; dímero-D; D-dimer; productos de degradación de fibrina; PDF",
+"English / abbreviations": "D-dimer",
+"Brands & analysers to look for": "As LCOAG; Roche cobas; bioMérieux Vidas",
+"Notes": null
+},
+{
+"Indicator code": "URINE",
+"Segment code": "1.4",
+"Segment name": "Urinalysis",
+"Spanish search keywords": "uroanálisis; examen general de orina; EGO; análisis de orina; tiras reactivas para orina; tiras de orina; sedimento urinario; analizador de orina",
+"English / abbreviations": "urinalysis",
+"Brands & analysers to look for": "Siemens Clinitek / Multistix; Roche cobas u / Combur; Sysmex UF / UC; Arkray Aution; Beckman Iris; Dirui; 77 Elektronika; Mindray",
+"Notes": null
+},
+{
+"Indicator code": "URISR",
+"Segment code": "1.4.1",
+"Segment name": "Instruments & service revenue",
+"Spanish search keywords": "analizador de orina; analizador de tiras reactivas de orina; analizador de sedimento urinario; equipo de uroanálisis; mantenimiento",
+"English / abbreviations": "urine analyzer",
+"Brands & analysers to look for": "Clinitek Status / Advantus / Novus; cobas u 411 / u 601 / u 701; Sysmex UF-1500/UF-5000; Aution Max; Iris iQ200 / DxU",
+"Notes": null
+},
+{
+"Indicator code": "URQUA",
+"Segment code": "1.4.2",
+"Segment name": "Qualitative",
+"Spanish search keywords": "tiras reactivas para orina; tiras de uroanálisis; tiras de 10 parámetros; tira reactiva de orina 11 parámetros; química urinaria; microalbuminuria tiras",
+"English / abbreviations": "urine dipsticks; strips",
+"Brands & analysers to look for": "Multistix; Combur-Test; Uritest; Dirui; Mission",
+"Notes": "Note: 'tiras reactivas' alone also hits glucose strips (DIBST) – check description."
+},
+{
+"Indicator code": "URSED",
+"Segment code": "1.4.3",
+"Segment name": "Sedimentation",
+"Spanish search keywords": "sedimento urinario; microscopía de orina; citometría de orina; análisis de partículas urinarias; cámara de recuento; portaobjetos para sedimento",
+"English / abbreviations": "urine sediment",
+"Brands & analysers to look for": "Sysmex UF; Beckman Iris iQ200 / DxU; Arkray AU; Dirui FUS; 77 Elektronika",
+"Notes": null
+},
+{
+"Indicator code": "HEMEZ",
+"Segment code": "1.5",
+"Segment name": "Hematology",
+"Spanish search keywords": "hematología; hemograma; hemograma completo; biometría hemática; citometría hemática; recuento sanguíneo; contador hematológico; analizador hematológico; reactivos de hematología",
+"English / abbreviations": "hematology; CBC",
+"Brands & analysers to look for": "Sysmex XN / XS / XP; Beckman DxH; Abbott Cell-Dyn / Alinity h; Mindray BC; Siemens Advia; Horiba Yumizen / Pentra; Nihon Kohden; Dymind",
+"Notes": null
+},
+{
+"Indicator code": "HMISR",
+"Segment code": "1.5.1",
+"Segment name": "Instruments & service revenue",
+"Spanish search keywords": "analizador hematológico; contador hematológico; equipo de hematología de 3 partes; 5 partes; 3 diferenciales; 5 diferenciales; comodato hematología; mantenimiento",
+"English / abbreviations": "hematology analyzer; 3-part/5-part",
+"Brands & analysers to look for": "Sysmex XN-1000/XN-550/XS-1000i/XP-300; DxH 500/900; Cell-Dyn Ruby/Emerald; BC-5150/BC-6000/BC-20s; Yumizen H500",
+"Notes": null
+},
+{
+"Indicator code": "HMCBC",
+"Segment code": "1.5.2",
+"Segment name": "Blood cell count (CBC)",
+"Spanish search keywords": "hemograma; biometría hemática completa; recuento de glóbulos rojos; glóbulos blancos; plaquetas; hemoglobina; hematocrito; reticulocitos; diluyente hematológico; lisante; reactivos de hematología; control hematológico; velocidad de eritrosedimentación; VES; VSG",
+"English / abbreviations": "CBC reagents; diluent; lyse; ESR",
+"Brands & analysers to look for": "As HEMEZ; Alifax / Streck (VES)",
+"Notes": null
+},
+{
+"Indicator code": "HMCIA",
+"Segment code": "1.5.3",
+"Segment name": "Cell imaging analysis",
+"Spanish search keywords": "morfología digital; análisis de imágenes celulares; frotis de sangre periférica automatizado; extendedor y teñidor de láminas; diferencial digital",
+"English / abbreviations": "cell imaging; digital morphology; slide maker/stainer",
+"Brands & analysers to look for": "Sysmex CellaVision DI-60 / DC-1; SP-50; Mindray MC-80; Scopio",
+"Notes": null
+},
+{
+"Indicator code": "FLOWC",
+"Segment code": "1.6",
+"Segment name": "Flow Cytometry",
+"Spanish search keywords": "citometría de flujo; citómetro de flujo; inmunofenotipaje; CD4; recuento de CD4; linfocitos CD4/CD8; subpoblaciones linfocitarias; leucemia inmunofenotipo; anticuerpos monoclonales para citometría",
+"English / abbreviations": "flow cytometry; CD4",
+"Brands & analysers to look for": "BD FACSCanto / FACSLyric / FACSCount; Beckman Navios / DxFLEX / CytoFLEX; Sysmex; Abbott Pima / BD FACSPresto (POC CD4)",
+"Notes": "CD4 counts for HIV programme often via Global Fund."
+},
+{
+"Indicator code": "IMMHM",
+"Segment code": "1.7",
+"Segment name": "Immunohematology",
+"Spanish search keywords": "inmunohematología; banco de sangre; medicina transfusional; grupo sanguíneo; tipaje; prueba cruzada; Coombs; tarjetas de gel; microplaca de gel; columnas de aglutinación",
+"English / abbreviations": "immunohematology; blood bank",
+"Brands & analysers to look for": "Grifols (DG Gel / Erytra / Wadiana); Bio-Rad (DiaMed ID-System / IH-1000 / IH-500); Ortho (Vision / BioVue); Immucor (Neo / Echo); Diagast",
+"Notes": null
+},
+{
+"Indicator code": "BGNTZ",
+"Segment code": "1.7.1",
+"Segment name": "Blood Grouping & Typing",
+"Spanish search keywords": "grupo sanguíneo; tipificación sanguínea; tipaje ABO; factor Rh; RhD; antisueros; anti-A; anti-B; anti-D; anti-AB; hemoclasificación; tarjetas ABO/Rh; grupo inverso; células A1 y B",
+"English / abbreviations": "blood grouping and typing; ABO/RhD",
+"Brands & analysers to look for": "As IMMHM; Lorne; Wiener (antisueros)",
+"Notes": null
+},
+{
+"Indicator code": "IMABS",
+"Segment code": "1.7.2",
+"Segment name": "Antibody Screening And Identification",
+"Spanish search keywords": "rastreo de anticuerpos irregulares; detección de anticuerpos; identificación de anticuerpos; panel de células; células de pantalla; células panel; anticuerpos irregulares",
+"English / abbreviations": "antibody screening and identification",
+"Brands & analysers to look for": "As IMMHM",
+"Notes": null
+},
+{
+"Indicator code": "IMATY",
+"Segment code": "1.7.3",
+"Segment name": "Antigen Typing",
+"Spanish search keywords": "fenotipo eritrocitario; tipaje de antígenos; antígenos Kell; Duffy; Kidd; Rh fenotipo; C, c, E, e; antisueros raros",
+"English / abbreviations": "antigen typing; phenotyping",
+"Brands & analysers to look for": "As IMMHM",
+"Notes": null
+},
+{
+"Indicator code": "ATITR",
+"Segment code": "1.7.4",
+"Segment name": "Antibody Titration",
+"Spanish search keywords": "titulación de anticuerpos; título de anticuerpos; título anti-D; titulación de isohemaglutininas",
+"English / abbreviations": "antibody titration",
+"Brands & analysers to look for": "As IMMHM",
+"Notes": null
+},
+{
+"Indicator code": "IHISR",
+"Segment code": "1.7.5",
+"Segment name": "Instruments",
+"Spanish search keywords": "equipo de inmunohematología; analizador automatizado de banco de sangre; centrífuga para tarjetas de gel; incubador de tarjetas; lector de tarjetas",
+"English / abbreviations": "blood bank analyzer; gel card centrifuge/incubator",
+"Brands & analysers to look for": "Erytra / Erytra Eflexis / Wadiana; IH-1000 / IH-500; Ortho Vision / Vision Max; Neo Iris / Echo Lumena",
+"Notes": null
+},
+{
+"Indicator code": "IMCCY",
+"Segment code": "1.7.6",
+"Segment name": "Crossmatch Compatibility",
+"Spanish search keywords": "prueba cruzada; pruebas de compatibilidad; prueba cruzada mayor; prueba cruzada menor; compatibilidad transfusional",
+"English / abbreviations": "crossmatch; compatibility testing",
+"Brands & analysers to look for": "As IMMHM",
+"Notes": null
+},
+{
+"Indicator code": "IMGLO",
+"Segment code": "1.7.7",
+"Segment name": "Direct Antiglobulin Test",
+"Spanish search keywords": "Coombs directo; prueba de antiglobulina directa; PAD; antiglobulina humana; suero de Coombs; Coombs indirecto",
+"English / abbreviations": "DAT; direct antiglobulin; Coombs",
+"Brands & analysers to look for": "As IMMHM",
+"Notes": null
+},
+{
+"Indicator code": "MICRO",
+"Segment code": "1.8",
+"Segment name": "Microbiology",
+"Spanish search keywords": "microbiología; bacteriología; cultivo; antibiograma; identificación bacteriana; susceptibilidad antimicrobiana; medios de cultivo; agar; placas de agar; discos de antibiótico; hemocultivo; urocultivo; coprocultivo; baciloscopía; cultivo de micobacterias",
+"English / abbreviations": "microbiology; culture; ID/AST",
+"Brands & analysers to look for": "bioMérieux (Vitek, BacT/ALERT, Vitek MS); BD (Phoenix, BACTEC, MGIT); Beckman MicroScan; Bruker MALDI Biotyper; Liofilchem; Oxoid (Thermo); Merck; HiMedia; Britania",
+"Notes": null
+},
+{
+"Indicator code": "AIDST",
+"Segment code": "1.8.1",
+"Segment name": "Automated ID/ AST",
+"Spanish search keywords": "identificación y susceptibilidad automatizada; sistema automatizado de identificación bacteriana; tarjetas de identificación; tarjetas de susceptibilidad; paneles de identificación; MALDI-TOF; espectrometría de masas para microbiología; CMI",
+"English / abbreviations": "automated ID/AST",
+"Brands & analysers to look for": "bioMérieux Vitek 2 (tarjetas GN/GP/AST); BD Phoenix M50; Beckman MicroScan WalkAway; Bruker MALDI Biotyper; Vitek MS; Thermo Sensititre",
+"Notes": null
+},
+{
+"Indicator code": "ABDCL",
+"Segment code": "1.8.2",
+"Segment name": "Automated Blood Culture",
+"Spanish search keywords": "hemocultivo automatizado; frascos de hemocultivo; botellas de hemocultivo; sistema de hemocultivo; incubador de hemocultivo; cultivo de micobacterias automatizado; MGIT",
+"English / abbreviations": "automated blood culture",
+"Brands & analysers to look for": "bioMérieux BacT/ALERT 3D / Virtuo; BD BACTEC FX / 9050; BD MGIT 960",
+"Notes": null
+},
+{
+"Indicator code": "MIDCL",
+"Segment code": "1.8.3",
+"Segment name": "Manual ID/ AST + Culture",
+"Spanish search keywords": "medios de cultivo; agar sangre; agar MacConkey; agar chocolate; agar Mueller-Hinton; agar Sabouraud; caldo; medios deshidratados; medios preparados; discos de sensibilidad antimicrobiana; galerías de identificación; API; pruebas bioquímicas; tinción de Gram; Ziehl-Neelsen; baciloscopía; Löwenstein-Jensen; hisopos con medio de transporte",
+"English / abbreviations": "manual ID/AST; culture media",
+"Brands & analysers to look for": "bioMérieux API; Oxoid; BD BBL / Difco; Liofilchem; HiMedia; Merck; Britania; Copan",
+"Notes": null
+},
+{
+"Indicator code": "DGSOL",
+"Segment code": "1.9",
+"Segment name": "Digital Solutions",
+"Spanish search keywords": "software de laboratorio; sistema de información de laboratorio; LIS; SIL; middleware; interfaz de equipos; conectividad de laboratorio; gestión de laboratorio; sistema informático de laboratorio",
+"English / abbreviations": "LIS; middleware; digital solutions",
+"Brands & analysers to look for": "Roche navify / cobas infinity; Abbott AlinIQ; Siemens Atellica Data Manager; Beckman DxONE; Orion/Dedalus; Werfen GEMweb",
+"Notes": "Often embedded in reagent comodato contracts as 'incluye sistema de interfaz'."
+},
+{
+"Indicator code": "PPRTN",
+"Segment code": "1.10",
+"Segment name": "Plasma Proteins",
+"Spanish search keywords": "proteínas plasmáticas; electroforesis de proteínas; inmunofijación; electroforesis capilar; proteinograma; bandas monoclonales; cadenas ligeras libres",
+"English / abbreviations": "plasma proteins; protein electrophoresis",
+"Brands & analysers to look for": "Sebia Capillarys / Hydrasys; Helena; Binding Site; Siemens BN",
+"Notes": null
+},
+{
+"Indicator code": "MASSP",
+"Segment code": "1.11",
+"Segment name": "Mass spectrometry",
+"Spanish search keywords": "espectrometría de masas; espectrómetro de masas; cromatografía líquida acoplada a masas; LC-MS/MS; GC-MS; tamizaje neonatal ampliado por masas; MALDI-TOF",
+"English / abbreviations": "mass spectrometry; LC-MS/MS",
+"Brands & analysers to look for": "Waters; Sciex; Thermo; Agilent; Shimadzu; Bruker; bioMérieux Vitek MS",
+"Notes": "MALDI for microbiology may also be tagged AIDST – note which."
+},
+{
+"Indicator code": "LABAU",
+"Segment code": "1.12",
+"Segment name": "Lab Automation",
+"Spanish search keywords": "automatización de laboratorio; cadena de automatización; línea automatizada; sistema preanalítico; decapador; destapador; alicuotador; sorter de tubos; clasificador de muestras; track; sistema de transporte de muestras; tubo neumático",
+"English / abbreviations": "lab automation; TLA; pre-analytical",
+"Brands & analysers to look for": "Roche cobas 8100 / p 512 / p 612; Abbott GLP / Accelerator a3600; Siemens Aptio / Atellica; Beckman DxA / Power Express; Inpeco FlexLab",
+"Notes": null
+},
+{
+"Indicator code": "POCZZ",
+"Segment code": "2",
+"Segment name": "Point of Care (POCt)",
+"Spanish search keywords": "punto de atención; pruebas en el punto de atención; prueba rápida; pruebas rápidas; pruebas de diagnóstico rápido; PDR; inmunocromatografía; casete; tira; cartucho; equipo portátil; analizador portátil; cabecera del paciente",
+"English / abbreviations": "point of care; POCT; rapid diagnostic test; RDT",
+"Brands & analysers to look for": "Abbott (i-STAT, Afinion, Determine, Panbio, Bioline, ID NOW); Roche (cobas b, CoaguChek, Accu-Chek Inform); Siemens (epoc, DCA Vantage); Radiometer; Werfen GEM; QuidelOrtho; SD Biosensor; Wondfo; Standard Diagnostics; Chembio; OraSure; Atomo",
+"Notes": "Primary health care (Unidades Comunitarias de Salud Familiar – ES; Establecimientos de Salud / UAPS – HN) buys most rapid tests."
+},
+{
+"Indicator code": "PCARZ",
+"Segment code": "2.1",
+"Segment name": "POC Cardiac",
+"Spanish search keywords": "marcadores cardíacos rápidos; prueba rápida de troponina; prueba cardíaca en punto de atención; cartuchos cardíacos; analizador cardíaco portátil",
+"English / abbreviations": "POC cardiac",
+"Brands & analysers to look for": "Abbott i-STAT cTnI / BNP; Roche cobas h 232; Siemens Stratus CS; Radiometer AQT90 Flex; Quidel Triage; Boditech ichroma; Getein; LumiraDx",
+"Notes": null
+},
+{
+"Indicator code": "PCART",
+"Segment code": "2.1.1",
+"Segment name": "Troponin",
+"Spanish search keywords": "troponina rápida; prueba rápida de troponina I; cartucho troponina; troponina en punto de atención; troponina cualitativa",
+"English / abbreviations": "POC troponin",
+"Brands & analysers to look for": "i-STAT cTnI; cobas h 232 Trop T; AQT90 TnI/TnT; Triage; ichroma; Getein; Wondfo; SD Bioline",
+"Notes": null
+},
+{
+"Indicator code": "PCARP",
+"Segment code": "2.1.2",
+"Segment name": "BNP",
+"Spanish search keywords": "BNP rápido; BNP en punto de atención; cartucho BNP",
+"English / abbreviations": "POC BNP",
+"Brands & analysers to look for": "i-STAT BNP; Quidel Triage BNP",
+"Notes": null
+},
+{
+"Indicator code": "PCABN",
+"Segment code": "2.1.3",
+"Segment name": "ProBNP",
+"Spanish search keywords": "NT-proBNP rápido; NT-proBNP en punto de atención",
+"English / abbreviations": "POC NT-proBNP",
+"Brands & analysers to look for": "cobas h 232 NT-proBNP; AQT90 NT-proBNP; ichroma; Getein",
+"Notes": null
+},
+{
+"Indicator code": "PCARX",
+"Segment code": "2.1.4",
+"Segment name": "Other POC Cardiac",
+"Spanish search keywords": "CK-MB rápido; mioglobina rápida; dímero D rápido (cardíaco); panel cardíaco rápido; triple marcador cardíaco",
+"English / abbreviations": "other POC cardiac",
+"Brands & analysers to look for": "Triage Cardiac Panel; ichroma; Getein; SD Bioline",
+"Notes": null
+},
+{
+"Indicator code": "BGEZZ",
+"Segment code": "2.2",
+"Segment name": "POC Bloodgas & Electrolytes",
+"Spanish search keywords": "gases arteriales; gasometría; gases sanguíneos; analizador de gases; electrolitos; cartuchos de gases; sensores de gases; pH pCO2 pO2; lactato; co-oximetría; calcio iónico; jeringas para gases arteriales; electrolitos en punto de atención",
+"English / abbreviations": "blood gas; electrolytes; BGE",
+"Brands & analysers to look for": "Werfen GEM Premier 3500/4000/5000; Radiometer ABL 80/90/800/9; Roche cobas b 121/b 221; Siemens RAPIDPoint 500 / epoc; Abbott i-STAT CG4+/CG8+/Chem8+; Nova Stat Profile Prime; Edan; Medica EasyLyte (electrolitos)",
+"Notes": "Very common in ICU/emergency tenders; usually cartridge-based comodato."
+},
+{
+"Indicator code": "STRZZ",
+"Segment code": "2.3",
+"Segment name": "POC Urinalysis",
+"Spanish search keywords": "tiras reactivas de orina en punto de atención; lector de tiras de orina portátil; uroanálisis rápido; tira de orina para consulta",
+"English / abbreviations": "POC urinalysis; urine strip reader",
+"Brands & analysers to look for": "Siemens Clinitek Status+; Roche Urisys 1100 / cobas u 411; Arkray PocketChem UA",
+"Notes": "Overlaps URQUA – tag POC if reader is a benchtop/handheld for clinics/wards."
+},
+{
+"Indicator code": "HGNZZ",
+"Segment code": "2.4",
+"Segment name": "POC Hospital Glucose (non connected)",
+"Spanish search keywords": "glucómetro hospitalario; tiras de glucosa para hospital; glucemia capilar en sala; glucometría; control glucémico hospitalario; tiras reactivas de glucosa (uso hospitalario)",
+"English / abbreviations": "hospital glucose (non-connected)",
+"Brands & analysers to look for": "Accu-Chek Performa / Instant; FreeStyle Optium; Contour; OneTouch; On Call Plus; Bionime; Sinocare",
+"Notes": "Distinguish from patient self-test BGM (DIBST) – hospital use in wards/ICU = here."
+},
+{
+"Indicator code": "HGCZZ",
+"Segment code": "2.5",
+"Segment name": "POC Hospital Glucose (connected to LIS)",
+"Spanish search keywords": "glucómetro conectado; glucómetro hospitalario con conectividad; glucómetro con interfaz al LIS; sistema de glucosa conectado; glucómetro profesional; Accu-Chek Inform",
+"English / abbreviations": "hospital glucose (connected to LIS)",
+"Brands & analysers to look for": "Roche Accu-Chek Inform II; Abbott FreeStyle Precision Pro; Nova StatStrip; Siemens",
+"Notes": null
+},
+{
+"Indicator code": "PCHEZ",
+"Segment code": "2.6",
+"Segment name": "POC Chemistry + HbA1c",
+"Spanish search keywords": "química en punto de atención; perfil lipídico rápido; HbA1c rápida; analizador portátil de química",
+"English / abbreviations": "POC chemistry + HbA1c",
+"Brands & analysers to look for": "Abbott Afinion 2 / Cholestech LDX; Siemens DCA Vantage; Roche cobas b 101; PTS CardioChek; Abaxis Piccolo; SD LipidoCare",
+"Notes": null
+},
+{
+"Indicator code": "POCCZ",
+"Segment code": "2.6.1",
+"Segment name": "POC Chemistry",
+"Spanish search keywords": "perfil lipídico en punto de atención; colesterol rápido; creatinina portátil; química sanguínea portátil; tiras de colesterol; ácido úrico rápido; hemoglobina portátil; hemoglobinómetro; HemoCue",
+"English / abbreviations": "POC chemistry; lipids; hemoglobin",
+"Brands & analysers to look for": "Cholestech LDX; CardioChek; Piccolo Xpress; cobas b 101 lípidos; HemoCue Hb 201/301; StatSensor creatinina",
+"Notes": null
+},
+{
+"Indicator code": "POCHZ",
+"Segment code": "2.6.2",
+"Segment name": "POC HbA1c",
+"Spanish search keywords": "HbA1c en punto de atención; hemoglobina glicosilada rápida; A1C rápida; cartuchos HbA1c",
+"English / abbreviations": "POC HbA1c",
+"Brands & analysers to look for": "Abbott Afinion HbA1c; Siemens DCA Vantage; Roche cobas b 101; A1CNow; Quo-Lab; ichroma HbA1c",
+"Notes": null
+},
+{
+"Indicator code": "PCHIZ",
+"Segment code": "2.6.3",
+"Segment name": "POC Chemistry + HbA1c Combo Instruments",
+"Spanish search keywords": "analizador combinado HbA1c y química; analizador multiparámetro portátil; equipo portátil HbA1c y lípidos",
+"English / abbreviations": "POC chemistry + HbA1c combo instrument",
+"Brands & analysers to look for": "Afinion 2; cobas b 101; SD LipidoCare/A1cCare",
+"Notes": null
+},
+{
+"Indicator code": "PCOAG",
+"Segment code": "2.7",
+"Segment name": "POC Patient Monitoring / Coagulation",
+"Spanish search keywords": "coagulación en punto de atención; INR portátil; tiras de INR; monitoreo de anticoagulación; tiempo de coagulación activado; ACT; coagulómetro portátil; tromboelastografía en quirófano",
+"English / abbreviations": "POC coagulation; INR; ACT",
+"Brands & analysers to look for": "Roche CoaguChek XS / Pro II; Abbott i-STAT PT/INR / ACT; Werfen Hemochron; Medtronic HMS Plus; Siemens Xprecia; Haemonetics TEG 6s; ROTEM sigma",
+"Notes": null
+},
+{
+"Indicator code": "PIDZZ",
+"Segment code": "2.8",
+"Segment name": "POC Infectious Diseases",
+"Spanish search keywords": "pruebas rápidas de enfermedades infecciosas; prueba rápida inmunocromatográfica; prueba rápida de antígeno; prueba rápida de anticuerpos",
+"English / abbreviations": "POC infectious disease RDT",
+"Brands & analysers to look for": "Abbott Determine / Bioline / Panbio; SD Biosensor; Chembio DPP; OraSure OraQuick; Trinity Uni-Gold; Atomo; Wondfo; Biosynex; Premier Medical",
+"Notes": null
+},
+{
+"Indicator code": "PHIVS",
+"Segment code": "2.8.1",
+"Segment name": "HIV",
+"Spanish search keywords": "prueba rápida de VIH; VIH 1/2 prueba rápida; prueba rápida VIH cuarta generación; autoprueba de VIH; prueba de VIH en saliva; prueba rápida dual VIH/sífilis",
+"English / abbreviations": "HIV RDT; HIV self-test",
+"Brands & analysers to look for": "Determine HIV-1/2 / HIV Early Detect; Uni-Gold; Bioline HIV; OraQuick; Chembio DPP; Insti; Atomo",
+"Notes": "Big Global Fund / PEPFAR / PAHO Strategic Fund buyer."
+},
+{
+"Indicator code": "PSTDZ",
+"Segment code": "2.8.2",
+"Segment name": "STD",
+"Spanish search keywords": "pruebas rápidas de ITS; infecciones de transmisión sexual prueba rápida",
+"English / abbreviations": "POC STD",
+"Brands & analysers to look for": "As PIDZZ",
+"Notes": null
+},
+{
+"Indicator code": "PSYPH",
+"Segment code": "2.8.2.1",
+"Segment name": "Syphilis",
+"Spanish search keywords": "prueba rápida de sífilis; sífilis treponémica rápida; prueba dual VIH sífilis; RPR rápido; prueba rápida de sífilis para embarazadas",
+"English / abbreviations": "syphilis RDT; HIV/syphilis duo",
+"Brands & analysers to look for": "Determine Syphilis TP; Bioline Syphilis 3.0 / HIV-Syphilis Duo; Chembio DPP; SD; Wondfo",
+"Notes": "Prenatal (control prenatal) and EMTCT programmes."
+},
+{
+"Indicator code": "PCTNZ",
+"Segment code": "2.8.2.2",
+"Segment name": "CT/NG",
+"Spanish search keywords": "prueba rápida de clamidia; prueba rápida de gonorrea; Chlamydia trachomatis rápida; Neisseria gonorrhoeae rápida",
+"English / abbreviations": "CT/NG RDT",
+"Brands & analysers to look for": "Various",
+"Notes": "Molecular POC CT/NG (GeneXpert) → MCTNP."
+},
+{
+"Indicator code": "PHEPZ",
+"Segment code": "2.8.3",
+"Segment name": "Hepatitis",
+"Spanish search keywords": "pruebas rápidas de hepatitis; hepatitis prueba rápida",
+"English / abbreviations": "POC hepatitis",
+"Brands & analysers to look for": "As PIDZZ",
+"Notes": null
+},
+{
+"Indicator code": "PHAVZ",
+"Segment code": "2.8.3.1",
+"Segment name": "HAV / HEV",
+"Spanish search keywords": "prueba rápida hepatitis A; hepatitis A IgM rápida; prueba rápida hepatitis E",
+"English / abbreviations": "HAV/HEV RDT",
+"Brands & analysers to look for": "SD Bioline; Wondfo; CTK",
+"Notes": null
+},
+{
+"Indicator code": "PHBVZ",
+"Segment code": "2.8.3.2",
+"Segment name": "HBV",
+"Spanish search keywords": "prueba rápida hepatitis B; HBsAg rápido; prueba rápida de antígeno de superficie",
+"English / abbreviations": "HBsAg RDT",
+"Brands & analysers to look for": "Determine HBsAg 2; Bioline HBsAg; Wondfo",
+"Notes": null
+},
+{
+"Indicator code": "PHCVZ",
+"Segment code": "2.8.3.3",
+"Segment name": "HCV",
+"Spanish search keywords": "prueba rápida hepatitis C; anti-VHC rápido; prueba rápida HCV; autoprueba hepatitis C",
+"English / abbreviations": "HCV RDT",
+"Brands & analysers to look for": "Bioline HCV; OraQuick HCV; First Response",
+"Notes": null
+},
+{
+"Indicator code": "PVBDZ",
+"Segment code": "2.8.4",
+"Segment name": "VBD",
+"Spanish search keywords": "enfermedades transmitidas por vectores; pruebas rápidas de arbovirus; enfermedades tropicales; vectores",
+"English / abbreviations": "vector-borne disease RDT",
+"Brands & analysers to look for": "As PIDZZ",
+"Notes": null
+},
+{
+"Indicator code": "PDENG",
+"Segment code": "2.8.4.1",
+"Segment name": "Dengue",
+"Spanish search keywords": "prueba rápida de dengue; dengue NS1 rápido; dengue IgG/IgM rápido; dengue Duo; prueba rápida dengue combo",
+"English / abbreviations": "dengue RDT",
+"Brands & analysers to look for": "SD Bioline Dengue Duo; Panbio Dengue; Wondfo; CTK; Standard Q",
+"Notes": "Very important in ES & HN – outbreak years (2019, 2023, 2024) had emergency purchases."
+},
+{
+"Indicator code": "PMALA",
+"Segment code": "2.8.4.2",
+"Segment name": "Malaria",
+"Spanish search keywords": "prueba rápida de malaria; paludismo prueba rápida; Plasmodium falciparum; Plasmodium vivax; PDR malaria; HRP2; pLDH",
+"English / abbreviations": "malaria RDT",
+"Brands & analysers to look for": "Bioline Malaria Ag P.f/Pan; First Response; CareStart; Standard Q",
+"Notes": "Low volumes in ES (malaria-free cert.) – higher in HN (Gracias a Dios / La Mosquitia)."
+},
+{
+"Indicator code": "PVBDX",
+"Segment code": "2.8.4.3",
+"Segment name": "Other tropical",
+"Spanish search keywords": "prueba rápida de chikungunya; zika rápido; leptospira rápido; leishmania rápido; Chagas prueba rápida; Trypanosoma cruzi rápido; enfermedades tropicales",
+"English / abbreviations": "other tropical RDT",
+"Brands & analysers to look for": "Various; Chembio DPP; InBios",
+"Notes": null
+},
+{
+"Indicator code": "PGASZ",
+"Segment code": "2.8.5",
+"Segment name": "Gastrointestinal",
+"Spanish search keywords": "prueba rápida de rotavirus; adenovirus en heces; Helicobacter pylori antígeno en heces rápido; sangre oculta en heces; FOB; FIT rápido; norovirus rápido; Giardia; Cryptosporidium; Clostridium difficile rápido",
+"English / abbreviations": "GI RDT",
+"Brands & analysers to look for": "Various; Certest; Meridian; Abbott",
+"Notes": null
+},
+{
+"Indicator code": "PRESZ",
+"Segment code": "2.8.6",
+"Segment name": "Respiratory",
+"Spanish search keywords": "prueba rápida respiratoria; influenza prueba rápida; VSR rápido; estreptococo grupo A rápido",
+"English / abbreviations": "POC respiratory",
+"Brands & analysers to look for": "As PIDZZ; Quidel Sofia; BD Veritor; Abbott BinaxNOW",
+"Notes": null
+},
+{
+"Indicator code": "PCOVD",
+"Segment code": "2.8.6.1",
+"Segment name": "Sars-Cov2",
+"Spanish search keywords": "prueba rápida de antígeno SARS-CoV-2; prueba de antígeno COVID-19; prueba rápida COVID; hisopado nasofaríngeo antígeno; autoprueba COVID; prueba rápida de anticuerpos COVID",
+"English / abbreviations": "SARS-CoV-2 Ag RDT",
+"Brands & analysers to look for": "Panbio COVID-19 Ag; Standard Q; BinaxNOW; Roche/SD; Wondfo; Lepu; Flowflex",
+"Notes": "Peak 2020–2022; many purchases under emergency (decreto de emergencia / compra directa)."
+},
+{
+"Indicator code": "PCOVH",
+"Segment code": "2.8.6.1.1",
+"Segment name": "Hospitals",
+"Spanish search keywords": "prueba rápida COVID hospitales",
+"English / abbreviations": "COVID RDT – hospitals",
+"Brands & analysers to look for": null,
+"Notes": "Tag by buyer: hospitals (Hospital Nacional ..., hospitales regionales, ISSS/IHSS hospitals)."
+},
+{
+"Indicator code": "PCOVC",
+"Segment code": "2.8.6.1.2",
+"Segment name": "Community (Clinics, GPs, health centers)",
+"Spanish search keywords": "prueba rápida COVID unidades de salud; centros de salud; clínicas comunales",
+"English / abbreviations": "COVID RDT – community",
+"Brands & analysers to look for": null,
+"Notes": "Tag by buyer: UCSF (ES), UAPS/CIS/CESAMO (HN), clínicas comunales."
+},
+{
+"Indicator code": "PCOVN",
+"Segment code": "2.8.6.1.3",
+"Segment name": "Non-HC: CDC / NGOs, Airports, workplace",
+"Spanish search keywords": "prueba rápida COVID aeropuerto; migración; fronteras; centros de trabajo; escuelas; ONG",
+"English / abbreviations": "COVID RDT – non-healthcare",
+"Brands & analysers to look for": null,
+"Notes": "Tag by buyer: CEPA / aeropuertos, Migración, Protección Civil, COPECO (HN), ministerios, municipalidades, ONGs."
+},
+{
+"Indicator code": "PCOVR",
+"Segment code": "2.8.6.1.4",
+"Segment name": "Retail",
+"Spanish search keywords": "autoprueba COVID farmacia",
+"English / abbreviations": "COVID RDT – retail",
+"Brands & analysers to look for": null,
+"Notes": "Not tendered publicly (retail/online sales). Use import data or pharmacy audits; skip in tender search."
+},
+{
+"Indicator code": "PRESX",
+"Segment code": "2.8.6.2",
+"Segment name": "Others",
+"Spanish search keywords": "prueba rápida de influenza A/B; virus sincitial respiratorio rápido; VSR; estreptococo A rápido; Streptococcus pyogenes rápido; Mycoplasma rápido; Legionella antígeno urinario; neumococo antígeno urinario; prueba rápida combo COVID/influenza",
+"English / abbreviations": "flu/RSV/Strep A RDT",
+"Brands & analysers to look for": "Quidel Sofia; BD Veritor; BinaxNOW; Standard Q; Wondfo; Certest",
+"Notes": null
+},
+{
+"Indicator code": "PCCZZ",
+"Segment code": "2.9",
+"Segment name": "POC Critical Care",
+"Spanish search keywords": "cuidados críticos en punto de atención; sepsis rápida",
+"English / abbreviations": "POC critical care",
+"Brands & analysers to look for": "Boditech ichroma; Radiometer AQT90; Getein",
+"Notes": null
+},
+{
+"Indicator code": "PCCRP",
+"Segment code": "2.9.1",
+"Segment name": "CRP",
+"Spanish search keywords": "PCR rápida; proteína C reactiva rápida; CRP en punto de atención; PCR semicuantitativa",
+"English / abbreviations": "POC CRP",
+"Brands & analysers to look for": "Abbott Afinion CRP / NycoCard; ichroma CRP; QuikRead go (Aidian); Eurolyser",
+"Notes": "Spanish 'PCR rápida' may also mean rapid molecular test – read description."
+},
+{
+"Indicator code": "PCPCT",
+"Segment code": "2.9.2",
+"Segment name": "PCT",
+"Spanish search keywords": "procalcitonina rápida; PCT en punto de atención; PCT semicuantitativa",
+"English / abbreviations": "POC PCT",
+"Brands & analysers to look for": "ichroma PCT; AQT90 PCT; B·R·A·H·M·S PCT-Q; Getein",
+"Notes": null
+},
+{
+"Indicator code": "POCXZ",
+"Segment code": "2.10",
+"Segment name": "POC Others",
+"Spanish search keywords": "otras pruebas rápidas",
+"English / abbreviations": "POC others",
+"Brands & analysers to look for": null,
+"Notes": null
+},
+{
+"Indicator code": "PDOAB",
+"Segment code": "2.10.1",
+"Segment name": "Drug of Abuse",
+"Spanish search keywords": "prueba rápida de drogas; drogas de abuso en orina rápida; multidrogas panel; casete multidrogas; prueba de alcohol",
+"English / abbreviations": "DOA RDT",
+"Brands & analysers to look for": "Abbott (Alere) iCup; Wondfo; ACON; Premier",
+"Notes": "Also Policía Nacional / Medicina Legal / centros penales."
+},
+{
+"Indicator code": "PHCGT",
+"Segment code": "2.10.2",
+"Segment name": "Pregnancy",
+"Spanish search keywords": "prueba de embarazo; prueba rápida de embarazo; HCG en orina; beta HCG cualitativa; tira de embarazo",
+"English / abbreviations": "pregnancy test; hCG",
+"Brands & analysers to look for": "Various; ACON; Wondfo; Clearblue",
+"Notes": null
+},
+{
+"Indicator code": "POTXX",
+"Segment code": "2.10.3",
+"Segment name": "Others",
+"Spanish search keywords": "prueba rápida de Helicobacter; prueba rápida de toxoplasma; prueba rápida de tuberculosis; prueba rápida de leptospira; prueba rápida de troponina (general); otras pruebas rápidas",
+"English / abbreviations": "other POC",
+"Brands & analysers to look for": "Various",
+"Notes": null
+},
+{
+"Indicator code": "MDXZZ",
+"Segment code": "3",
+"Segment name": "Routine Molecular Diagnostics (MDx)",
+"Spanish search keywords": "biología molecular; diagnóstico molecular; PCR; reacción en cadena de la polimerasa; PCR en tiempo real; qPCR; RT-PCR; amplificación de ácidos nucleicos; NAAT; extracción de ácidos nucleicos; extracción de ADN/ARN; carga viral; genotipificación",
+"English / abbreviations": "molecular diagnostics; MDx; PCR",
+"Brands & analysers to look for": "Roche cobas 4800/5800/6800/8800 & Liat; Abbott m2000 / Alinity m; Cepheid GeneXpert; Hologic Panther; Qiagen; bioMérieux BioFire; Seegene; Bio-Rad CFX; Thermo QuantStudio; BD MAX; Altona",
+"Notes": "Laboratorio Nacional de Referencia (ES) and Laboratorio Nacional de Vigilancia (HN) are main buyers."
+},
+{
+"Indicator code": "MDXIZ",
+"Segment code": "3.1",
+"Segment name": "MDx Instruments",
+"Spanish search keywords": "termociclador; equipo de PCR en tiempo real; termociclador en tiempo real; extractor automatizado de ácidos nucleicos; plataforma molecular; analizador molecular; equipo GeneXpert; módulos GeneXpert; cabina de bioseguridad (PCR)",
+"English / abbreviations": "PCR instrument; thermocycler; extractor",
+"Brands & analysers to look for": "Roche cobas 5800/6800/z 480; Abbott m2000sp/rt / Alinity m; GeneXpert IV/XVI/Infinity; Panther; QuantStudio 5/7; CFX96 Opus; Rotor-Gene Q; QIAsymphony; MagNA Pure; KingFisher; BD MAX",
+"Notes": null
+},
+{
+"Indicator code": "NATZZ",
+"Segment code": "3.2",
+"Segment name": "Blood Screening (NAT)",
+"Spanish search keywords": "NAT; tamizaje molecular de donantes; pruebas de ácidos nucleicos en banco de sangre; NAT VIH VHC VHB; multiplex NAT donantes",
+"English / abbreviations": "blood screening NAT",
+"Brands & analysers to look for": "Roche cobas MPX / 6800; Grifols Procleix Panther; Abbott Alinity s NAT",
+"Notes": null
+},
+{
+"Indicator code": "HPVZZ",
+"Segment code": "3.3",
+"Segment name": "HPV",
+"Spanish search keywords": "virus del papiloma humano; VPH; HPV; prueba molecular de VPH; tamizaje de cáncer cervicouterino; tamizaje de cáncer de cérvix; detección de VPH de alto riesgo; autotoma VPH",
+"English / abbreviations": "HPV DNA test",
+"Brands & analysers to look for": "Roche cobas HPV; Hologic Aptima HPV; Qiagen careHPV / digene HC2; Cepheid Xpert HPV; BD Onclarity; Abbott RealTime HR HPV; Seegene Anyplex",
+"Notes": "Cervical cancer elimination programmes – PAHO Strategic Fund often buys HPV tests."
+},
+{
+"Indicator code": "HPVSZ",
+"Segment code": "3.3.1",
+"Segment name": "HPV Screening",
+"Spanish search keywords": "tamizaje VPH; VPH alto riesgo; detección de VPH; captura híbrida; prueba de VPH primaria; autotoma",
+"English / abbreviations": "HPV screening",
+"Brands & analysers to look for": "As HPVZZ",
+"Notes": null
+},
+{
+"Indicator code": "HPVCZ",
+"Segment code": "3.3.2",
+"Segment name": "HPV Genotyping",
+"Spanish search keywords": "genotipificación de VPH; genotipos VPH 16 y 18; tipificación de VPH; VPH 16/18/45",
+"English / abbreviations": "HPV genotyping",
+"Brands & analysers to look for": "As HPVZZ; Seegene; Anyplex",
+"Notes": null
+},
+{
+"Indicator code": "MSTDZ",
+"Segment code": "3.4",
+"Segment name": "STD",
+"Spanish search keywords": "infecciones de transmisión sexual molecular; PCR de ITS; panel de ITS molecular",
+"English / abbreviations": "STD molecular",
+"Brands & analysers to look for": "As MDXZZ",
+"Notes": null
+},
+{
+"Indicator code": "MCTNZ",
+"Segment code": "3.4.1",
+"Segment name": "CT/NG",
+"Spanish search keywords": "Chlamydia trachomatis y Neisseria gonorrhoeae PCR; CT/NG molecular; clamidia gonorrea PCR; Xpert CT/NG",
+"English / abbreviations": "CT/NG NAAT",
+"Brands & analysers to look for": "Cepheid Xpert CT/NG; Roche cobas CT/NG; Hologic Aptima Combo 2; Abbott; BD",
+"Notes": null
+},
+{
+"Indicator code": "MCTNL",
+"Segment code": "3.4.1.1",
+"Segment name": "Lab",
+"Spanish search keywords": "clamidia gonorrea PCR laboratorio",
+"English / abbreviations": "CT/NG – lab",
+"Brands & analysers to look for": null,
+"Notes": "Lab version: same keywords + \"laboratorio\", \"automatizado\", \"analizador\", \"plataforma\"."
+},
+{
+"Indicator code": "MCTNP",
+"Segment code": "3.4.1.2",
+"Segment name": "POC",
+"Spanish search keywords": "clamidia gonorrea prueba molecular rápida",
+"English / abbreviations": "CT/NG – POC",
+"Brands & analysers to look for": null,
+"Notes": "POC version: same keywords + \"punto de atención\", \"prueba rápida molecular\", \"cartucho\", \"GeneXpert\", \"ID NOW\", \"cobas Liat\", \"BioFire Spotfire\"."
+},
+{
+"Indicator code": "MSTDX",
+"Segment code": "3.4.2",
+"Segment name": "Other STD",
+"Spanish search keywords": "Trichomonas vaginalis PCR; Mycoplasma genitalium PCR; herpes genital PCR; sífilis PCR; vaginosis molecular",
+"English / abbreviations": "other STD NAAT",
+"Brands & analysers to look for": "Cepheid Xpert TV; Hologic Aptima TV / MG; Seegene STI panels",
+"Notes": null
+},
+{
+"Indicator code": "MSTXL",
+"Segment code": "3.4.2.1",
+"Segment name": "Lab",
+"Spanish search keywords": "otras ITS PCR laboratorio",
+"English / abbreviations": "other STD – lab",
+"Brands & analysers to look for": null,
+"Notes": "Lab version: same keywords + \"laboratorio\", \"automatizado\", \"analizador\", \"plataforma\"."
+},
+{
+"Indicator code": "MSTXP",
+"Segment code": "3.4.2.2",
+"Segment name": "POC",
+"Spanish search keywords": "otras ITS prueba molecular rápida",
+"English / abbreviations": "other STD – POC",
+"Brands & analysers to look for": null,
+"Notes": "POC version: same keywords + \"punto de atención\", \"prueba rápida molecular\", \"cartucho\", \"GeneXpert\", \"ID NOW\", \"cobas Liat\", \"BioFire Spotfire\"."
+},
+{
+"Indicator code": "MBACT",
+"Segment code": "3.5",
+"Segment name": "Bacteriology",
+"Spanish search keywords": "bacteriología molecular; PCR bacteriana; detección molecular de bacterias; resistencia antimicrobiana molecular",
+"English / abbreviations": "bacteriology NAAT",
+"Brands & analysers to look for": "As MDXZZ",
+"Notes": null
+},
+{
+"Indicator code": "MTBZZ",
+"Segment code": "3.5.1",
+"Segment name": "MTB",
+"Spanish search keywords": "tuberculosis molecular; Xpert MTB/RIF; Xpert MTB/RIF Ultra; Xpert MTB/XDR; cartuchos GeneXpert; detección molecular de Mycobacterium tuberculosis; resistencia a rifampicina; LPA; line probe assay; GenoType MTBDRplus; Truenat",
+"English / abbreviations": "MTB NAAT; Xpert MTB/RIF",
+"Brands & analysers to look for": "Cepheid GeneXpert; Hain/Bruker GenoType; Molbio Truenat; Roche cobas MTB; Abbott RealTime MTB",
+"Notes": "Check Global Fund / GDF (Global Drug Facility via Stop TB) purchases."
+},
+{
+"Indicator code": "MTBLZ",
+"Segment code": "3.5.1.1",
+"Segment name": "Lab",
+"Spanish search keywords": "tuberculosis PCR laboratorio",
+"English / abbreviations": "MTB – lab",
+"Brands & analysers to look for": null,
+"Notes": "Lab version: same keywords + \"laboratorio\", \"automatizado\", \"analizador\", \"plataforma\"."
+},
+{
+"Indicator code": "MTBPZ",
+"Segment code": "3.5.1.2",
+"Segment name": "POC",
+"Spanish search keywords": "tuberculosis prueba molecular en punto de atención; GeneXpert Edge; Truenat",
+"English / abbreviations": "MTB – POC",
+"Brands & analysers to look for": null,
+"Notes": "POC version: same keywords + \"punto de atención\", \"prueba rápida molecular\", \"cartucho\", \"GeneXpert\", \"ID NOW\", \"cobas Liat\", \"BioFire Spotfire\"."
+},
+{
+"Indicator code": "MHAIZ",
+"Segment code": "3.5.2",
+"Segment name": "Hospital Acquired Infections",
+"Spanish search keywords": "infecciones asociadas a la atención en salud; IAAS; infecciones nosocomiales PCR; vigilancia de resistencias; carbapenemasas PCR; KPC; NDM",
+"English / abbreviations": "HAI NAAT",
+"Brands & analysers to look for": "Cepheid Xpert Carba-R / MRSA / C. diff; BD MAX; BioFire",
+"Notes": null
+},
+{
+"Indicator code": "CDIFF",
+"Segment code": "3.5.2.1",
+"Segment name": "C. difficile",
+"Spanish search keywords": "Clostridioides difficile PCR; Clostridium difficile toxina B PCR; C. difficile molecular",
+"English / abbreviations": "C. difficile NAAT",
+"Brands & analysers to look for": "Cepheid Xpert C. difficile; BD MAX Cdiff; Hologic",
+"Notes": null
+},
+{
+"Indicator code": "HAIXX",
+"Segment code": "3.5.2.2",
+"Segment name": "Others",
+"Spanish search keywords": "carbapenemasas PCR; KPC; NDM; VIM; OXA-48; Xpert Carba-R; enterococo resistente a vancomicina PCR; VRE; Candida auris PCR",
+"English / abbreviations": "other HAI NAAT",
+"Brands & analysers to look for": "Cepheid Xpert Carba-R / vanA/vanB; BD MAX; Seegene",
+"Notes": null
+},
+{
+"Indicator code": "MMRSA",
+"Segment code": "3.5.2.3",
+"Segment name": "MRSA",
+"Spanish search keywords": "Staphylococcus aureus resistente a meticilina PCR; SARM; MRSA PCR; Xpert MRSA; Xpert SA Nasal",
+"English / abbreviations": "MRSA NAAT",
+"Brands & analysers to look for": "Cepheid Xpert MRSA NxG / SA Complete; BD MAX MRSA",
+"Notes": null
+},
+{
+"Indicator code": "MGABS",
+"Segment code": "3.5.3",
+"Segment name": "GAS and GBS",
+"Spanish search keywords": "estreptococo grupo A PCR; estreptococo grupo B PCR; Streptococcus agalactiae molecular; Xpert GBS; Xpert Xpress Strep A",
+"English / abbreviations": "GAS/GBS NAAT",
+"Brands & analysers to look for": "Cepheid Xpert GBS / Strep A; Abbott ID NOW Strep A; BD MAX GBS; Hologic",
+"Notes": null
+},
+{
+"Indicator code": "VIRZZ",
+"Segment code": "3.6",
+"Segment name": "Virology",
+"Spanish search keywords": "virología molecular; carga viral; PCR viral; genotipificación viral",
+"English / abbreviations": "virology NAAT",
+"Brands & analysers to look for": "As MDXZZ",
+"Notes": null
+},
+{
+"Indicator code": "MHCVZ",
+"Segment code": "3.6.1",
+"Segment name": "HCV",
+"Spanish search keywords": "hepatitis C molecular; VHC PCR; ARN VHC",
+"English / abbreviations": "HCV NAAT",
+"Brands & analysers to look for": "Roche cobas HCV; Abbott RealTime HCV / Alinity m; Cepheid Xpert HCV VL / VL Fingerstick",
+"Notes": null
+},
+{
+"Indicator code": "MHCVQ",
+"Segment code": "3.6.1.1",
+"Segment name": "HCV Qual",
+"Spanish search keywords": "VHC cualitativo PCR; ARN de hepatitis C cualitativo; detección de ARN VHC",
+"English / abbreviations": "HCV qualitative",
+"Brands & analysers to look for": "As MHCVZ",
+"Notes": null
+},
+{
+"Indicator code": "MHCVV",
+"Segment code": "3.6.1.2",
+"Segment name": "HCV Viral Load",
+"Spanish search keywords": "carga viral de hepatitis C; carga viral VHC; cuantificación de ARN VHC",
+"English / abbreviations": "HCV viral load",
+"Brands & analysers to look for": "As MHCVZ",
+"Notes": null
+},
+{
+"Indicator code": "MHCVG",
+"Segment code": "3.6.1.3",
+"Segment name": "HCV Genotyping",
+"Spanish search keywords": "genotipificación de hepatitis C; genotipo VHC",
+"English / abbreviations": "HCV genotyping",
+"Brands & analysers to look for": "Abbott RealTime HCV Genotype II; Siemens Versant LiPA",
+"Notes": null
+},
+{
+"Indicator code": "MHBVZ",
+"Segment code": "3.6.2",
+"Segment name": "HBV",
+"Spanish search keywords": "hepatitis B molecular; VHB PCR; ADN VHB",
+"English / abbreviations": "HBV NAAT",
+"Brands & analysers to look for": "Roche cobas HBV; Abbott RealTime HBV; Cepheid Xpert HBV VL",
+"Notes": null
+},
+{
+"Indicator code": "MHBVQ",
+"Segment code": "3.6.2.1",
+"Segment name": "HBV Qual",
+"Spanish search keywords": "VHB cualitativo PCR; ADN de hepatitis B cualitativo",
+"English / abbreviations": "HBV qualitative",
+"Brands & analysers to look for": "As MHBVZ",
+"Notes": null
+},
+{
+"Indicator code": "MHBVV",
+"Segment code": "3.6.2.2",
+"Segment name": "HBV Viral Load",
+"Spanish search keywords": "carga viral de hepatitis B; carga viral VHB; cuantificación ADN VHB",
+"English / abbreviations": "HBV viral load",
+"Brands & analysers to look for": "As MHBVZ",
+"Notes": null
+},
+{
+"Indicator code": "MHBVG",
+"Segment code": "3.6.2.3",
+"Segment name": "HBV Genotyping",
+"Spanish search keywords": "genotipificación de hepatitis B; genotipo VHB; mutaciones de resistencia VHB",
+"English / abbreviations": "HBV genotyping",
+"Brands & analysers to look for": "Various",
+"Notes": null
+},
+{
+"Indicator code": "MHIVZ",
+"Segment code": "3.6.3",
+"Segment name": "HIV",
+"Spanish search keywords": "VIH molecular; PCR VIH; ARN VIH; ADN proviral VIH",
+"English / abbreviations": "HIV NAAT",
+"Brands & analysers to look for": "Roche cobas HIV-1 (5800/6800/8800 & Liat); Abbott RealTime HIV-1 / Alinity m; Cepheid Xpert HIV-1 VL / Qual; Hologic Aptima HIV-1",
+"Notes": "Global Fund / PEPFAR / PAHO; national HIV programme (Programa Nacional de ITS/VIH)."
+},
+{
+"Indicator code": "MHIVQ",
+"Segment code": "3.6.3.1",
+"Segment name": "HIV Qual",
+"Spanish search keywords": "VIH cualitativo PCR; diagnóstico infantil temprano; DIT; diagnóstico temprano en lactantes; PCR VIH en recién nacidos; ADN proviral",
+"English / abbreviations": "HIV qualitative; EID",
+"Brands & analysers to look for": "Cepheid Xpert HIV-1 Qual; Roche cobas HIV-1/2 Qual; Abbott m-PIMA",
+"Notes": null
+},
+{
+"Indicator code": "HIVQL",
+"Segment code": "3.6.3.1.1",
+"Segment name": "Lab",
+"Spanish search keywords": "VIH cualitativo PCR laboratorio",
+"English / abbreviations": "HIV qual – lab",
+"Brands & analysers to look for": null,
+"Notes": "Lab version: same keywords + \"laboratorio\", \"automatizado\", \"analizador\", \"plataforma\"."
+},
+{
+"Indicator code": "HIVQP",
+"Segment code": "3.6.3.1.2",
+"Segment name": "POC",
+"Spanish search keywords": "VIH cualitativo prueba molecular en punto de atención; m-PIMA; Xpert HIV-1 Qual",
+"English / abbreviations": "HIV qual – POC",
+"Brands & analysers to look for": null,
+"Notes": "POC version: same keywords + \"punto de atención\", \"prueba rápida molecular\", \"cartucho\", \"GeneXpert\", \"ID NOW\", \"cobas Liat\", \"BioFire Spotfire\"."
+},
+{
+"Indicator code": "MHIVV",
+"Segment code": "3.6.3.2",
+"Segment name": "HIV Viral Load",
+"Spanish search keywords": "carga viral de VIH; carga viral VIH-1; cuantificación de ARN VIH; supresión viral",
+"English / abbreviations": "HIV viral load",
+"Brands & analysers to look for": "As MHIVZ",
+"Notes": null
+},
+{
+"Indicator code": "HIVVL",
+"Segment code": "3.6.3.2.1",
+"Segment name": "Lab",
+"Spanish search keywords": "carga viral VIH laboratorio",
+"English / abbreviations": "HIV VL – lab",
+"Brands & analysers to look for": null,
+"Notes": "Lab version: same keywords + \"laboratorio\", \"automatizado\", \"analizador\", \"plataforma\"."
+},
+{
+"Indicator code": "HIVVP",
+"Segment code": "3.6.3.2.2",
+"Segment name": "POC",
+"Spanish search keywords": "carga viral VIH en punto de atención; carga viral rápida",
+"English / abbreviations": "HIV VL – POC",
+"Brands & analysers to look for": null,
+"Notes": "POC version: same keywords + \"punto de atención\", \"prueba rápida molecular\", \"cartucho\", \"GeneXpert\", \"ID NOW\", \"cobas Liat\", \"BioFire Spotfire\". Also m-PIMA HIV-1/2 VL."
+},
+{
+"Indicator code": "MHIVG",
+"Segment code": "3.6.3.3",
+"Segment name": "HIV Genotyping",
+"Spanish search keywords": "genotipificación de VIH; resistencia a antirretrovirales; prueba de resistencia VIH; secuenciación VIH",
+"English / abbreviations": "HIV genotyping / drug resistance",
+"Brands & analysers to look for": "Thermo/ABI; Siemens TruGene; Illumina; Vela",
+"Notes": null
+},
+{
+"Indicator code": "MRESP",
+"Segment code": "3.6.4",
+"Segment name": "Respiratory",
+"Spanish search keywords": "virus respiratorios PCR; panel respiratorio PCR; PCR influenza; vigilancia de virus respiratorios",
+"English / abbreviations": "respiratory NAAT",
+"Brands & analysers to look for": "As MDXZZ; CDC Flu kits",
+"Notes": "Vigilancia centinela de IRAG/ETI (PAHO-supported)."
+},
+{
+"Indicator code": "MFLUA",
+"Segment code": "3.6.4.1",
+"Segment name": "Influenza (A/B)",
+"Spanish search keywords": "influenza A y B PCR; influenza molecular; RT-PCR influenza; subtipificación de influenza; H1N1; H3N2; H5N1",
+"English / abbreviations": "influenza A/B NAAT",
+"Brands & analysers to look for": "Cepheid Xpert Xpress Flu/RSV; Roche cobas Liat; Abbott ID NOW Flu; CDC Flu RT-PCR kits",
+"Notes": null
+},
+{
+"Indicator code": "MFLUL",
+"Segment code": "3.6.4.1.1",
+"Segment name": "Lab",
+"Spanish search keywords": "influenza PCR laboratorio",
+"English / abbreviations": "influenza – lab",
+"Brands & analysers to look for": null,
+"Notes": "Lab version: same keywords + \"laboratorio\", \"automatizado\", \"analizador\", \"plataforma\"."
+},
+{
+"Indicator code": "MFLUP",
+"Segment code": "3.6.4.1.2",
+"Segment name": "POC",
+"Spanish search keywords": "influenza prueba molecular rápida",
+"English / abbreviations": "influenza – POC",
+"Brands & analysers to look for": null,
+"Notes": "POC version: same keywords + \"punto de atención\", \"prueba rápida molecular\", \"cartucho\", \"GeneXpert\", \"ID NOW\", \"cobas Liat\", \"BioFire Spotfire\"."
+},
+{
+"Indicator code": "MRSVZ",
+"Segment code": "3.6.4.2",
+"Segment name": "RSV",
+"Spanish search keywords": "virus sincitial respiratorio PCR; VSR molecular; RSV PCR",
+"English / abbreviations": "RSV NAAT",
+"Brands & analysers to look for": "As MFLUA",
+"Notes": null
+},
+{
+"Indicator code": "MRSVL",
+"Segment code": "3.6.4.2.1",
+"Segment name": "Lab",
+"Spanish search keywords": "VSR PCR laboratorio",
+"English / abbreviations": "RSV – lab",
+"Brands & analysers to look for": null,
+"Notes": "Lab version: same keywords + \"laboratorio\", \"automatizado\", \"analizador\", \"plataforma\"."
+},
+{
+"Indicator code": "MRSVP",
+"Segment code": "3.6.4.2.2",
+"Segment name": "POC",
+"Spanish search keywords": "VSR prueba molecular rápida",
+"English / abbreviations": "RSV – POC",
+"Brands & analysers to look for": null,
+"Notes": "POC version: same keywords + \"punto de atención\", \"prueba rápida molecular\", \"cartucho\", \"GeneXpert\", \"ID NOW\", \"cobas Liat\", \"BioFire Spotfire\"."
+},
+{
+"Indicator code": "MADNZ",
+"Segment code": "3.6.4.3",
+"Segment name": "Adenovirus",
+"Spanish search keywords": "adenovirus PCR; adenovirus molecular",
+"English / abbreviations": "adenovirus NAAT",
+"Brands & analysers to look for": "Various; Seegene; Altona",
+"Notes": null
+},
+{
+"Indicator code": "MADNL",
+"Segment code": "3.6.4.3.1",
+"Segment name": "Lab",
+"Spanish search keywords": "adenovirus PCR laboratorio",
+"English / abbreviations": "adenovirus – lab",
+"Brands & analysers to look for": null,
+"Notes": "Lab version: same keywords + \"laboratorio\", \"automatizado\", \"analizador\", \"plataforma\"."
+},
+{
+"Indicator code": "MADNP",
+"Segment code": "3.6.4.3.2",
+"Segment name": "POC",
+"Spanish search keywords": "adenovirus prueba molecular rápida",
+"English / abbreviations": "adenovirus – POC",
+"Brands & analysers to look for": null,
+"Notes": "POC version: same keywords + \"punto de atención\", \"prueba rápida molecular\", \"cartucho\", \"GeneXpert\", \"ID NOW\", \"cobas Liat\", \"BioFire Spotfire\"."
+},
+{
+"Indicator code": "MCOVD",
+"Segment code": "3.6.4.4",
+"Segment name": "Sars-Cov2",
+"Spanish search keywords": "SARS-CoV-2 PCR; COVID-19 RT-PCR; prueba PCR COVID; kits de PCR COVID; extracción de ARN; hisopos y medio de transporte viral",
+"English / abbreviations": "SARS-CoV-2 PCR",
+"Brands & analysers to look for": "Roche cobas SARS-CoV-2; Abbott; Cepheid Xpress SARS-CoV-2; Seegene Allplex; Thermo TaqPath; Sansure; BGI; Da An",
+"Notes": "Peak 2020–2022 – emergency purchases."
+},
+{
+"Indicator code": "MCOVL",
+"Segment code": "3.6.4.4.1",
+"Segment name": "Lab",
+"Spanish search keywords": "PCR COVID laboratorio",
+"English / abbreviations": "SARS-CoV-2 – lab",
+"Brands & analysers to look for": null,
+"Notes": "Lab version: same keywords + \"laboratorio\", \"automatizado\", \"analizador\", \"plataforma\"."
+},
+{
+"Indicator code": "MCOVP",
+"Segment code": "3.6.4.4.2",
+"Segment name": "POC",
+"Spanish search keywords": "PCR COVID prueba molecular rápida",
+"English / abbreviations": "SARS-CoV-2 – POC",
+"Brands & analysers to look for": null,
+"Notes": "POC version: same keywords + \"punto de atención\", \"prueba rápida molecular\", \"cartucho\", \"GeneXpert\", \"ID NOW\", \"cobas Liat\", \"BioFire Spotfire\"."
+},
+{
+"Indicator code": "MHERP",
+"Segment code": "3.6.5",
+"Segment name": "Herpes",
+"Spanish search keywords": "herpes simple PCR; VHS-1; VHS-2; varicela zóster PCR; citomegalovirus PCR (diagnóstico); virus de Epstein-Barr PCR",
+"English / abbreviations": "herpes NAAT",
+"Brands & analysers to look for": "Various; Altona RealStar; Qiagen artus",
+"Notes": null
+},
+{
+"Indicator code": "MVIRX",
+"Segment code": "3.6.6",
+"Segment name": "Others",
+"Spanish search keywords": "otros virus PCR",
+"English / abbreviations": "other virology",
+"Brands & analysers to look for": "As MDXZZ",
+"Notes": null
+},
+{
+"Indicator code": "MVIRF",
+"Segment code": "3.6.6.1",
+"Segment name": "Tropical fever",
+"Spanish search keywords": "fiebres tropicales PCR; arbovirus PCR; zika PCR; chikungunya PCR; fiebre amarilla PCR; trioplex; leptospira PCR; Oropouche PCR",
+"English / abbreviations": "tropical fever NAAT",
+"Brands & analysers to look for": "CDC Trioplex; Altona RealStar; Bio-Manguinhos ZDC; Seegene",
+"Notes": null
+},
+{
+"Indicator code": "PTRAN",
+"Segment code": "3.6.6.2",
+"Segment name": "Transplant",
+"Spanish search keywords": "trasplante; carga viral citomegalovirus; CMV cuantitativo; BK virus; virus Epstein-Barr cuantitativo; monitoreo post trasplante",
+"English / abbreviations": "transplant virology (CMV/EBV/BKV)",
+"Brands & analysers to look for": "Roche cobas CMV / BKV / EBV; Abbott Alinity m CMV / EBV; Qiagen artus; Altona",
+"Notes": null
+},
+{
+"Indicator code": "MDENG",
+"Segment code": "3.6.6.3",
+"Segment name": "PCR Dengue",
+"Spanish search keywords": "dengue PCR; dengue RT-PCR; serotipificación de dengue; DENV 1-4; detección molecular de dengue",
+"English / abbreviations": "dengue PCR",
+"Brands & analysers to look for": "CDC DENV-1-4 RT-PCR; Altona RealStar Dengue; Bio-Manguinhos",
+"Notes": null
+},
+{
+"Indicator code": "MGAST",
+"Segment code": "3.7",
+"Segment name": "Gastrointestinal",
+"Spanish search keywords": "patógenos gastrointestinales PCR; norovirus PCR; rotavirus PCR; Salmonella PCR; Shigella PCR; Campylobacter PCR; E. coli diarreogénica; Vibrio cholerae PCR",
+"English / abbreviations": "GI NAAT",
+"Brands & analysers to look for": "Cepheid Xpert Norovirus; BD MAX Enteric; Seegene",
+"Notes": null
+},
+{
+"Indicator code": "MPANL",
+"Segment code": "3.8",
+"Segment name": "Panels (>2 targets)",
+"Spanish search keywords": "paneles multiplex; panel sindrómico; PCR múltiple; FilmArray; panel multiplex",
+"English / abbreviations": "syndromic panels; multiplex",
+"Brands & analysers to look for": "bioMérieux BioFire FilmArray / Spotfire; Qiagen QIAstat-Dx; Seegene Allplex; Luminex NxTAG; Roche cobas eplex (GenMark)",
+"Notes": null
+},
+{
+"Indicator code": "PMENI",
+"Segment code": "3.8.1",
+"Segment name": "Meningitis panel",
+"Spanish search keywords": "panel de meningitis/encefalitis; panel ME; meningitis PCR; líquido cefalorraquídeo PCR multiplex",
+"English / abbreviations": "meningitis/encephalitis panel",
+"Brands & analysers to look for": "BioFire ME; QIAstat-Dx ME",
+"Notes": null
+},
+{
+"Indicator code": "PGAST",
+"Segment code": "3.8.2",
+"Segment name": "Gastrointestinal panel",
+"Spanish search keywords": "panel gastrointestinal; panel GI; panel de diarreas PCR multiplex",
+"English / abbreviations": "GI panel",
+"Brands & analysers to look for": "BioFire GI; QIAstat-Dx GI; Seegene Allplex GI; BD MAX",
+"Notes": null
+},
+{
+"Indicator code": "PRESP",
+"Segment code": "3.8.3",
+"Segment name": "Respiratory panel",
+"Spanish search keywords": "panel respiratorio; panel respiratorio multiplex; panel respiratorio 2.1; panel neumonía; RP2.1",
+"English / abbreviations": "respiratory panel; pneumonia panel",
+"Brands & analysers to look for": "BioFire RP2.1 / Pneumonia; QIAstat-Dx Respiratory; Allplex RV; ePlex RP",
+"Notes": null
+},
+{
+"Indicator code": "PSTDP",
+"Segment code": "3.8.4",
+"Segment name": "STD panel",
+"Spanish search keywords": "panel de ITS multiplex; panel de infecciones de transmisión sexual; STI panel",
+"English / abbreviations": "STD panel",
+"Brands & analysers to look for": "Seegene Allplex STI; BD MAX",
+"Notes": null
+},
+{
+"Indicator code": "PBCID",
+"Segment code": "3.8.5",
+"Segment name": "Blood culture identification panel",
+"Spanish search keywords": "panel de identificación de hemocultivo; BCID; identificación rápida de hemocultivo positivo; genes de resistencia",
+"English / abbreviations": "blood culture ID panel",
+"Brands & analysers to look for": "BioFire BCID2; ePlex BCID; Accelerate Pheno",
+"Notes": null
+},
+{
+"Indicator code": "GOCZZ",
+"Segment code": "3.9",
+"Segment name": "Genetics, Oncology & Coagulation",
+"Spanish search keywords": "genética molecular; oncología molecular; farmacogenética; mutaciones",
+"English / abbreviations": "genetics, oncology & coagulation molecular",
+"Brands & analysers to look for": "As MDXZZ; Qiagen therascreen; Roche cobas mutation tests",
+"Notes": null
+},
+{
+"Indicator code": "MGENZ",
+"Segment code": "3.9.1",
+"Segment name": "Genetics",
+"Spanish search keywords": "genética; pruebas genéticas; estudios genéticos; cariotipo molecular; fibrosis quística; X frágil; HLA molecular; tipificación HLA; trombofilia genética; enfermedades hereditarias; tamizaje neonatal molecular",
+"English / abbreviations": "genetics; HLA typing",
+"Brands & analysers to look for": "One Lambda; Immucor (HLA); Qiagen; Vela; Bio-Rad",
+"Notes": null
+},
+{
+"Indicator code": "MONCZ",
+"Segment code": "3.9.2",
+"Segment name": "Oncology",
+"Spanish search keywords": "oncología molecular; mutaciones somáticas; biomarcadores oncológicos; biopsia líquida; BCR-ABL; translocación; reordenamiento",
+"English / abbreviations": "oncology molecular",
+"Brands & analysers to look for": "Qiagen therascreen; Roche cobas EGFR/KRAS/BRAF; Biocartis Idylla; Cepheid Xpert BCR-ABL",
+"Notes": null
+},
+{
+"Indicator code": "MKRAS",
+"Segment code": "3.9.2.1",
+"Segment name": "KRAS",
+"Spanish search keywords": "KRAS; mutación KRAS; KRAS cáncer colorrectal; NRAS; RAS",
+"English / abbreviations": "KRAS",
+"Brands & analysers to look for": "Qiagen therascreen KRAS; Idylla KRAS/NRAS-BRAF; cobas KRAS",
+"Notes": null
+},
+{
+"Indicator code": "MEGFR",
+"Segment code": "3.9.2.2",
+"Segment name": "EGFR",
+"Spanish search keywords": "EGFR; mutación EGFR; EGFR cáncer de pulmón; T790M; biopsia líquida EGFR",
+"English / abbreviations": "EGFR",
+"Brands & analysers to look for": "Roche cobas EGFR v2; Qiagen therascreen EGFR; Idylla EGFR",
+"Notes": null
+},
+{
+"Indicator code": "MBRAF",
+"Segment code": "3.9.2.3",
+"Segment name": "BRAF",
+"Spanish search keywords": "BRAF; mutación BRAF V600; BRAF melanoma",
+"English / abbreviations": "BRAF",
+"Brands & analysers to look for": "Roche cobas BRAF V600; Idylla BRAF; Qiagen",
+"Notes": null
+},
+{
+"Indicator code": "MONCX",
+"Segment code": "3.9.2.4",
+"Segment name": "Others",
+"Spanish search keywords": "BCR-ABL; cromosoma Filadelfia; JAK2 V617F; FLT3; NPM1; PML-RARA; ALK; ROS1; PIK3CA; MSI; BRCA1/2 PCR",
+"English / abbreviations": "other oncology molecular",
+"Brands & analysers to look for": "Cepheid Xpert BCR-ABL Ultra; Qiagen ipsogen; Idylla",
+"Notes": null
+},
+{
+"Indicator code": "MCOAG",
+"Segment code": "3.9.3",
+"Segment name": "Coagulation",
+"Spanish search keywords": "factor V Leiden; mutación de protrombina G20210A; MTHFR; trombofilia molecular",
+"English / abbreviations": "coagulation molecular",
+"Brands & analysers to look for": "Cepheid Xpert FII & FV; Vienna Lab; Seegene",
+"Notes": null
+},
+{
+"Indicator code": "MLDTZ",
+"Segment code": "3.10",
+"Segment name": "LDT (for qPCR)",
+"Spanish search keywords": "reactivos para PCR; master mix; primers; sondas; oligonucleótidos; enzimas de PCR; transcriptasa reversa; kits de extracción; reactivos de investigación molecular; pruebas desarrolladas en laboratorio",
+"English / abbreviations": "LDT; qPCR reagents; master mix; primers/probes",
+"Brands & analysers to look for": "Thermo Fisher (TaqMan, SuperScript); Qiagen; Bio-Rad; Promega; IDT; Roche LightCycler",
+"Notes": "Laboratorio Nacional de Referencia/Vigilancia, universities (UES, UNAH) – tag research separately."
+},
+{
+"Indicator code": "MNAPZ",
+"Segment code": "3.11",
+"Segment name": "NAP",
+"Spanish search keywords": "amplificación isotérmica; LAMP; pruebas de amplificación de ácidos nucleicos no PCR; TMA; NASBA",
+"English / abbreviations": "NAP / isothermal amplification",
+"Brands & analysers to look for": "Eiken Loopamp; Abbott ID NOW; Hologic TMA",
+"Notes": null
+},
+{
+"Indicator code": "TDXZZ",
+"Segment code": "4",
+"Segment name": "Tissue Diagnostics (TDx)",
+"Spanish search keywords": "patología; anatomía patológica; histopatología; citología; histotecnología; laboratorio de patología; inmunohistoquímica; biopsias; diagnóstico tisular",
+"English / abbreviations": "tissue diagnostics; pathology; histology",
+"Brands & analysers to look for": "Roche Ventana; Agilent Dako; Leica Biosystems; Sakura; Thermo Fisher (Epredia); Biocare; Bio SB; Cell Marque; Diagnostic BioSystems",
+"Notes": "Buyers: servicios de patología de hospitales nacionales, Hospital Rosales / Hospital de la Mujer (ES), Hospital Escuela (HN), ISSS/IHSS."
+},
+{
+"Indicator code": "TDPRE",
+"Segment code": "4.1",
+"Segment name": "Pre-analytical",
+"Spanish search keywords": "procesador de tejidos; procesamiento de tejidos; inclusión en parafina; centro de inclusión; parafina; micrótomo; criostato; cuchillas de micrótomo; casetes de inclusión; portaobjetos; cubreobjetos; formol; formalina; xilol; alcohol para histología; fijación",
+"English / abbreviations": "pre-analytical: tissue processing, embedding, microtomy",
+"Brands & analysers to look for": "Leica (Peloris, HistoCore, ASP); Sakura Tissue-Tek (VIP, Xpress, TEC); Thermo/Epredia (Excelsior); Milestone",
+"Notes": null
+},
+{
+"Indicator code": "TDPRS",
+"Segment code": "4.2",
+"Segment name": "Primary Staining",
+"Spanish search keywords": "tinción primaria; tinción de rutina; hematoxilina y eosina; coloraciones",
+"English / abbreviations": "primary staining",
+"Brands & analysers to look for": "As TDXZZ",
+"Notes": null
+},
+{
+"Indicator code": "HNEZZ",
+"Segment code": "4.2.1",
+"Segment name": "H&E",
+"Spanish search keywords": "hematoxilina y eosina; H&E; tinción H-E; hematoxilina; eosina; Papanicolaou; tinción de Papanicolaou; citología cervical",
+"English / abbreviations": "H&E staining",
+"Brands & analysers to look for": "Leica; Sakura; Roche Ventana HE 600; Thermo/Epredia; Merck",
+"Notes": "Pap stains (citología) often tendered with cervical cancer programme."
+},
+{
+"Indicator code": "HNEIZ",
+"Segment code": "4.2.1.1",
+"Segment name": "H&E Instruments",
+"Spanish search keywords": "teñidor automático de láminas; coloreador automático; teñidor y montador de láminas; cubreobjetos automático; montador de láminas",
+"English / abbreviations": "H&E stainer; coverslipper",
+"Brands & analysers to look for": "Leica ST5010/ST5020/HistoCore SPECTRA; Sakura Tissue-Tek Prisma / Film; Roche Ventana HE 600; Thermo Gemini",
+"Notes": null
+},
+{
+"Indicator code": "HNERZ",
+"Segment code": "4.2.1.2",
+"Segment name": "H&E Reagents",
+"Spanish search keywords": "hematoxilina de Harris; hematoxilina de Mayer; eosina Y; floxina; reactivos de tinción H&E; medio de montaje; resina de montaje; Bálsamo",
+"English / abbreviations": "H&E reagents",
+"Brands & analysers to look for": "As HNEZZ",
+"Notes": null
+},
+{
+"Indicator code": "HNERM",
+"Segment code": "4.2.1.2.1",
+"Segment name": "Manual",
+"Spanish search keywords": "tinción manual hematoxilina eosina; colorantes para tinción manual; batería de tinción",
+"English / abbreviations": "H&E manual reagents",
+"Brands & analysers to look for": "Merck; Sigma; local",
+"Notes": null
+},
+{
+"Indicator code": "HNERA",
+"Segment code": "4.2.1.2.2",
+"Segment name": "Automated",
+"Spanish search keywords": "reactivos para teñidor automático; reactivos H&E automatizados; kits de tinción automatizada",
+"English / abbreviations": "H&E automated reagents",
+"Brands & analysers to look for": "Leica; Sakura; Roche Ventana",
+"Notes": null
+},
+{
+"Indicator code": "TDXSS",
+"Segment code": "4.2.2",
+"Segment name": "Special Stains",
+"Spanish search keywords": "tinciones especiales; coloraciones especiales; PAS; tricrómico de Masson; Ziehl-Neelsen tejido; Grocott; plata metenamina; reticulina; hierro de Perls; azul alcián; Giemsa; Gram tisular; rojo Congo; Warthin-Starry",
+"English / abbreviations": "special stains",
+"Brands & analysers to look for": "Roche Ventana BenchMark Special Stains; Leica; Dako Artisan; Bio-Optica; Merck",
+"Notes": null
+},
+{
+"Indicator code": "TDXSI",
+"Segment code": "4.2.2.1",
+"Segment name": "Instruments",
+"Spanish search keywords": "teñidor automático de tinciones especiales; equipo de coloraciones especiales",
+"English / abbreviations": "special stains instrument",
+"Brands & analysers to look for": "Ventana BenchMark Special Stains; Dako Artisan Link Pro",
+"Notes": null
+},
+{
+"Indicator code": "TDXSR",
+"Segment code": "4.2.2.2",
+"Segment name": "Reagents",
+"Spanish search keywords": "kits de tinciones especiales; reactivos de coloración especial",
+"English / abbreviations": "special stains reagents",
+"Brands & analysers to look for": "As TDXSS",
+"Notes": null
+},
+{
+"Indicator code": "ADSTZ",
+"Segment code": "4.3",
+"Segment name": "Advanced Staining",
+"Spanish search keywords": "inmunohistoquímica; IHQ; hibridación in situ; ISH; FISH; CISH; SISH; tinción avanzada; anticuerpos para inmunohistoquímica",
+"English / abbreviations": "advanced staining; IHC; ISH",
+"Brands & analysers to look for": "Roche Ventana; Agilent Dako; Leica Bond; Biocare; Bio SB; Cell Marque; Zytovision; Abbott Molecular (Vysis FISH)",
+"Notes": null
+},
+{
+"Indicator code": "ADSTI",
+"Segment code": "4.3.1",
+"Segment name": "Advanced Staining Instruments",
+"Spanish search keywords": "inmunoteñidor automático; equipo automatizado de inmunohistoquímica; plataforma IHQ automatizada; equipo de hibridación in situ",
+"English / abbreviations": "IHC/ISH stainer",
+"Brands & analysers to look for": "Ventana BenchMark ULTRA / XT / GX; Dako Omnis / Autostainer Link 48; Leica Bond-III / Bond RX / Bond MAX; Biocare intelliPATH",
+"Notes": null
+},
+{
+"Indicator code": "ADIHC",
+"Segment code": "4.3.2",
+"Segment name": "IHC Reagents",
+"Spanish search keywords": "anticuerpos para inmunohistoquímica; anticuerpos primarios; anticuerpos monoclonales IHQ; receptores de estrógeno; receptores de progesterona; RE; RP; HER2; Ki-67; PD-L1; citoqueratinas; CK7; CK20; p16; p53; CD20; CD3; CD45; ALK; sistema de detección; recuperación antigénica",
+"English / abbreviations": "IHC reagents; antibodies",
+"Brands & analysers to look for": "Ventana (PATHWAY HER2, SP263, OptiView); Dako (HercepTest, 22C3); Leica Bond; Biocare; Bio SB; Cell Marque",
+"Notes": "Breast cancer HER2/ER/PR tenders are typical."
+},
+{
+"Indicator code": "IHCAU",
+"Segment code": "4.3.2.1",
+"Segment name": "Automated",
+"Spanish search keywords": "anticuerpos IHQ listos para usar; RTU; anticuerpos prediluidos para equipo automatizado; kits de detección automatizada",
+"English / abbreviations": "IHC automated reagents",
+"Brands & analysers to look for": "As ADIHC",
+"Notes": null
+},
+{
+"Indicator code": "IHCMA",
+"Segment code": "4.3.2.2",
+"Segment name": "Manual",
+"Spanish search keywords": "anticuerpos IHQ concentrados; inmunohistoquímica manual; kit de detección manual; polímero HRP; DAB",
+"English / abbreviations": "IHC manual reagents",
+"Brands & analysers to look for": "Dako; Biocare; Bio SB; Abcam; Zeta; Master Diagnóstica",
+"Notes": null
+},
+{
+"Indicator code": "ADISH",
+"Segment code": "4.3.3",
+"Segment name": "ISH Reagents",
+"Spanish search keywords": "hibridación in situ; FISH; CISH; SISH; sondas de hibridación; HER2 FISH; ALK FISH; EBER",
+"English / abbreviations": "ISH reagents; probes",
+"Brands & analysers to look for": "Ventana INFORM HER2 Dual ISH; Abbott Vysis; Zytovision; Leica Bond ISH; Dako",
+"Notes": null
+},
+{
+"Indicator code": "ISHAU",
+"Segment code": "4.3.3.1",
+"Segment name": "Automated",
+"Spanish search keywords": "hibridación in situ automatizada; sondas ISH para equipo automatizado",
+"English / abbreviations": "ISH automated",
+"Brands & analysers to look for": "Ventana; Leica Bond",
+"Notes": null
+},
+{
+"Indicator code": "ISHMA",
+"Segment code": "4.3.3.2",
+"Segment name": "Manual",
+"Spanish search keywords": "FISH manual; sondas FISH; hibridación in situ manual",
+"English / abbreviations": "ISH manual",
+"Brands & analysers to look for": "Abbott Vysis; Zytovision; MetaSystems; Cytocell",
+"Notes": null
+},
+{
+"Indicator code": "TDWFS",
+"Segment code": "4.4",
+"Segment name": "Workflow Solutions",
+"Spanish search keywords": "solución de flujo de trabajo en patología; trazabilidad de muestras; rotulador de casetes; impresora de casetes; impresora de portaobjetos; sistema de seguimiento",
+"English / abbreviations": "workflow solutions; cassette/slide printers; tracking",
+"Brands & analysers to look for": "Leica (HistoCore PERMA, Vantage); Sakura; Thermo/Epredia; Roche Ventana Vantage",
+"Notes": null
+},
+{
+"Indicator code": "TDDGP",
+"Segment code": "4.5",
+"Segment name": "Digital Pathology",
+"Spanish search keywords": "patología digital; escáner de láminas; escáner de portaobjetos; digitalización de láminas; telepatología; imágenes de lámina completa",
+"English / abbreviations": "digital pathology; WSI scanner",
+"Brands & analysers to look for": "Roche Ventana DP 200/600; Leica Aperio; Philips IntelliSite; Hamamatsu NanoZoomer; 3DHistech",
+"Notes": null
+},
+{
+"Indicator code": "TDDPI",
+"Segment code": "4.5.1",
+"Segment name": "Instrument",
+"Spanish search keywords": "escáner de láminas completas; escáner de patología digital; equipo de telepatología",
+"English / abbreviations": "digital pathology instrument",
+"Brands & analysers to look for": "As TDDGP",
+"Notes": null
+},
+{
+"Indicator code": "TDDPS",
+"Segment code": "4.5.2",
+"Segment name": "Support",
+"Spanish search keywords": "software de patología digital; sistema de gestión de imágenes; análisis de imágenes; algoritmos de inteligencia artificial patología; licencia de software patología",
+"English / abbreviations": "digital pathology software/support",
+"Brands & analysers to look for": "Roche navify Digital Pathology; Leica Aperio eSlide Manager; Philips; Sectra; Paige; PathAI",
+"Notes": null
+},
+{
+"Indicator code": "SEQZZ",
+"Segment code": "5",
+"Segment name": "Sequencing (NGS)",
+"Spanish search keywords": "secuenciación; secuenciación de nueva generación; secuenciación masiva; NGS; secuenciación genómica; secuenciador; vigilancia genómica; genómica",
+"English / abbreviations": "sequencing; NGS",
+"Brands & analysers to look for": "Illumina (MiSeq, iSeq, NextSeq, NovaSeq); Thermo Fisher Ion Torrent (Genexus, S5); Oxford Nanopore (MinION, GridION); MGI (DNBSEQ); Thermo ABI (Sanger 3500/SeqStudio)",
+"Notes": "Buyers: Laboratorio Nacional de Referencia (ES), Laboratorio Nacional de Vigilancia (HN), universities (UES, UNAH – tag as research), COMISCA/PAHO genomic surveillance network."
+},
+{
+"Indicator code": "SEQIN",
+"Segment code": "5.1",
+"Segment name": "Sequencing instruments",
+"Spanish search keywords": "secuenciador; equipo de secuenciación; secuenciador de nueva generación; secuenciador genético; analizador genético; secuenciador Sanger; electroforesis capilar",
+"English / abbreviations": "sequencer; genetic analyzer",
+"Brands & analysers to look for": "Illumina MiSeq / iSeq 100 / NextSeq 1000/2000; Ion Torrent Genexus / S5; MinION / GridION; MGI DNBSEQ-G99; ABI 3500 / SeqStudio",
+"Notes": null
+},
+{
+"Indicator code": "SEQPR",
+"Segment code": "5.2",
+"Segment name": "Sample preparation",
+"Spanish search keywords": "preparación de librerías; kits de librerías; preparación de muestras para secuenciación; kits de enriquecimiento; captura de exoma; extracción de ADN para NGS; cuantificación de ADN; Qubit; fragmentación; indexación; flow cell; celdas de flujo; cartuchos de secuenciación",
+"English / abbreviations": "library prep; sample prep; flow cells",
+"Brands & analysers to look for": "Illumina DNA Prep / COVIDSeq / MiSeq Reagent Kit; Thermo Ion AmpliSeq; ONT ligation kits; Qiagen; Twist; Agilent SureSelect; Thermo Qubit",
+"Notes": null
+},
+{
+"Indicator code": "SEQRR",
+"Segment code": "5.3",
+"Segment name": "Sequencing testing",
+"Spanish search keywords": "pruebas de secuenciación; servicio de secuenciación; análisis genómico; panel de genes por NGS",
+"English / abbreviations": "sequencing tests/services",
+"Brands & analysers to look for": "As SEQZZ",
+"Notes": "Outsourced lab services (servicio subrogado) count too – tag as services."
+},
+{
+"Indicator code": "SNIPT",
+"Segment code": "5.3.1",
+"Segment name": "NIPT",
+"Spanish search keywords": "prueba prenatal no invasiva; NIPT; ADN fetal libre; tamizaje prenatal no invasivo; trisomía 21 ADN fetal",
+"English / abbreviations": "NIPT",
+"Brands & analysers to look for": "Illumina VeriSeq; BGI NIFTY; Natera Panorama",
+"Notes": "Mostly private / outsourced; rare in public tenders."
+},
+{
+"Indicator code": "SONCO",
+"Segment code": "5.3.2",
+"Segment name": "Oncology",
+"Spanish search keywords": "panel oncológico NGS; perfil genómico tumoral; secuenciación tumoral; biopsia líquida NGS; BRCA NGS; Oncomine; panel de cáncer hereditario",
+"English / abbreviations": "oncology NGS",
+"Brands & analysers to look for": "Thermo Oncomine Dx / Genexus; Illumina TSO 500; Foundation Medicine (servicio); Roche AVENIO",
+"Notes": null
+},
+{
+"Indicator code": "SGENE",
+"Segment code": "5.3.3",
+"Segment name": "Genetics",
+"Spanish search keywords": "exoma; secuenciación de exoma; genoma completo; panel de genes; enfermedades raras; genética clínica NGS; tamizaje genético; secuenciación Sanger diagnóstica",
+"English / abbreviations": "genetics NGS; exome/genome",
+"Brands & analysers to look for": "Illumina; Thermo; MGI; outsourced (Invitae, Blueprint, GeneDx)",
+"Notes": null
+},
+{
+"Indicator code": "SINFD",
+"Segment code": "5.3.4",
+"Segment name": "Infectious Diseases",
+"Spanish search keywords": "vigilancia genómica; secuenciación SARS-CoV-2; secuenciación de virus; secuenciación de influenza; secuenciación de dengue; resistencia antimicrobiana por secuenciación; secuenciación de tuberculosis; genotipificación de patógenos; metagenómica",
+"English / abbreviations": "infectious disease NGS; genomic surveillance",
+"Brands & analysers to look for": "Illumina COVIDSeq; ONT ARTIC; Ion AmpliSeq SARS-CoV-2; Illumina Respiratory Virus Panel",
+"Notes": "PAHO COVIGEN network donations/purchases."
+},
+{
+"Indicator code": "DIACA",
+"Segment code": "6",
+"Segment name": "Diabetes Care",
+"Spanish search keywords": "diabetes; insumos para diabéticos; insumos para pacientes diabéticos; autocontrol de glucosa; programa de diabetes; clínica de diabetes; control glucémico",
+"English / abbreviations": "diabetes care",
+"Brands & analysers to look for": "Roche Accu-Chek; Abbott FreeStyle; Ascensia Contour; LifeScan OneTouch; Dexcom; Medtronic; i-SENS CareSens; Sinocare; Bionime; Arkray; On Call (ACON)",
+"Notes": "Public buyers: MINSAL & ISSS (ES); SESAL & IHSS (HN) – often in medicine/insumo tenders (cuadro básico), not lab tenders."
+},
+{
+"Indicator code": "DICGM",
+"Segment code": "6.1",
+"Segment name": "CGM",
+"Spanish search keywords": "monitoreo continuo de glucosa; monitor continuo de glucosa; MCG; sensor de glucosa; sensor de glucosa intersticial; monitoreo flash de glucosa; sistema flash; transmisor; lector de glucosa; FreeStyle Libre; Dexcom; Guardian; bomba de insulina con sensor",
+"English / abbreviations": "CGM; flash glucose monitoring; sensor",
+"Brands & analysers to look for": "Abbott FreeStyle Libre 2/3; Dexcom G6/G7/ONE; Medtronic Guardian / Simplera; Roche Accu-Chek SmartGuide; Sinocare iCan",
+"Notes": "Look in pediatric/type-1 programmes (Hospital Bloom – ES; Hospital Escuela / IHSS – HN) and insulin-pump tenders."
+},
+{
+"Indicator code": "DICEC",
+"Segment code": "6.1.1",
+"Segment name": "E-commerce",
+"Spanish search keywords": "sensor de glucosa venta en línea",
+"English / abbreviations": "CGM – e-commerce",
+"Brands & analysers to look for": null,
+"Notes": "Not tendered publicly (retail/online sales). Use import data or pharmacy audits; skip in tender search."
+},
+{
+"Indicator code": "DICRP",
+"Segment code": "6.1.2",
+"Segment name": "Retail Pharmacy",
+"Spanish search keywords": "sensor de glucosa farmacia",
+"English / abbreviations": "CGM – retail pharmacy",
+"Brands & analysers to look for": null,
+"Notes": "Not tendered publicly (retail/online sales). Use import data or pharmacy audits; skip in tender search."
+},
+{
+"Indicator code": "DICHP",
+"Segment code": "6.1.3",
+"Segment name": "Hospital",
+"Spanish search keywords": "monitoreo continuo de glucosa hospital; sensores de glucosa para pacientes hospitalizados; CGM institucional",
+"English / abbreviations": "CGM – hospital",
+"Brands & analysers to look for": "As DICGM",
+"Notes": "Tag Public vs Private by buyer."
+},
+{
+"Indicator code": "DICPU",
+"Segment code": "6.1.3.1",
+"Segment name": "Public",
+"Spanish search keywords": "sensores de glucosa MINSAL; ISSS; SESAL; IHSS; hospital nacional",
+"English / abbreviations": "CGM – public hospital",
+"Brands & analysers to look for": "As DICGM",
+"Notes": "Public tenders found on COMPRASAL / HonduCompras = this line."
+},
+{
+"Indicator code": "DICPR",
+"Segment code": "6.1.3.2",
+"Segment name": "Private",
+"Spanish search keywords": "sensores de glucosa hospital privado",
+"English / abbreviations": "CGM – private hospital",
+"Brands & analysers to look for": "As DICGM",
+"Notes": "Private hospitals don't publish tenders – estimate via distributor/import data."
+},
+{
+"Indicator code": "DIBGM",
+"Segment code": "6.2",
+"Segment name": "BGM",
+"Spanish search keywords": "glucómetro; glucometro; medidor de glucosa; monitor de glucosa; tiras reactivas para glucosa; tiras de glucosa; tiras para glucómetro; tiras de glucemia; lancetas; lancetero; dispositivo de punción; automonitoreo de glucosa; glucemia capilar",
+"English / abbreviations": "BGM; blood glucose meter; test strips; lancets",
+"Brands & analysers to look for": "Accu-Chek (Guide, Instant, Active, Performa); FreeStyle Optium / Freedom Lite; Contour Plus; OneTouch Select / Ultra; CareSens; On Call Plus; Bionime; Sinocare; Glucocard",
+"Notes": "Strips often bought 'con glucómetro en comodato/donación' – capture meter terms."
+},
+{
+"Indicator code": "DIBST",
+"Segment code": "6.2.1",
+"Segment name": "BGM Strip",
+"Spanish search keywords": "tiras reactivas para glucosa; tiras de glucosa; tiras para glucómetro; tiras de glucemia capilar; tiras reactivas para medición de glucosa en sangre; frasco de 50 tiras; glucómetro (incluido)",
+"English / abbreviations": "BGM strips",
+"Brands & analysers to look for": "As DIBGM",
+"Notes": "'Tiras reactivas' alone also matches urine strips – check."
+},
+{
+"Indicator code": "DBSEC",
+"Segment code": "6.2.1.1",
+"Segment name": "E-commerce",
+"Spanish search keywords": "tiras de glucosa venta en línea",
+"English / abbreviations": "strips – e-commerce",
+"Brands & analysers to look for": null,
+"Notes": "Not tendered publicly (retail/online sales). Use import data or pharmacy audits; skip in tender search."
+},
+{
+"Indicator code": "DBSRP",
+"Segment code": "6.2.1.2",
+"Segment name": "Retail Pharmacy",
+"Spanish search keywords": "tiras de glucosa farmacia",
+"English / abbreviations": "strips – retail pharmacy",
+"Brands & analysers to look for": null,
+"Notes": "Not tendered publicly (retail/online sales). Use import data or pharmacy audits; skip in tender search."
+},
+{
+"Indicator code": "DBSHP",
+"Segment code": "6.2.1.3",
+"Segment name": "Hospital",
+"Spanish search keywords": "tiras de glucosa hospital; tiras reactivas de glucosa para hospital; insumos de diabetes hospital",
+"English / abbreviations": "strips – hospital",
+"Brands & analysers to look for": "As DIBGM",
+"Notes": "Tag Public vs Private by buyer."
+},
+{
+"Indicator code": "DBSPU",
+"Segment code": "6.2.1.3.1",
+"Segment name": "Public",
+"Spanish search keywords": "tiras de glucosa MINSAL; ISSS; SESAL; IHSS; hospital nacional; unidad de salud",
+"English / abbreviations": "strips – public",
+"Brands & analysers to look for": "As DIBGM",
+"Notes": "Public tenders found on COMPRASAL / HonduCompras = this line."
+},
+{
+"Indicator code": "DBSPR",
+"Segment code": "6.2.1.3.2",
+"Segment name": "Private",
+"Spanish search keywords": "tiras de glucosa hospital privado",
+"English / abbreviations": "strips – private",
+"Brands & analysers to look for": "As DIBGM",
+"Notes": "Private hospitals don't publish tenders – estimate via distributor/import data."
+},
+{
+"Indicator code": "DIBLT",
+"Segment code": "6.2.2",
+"Segment name": "BGM Lancet",
+"Spanish search keywords": "lancetas; lancetas estériles; lancetas para glucómetro; lancetas de seguridad; lancetas desechables; dispositivo de punción; lancetero; punción capilar",
+"English / abbreviations": "lancets",
+"Brands & analysers to look for": "Accu-Chek Softclix / FastClix / Safe-T-Pro; FreeStyle; Contour Microlet; OneTouch Delica; BD; Owen Mumford Unistik; Greiner",
+"Notes": "Safety lancets for hospital (lancetas de seguridad) often bought separately from strips."
+},
+{
+"Indicator code": "DBLEC",
+"Segment code": "6.2.2.1",
+"Segment name": "E-commerce",
+"Spanish search keywords": "lancetas venta en línea",
+"English / abbreviations": "lancets – e-commerce",
+"Brands & analysers to look for": null,
+"Notes": "Not tendered publicly (retail/online sales). Use import data or pharmacy audits; skip in tender search."
+},
+{
+"Indicator code": "DBLRP",
+"Segment code": "6.2.2.2",
+"Segment name": "Retail Pharmacy",
+"Spanish search keywords": "lancetas farmacia",
+"English / abbreviations": "lancets – retail pharmacy",
+"Brands & analysers to look for": null,
+"Notes": "Not tendered publicly (retail/online sales). Use import data or pharmacy audits; skip in tender search."
+},
+{
+"Indicator code": "DBLHP",
+"Segment code": "6.2.2.3",
+"Segment name": "Hospital",
+"Spanish search keywords": "lancetas hospital; lancetas de seguridad hospitalarias",
+"English / abbreviations": "lancets – hospital",
+"Brands & analysers to look for": "As DIBLT",
+"Notes": "Tag Public vs Private by buyer."
+},
+{
+"Indicator code": "DBLPU",
+"Segment code": "6.2.2.3.1",
+"Segment name": "Public",
+"Spanish search keywords": "lancetas MINSAL; ISSS; SESAL; IHSS; hospital nacional",
+"English / abbreviations": "lancets – public",
+"Brands & analysers to look for": "As DIBLT",
+"Notes": "Public tenders found on COMPRASAL / HonduCompras = this line."
+},
+{
+"Indicator code": "DBLPR",
+"Segment code": "6.2.2.3.2",
+"Segment name": "Private",
+"Spanish search keywords": "lancetas hospital privado",
+"English / abbreviations": "lancets – private",
+"Brands & analysers to look for": "As DIBLT",
+"Notes": "Private hospitals don't publish tenders – estimate via distributor/import data."
+}
+]

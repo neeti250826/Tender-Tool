@@ -1,0 +1,128 @@
+{
+ "IMICRYL DİŞ MALZEMELERİ SANAYİ VE TİCARET ANONİM ŞİRKETİ": {
+  "player": "Imicryl (dental)",
+  "group": "Imicryl",
+  "is_ivd": false,
+  "basis": "OEM name in supplier legal name ('IMICRYL')",
+  "confidence": "High"
+ },
+ "MEDTRONİC MEDİKAL TEKNOLOJİ TİCARET LİMİTED ŞİRKETİ": {
+  "player": "Medtronic",
+  "group": "Medtronic",
+  "is_ivd": false,
+  "basis": "OEM name in supplier legal name ('MEDTRONIC')",
+  "confidence": "High"
+ },
+ "JOHNSON & JOHNSON MEDİKAL SANAYİ VE TİCARET LİMİTED ŞİRKETİ": {
+  "player": "Johnson & Johnson",
+  "group": "J&J",
+  "is_ivd": false,
+  "basis": "OEM name in supplier legal name ('JOHNSON')",
+  "confidence": "High"
+ },
+ "FRESENIUS MEDİKAL HİZMETLER ANONİM ŞİRKETİ": {
+  "player": "Fresenius",
+  "group": "Fresenius",
+  "is_ivd": false,
+  "basis": "OEM name in supplier legal name ('FRESENIUS')",
+  "confidence": "High"
+ },
+ "ROCHE DİAGNOSTİCS TURKEY ANONİM ŞİRKETİ": {
+  "player": "Roche Diagnostics",
+  "group": "Roche",
+  "is_ivd": true,
+  "basis": "OEM name in supplier legal name ('ROCHE')",
+  "confidence": "High"
+ },
+ "STRYKER TIBBİ CİHAZLARI SANAYİ VE TİCARET LİMİTED ŞİRKETİ": {
+  "player": "Stryker",
+  "group": "Stryker",
+  "is_ivd": false,
+  "basis": "OEM name in supplier legal name ('STRYKER')",
+  "confidence": "High"
+ },
+ "MERİL TIBBİ CİHAZLAR İMALAT VE TİCARET ANONİM ŞİRKETİ": {
+  "player": "Meril Life Sciences",
+  "group": "Meril",
+  "is_ivd": false,
+  "basis": "OEM name in supplier legal name ('MERIL')",
+  "confidence": "High"
+ },
+ "BAXTER TURKEY RENAL HİZMETLER ANONİM ŞİRKETİ": {
+  "player": "Baxter",
+  "group": "Baxter",
+  "is_ivd": false,
+  "basis": "OEM name in supplier legal name ('BAXTER')",
+  "confidence": "High"
+ },
+ "EUROIMMUN TURKEY TIBBİ LABORATUAR TEŞHİSLERİ ANONİM ŞİRKETİ": {
+  "player": "EUROIMMUN",
+  "group": "Revvity",
+  "is_ivd": true,
+  "basis": "OEM name in supplier legal name ('EUROIMMUN')",
+  "confidence": "High"
+ },
+ "ANATOLİA TANI VE BİYOTEKNOLOJİ ÜRÜNLERİ ARAŞTIRMA GELİŞTİRME SANAYİ VE TİCARET ANONİM ŞİRKETİ": {
+  "player": "Anatolia Geneworks (Bosphore)",
+  "group": "Anatolia Geneworks",
+  "is_ivd": true,
+  "basis": "OEM name in supplier legal name ('ANATOLIA')",
+  "confidence": "High"
+ },
+ "TERUMO BCT TIBBİ CİHAZLAR DAĞITIM VE HİZMETLERİ ANONİM ŞİRKETİ": {
+  "player": "Terumo BCT",
+  "group": "Terumo",
+  "is_ivd": true,
+  "basis": "OEM name in supplier legal name ('TERUMO')",
+  "confidence": "High"
+ },
+ "BOSTON SCIENTIFIC TIP GEREÇLERİ LİMİTED ŞİRKETİ": {
+  "player": "Boston Scientific",
+  "group": "Boston Scientific",
+  "is_ivd": false,
+  "basis": "OEM name in supplier legal name ('BOSTON SCIENTIFIC')",
+  "confidence": "High"
+ },
+ "GEN ERA DİAGNOSTİK SAĞLIK HİZMETLERİ ANONİM ŞİRKETİ": {
+  "player": "Gen Era Diagnostik (Genera)",
+  "group": "Gen Era",
+  "is_ivd": true,
+  "basis": "OEM name in supplier legal name ('GEN ERA')",
+  "confidence": "High"
+ },
+ "BECKMAN COULTER BİYOMEDİKAL ÜRÜNLER SANAYİ VE TİCARET LİMİTED ŞİRKETİ": {
+  "player": "Beckman Coulter",
+  "group": "Danaher",
+  "is_ivd": true,
+  "basis": "OEM name in supplier legal name ('COULTER')",
+  "confidence": "High"
+ },
+ "BOME TRIVITRON SANAYİ ÜRÜNLERİ DIŞ TİCARET ANONİM ŞİRKETİ": {
+  "player": "Trivitron Healthcare",
+  "group": "Trivitron",
+  "is_ivd": true,
+  "basis": "OEM name in supplier legal name ('TRIVITRON')",
+  "confidence": "High"
+ },
+ "DIRUI RNA LABORATUAR SİSTEMLERİ VE SAĞLIK ÜRÜNLERİ SANAYİ TİCARET LİMİTED ŞİRKETİ": {
+  "player": "Dirui Industrial",
+  "group": "Dirui",
+  "is_ivd": true,
+  "basis": "OEM name in supplier legal name ('DIRUI')",
+  "confidence": "High"
+ },
+ "SYSMEX TURKEY DİAGNOSTİK SİSTEMLERİ LİMİTED ŞİRKETİ": {
+  "player": "Sysmex",
+  "group": "Sysmex",
+  "is_ivd": true,
+  "basis": "OEM name in supplier legal name ('SYSMEX')",
+  "confidence": "High"
+ },
+ "PERKİNELMER SAĞLIK VE ÇEVRE BİLİMLERİ LİMİTED ŞİRKETİ": {
+  "player": "PerkinElmer / Revvity",
+  "group": "Revvity",
+  "is_ivd": true,
+  "basis": "OEM name in supplier legal name ('PERKINELMER')",
+  "confidence": "High"
+ }
+}

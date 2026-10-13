@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>TURMECA Tender Data SOP</title>
+<style>
+:root{--bg:#f7f8fa;--card:#ffffff;--ink:#1d2433;--muted:#5b6475;--line:#dfe3ea;--accent:#1f4e78;--accent2:#2e75b6;--ok:#2f7d4f;--warn:#a15c00;--bad:#a12d2d;--code:#eef1f6;--chip:#e8eef7}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#11151c;--card:#1a2029;--ink:#e6e9ef;--muted:#a3abba;--line:#2c3542;--accent:#7fb2e5;--accent2:#5d9bd6;--ok:#6cc495;--warn:#e0a85a;--bad:#e07a7a;--code:#232b37;--chip:#22324a}}
+:root[data-theme="dark"]{--bg:#11151c;--card:#1a2029;--ink:#e6e9ef;--muted:#a3abba;--line:#2c3542;--accent:#7fb2e5;--accent2:#5d9bd6;--ok:#6cc495;--warn:#e0a85a;--bad:#e07a7a;--code:#232b37;--chip:#22324a}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.6 -apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif}
+header{background:var(--accent);color:#fff;padding:28px 16px}
+header .wrap{max-width:1100px;margin:0 auto}
+header h1{margin:0 0 6px;font-size:26px}
+header p{margin:0;opacity:.9}
+.wrap{max-width:1100px;margin:0 auto;padding:0 16px}
+nav.toc{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:14px 18px;margin:20px 0}
+nav.toc ol{margin:6px 0 0 18px;padding:0;columns:2;column-gap:28px}
+@media (max-width:700px){nav.toc ol{columns:1}}
+nav.toc a{color:var(--accent2);text-decoration:none}
+section{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:18px 20px;margin:18px 0}
+h2{margin:0 0 10px;color:var(--accent);font-size:21px}
+h3{margin:18px 0 6px;font-size:17px}
+h4{margin:14px 0 4px;font-size:15px;color:var(--muted)}
+code,pre{background:var(--code);border-radius:5px;font-family:Consolas,Menlo,monospace;font-size:13px}
+code{padding:1px 5px}
+pre{padding:10px 12px;overflow-x:auto;white-space:pre}
+.tablewrap{overflow-x:auto}
+table{border-collapse:collapse;width:100%;margin:8px 0;font-size:14px}
+th,td{border:1px solid var(--line);padding:6px 8px;text-align:left;vertical-align:top}
+th{background:var(--chip)}
+.chip{display:inline-block;padding:1px 8px;border-radius:10px;font-size:12px;font-weight:600;background:var(--chip)}
+.ok{color:var(--ok)}.warn{color:var(--warn)}.bad{color:var(--bad)}
+.note{border-left:4px solid var(--warn);background:var(--code);padding:8px 12px;border-radius:4px;margin:10px 0}
+.tip{border-left:4px solid var(--ok);background:var(--code);padding:8px 12px;border-radius:4px;margin:10px 0}
+ol.steps>li{margin:4px 0}
+footer{color:var(--muted);font-size:13px;text-align:center;padding:20px 16px 36px}
+</style>
+</head>
+<body>
+<header><div class="wrap">
+<h1>TURMECA Tender Data — Standard Operating Procedure</h1>
+<p>Public-tender extraction and analysis for KSA, Turkey, Pakistan, Kuwait and UAE, including a Calendar Year 2025 assessment of supported contract periods. Version 1.1 · Updated 6 October 2026.</p>
+</div></header>
+
+<div class="wrap">
+<nav class="toc"><strong>Contents</strong>
+<ol>
+<li><a href="#overview">Overview and outputs</a></li>
+<li><a href="#analysis-method">Analytical method aligned with ACEE</a></li>
+<li><a href="#ksa">KSA — NUPCO</a></li>
+<li><a href="#tr">Turkey — EKAP</a></li>
+<li><a href="#pk">Pakistan — KP and Federal</a></li>
+<li><a href="#kw">Kuwait — CAPT</a></li>
+<li><a href="#uae">UAE — Dubai eSupply</a></li>
+<li><a href="#nodata">Websites without usable data</a></li>
+<li><a href="#master">Master file structure</a></li>
+<li><a href="#mapping">How the data is mapped</a></li>
+<li><a href="#value">Valuation, prices and FX</a></li>
+<li><a href="#cy2025">CY2025 applicable period, volume and value</a></li>
+<li><a href="#translate">English translation</a></li>
+<li><a href="#rebuild">Rebuild order</a></li>
+<li><a href="#qc">QC checklist and known limitations</a></li>
+</ol></nav>
+
+<section id="overview"><h2>1. Overview and outputs</h2>
+<p>Goal: one common tender master covering the available records from 2023 onward for the TURMECA region, with every tender line traceable to its source, mapped to the Clearstate/Medtronic taxonomy (OU → Sub-OU → Product Category → Company → Family). Awarded and contracted records are the core market evidence; open tenders stay in the pipeline and out of realised value.</p>
+<div class="tablewrap"><table>
+<tr><th>Deliverable</th><th>What it is</th></tr>
+<tr><td><b>TURMECA_Master_Mapped_Data.xlsx</b></td><td>Main output. One tab per country × website, mapped rows only, common master-table columns, plus README, Summary and website-gap tabs.</td></tr>
+<tr><td>TURMECA_Tender_Master.xlsx</td><td>Design workbook: empty master-table template, field dictionary, evidence rules, NUPCO tender families, CPV/OKAS 331 codes, EKAP product-class codes, Turkish keyword screen.</td></tr>
+<tr><td>Mapping_Taxonomy.xlsx</td><td>Taxonomy export of Google Sheet <code><TAXONOMY_SHEET_ID></code> (4,162 rows, 13 OUs, 47 Sub-OUs). <code>dim_*</code> tabs feed the mapping code.</td></tr>
+<tr><td>Country workbooks</td><td>Full per-source outputs, including unmapped rows, parse logs and reference prices.</td></tr>
+</table></div>
+<h3>Rows in the master file (latest build)</h3>
+<div class="tablewrap"><table>
+<tr><th>Tab</th><th>Mapped rows</th><th>Notes</th></tr>
+<tr><td>KSA – NUPCO</td><td>3,987</td><td>3,730 from this project's 41 final-result PDFs + 257 from the previous extraction (40 extra tenders).</td></tr>
+<tr><td>Turkey – EKAP</td><td>7,762</td><td>EKAP contract lots, enriched from the QC-corrected previous extraction.</td></tr>
+<tr><td>Pakistan – KP MCC</td><td>508</td><td>KP Govt MCC bid evaluation reports (unit prices).</td></tr>
+<tr><td>Pakistan – KP DGHS</td><td>34</td><td>KP equipment rate-contract BERs.</td></tr>
+<tr><td>Pakistan – Federal EPMS</td><td>3</td><td>Federal evaluations (mostly drugs and capital packages).</td></tr>
+<tr><td>Kuwait – CAPT</td><td>0</td><td>808 awards collected, none are device purchases (explained in tab).</td></tr>
+<tr><td>UAE – Dubai eSupply</td><td>887</td><td>Requested quantities only (volume signal).</td></tr>
+</table></div>
+</section>
+
+
+<section id="analysis-method"><h2>2. Analytical method aligned with ACEE</h2>
+<p>This version adapts the classification, evidence, valuation and quality checks in the <a href="https://docs.google.com/document/d/<SOP_DOC_ID>/edit?tab=t.0">ACEE tender analysis SOP</a> (version 1.0, effective 9 September 2026). TURMECA retains its country-by-portal tabs and source-specific extraction rules. The CY2025 contract-duration method below is a TURMECA extension; the ACEE source does not prescribe duration proration.</p>
+<ol class="steps">
+<li><b>Fix the scope:</b> use the approved OU, Sub-OU, Device Category, Company and Family combinations. Retain the taxonomy version and source Row ID, tender ID, item/lot and URL. Available source coverage is uneven; absence of an award is absence of collected evidence, not proof of no market.</li>
+<li><b>Screen broadly, classify at item level:</b> multilingual words, product codes and titles produce candidates. The actual item narrative determines the category. Give integrated systems one primary category; exclude services, repair and incidental keyword matches unless explicitly in scope.</li>
+<li><b>Separate purchase evidence:</b> final awarded or contracted product lines support award analysis. Open RFQs, preliminary evaluations, losing bids, cancelled awards and terminated contracts stay visible for review or pipeline reporting.</li>
+<li><b>Prevent duplicate counting:</b> compare tender, buyer, supplier, item, quantity and dates. Retain a decision for reissues, superseded rounds and repeated contract values. Do not sum one multi-lot contract total on every lot. Without an evidenced allocation, item-level value remains blank.</li>
+<li><b>Map manufacturer evidence:</b> supplier/distributor and manufacturer remain separate. Use explicit manufacturer/model evidence or a disclosed, defensible OEM-affiliate inference. Family names must be supported within the approved product-company combination. Unsupported manufacturer/family fields remain blank unless the taxonomy explicitly allows an Others category.</li>
+<li><b>Normalize quantity carefully:</b> distinguish awarded units, requested units and framework maximums. Correct quantities only from an explicit narrative count and record the correction. Retain UOM; do not combine incompatible units or silently assume pack sizes. NUPCO equal-winner weights are an estimation convention, not evidence of actual call-offs.</li>
+<li><b>Keep evidence and estimates distinct:</b> actual local award value, converted USD and reference-price estimates are separate measures. Preserve the existing FX date and method; a CY2025 assessment does not automatically imply 2025 FX. Annual-average and later spot FX in this release are disclosed limitations.</li>
+<li><b>Calculate comparable prices:</b> grouped HBP = sum of attributable USD value divided by sum of the corresponding units, using only matched records with compatible UOM. Do not average row unit prices or include quantities whose value is unavailable. Installation, training, accessories and warranty can make a bundled HBP different from a device-only price.</li>
+<li><b>Make uncertainty visible:</b> high confidence requires clear evidence, medium confidence a documented inference, and low confidence a review decision. Preserve unresolved rows and reasons outside core totals. Category mapping confidence and contract-period evidence are separate assessments.</li>
+</ol>
+<div class="tip"><b>Workbook convention:</b> keep README, Summary, the seven data tabs and the portal-gap tabs. The existing green mapped headers are preserved. New assessment headers use purple to identify the added calculation block.</div>
+</section>
+
+<section id="ksa"><h2>3. KSA — NUPCO <span class="chip">nupco.com</span></h2>
+<h3>Navigation</h3>
+<ol class="steps">
+<li>Open <code>https://www.nupco.com/tenders/tenders-list/</code> and pages <code>/2/</code> … <code>/5/</code> (the <code>/en/</code> paths return 404). About 119 tenders are listed (NPT = open framework tenders, NDP = direct purchases).</li>
+<li>Open each tender page (<code>nupco.com/tender/&lt;slug&gt;/</code>). Read Tender ID, status (Available/New, Under Studying, Initial Results, Final Results, Cancelled), opening date and the document links.</li>
+<li>Download <b>Tender Final Result</b> PDFs (awards) and <b>Tender Item List</b> PDFs (requested quantities). 42 tenders have final results.</li>
+<li>Titles are Arabic; English titles were translated and stored in <code>TURMECA_Tender_Master.xlsx &gt; NUPCO_Tender_Families</code>.</li>
+</ol>
+<h3>What the data contains</h3>
+<p>Final results: NUPCO item code (13 digits), item description, UOM, vendor (distributor), <b>manufacturer</b>, model/catalogue no., country, group. Several winners per item (framework). <b>No prices or award values anywhere.</b> Item lists give the requested (initial) quantity per NUPCO code.</p>
+<h3>Extraction</h3>
+<ol class="steps">
+<li><code>parse_nupco_finals.py</code>: reads each PDF table; aligns cells by each header's raw column span (merged cells shift columns), so no rows are dropped. Handles the collapsed one-cell header (NPT0043/25).</li>
+<li><code>parse_nupco_0033_25.py</code>: NPT0033/25 (ENT) prints descriptions as overlapping text, so awards are read line by line (vendor no. 40xxxx … -Orig- manufacturer, country, catalogue) and descriptions come from the item list.</li>
+<li><code>parse_nupco_itemlists.py</code>: quantities by NUPCO code; text-only lists are rebuilt by attaching wrapped lines to the nearest code row by position.</li>
+<li><code>build_ksa.py</code>: joins quantity, maps each unique NUPCO code once, takes Company from the manufacturer, computes share of awards (1/n per winner) and estimated value. Award year = printed date on the final-result PDF.</li>
+</ol>
+<p>Result: 67,632 award rows from 41 tenders (NPT0048/24 is a one-page Arabic notice with no awards).</p>
+<h3>Previous extraction</h3>
+<p><code>KSA_tender_awards_final.xlsx</code> (13,480 rows, 50 tenders): only the 40 tenders not in this project's PDFs are added; it has supplier and quantity but no manufacturer, and its <code>amount</code> is one figure repeated per tender (not a price).</p>
+</section>
+
+<section id="tr"><h2>4. Turkey — EKAP <span class="chip">ekapv2.kik.gov.tr</span></h2>
+<h3>Navigation</h3>
+<ol class="steps">
+<li>Start Edge with the debugging port, open <code>https://ekapv2.kik.gov.tr/ekap/search</code> and tick the Cloudflare box when it appears.</li>
+<li><code>node ekap_session.js</code> or the Edge window must stay open. Scripts call EKAP's own API from inside the tab:
+<ul><li>List: <code>POST /b_ihalearama/api/Ihale/GetListByParameters</code> with <code>okasBransKodList</code> (OKAS/CPV code), tender-date range, max 50 rows per page.</li>
+<li>Detail: <code>POST /b_ihalearama/api/IhaleDetay/GetByIhaleIdIhaleDetay</code> with <code>ihaleId</code>.</li>
+<li>Each call carries EKAP's encrypted headers (built in <code>ekap_lib.js</code>).</li></ul></li>
+<li><code>node ekap_extract_medtech.js</code> runs tier by tier (Core → Partial → Catch-all OKAS codes from <code>EKAP_Product_Class</code>), lists first then details; resumable.</li>
+</ol>
+<div class="note"><b>Rate limit:</b> about one call every 30 seconds (HTTP 429 otherwise; run with <code>EKAP_PACE_MS=31000</code>). If the check lapses (HTTP 428) the extractor waits until a person re-ticks Cloudflare. The full pull takes 40–50 hours; it was stopped after the core tier.</div>
+<h3>What the data contains</h3>
+<p>Per contract: winning supplier (distributor), contract date, contract value (TRY), approximate cost, highest/lowest bid; lots (kısım) with lot names; item-level OKAS codes; buying authority and city. <b>No item quantities, no manufacturer.</b> One contract value can cover many lots.</p>
+<h3>Extraction and previous data</h3>
+<p><code>build_turkey.py</code> reads every detail JSON (this pull + the earlier IVD pull cache) → one row per contract × lot; year = contract date. The QC-corrected <code>Turkey_EKAP_Contracts_Ending_2024_2026_EN_Corrected.xlsx</code> covers the same contracts and is used to enrich rows (corrected English, quantity/UOM where given, low/high bids) and to map 673 extra lots.</p>
+</section>
+
+<section id="pk"><h2>5. Pakistan — Khyber Pakhtunkhwa and Federal</h2>
+<h3>KP Health Department / DGHS <span class="chip">healthkp.gov.pk</span> <span class="chip">dghskp.gov.pk</span></h3>
+<ol class="steps">
+<li>With the VPN on, open <code>https://healthkp.gov.pk/news/tenders</code> (≈545 PDF links). Filter links for "Bid Evaluation Report", "BER", "Comparative Statement".</li>
+<li>Open <code>http://www.dghskp.gov.pk/tenders.html</code> — use <b>http</b> (the https handshake fails on Windows). It holds the FY2023-24 Govt MCC BER.</li>
+<li>Download: Govt MCC BERs FY2023-24, 2024-25, 2026-27 and the FY2025-26 draft comparative statement (text); DGHS "Selection and Rate Contracting of Medical Equipment…" BERs FY2024-25 to 2026-27.</li>
+</ol>
+<p><b>Data:</b> per bid — firm, item (generic name/size or "Model:/Make:"), unit rate PKR, lowest rate, scores; winner = highest total score. No quantities. MCC item numbers are re-used for different items across years — never join years by item number.</p>
+<p>Scripts: <code>parse_kp_mcc.py</code> (reads numbers from the right of each row), <code>parse_kp_ber.py</code> (two layouts), <code>build_pakistan.py</code>.</p>
+<h3>Federal PPRA <span class="chip">epms.ppra.gov.pk</span></h3>
+<ol class="steps">
+<li><code>https://epms.ppra.gov.pk/public/evaluations?page=N</code> — 3,676 federal evaluations (74 pages); filter titles for medical keywords (99 found).</li>
+<li>Each detail page <code>/public/evaluations/evaluation-details/EVL…</code> links a report PDF (<code>/pdf?file=…</code>). Scans are OCR'd with Tesseract (orientation auto-detected).</li>
+<li>Contracts register <code>/public/contracts</code> (694 contracts, almost none medical). The legacy <code>ppra.org.pk/contract_org.asp</code> now redirects here; EPADS is login-only.</li>
+</ol>
+<p>Scripts: <code>epms_evaluations.py</code>, <code>dl_bers.py</code>, <code>ocr_bers.py</code>, <code>parse_federal.py</code>.</p>
+</section>
+
+<section id="kw"><h2>6. Kuwait — CAPT <span class="chip">capt.gov.kw</span></h2>
+<ol class="steps">
+<li>In the debugging Edge, open <code>https://capt.gov.kw/en/tenders/winning-bids/</code> (Cloudflare passes in a normal browser); accept the terms popup only with user approval.</li>
+<li><code>node capt_crawl.js</code> requests, from inside the tab, <code>/en/tenders/winning-bids/?meeting_date_from=YYYY-MM-DD&amp;meeting_date_to=YYYY-MM-DD&amp;form=date&amp;page=N</code> month by month (10 rows/page), plus item pop-ups for health awards.</li>
+<li><code>build_kuwait.py</code> translates Arabic subjects and maps them.</li>
+</ol>
+<p><b>Data:</b> meeting date, tender no., subject (Arabic), organisation, winner, total KD. 808 awards 2024–Sep 2026; Ministry of Health awards are services/works, so no device rows map. Volume signal only.</p>
+</section>
+
+<section id="uae"><h2>7. UAE — Dubai eSupply <span class="chip">esupply.dubai.gov.ae</span></h2>
+<ol class="steps">
+<li>Open <code>https://esupply.dubai.gov.ae/esop/guest/go/public/opportunity/past</code> (no login).</li>
+<li>Filter Buyer Organisation contains "Health" (Dubai Academic Health Corporation, Dubai Health Authority) and Publication Date <b>equal to</b> one day, then search (page functions <code>setListUserAct('OpportunityListManager','search')</code> + <code>xhrPostListForm</code>).</li>
+<li>Export with <code>list.si?export=xls</code>. Export is capped at 2,000 rows and the list is sorted by closing date, so it is exported <b>one publication day at a time</b> (<code>node esupply_daily.js Health 2024-01-01 2026-10-01 3</code>).</li>
+<li><code>build_uae.py</code> splits each opportunity's Description into item lines "n: [code] ITEM - qty UOM" and maps them.</li>
+</ol>
+<p><b>Data:</b> 7,972 RFQs, 23,401 item lines with requested quantity/UOM. No award, winner or price. Volume signal only.</p>
+</section>
+
+<section id="nodata"><h2>8. Websites without usable data</h2>
+<div class="tablewrap"><table>
+<tr><th>Website</th><th>Outcome</th><th>Reason</th></tr>
+<tr><td>KSA – Etimad</td><td class="bad">Not extracted</td><td>Tender-level awards only; bulk access triggers anti-bot and login.</td></tr>
+<tr><td>Pakistan – KPPRA</td><td class="warn">Searched</td><td>54 health-entity evaluations, technical-only, no prices. Filter works only with all form parameters sent.</td></tr>
+<tr><td>Pakistan – Sindh PPRA, Punjab DGHS</td><td class="bad">Not accessible</td><td>Refuse non-Pakistani connections (VPN "Pakistan" exits in Singapore). Need a genuine Pakistani IP.</td></tr>
+<tr><td>UAE – Abu Dhabi ADGPG, Federal MoF DPP</td><td class="bad">Not extracted</td><td>Open notices only; no winners, quantities or prices.</td></tr>
+<tr><td>Kuwait – CAPT</td><td class="warn">Collected, 0 mapped</td><td>No device purchases among CAPT awards.</td></tr>
+</table></div>
+<p>Each of these has an explanation tab or note inside the master file.</p>
+</section>
+
+<section id="master"><h2>9. Master file structure</h2>
+<h3>Tabs</h3>
+<p><b>README</b> (method, sources, FX, caveats) · <b>Summary</b> (rows per tab, by year, by OU) · one tab per country × website (section 1) · explanation tabs for websites without data.</p>
+<h3>Columns (every data tab)</h3>
+<div class="tablewrap"><table>
+<tr><th>Group</th><th>Columns</th></tr>
+<tr><td>Source</td><td>Row ID, Country, Portal, Source Type, Source URL</td></tr>
+<tr><td>Tender</td><td>Tender ID, Tender Title, Tender Type, Procurement Authority, Hospital/Buyer</td></tr>
+<tr><td>Dates</td><td>Publication Date, Opening Date, Award/Contract Date, Result Date, Award Year</td></tr>
+<tr><td>Original product</td><td>Original-language Description, English Description, Lot/Item No., CPV/OKAS/NUPCO Code</td></tr>
+<tr><td>Taxonomy</td><td>OU, Sub-OU, Device Category, Company, Family Name, Disclosed Brand</td></tr>
+<tr><td>Commercial</td><td>Supplier/Distributor, Manufacturer, Volume, UOM, Currency, Unit Award Price, Total Award Value</td></tr>
+<tr><td>Normalized</td><td>FX Date, LCY per USD, Value USD, HBP USD</td></tr>
+<tr><td>Evidence</td><td>Tender Stage, Price Evidence, Manufacturer Evidence, Winner Disclosed?, Manufacturer Explicit?, Model Explicit?, Award vs Budget?, Confidence</td></tr>
+<tr><td>QC</td><td>Included/Review/Excluded, Exclusion Reason, Duplicate/Retender Flag, Caveat</td></tr>
+<tr><td>Extras (grey)</td><td>Winner (this row), Award Weight (1/n), Est. Value USD (ref-price based), Ref Unit Price USD, Value Basis, Data Source</td></tr>
+<tr><td>CY2025 assessment (purple)</td><td>Contract period and evidence, active flag, applicable dates/months/share, applied volume and actual/estimated values, eligibility and caveats</td></tr>
+<tr><td>Translations (blue)</td><td>"(EN)" columns next to Turkish/Arabic text columns (Turkey tab: Tender Title, Procurement Authority, Hospital/Buyer, Supplier/Distributor)</td></tr>
+</table></div>
+<h3>Evidence columns — allowed values</h3>
+<div class="tablewrap"><table>
+<tr><th>Column</th><th>Values</th><th>Meaning</th></tr>
+<tr><td>Tender Stage</td><td>Pipeline / Awarded / Contracted</td><td>Pipeline = notice, under study, preliminary result or RFQ with no award; Awarded = final award with winner; Contracted = signed contract with date and value (EKAP).</td></tr>
+<tr><td>Price Evidence</td><td>Line price / Contract-level only / None</td><td>Line price = a value attributable to one item line; Contract-level = total over several items; None = no price published (NUPCO, eSupply).</td></tr>
+<tr><td>Manufacturer Evidence</td><td>Explicit / Inferred from distributor / None</td><td>Explicit = source names the manufacturer (NUPCO, KP "Make"); Inferred = supplier is the OEM's own affiliate (e.g. Medtronic's Turkish company); None = distributor only.</td></tr>
+</table></div>
+</section>
+
+<section id="mapping"><h2>10. How the data is mapped</h2>
+<ol class="steps">
+<li><b>Taxonomy source:</b> <code>Mapping_Taxonomy.xlsx</code> (Google Sheet <code>1drBXEp…</code>, tab "Combined Manufacturer List_Late"). Every mapped value is an exact string from it.</li>
+<li><b>Device Category / Sub-OU / OU — from the line item text only</b> (never the tender title). <code>vocab_rules.py</code> holds ~270 rules, each = (OU, Sub-OU, Product Category, include patterns, exclude patterns), in English, Turkish (folded to ASCII) and Arabic. First matching rule wins.
+<ul>
+<li>Order-independent rules handle "THING, FOR USE" wording (e.g. "PULSE GENERATOR, NON RECHARGEABLE, FOR DEEP BRAIN STIMULATION").</li>
+<li>For NUPCO "&lt;item&gt; RELATED TO &lt;parent unit&gt;", the item part is matched first, then the full text.</li>
+<li>Turkey: Turkish rules on the lot name first, then the English (QC-corrected if available, else machine translation).</li>
+<li>Precision first: generic consumables (gloves, syringes, dressings), drugs, lab reagents and catch-all words stay unmapped.</li>
+</ul></li>
+<li><b>Company — from the manufacturer only, never the distributor:</b> alias table (e.g. Covidien, Nellcor, Kyphon → Medtronic; Ethicon, DePuy Synthes, Biosense → Johnson &amp; Johnson; St. Jude → Abbott), then exact taxonomy name, then strict fuzzy match (≥95). Turkey/KSA-previous: only when the supplier's own name is the OEM or its affiliate.</li>
+<li><b>Family Name:</b> a taxonomy family of that Company + Product Category whose distinctive words all appear in the model/catalogue/description.</li>
+<li><b>Included / Review / Excluded:</b> The extraction build uses mapped category, award year 2024–2026 and award/contract status (and excludes terminated EKAP contracts). Preserve that original decision for audit. CY2025 uses the separate assessment status and evidenced contract overlap, so supported carryover from 2023 or 2024 can qualify. Pipeline, losing bids and unresolved duplicates do not qualify for assessed award totals.</li>
+<li><b>Mapping QC:</b> after each build, sample mapped rows per tab and check for false positives (examples fixed: dental burs vs neuro burs, nasal speculum vs debrider blade, "rod" inside "introducer", "eus" inside "reusable", company names like "Barrett Hodgson"). Check recall by listing unmapped lines where the manufacturer is Medtronic.</li>
+</ol>
+</section>
+
+<section id="value"><h2>11. Valuation, prices and FX</h2>
+<ul>
+<li><b>KSA:</b> no prices published. Est. Value USD = requested quantity × UOM factor (DOZEN = 12; box/pack/blank → no value) × reference unit price × 1/n (n = winners on the item). Reference prices = median winning unit rate per Device Category from KP Pakistan BERs (<code>ref_prices.csv</code>, 13 categories). Where no reference price exists: volume and share only. These are scenario estimates based on Pakistani reference prices; they are not disclosed Saudi prices or a proven lower bound.</li>
+<li><b>Turkey:</b> Value USD only for single-lot contracts; never split or sum a multi-lot contract value. Unit price only where a quantity is known.</li>
+<li><b>Pakistan:</b> KP unit prices (HBP USD); federal offers are line totals without quantity.</li>
+<li><b>Kuwait, UAE:</b> volume signals only — no value built.</li>
+<li><b>Share:</b> NUPCO frameworks are multi-award; share of awards = sum of 1/n weights per company.</li>
+<li><b>FX (<code>fx_annual_usd.json</code>):</b> TRY = ECB annual average by award year (2024: 32.86, 2025: 39.55, 2026: 45.75); SAR 3.75 and AED 3.6725 (pegs); KWD ≈ 0.307; PKR 276.98 (spot, 1 Oct 2026).</li>
+</ul>
+</section>
+
+
+<section id="cy2025"><h2>12. Calendar Year 2025 applicable period, volume and value</h2>
+<p>Assessment period: <b>1 January–31 December 2025</b>, inclusive. Use the <a href="https://docs.google.com/spreadsheets/d/<MASTER_SHEET_ID>/edit">live TURMECA Google Sheet</a>. The assessment block is appended to all seven data tabs; portal-gap tabs have no tender rows to assess. Existing extraction dates, metrics, mapping decisions and header colors are retained.</p>
+<h3>Inputs and calculations</h3>
+<div class="tablewrap"><table>
+<tr><th>Field</th><th>Rule</th></tr>
+<tr><td>Contract Start Date / Contract End Date</td><td>Use evidenced contract validity dates, not award signature, publication, final-result date or a financial-year label. Turkey dates are matched from the QC-corrected extraction by notice, item and supplier, or the previous-only notice/item key. Conflicting or unavailable dates remain unresolved; source information is retained in Period Evidence / Source.</td></tr>
+<tr><td>Contract Duration (months)</td><td>Whole anchored calendar months from start through end inclusive, plus a fraction of the remaining anchored month. Invalid or incomplete periods produce no duration.</td></tr>
+<tr><td>Active in CY2025?</td><td>Yes when an evidenced interval overlaps 2025; No when it is outside. Unknown when the period is incomplete or invalid. An available start after 2025 or end before 2025 can establish No. This period flag alone does not establish eligible awarded purchasing.</td></tr>
+<tr><td>CY2025 Applicable Start / End</td><td>Later of contract start and 1 January 2025; earlier of contract end and 31 December 2025. Blank when there is no overlap.</td></tr>
+<tr><td>Applicable Duration CY2025 (months)</td><td>Sum the covered fraction of each calendar month in 2025: covered days in that month divided by the days in that month. A full calendar year is exactly 12 months; July–December is exactly 6 months. Partial months are fractional.</td></tr>
+<tr><td>CY2025 Applicable Share</td><td>Number of overlapping days in CY2025 divided by the total inclusive contract days. Keep full calculation precision. This uses the whole contract as the denominator, not 12 months.</td></tr>
+<tr><td>CY2025 Applicable Volume</td><td>Eligible awarded item quantity × applicable share. Preserve the original UOM. Requested quantities and unallocated framework quantities are not presented as awarded volume. Missing quantities remain blank.</td></tr>
+<tr><td>CY2025 Applicable Value (LCY) / USD</td><td>Eligible attributable award total × applicable share. A unit price without quantity is not a total. Multi-lot contract totals without allocation remain blank. LCY is only comparable within one currency; do not sum across countries.</td></tr>
+<tr><td>CY2025 Estimated Value USD</td><td>Existing reference-price estimated USD × applicable share, when both the period and assessment eligibility are supported. Never combine it with disclosed award USD as a single actual-value total.</td></tr>
+<tr><td>CY2025 Assessment Status / Basis / Caveat</td><td>Separate period unknown, invalid dates, outside year, eligible pro rata, pipeline, losing bids, out of scope, low confidence and duplicate review. Explain quantity/value evidence and the uniform-time assumption.</td></tr>
+</table></div>
+<div class="note"><b>Interpretation:</b> time proration is a uniform allocation of the contract total over its validity period. It is an assessment estimate, not observed 2025 delivery, invoice, cash flow or consumption. Use evidenced 2025 deliveries or call-offs for realised purchasing when available. Do not spread a one-off equipment purchase over time merely because it has a warranty or contract end date; such cases require review.</div>
+<h3>Source limits and treatment</h3>
+<ul>
+<li><b>Turkey — EKAP:</b> use supported validity dates from the corrected source. A signed contract date alone is not a validity start. Single-lot/line-attributable values may be prorated; repeated multi-lot totals may not.</li>
+<li><b>KSA — NUPCO:</b> final-result dates identify award events, not framework validity. A 90/120-day delivery period per call-off is not the overall framework term. With no confirmed term or call-off allocation, active period, months and applied metrics remain unknown or blank.</li>
+<li><b>Pakistan — KP:</b> a BER fiscal-year title is not proof of the signed rate-contract start/end. Do not assume July–June validity without evidence. Published unit rates without quantities cannot produce total volume or value.</li>
+<li><b>Pakistan Federal and UAE eSupply:</b> pipeline evaluations and RFQs do not establish final awarded purchasing. Requested quantities may be reported separately as demand signals, never as CY2025 awarded volume.</li>
+<li><b>Kuwait:</b> no mapped product rows in this release; the consistent headers do not imply covered award evidence.</li>
+</ul>
+<h3>Assessment checks</h3>
+<p>Reconcile source Row IDs before date enrichment. Check missing and conflicting periods, end before start, full-year overlap, partial months, contracts spanning years and no overlap. Confirm applicable share is between 0 and 1, months between 0 and 12, and applied metrics do not exceed eligible contract totals. Eligible summaries must disclose unassessable record counts; blank unknown values must not be described as zero market activity.</p>
+</section>
+
+<section id="translate"><h2>13. English translation</h2>
+<ul>
+<li><code>translate.py</code> calls <code>translate.googleapis.com/translate_a/single</code> in batches and caches every result in <code>translation_cache.sqlite</code>; re-runs only translate new text.</li>
+<li><code>add_translations.py</code> adds an "(EN)" column after any column with Turkish/Arabic text; a procurement glossary is applied first ("KALEM" = item(s), "KISIM" = lot — the translator otherwise outputs "pen").</li>
+<li>If Google returns HTTP 429 (rate limit), run <code>fix_translations_from_cache.py</code> (restores earlier cached translations) and <code>tr_glossary_fix.py</code> (offline glossary for remaining procurement words; brand names kept).</li>
+<li>Turkish lot descriptions use the human-corrected English from the previous QC file where available.</li>
+</ul>
+</section>
+
+<section id="rebuild"><h2>14. Rebuild order</h2>
+<ol class="steps"><li>Build reference prices with <code>build_ref_prices.py</code>.</li><li>In the KSA module, run <code>build_ksa.py</code>.</li><li>In the Turkey EKAP module, run <code>build_turkey.py</code>.</li><li>In the Pakistan module, run <code>build_pakistan.py</code>, then run <code>parse_federal.py</code> in the Federal module.</li><li>In the Kuwait and UAE modules, run <code>build_kuwait.py</code> and <code>build_uae.py</code> respectively.</li><li>Assemble the project master with <code>build_master_mapped.py</code>, then add coverage notes with <code>add_gap_notes.py</code>.</li><li>Add English translations with <code>add_translations.py</code>. If the translation service is rate-limited, run <code>fix_translations_from_cache.py</code>, then <code>tr_glossary_fix.py</code>.</li></ol><div class="note"><b>Assessment refresh:</b> the original rebuild commands recreate the extraction workbook. They do not preserve added live Google Sheet assessment columns. Reconcile stable Row IDs, carry forward validated contract-period inputs and their sources, then reapply and check assessment formulas before replacing a released sheet. Preserve the green mapped-header formatting.</div>
+<div class="tip">After changing <code>vocab_rules.py</code>, rebuild every country file before the master so all tabs use the same rules. Fresh source pulls (EKAP, eSupply, CAPT) are resumable and only fetch what is missing.</div>
+</section>
+
+<section id="qc"><h2>15. QC checklist and known limitations</h2>
+<h3>Checklist</h3>
+<p>Release checks extend the ACEE method: retain source traceability, check category/company/family combinations, reconcile totals to eligible lines, review duplicates and value attribution, validate quantity UOM and FX, and inspect all formula results and table formatting. Distinguish missing evidence from zero.</p>
+<ol class="steps">
+<li>Parse logs: NUPCO <code>nupco_parse_log.csv</code> has no "unaligned" rows on device tenders; award row totals ≈ expected (≈ 67–69k).</li>
+<li>EKAP lists: every <code>list JSON files</code> has <code>list length = total</code> (paging advances by rows received).</li>
+<li>Spot-check 30–40 mapped rows per tab for false positives; list unmapped Medtronic lines for recall gaps.</li>
+<li>Value sanity: largest Est. Value / Value USD categories have plausible unit prices and enough observations (<code>n_obs</code>).</li>
+<li>Master opens in Excel without repair; Summary counts match tab row counts. Check for REF, DIV/0, VALUE, NAME and NA formula errors, and reconcile each CY2025 summary to its assessment statuses.</li>
+<li>No untranslated Turkish procurement words left in "(EN)" columns.</li>
+</ol>
+<h3>Known limitations</h3>
+<ul>
+<li>EKAP pull incomplete (core tier done; partial and catch-all tiers pending) because of the ~2 calls/minute limit.</li>
+<li>KSA values depend on 13 Pakistani reference prices (some with only 1–4 observations); tracheostomy tubes dominate.</li>
+<li>Sindh, Punjab and Etimad not covered; Kuwait and UAE provide no device values.</li>
+<li>Requested quantities (NUPCO item lists, eSupply) are not actual consumption; framework allocation between winners is unknown.</li>
+</ul>
+</section>
+</div>
+<footer>TURMECA tender data SOP · Clearstate · Version 1.1 · 6 October 2026 · ACEE analytical methods adapted to TURMECA source evidence</footer>
+</body>
+</html>

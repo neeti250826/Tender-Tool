@@ -1,0 +1,8 @@
+openpyxl
+pandas
+numpy
+rapidfuzz
+pdfplumber
+PyMuPDF
+python-docx
+requests

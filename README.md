@@ -42,3 +42,9 @@ For a full script-by-script command list, see `SCRIPT_INDEX.md`.
 ## Data Policy
 
 Generated CSV/JSONL/XLSX outputs are ignored by git under `output/` folders. This keeps the repository focused on scripts, important documentation, and reproducible instructions.
+
+## Claude Mapping scripts (added 2026-10-13)
+
+Country tender extraction and mapping scripts from the local `Claude Mapping` workspace, one folder per `Country_Website`:
+`Vietnam_VNEPS/`, `Turkey_EKAP/`, `SaudiArabia_NUPCO/`, `Kuwait_CAPT/`, `UAE_Dubai_eSupply/`, `Pakistan_KP_DGHS/`, `Pakistan_PPRA_EPMS/`, `Pakistan_KPPRA/`, `Pakistan_Sindh_PPRA/`, `Honduras_ONCAE/`, `ElSalvador_COMPRASAL/`, plus the shared `Shared_TURMECA_Pipeline/`, `Shared_ES_HN_Pipeline/` and `Shared_Taxonomy_Mapping/` code they import.
+See `CLAUDE_MAPPING_INDEX.md` for the folder table, original layout, import notes and dependencies.

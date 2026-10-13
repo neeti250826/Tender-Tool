@@ -1,0 +1,25 @@
+{
+ "2023": {
+  "TRY": 23.7997,
+  "n_days": 256
+ },
+ "2024": {
+  "TRY": 32.857,
+  "n_days": 257
+ },
+ "2025": {
+  "TRY": 39.5536,
+  "n_days": 256
+ },
+ "2026": {
+  "TRY": 45.7538,
+  "n_days": 193
+ },
+ "fixed": {
+  "SAR": 3.75,
+  "AED": 3.6725,
+  "KWD": 0.307,
+  "PKR": 276.984011,
+  "note": "SAR/AED USD pegs; KWD approx basket rate; PKR open.er-api spot 2026-10-01; TRY = ECB annual average via frankfurter"
+ }
+}
