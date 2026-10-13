@@ -1,0 +1,25 @@
+# eProcurement India Scraper
+# Install with:
+#   pip install -r requirements.txt
+#   playwright install chromium
+
+# HTTP + HTML parsing
+requests>=2.31.0
+beautifulsoup4>=4.12.0
+lxml>=5.0.0
+
+# Browser automation
+playwright>=1.58.0
+
+# Captcha solving
+easyocr>=1.7.0
+opencv-python-headless>=4.9.0
+Pillow>=10.0.0
+numpy>=1.26.0
+
+# PDF rendering
+pymupdf>=1.24.0
+pdf2image>=1.17.0
+
+# Output / UX
+tqdm>=4.66.0

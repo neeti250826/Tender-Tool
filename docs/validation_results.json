@@ -1,0 +1,51 @@
+{
+  "as_of": "2026-10-13",
+  "full_live_extraction_run": false,
+  "repositories": {
+    "personal": {
+      "syntax_catalog_hashes": {
+        "python_files": 298,
+        "notebooks": 21,
+        "catalog_entries": 65,
+        "checked_hashes": 575,
+        "failures": []
+      },
+      "regression_exit_code": 0,
+      "regression_output": "C:\\Users\\Neeti\\PycharmProjects\\Clearstate\\.venv\\Lib\\site-packages\\requests\\__init__.py:113: RequestsDependencyWarning: urllib3 (2.6.3) or chardet (7.0.1)/charset_normalizer (3.4.4) doesn't match a supported version!\n  warnings.warn(\n..........\n----------------------------------------------------------------------\nRan 10 tests in 1.526s\n\nOK\n"
+    },
+    "organization": {
+      "syntax_catalog_hashes": {
+        "python_files": 298,
+        "notebooks": 21,
+        "catalog_entries": 65,
+        "checked_hashes": 575,
+        "failures": []
+      },
+      "regression_exit_code": 0,
+      "regression_output": "C:\\Users\\Neeti\\PycharmProjects\\Clearstate\\.venv\\Lib\\site-packages\\requests\\__init__.py:113: RequestsDependencyWarning: urllib3 (2.6.3) or chardet (7.0.1)/charset_normalizer (3.4.4) doesn't match a supported version!\n  warnings.warn(\n..........\n----------------------------------------------------------------------\nRan 10 tests in 1.492s\n\nOK\n"
+    }
+  },
+  "limitations": [
+    "No full live crawl or browser/CAPTCHA workflow executed.",
+    "ACEE fixture-dependent smoke probes were not executed; 12 source modules load in regression tests.",
+    "Memory evidence bundles remain external inputs.",
+    "Local requests installation emitted a dependency-version warning; offline checks passed."
+  ],
+  "javascript": {
+    "checked": 36,
+    "failures": []
+  },
+  "credential_pattern_matches": [],
+  "cli_help_passed": [
+    "CAPT",
+    "ePerolehan",
+    "Colombia",
+    "Singapore Selenium",
+    "EKAP",
+    "Mexico step3",
+    "Romania",
+    "NUPCO repair inventory",
+    "ACEE source registry"
+  ],
+  "source_mirror_mismatches": []
+}

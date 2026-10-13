@@ -1,0 +1,3 @@
+# Requirements for gprocurement_scraper.py
+playwright>=1.43.0
+deep-translator>=1.11.4

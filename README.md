@@ -2,6 +2,12 @@
 
 Country-level tender and awarded-contract scrapers collected from local Codex work.
 
+## Current Source Audit
+
+The [2026-10-13 country/website audit](docs/country_website_audit_2026-10-13.md) is the current inventory for both `neeti250826/Tender-Tool` and `Clearstate-SG/Tender-Tools`. It distinguishes extractors, browser workflows, evidence adapters, access probes, and missing code. Updating scripts does not refresh the tender datasets.
+
+Use [country_website_catalog.json](docs/country_website_catalog.json) for exact paths and limitations, [source_sync_manifest.json](docs/source_sync_manifest.json) for version hashes, and [validation_results.json](docs/validation_results.json) for checks performed.
+
 ## Repository Layout
 
 - `Singapore/` - GeBIZ scraper scripts and documentation.
@@ -9,7 +15,10 @@ Country-level tender and awarded-contract scrapers collected from local Codex wo
 - `Kuwait/` - CAPT winning-bids scraper, PDF helper, verified seed rows, and exclusion notes.
 - `UAE/` - Dubai eSupply scraper.
 - `Ecuador/` - ComprasPublicas scraper.
-- `Malaysia/`, `Vietnam/`, `Colombia/` - country documentation and recovered output inventory. No source scraper was found locally for these countries yet.
+- `Malaysia/`, `Vietnam/`, `Colombia/` - country documentation; runnable sources are also indexed under `malaysia-moh/`, `malaysia-eperolehan/`, `Vietnam_VNEPS/`, and `colombia-secop/`.
+- Lowercase portal packages such as `canada-canadabuys/`, `costa-rica-sicop/`, `hungary-ekr/`, and `united-states-fpds/` preserve the organization repository's source layout.
+- `ACEE/` - shared Egypt, Czechia, Hungary, Poland, Romania, and seven South African source modules.
+- `memory_sources/` - later Codex extraction/repair code; see its README for required external evidence and limitations.
 - `docs/` - shared TURMECA documentation and source-status notes.
 - `procurement_utils.py` - shared utility functions used by Pakistan, Kuwait, and UAE scripts.
 - `run_awarded_scrapers.py`, `run_item_level_scrapers.py`, `combine_pakistan_awards.py` - cross-country or Pakistan consolidation runners.

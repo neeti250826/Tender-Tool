@@ -1,6 +1,6 @@
 # Colombia Tender Documentation
 
-Colombia SECOP II output was found locally, but no source scraper script was found in the current workspace scan.
+The SECOP II extractor is available at [colombia-secop/extract.py](../colombia-secop/extract.py). The 2026-10-13 audit recovered this source from the organization repository and added explicit date and output arguments.
 
 ## Available Evidence
 
@@ -8,12 +8,16 @@ Recovered local output filename: `SECOP_II_-_Contratos_Electrónicos_20260415.cs
 
 ## Run Command
 
-No runnable Colombia source script is currently present in this repository.
+```powershell
+python colombia-secop/extract.py --date-from 2024-01-01 --date-to 2026-10-13 --output-dir Colombia/output
+```
+
+The default end date is today. The source filters contract signature dates; these should not be represented as independently verified publication dates.
 
 ## AI Prompt
 
 ```text
-Review the Colombia SECOP documentation in Tender-Tool/Colombia. Confirm that no Colombia source script is present, inspect any recovered SECOP output file if provided by the user, and draft a new reproducible SECOP II extraction script.
+Run colombia-secop/extract.py for the requested date range and review source dates, procurement status, pagination and field coverage before using its results.
 ```
 
 ## Documentation

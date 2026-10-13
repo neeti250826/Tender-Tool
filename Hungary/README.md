@@ -7,4 +7,4 @@ Hungary contains Clearstate ACEE source notes and reports for the EKR portal.
 - `docs/ekr-gov-hu_notes.md`
 - `docs/ekr-gov-hu_report.html`
 
-No runnable Hungary scraper source was found in the curated Clearstate scan.
+The earlier scan missed executable sources. Current code is in [hungary-ekr](../hungary-ekr/), [hungary-neak](../hungary-neak/), and [ACEE/harness](../ACEE/harness/). The shared harness also supports saved evidence and TED fallback; those modes have different coverage from a complete EKR crawl.

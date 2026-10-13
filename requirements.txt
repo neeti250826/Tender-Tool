@@ -1,10 +1,14 @@
 beautifulsoup4
+cryptography
+lxml
 openpyxl
 pandas
+pdfplumber
 playwright
 pymupdf
 pypdf
 requests
+python-dateutil
 selenium
 urllib3
 

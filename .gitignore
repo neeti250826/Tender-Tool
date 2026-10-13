@@ -26,3 +26,14 @@ Thumbs.db
 .vscode/
 .idea/
 
+# Source-audit and adapter runtime artifacts
+**/outputs/
+**/raw/
+**/raw_evidence/
+**/evidence/
+**/tender_memory_output/
+**/.tender-memory/
+**/.env
+**/cookies*.txt
+**/*cookies*.json
+

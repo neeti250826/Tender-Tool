@@ -1,0 +1,1081 @@
+[
+  {
+    "country": "Brazil",
+    "portal": "ComprasNet",
+    "url": "https://comprasnet.gov.br/",
+    "coverage": "extractor",
+    "scripts": [
+      "brazil-comprasnet/Api_test.py",
+      "Brazil/Compras/scripts/comprasnet_api_test.py"
+    ],
+    "before": {
+      "personal": "source present; additional implementation missing",
+      "organization": "source present; additional implementation missing"
+    },
+    "limitation": "Full live extraction was not rerun in this repository audit.",
+    "audited_on": "2026-10-13",
+    "live_data_refreshed": false
+  },
+  {
+    "country": "Brazil",
+    "portal": "PNCP",
+    "url": "https://pncp.gov.br/app/editais",
+    "coverage": "extractor",
+    "scripts": [
+      "brazil-pncp/Scraper.py",
+      "Brazil/PNCP/scripts/pncp_scraper.py"
+    ],
+    "before": {
+      "personal": "source present; additional implementation missing",
+      "organization": "source present; additional implementation missing"
+    },
+    "limitation": "Full live extraction was not rerun in this repository audit.",
+    "audited_on": "2026-10-13",
+    "live_data_refreshed": false
+  },
+  {
+    "country": "Brazil",
+    "portal": "Ministry of Health",
+    "url": "https://www.gov.br/saude/pt-br/acesso-a-informacao/licitacoes-e-contratos/dispensa-de-licitacao",
+    "coverage": "extractor",
+    "scripts": [
+      "brazil-ministry-health/scrape_dispensa_saude.py"
+    ],
+    "before": {
+      "personal": "no source code in cataloged paths",
+      "organization": "source present"
+    },
+    "limitation": "Full live extraction was not rerun in this repository audit.",
+    "audited_on": "2026-10-13",
+    "live_data_refreshed": false
+  },
+  {
+    "country": "Canada",
+    "portal": "CanadaBuys",
+    "url": "https://canadabuys.canada.ca/",
+    "coverage": "notebook",
+    "scripts": [
+      "canada-canadabuys/CanadaBuysScraper_Colab.ipynb"
+    ],
+    "before": {
+      "personal": "no source code in cataloged paths",
+      "organization": "source present"
+    },
+    "limitation": "Notebook workflow; no newer matching local implementation found in audited roots.",
+    "audited_on": "2026-10-13",
+    "live_data_refreshed": false
+  },
+  {
+    "country": "Colombia",
+    "portal": "SECOP",
+    "url": "https://www.datos.gov.co/resource/jbjy-vk9h.json",
+    "coverage": "extractor",
+    "scripts": [
+      "colombia-secop/extract.py"
+    ],
+    "before": {
+      "personal": "no source code in cataloged paths",
+      "organization": "older or defective source updated"
+    },
+    "limitation": "Added date CLI and current-date default; signature date is not automatically a publication date.",
+    "audited_on": "2026-10-13",
+    "live_data_refreshed": false
+  },
+  {
+    "country": "Costa Rica",
+    "portal": "SICOP",
+    "url": "https://www.sicop.go.cr/app/module/pcont/public/ce-contracts-report",
+    "coverage": "browser and evidence adapter",
+    "scripts": [
+      "costa-rica-sicop/sicop_adapter/fetch_sicop_all_slices.js",
+      "costa-rica-sicop/sicop_adapter/sicop_tracker_delivery2_adapter.py"
+    ],
+    "before": {
+      "personal": "no source code in cataloged paths",
+      "organization": "no source code in cataloged paths"
+    },
+    "limitation": "Previously data links only in GitHub. Browser callbacks and reviewed evidence adapters now included; stored official HTML/JSON inputs remain external. Fixed historical slices are preserved.",
+    "audited_on": "2026-10-13",
+    "live_data_refreshed": false
+  },
+  {
+    "country": "Czechia",
+    "portal": "NEN",
+    "url": "https://nen.nipez.cz/",
+    "coverage": "extractor",
+    "scripts": [
+      "ACEE/harness/sources/czechia_nen.py",
+      "czech-republic-nen/nen_scraper.py",
+      "Czechia/scripts/czechia_nen_awarded_healthcare_scraper.py"
+    ],
+    "before": {
+      "personal": "source present; additional implementation missing",
+      "organization": "source present; additional implementation missing"
+    },
+    "limitation": "Live and saved-evidence variants; ACEE smoke probes need the original fixture bundle.",
+    "audited_on": "2026-10-13",
+    "live_data_refreshed": false
+  },
+  {
+    "country": "Ecuador",
+    "portal": "ComprasPublicas",
+    "url": "https://www.compraspublicas.gob.ec/",
+    "coverage": "extractor",
+    "scripts": [
+      "ecuador-compraspublicas/ec_compraspublicas_collected.py",
+      "Ecuador/scripts/ec_compraspublicas_scraper.py"
+    ],
+    "before": {
+      "personal": "source present; additional implementation missing",
+      "organization": "source present; additional implementation missing"
+    },
+    "limitation": "Full live extraction was not rerun in this repository audit.",
+    "audited_on": "2026-10-13",
+    "live_data_refreshed": false
+  },
+  {
+    "country": "Egypt",
+    "portal": "GCS",
+    "url": "https://gcs.digitalegypt.gov.eg/",
+    "coverage": "extractor",
+    "scripts": [
+      "ACEE/scripts/scrape_egypt_awarded_sources.py",
+      "ACEE/harness/sources/egypt_gcs.py"
+    ],
+    "before": {
+      "personal": "no source code in cataloged paths",
+      "organization": "no source code in cataloged paths"
+    },
+    "limitation": "Live session-based awarded route and saved-evidence parser; source coverage remains limited.",
+    "audited_on": "2026-10-13",
+    "live_data_refreshed": false
+  },
+  {
+    "country": "Egypt",
+    "portal": "UPA",
+    "url": "https://upa.gov.eg/tenders/",
+    "coverage": "listing only",
+    "scripts": [
+      "egypt-upa/egypt_upa_scraper.py"
+    ],
+    "before": {
+      "personal": "no source code in cataloged paths",
+      "organization": "source present"
+    },
+    "limitation": "Public listing code exists. Saved June research found item booklets CAPTCHA-gated; complete awarded items are not established.",
+    "audited_on": "2026-10-13",
+    "live_data_refreshed": false
+  },
+  {
+    "country": "Egypt",
+    "portal": "eTenders",
+    "url": "https://etenders.gov.eg/",
+    "coverage": "research only",
+    "scripts": [],
+    "before": {
+      "personal": "no source code in cataloged paths",
+      "organization": "no source code in cataloged paths"
+    },
+    "limitation": "No implemented extractor found; June research records HTTP timeouts. Reachability was not re-certified today.",
+    "audited_on": "2026-10-13",
+    "live_data_refreshed": false
+  },
+  {
+    "country": "Egypt",
+    "portal": "World Bank awards",
+    "url": "https://financesone.worldbank.org/",
+    "coverage": "supplemental extractor",
+    "scripts": [
+      "ACEE/scripts/scrape_egypt_world_bank_country_awards.py"
+    ],
+    "before": {
+      "personal": "no source code in cataloged paths",
+      "organization": "no source code in cataloged paths"
+    },
+    "limitation": "Donor/project procurement, not complete Egyptian domestic procurement.",
+    "audited_on": "2026-10-13",
+    "live_data_refreshed": false
+  },
+  {
+    "country": "El Salvador",
+    "portal": "COMPRASAL",
+    "url": "https://comprasal.gob.sv/",
+    "coverage": "extractor with reviewed inventory",
+    "scripts": [
+      "ElSalvador_COMPRASAL/es_fetch_details.py",
+      "memory_sources/LATAM/research/comprasal_vpn_recovery/revision_001/adapter.py"
+    ],
+    "before": {
+      "personal": "source present; additional implementation missing",
+      "organization": "source present; additional implementation missing"
+    },
+    "limitation": "October corrections distinguish unallocated whole-procedure commitments from item/supplier sizing. Frozen manifests and reviewed rows are required by the corrected adapter.",
+    "audited_on": "2026-10-13",
+    "live_data_refreshed": false
+  },
+  {
+    "country": "El Salvador",
+    "portal": "Transparency: ISSS/MINSAL",
+    "url": "https://www.transparencia.gob.sv/",
+    "coverage": "extractor and evidence adapter",
+    "scripts": [
+      "memory_sources/LATAM/research/transparencia_vpn_recovery/scripts/crawl.py",
+      "memory_sources/LATAM/research/transparencia_vpn_recovery/adapter.py"
+    ],
+    "before": {
+      "personal": "no source code in cataloged paths",
+      "organization": "no source code in cataloged paths"
+    },
+    "limitation": "New website coverage recovered from October work. Reviewed schedules and manifests remain external; live recrawls require semantic review.",
+    "audited_on": "2026-10-13",
+    "live_data_refreshed": false
+  },
+  {
+    "country": "Honduras",
+    "portal": "ONCAE/HonduCompras/SICC",
+    "url": "https://datosabiertos.oncae.gob.hn/",
+    "coverage": "extractor",
+    "scripts": [
+      "Honduras_ONCAE/hn_extract.py",
+      "Honduras_ONCAE/sicc_search.py",
+      "memory_sources/LATAM/research/honduras/scripts/download_bulk.py"
+    ],
+    "before": {
+      "personal": "source present; additional implementation missing",
+      "organization": "source present; additional implementation missing"
+    },
+    "limitation": "Bulk OCDS and historical source paths; latest saved October review still records portal/access gaps.",
+    "audited_on": "2026-10-13",
+    "live_data_refreshed": false
+  },
+  {
+    "country": "El Salvador and Honduras",
+    "portal": "UNGM",
+    "url": "https://www.ungm.org/",
+    "coverage": "supplemental extractor",
+    "scripts": [
+      "memory_sources/LATAM/research/donors/ungm_es_all_awards/crawl.py",
+      "memory_sources/LATAM/research/donors/ungm_hn_all_awards/crawl.py"
+    ],
+    "before": {
+      "personal": "no source code in cataloged paths",
+      "organization": "no source code in cataloged paths"
+    },
+    "limitation": "International organization awards must remain separate from domestic government awards; scope-specific reviews and input manifests are external.",
+    "audited_on": "2026-10-13",
+    "live_data_refreshed": false
+  },
+  {
+    "country": "El Salvador and Honduras",
+    "portal": "World Bank",
+    "url": "https://search.worldbank.org/",
+    "coverage": "supplemental extractor",
+    "scripts": [
+      "memory_sources/LATAM/research/worldbank_extract.py"
+    ],
+    "before": {
+      "personal": "no source code in cataloged paths",
+      "organization": "no source code in cataloged paths"
+    },
+    "limitation": "Official donor procurement layer, not complete domestic procurement.",
+    "audited_on": "2026-10-13",
+    "live_data_refreshed": false
+  },
+  {
+    "country": "Hungary",
+    "portal": "EKR",
+    "url": "https://ekr.gov.hu/portal/kozbeszerzes/hirdetmenyek",
+    "coverage": "extractor",
+    "scripts": [
+      "hungary-ekr/ekr_scraper.py",
+      "ACEE/harness/sources/hungary_ekr.py"
+    ],
+    "before": {
+      "personal": "no source code in cataloged paths",
+      "organization": "source present; additional implementation missing"
+    },
+    "limitation": "Full live extraction was not rerun in this repository audit.",
+    "audited_on": "2026-10-13",
+    "live_data_refreshed": false
+  },
+  {
+    "country": "Hungary",
+    "portal": "NEAK",
+    "url": "https://www.neak.gov.hu/",
+    "coverage": "extractor",
+    "scripts": [
+      "hungary-neak/neak_scraper.py"
+    ],
+    "before": {
+      "personal": "no source code in cataloged paths",
+      "organization": "source present"
+    },
+    "limitation": "Full live extraction was not rerun in this repository audit.",
+    "audited_on": "2026-10-13",
+    "live_data_refreshed": false
+  },
+  {
+    "country": "India",
+    "portal": "eProcure",
+    "url": "https://eprocure.gov.in/eprocure/app",
+    "coverage": "browser extractor",
+    "scripts": [
+      "india-eprocure/scraper_updated.py",
+      "India/eProcure/scripts/scraper_updated.py"
+    ],
+    "before": {
+      "personal": "source present; additional implementation missing",
+      "organization": "source present; additional implementation missing"
+    },
+    "limitation": "Browser/session/CAPTCHA constraints remain; an interactive run was not attempted.",
+    "audited_on": "2026-10-13",
+    "live_data_refreshed": false
+  },
+  {
+    "country": "Kuwait",
+    "portal": "CAPT",
+    "url": "https://capt.gov.kw/en/tenders/winning-bids/",
+    "coverage": "browser and evidence extractor",
+    "scripts": [
+      "Kuwait/CAPT/capt_awarded_scraper.py",
+      "Kuwait_CAPT/capt_crawl.js",
+      "kuwait-capt/capt_awarded_scraper.py"
+    ],
+    "before": {
+      "personal": "older or defective source updated",
+      "organization": "source present; additional implementation missing"
+    },
+    "limitation": "Updated multi-page saved capture recovery. September memory still reports constrained live access and incomplete domestic coverage.",
+    "audited_on": "2026-10-13",
+    "live_data_refreshed": false
+  },
+  {
+    "country": "Kuwait",
+    "portal": "Central Bank of Kuwait",
+    "url": "https://www.cbk.gov.kw/",
+    "coverage": "research only",
+    "scripts": [],
+    "before": {
+      "personal": "no source code in cataloged paths",
+      "organization": "no source code in cataloged paths"
+    },
+    "limitation": "Documentation-only package; no reviewed medical award scraper found.",
+    "audited_on": "2026-10-13",
+    "live_data_refreshed": false
+  },
+  {
+    "country": "Kuwait",
+    "portal": "Official Gazette",
+    "url": "https://kuwaitalyawm.media.gov.kw/",
+    "coverage": "evidence adapter",
+    "scripts": [
+      "memory_sources/TURMECA/tender_memory_run_2026-09-30/missing_source_refresh/execution/kuwait/repair_v2/adapters/kuwait_gazette_repair_adapter.py"
+    ],
+    "before": {
+      "personal": "no source code in cataloged paths",
+      "organization": "no source code in cataloged paths"
+    },
+    "limitation": "Index/repair code exists; September continuation added no confirmed award rows. Gazette index hits are not awards.",
+    "audited_on": "2026-10-13",
+    "live_data_refreshed": false
+  },
+  {
+    "country": "Malaysia",
+    "portal": "MOH",
+    "url": "https://www.moh.gov.my/",
+    "coverage": "extractor",
+    "scripts": [
+      "malaysia-moh/moh_scraper.py",
+      "Malaysia/scripts/moh_scraper.py"
+    ],
+    "before": {
+      "personal": "source present; additional implementation missing",
+      "organization": "source present; additional implementation missing"
+    },
+    "limitation": "Full live extraction was not rerun in this repository audit.",
+    "audited_on": "2026-10-13",
+    "live_data_refreshed": false
+  },
+  {
+    "country": "Malaysia",
+    "portal": "ePerolehan",
+    "url": "https://www.eperolehan.gov.my/quotation-tender-notice",
+    "coverage": "browser extractor",
+    "scripts": [
+      "malaysia-eperolehan/eperolehan_scraper.py"
+    ],
+    "before": {
+      "personal": "no source code in cataloged paths",
+      "organization": "no source code in cataloged paths"
+    },
+    "limitation": "Recovered missing script, added date CLI and current-date default. Session/CAPTCHA may require interaction.",
+    "audited_on": "2026-10-13",
+    "live_data_refreshed": false
+  },
+  {
+    "country": "Mexico",
+    "portal": "Compras MX",
+    "url": "https://comprasmx.buengobierno.gob.mx/",
+    "coverage": "browser extractor",
+    "scripts": [
+      "mexico-compras-mx/src/scrape_step2.py",
+      "mexico-compras-mx/src/scrape_step3.py",
+      "Mexico/ComprasMX/scripts/src/scrape_step3.py",
+      "mexico-compras-mx/tools/run_canlat_oct_scraper.py"
+    ],
+    "before": {
+      "personal": "source present; additional implementation missing",
+      "organization": "no source code in cataloged paths"
+    },
+    "limitation": "Organization placeholder replaced with the existing source pipeline and October incremental tools. Input expediente workbook is required and not committed.",
+    "audited_on": "2026-10-13",
+    "live_data_refreshed": false
+  },
+  {
+    "country": "Pakistan",
+    "portal": "PPRA/EPMS",
+    "url": "https://epms.ppra.gov.pk/",
+    "coverage": "extractor and evidence adapter",
+    "scripts": [
+      "Pakistan/PPRA/ppra_awarded_scraper.py",
+      "Pakistan_PPRA_EPMS/epms_evaluations.py",
+      "memory_sources/TURMECA/tender_memory_run_2026-09-30/missing_source_refresh/execution/pakistan/repair_v2/adapters/pk_federal_epms_package_repair_adapter.py"
+    ],
+    "before": {
+      "personal": "source present; additional implementation missing",
+      "organization": "source present; additional implementation missing"
+    },
+    "limitation": "Federal package-level final evaluations and September repairs; package values must not be presented as allocated item prices.",
+    "audited_on": "2026-10-13",
+    "live_data_refreshed": false
+  },
+  {
+    "country": "Pakistan",
+    "portal": "ePADS",
+    "url": "https://eprocure.gov.pk/",
+    "coverage": "extractor",
+    "scripts": [
+      "Pakistan/EPADS/epads_item_scraper.py",
+      "Pakistan/EPADS/epads_system_issued_loa_scraper.py",
+      "Pakistan/EPADS/epads_targeted_increment_scraper.py"
+    ],
+    "before": {
+      "personal": "source present; additional implementation missing",
+      "organization": "no source code in cataloged paths"
+    },
+    "limitation": "Added later LOA and incremental modes. Access and award-field coverage remain source-dependent.",
+    "audited_on": "2026-10-13",
+    "live_data_refreshed": false
+  },
+  {
+    "country": "Pakistan",
+    "portal": "DRAP",
+    "url": "https://www.dra.gov.pk/",
+    "coverage": "extractor",
+    "scripts": [
+      "Pakistan/DRAP/drap_item_scraper.py"
+    ],
+    "before": {
+      "personal": "source present",
+      "organization": "no source code in cataloged paths"
+    },
+    "limitation": "Tender item schedules are not automatically evidence of awarded status.",
+    "audited_on": "2026-10-13",
+    "live_data_refreshed": false
+  },
+  {
+    "country": "Pakistan",
+    "portal": "KP health/DGHS",
+    "url": "https://dghskp.gov.pk/",
+    "coverage": "PDF extractor",
+    "scripts": [
+      "Pakistan_KP_DGHS/parse_kp_ber.py"
+    ],
+    "before": {
+      "personal": "source present",
+      "organization": "source present"
+    },
+    "limitation": "Requires official downloaded BER PDFs; winner and package/item semantics need review.",
+    "audited_on": "2026-10-13",
+    "live_data_refreshed": false
+  },
+  {
+    "country": "Pakistan",
+    "portal": "KPPRA",
+    "url": "https://kppra.gov.pk/",
+    "coverage": "listing and PDF extractor",
+    "scripts": [
+      "Pakistan_KPPRA/kppra_lists.py"
+    ],
+    "before": {
+      "personal": "source present",
+      "organization": "source present"
+    },
+    "limitation": "Full live extraction was not rerun in this repository audit.",
+    "audited_on": "2026-10-13",
+    "live_data_refreshed": false
+  },
+  {
+    "country": "Pakistan",
+    "portal": "Sindh PPRA",
+    "url": "https://pprasindh.gov.pk/",
+    "coverage": "access probe only",
+    "scripts": [
+      "Pakistan_Sindh_PPRA/probe.js"
+    ],
+    "before": {
+      "personal": "source present",
+      "organization": "source present"
+    },
+    "limitation": "Reachability/link probe only, not an awarded-data extractor; historical notes report geographic access constraints.",
+    "audited_on": "2026-10-13",
+    "live_data_refreshed": false
+  },
+  {
+    "country": "Pakistan",
+    "portal": "ADB",
+    "url": "https://www.adb.org/",
+    "coverage": "supplemental extractor",
+    "scripts": [
+      "Pakistan/ADB/adb_health_awards_scraper.py"
+    ],
+    "before": {
+      "personal": "source present",
+      "organization": "no source code in cataloged paths"
+    },
+    "limitation": "Donor/project procurement must remain separate from domestic coverage.",
+    "audited_on": "2026-10-13",
+    "live_data_refreshed": false
+  },
+  {
+    "country": "Pakistan",
+    "portal": "World Bank",
+    "url": "https://financesone.worldbank.org/",
+    "coverage": "supplemental extractor",
+    "scripts": [
+      "Pakistan/WorldBank/worldbank_health_awards_scraper.py",
+      "Pakistan/WorldBank/worldbank_pakistan_devices_fetcher.py"
+    ],
+    "before": {
+      "personal": "source present; additional implementation missing",
+      "organization": "no source code in cataloged paths"
+    },
+    "limitation": "Full live extraction was not rerun in this repository audit.",
+    "audited_on": "2026-10-13",
+    "live_data_refreshed": false
+  },
+  {
+    "country": "Panama",
+    "portal": "PanamaCompra",
+    "url": "https://www.panamacompra.gob.pa/",
+    "coverage": "output links only",
+    "scripts": [],
+    "before": {
+      "personal": "no source code in cataloged paths",
+      "organization": "no source code in cataloged paths"
+    },
+    "limitation": "Output datasets are referenced, but no portal scraper was found in the audited repositories/local sources. CANLAT record extraction is downstream workbook processing.",
+    "audited_on": "2026-10-13",
+    "live_data_refreshed": false
+  },
+  {
+    "country": "Peru",
+    "portal": "OECE/SEACE",
+    "url": "https://contratacionesabiertas.oece.gob.pe/",
+    "coverage": "extractor",
+    "scripts": [
+      "peru-oece/Scrape.py",
+      "Peru/scripts/scrape.py"
+    ],
+    "before": {
+      "personal": "source present; additional implementation missing",
+      "organization": "source present; additional implementation missing"
+    },
+    "limitation": "Full live extraction was not rerun in this repository audit.",
+    "audited_on": "2026-10-13",
+    "live_data_refreshed": false
+  },
+  {
+    "country": "Poland",
+    "portal": "e-Zamowienia",
+    "url": "https://ezamowienia.gov.pl/",
+    "coverage": "extractor",
+    "scripts": [
+      "ACEE/harness/sources/poland_ezamowienia.py",
+      "poland-ezamowienia/ezamowienia_scraper.py",
+      "Poland/scripts/poland_ezamowienia_medical_scraper_itemdetails_v4.py"
+    ],
+    "before": {
+      "personal": "source present; additional implementation missing",
+      "organization": "source present; additional implementation missing"
+    },
+    "limitation": "Added shared attachment/item adapter; repaired invalid Colab notebook JSON. Historical pricing completeness gaps remain.",
+    "audited_on": "2026-10-13",
+    "live_data_refreshed": false
+  },
+  {
+    "country": "Romania",
+    "portal": "SEAP/SICAP and TED fallback",
+    "url": "https://e-licitatie.ro/",
+    "coverage": "extractor",
+    "scripts": [
+      "romania-seap/ro_seap_scraper.py",
+      "ACEE/harness/sources/romania_sicap.py",
+      "ACEE/scripts/run_romania_ted_full_scrape.py"
+    ],
+    "before": {
+      "personal": "no source code in cataloged paths",
+      "organization": "older or defective source updated"
+    },
+    "limitation": "Fixed CPV query syntax for Python 3.11 and added local harness/fallback. Direct-award and TED coverage are distinct.",
+    "audited_on": "2026-10-13",
+    "live_data_refreshed": false
+  },
+  {
+    "country": "Saudi Arabia",
+    "portal": "NUPCO",
+    "url": "https://www.nupco.com/tenders/tenders-list/",
+    "coverage": "extractor and repair adapter",
+    "scripts": [
+      "saudi-arabia-nupco/nupco_tender_memory_adapter.py",
+      "KSA/scripts/nupco_awards_scraper.py",
+      "SaudiArabia_NUPCO/parse_nupco_finals.py",
+      "memory_sources/TURMECA/agent_work/ksa_repair_v2/nupco_adapter_v2.py",
+      "memory_sources/TURMECA/agent_work/ksa_repair_v2/custom_layout_parser_v2.py"
+    ],
+    "before": {
+      "personal": "source present; additional implementation missing",
+      "organization": "source present; additional implementation missing"
+    },
+    "limitation": "September repair code recovered. Reviewed snapshot: 24 complete NPT groups and 19 unresolved; missing award commercial fields and no evidenced NDP Final Results. Repair adapter consumes frozen candidate CSV; inventory CLI does live discovery.",
+    "audited_on": "2026-10-13",
+    "live_data_refreshed": false
+  },
+  {
+    "country": "Saudi Arabia",
+    "portal": "Etimad",
+    "url": "https://tenders.etimad.sa/",
+    "coverage": "extractor",
+    "scripts": [
+      "saudi-arabia-etimad/etimad_awards_scraper.py",
+      "KSA/scripts/etimad_awards_scraper.py"
+    ],
+    "before": {
+      "personal": "source present; additional implementation missing",
+      "organization": "source present; additional implementation missing"
+    },
+    "limitation": "Full live extraction was not rerun in this repository audit.",
+    "audited_on": "2026-10-13",
+    "live_data_refreshed": false
+  },
+  {
+    "country": "Singapore",
+    "portal": "GeBIZ",
+    "url": "https://www.gebiz.gov.sg/",
+    "coverage": "browser extractor",
+    "scripts": [
+      "singapore-gebiz/gebiz_awarded_selenium.py",
+      "Singapore/scripts/gebiz_scraper_selenium.py",
+      "Singapore/scripts/gebiz_scraper.py"
+    ],
+    "before": {
+      "personal": "older or defective source updated",
+      "organization": "no source code in cataloged paths"
+    },
+    "limitation": "Recovered current local paged award/detail scraper and updated Selenium variant. Playwright and original Drive copies remain separate historical implementations.",
+    "audited_on": "2026-10-13",
+    "live_data_refreshed": false
+  },
+  {
+    "country": "South Korea",
+    "portal": "G2B",
+    "url": "https://www.g2b.go.kr/",
+    "coverage": "browser extractor",
+    "scripts": [
+      "south-korea-g2b/g2b_production_scraper_buyer_final.py"
+    ],
+    "before": {
+      "personal": "no source code in cataloged paths",
+      "organization": "source present"
+    },
+    "limitation": "Year-specific 2024/2025/2026 scripts are retained under South_Korea; dynamic WebSquare/browser workflow requires a live check.",
+    "audited_on": "2026-10-13",
+    "live_data_refreshed": false
+  },
+  {
+    "country": "South Africa",
+    "portal": "eTenders",
+    "url": "https://data.etenders.gov.za/",
+    "coverage": "extractor",
+    "scripts": [
+      "ACEE/harness/sources/south_africa_etenders.py",
+      "south-africa-etenders/sa_etenders_scraper.py"
+    ],
+    "before": {
+      "personal": "no source code in cataloged paths",
+      "organization": "source present; additional implementation missing"
+    },
+    "limitation": "Recovered June source module; historical live extraction and field gaps are recorded in ACEE/docs. OCR or original evidence fixtures may be needed.",
+    "audited_on": "2026-10-13",
+    "live_data_refreshed": false
+  },
+  {
+    "country": "South Africa",
+    "portal": "National Department of Health",
+    "url": "https://www.health.gov.za/tenders/",
+    "coverage": "extractor",
+    "scripts": [
+      "ACEE/harness/sources/south_africa_ndoh.py"
+    ],
+    "before": {
+      "personal": "no source code in cataloged paths",
+      "organization": "no source code in cataloged paths"
+    },
+    "limitation": "Recovered June source module; historical live extraction and field gaps are recorded in ACEE/docs. OCR or original evidence fixtures may be needed.",
+    "audited_on": "2026-10-13",
+    "live_data_refreshed": false
+  },
+  {
+    "country": "South Africa",
+    "portal": "Eastern Cape Health",
+    "url": "https://www.echealth.gov.za/",
+    "coverage": "extractor",
+    "scripts": [
+      "ACEE/harness/sources/south_africa_echealth.py"
+    ],
+    "before": {
+      "personal": "no source code in cataloged paths",
+      "organization": "no source code in cataloged paths"
+    },
+    "limitation": "Recovered June source module; historical live extraction and field gaps are recorded in ACEE/docs. OCR or original evidence fixtures may be needed.",
+    "audited_on": "2026-10-13",
+    "live_data_refreshed": false
+  },
+  {
+    "country": "South Africa",
+    "portal": "North West Premier",
+    "url": "https://premier.nwpg.gov.za/",
+    "coverage": "extractor",
+    "scripts": [
+      "ACEE/harness/sources/south_africa_nwpg_premier.py"
+    ],
+    "before": {
+      "personal": "no source code in cataloged paths",
+      "organization": "no source code in cataloged paths"
+    },
+    "limitation": "Recovered June source module; historical live extraction and field gaps are recorded in ACEE/docs. OCR or original evidence fixtures may be needed.",
+    "audited_on": "2026-10-13",
+    "live_data_refreshed": false
+  },
+  {
+    "country": "South Africa",
+    "portal": "Limpopo Health",
+    "url": "https://www.ldoh.gov.za/",
+    "coverage": "extractor",
+    "scripts": [
+      "ACEE/harness/sources/south_africa_ldoh.py"
+    ],
+    "before": {
+      "personal": "no source code in cataloged paths",
+      "organization": "no source code in cataloged paths"
+    },
+    "limitation": "Recovered June source module; historical live extraction and field gaps are recorded in ACEE/docs. OCR or original evidence fixtures may be needed.",
+    "audited_on": "2026-10-13",
+    "live_data_refreshed": false
+  },
+  {
+    "country": "South Africa",
+    "portal": "KZN tender awards",
+    "url": "https://www.kznhealth.gov.za/scm/tender-awards-2026/",
+    "coverage": "extractor",
+    "scripts": [
+      "ACEE/harness/sources/south_africa_kznhealth.py"
+    ],
+    "before": {
+      "personal": "no source code in cataloged paths",
+      "organization": "no source code in cataloged paths"
+    },
+    "limitation": "Recovered June source module; historical live extraction and field gaps are recorded in ACEE/docs. OCR or original evidence fixtures may be needed.",
+    "audited_on": "2026-10-13",
+    "live_data_refreshed": false
+  },
+  {
+    "country": "South Africa",
+    "portal": "KZN quotation awards",
+    "url": "https://www.kznhealth.gov.za/scm/quotation-awards/",
+    "coverage": "extractor",
+    "scripts": [
+      "ACEE/harness/sources/south_africa_kznhealth_quotations.py"
+    ],
+    "before": {
+      "personal": "no source code in cataloged paths",
+      "organization": "no source code in cataloged paths"
+    },
+    "limitation": "Recovered June source module; historical live extraction and field gaps are recorded in ACEE/docs. OCR or original evidence fixtures may be needed.",
+    "audited_on": "2026-10-13",
+    "live_data_refreshed": false
+  },
+  {
+    "country": "Spain",
+    "portal": "National procurement portal",
+    "url": "https://contrataciondelestado.es/",
+    "coverage": "missing scraper",
+    "scripts": [],
+    "before": {
+      "personal": "no source code in cataloged paths",
+      "organization": "no source code in cataloged paths"
+    },
+    "limitation": "Spain/drive_extracts/Spain_Tender contains Ecuador ComprasPublicas code, not Spanish procurement. No Spain implementation found.",
+    "audited_on": "2026-10-13",
+    "live_data_refreshed": false
+  },
+  {
+    "country": "Thailand",
+    "portal": "e-GP",
+    "url": "https://www.gprocurement.go.th/",
+    "coverage": "browser extractor",
+    "scripts": [
+      "thailand-gprocurement/Collect_urls.py",
+      "thailand-gprocurement/process_tender_urls_contract_period_fixed.py"
+    ],
+    "before": {
+      "personal": "no source code in cataloged paths",
+      "organization": "source present"
+    },
+    "limitation": "Existing Edge/debugging-session workflow and downloaded evidence required; no automated CAPTCHA bypass attempted.",
+    "audited_on": "2026-10-13",
+    "live_data_refreshed": false
+  },
+  {
+    "country": "Turkey",
+    "portal": "EKAP/KIK e-Devlet",
+    "url": "https://ekapv2.kik.gov.tr/ekap/search",
+    "coverage": "browser and repair extractor",
+    "scripts": [
+      "turkey-ekap/ekap_extract.py",
+      "Turkey_EKAP/extractor/ekap_extract_medtech.js",
+      "memory_sources/TURMECA/agent_work/turkey_repair_v2/adapter/turkey_ekap_adapter_v2.py"
+    ],
+    "before": {
+      "personal": "source present; additional implementation missing",
+      "organization": "older or defective source updated"
+    },
+    "limitation": "Updated Python header generation and recovered September 0.2.0 repair adapter with Turkish amount semantics. Prior review: 173 unresolved notices; national enumeration and complete item coverage are not proven.",
+    "audited_on": "2026-10-13",
+    "live_data_refreshed": false
+  },
+  {
+    "country": "United Arab Emirates",
+    "portal": "Dubai eSupply",
+    "url": "https://esupply.dubai.gov.ae/",
+    "coverage": "browser extractor",
+    "scripts": [
+      "UAE/Dubai_eSupply/dubai_esupply_scraper.py",
+      "UAE_Dubai_eSupply/esupply_crawl.js",
+      "memory_sources/TURMECA/tender_memory_run_2026-09-30/missing_source_refresh/execution/uae/20260930T131832Z/adapters/dubai_esupply_adapter.py"
+    ],
+    "before": {
+      "personal": "source present; additional implementation missing",
+      "organization": "source present; additional implementation missing"
+    },
+    "limitation": "Preserved later source-audit adapter alongside earlier extraction. Session expiry and open/past listing versus award semantics remain limitations.",
+    "audited_on": "2026-10-13",
+    "live_data_refreshed": false
+  },
+  {
+    "country": "United Arab Emirates",
+    "portal": "SSMC",
+    "url": "https://ssmc.ae/tenders/",
+    "coverage": "listing only",
+    "scripts": [
+      "uae-ssmc/ssmc_tenders_scraper.py",
+      "memory_sources/TURMECA/tender_memory_run_2026-09-30/missing_source_refresh/execution/uae/20260930T131832Z/adapters/ssmc_adapter.py"
+    ],
+    "before": {
+      "personal": "no source code in cataloged paths",
+      "organization": "source present; additional implementation missing"
+    },
+    "limitation": "Public tender/RFQ listings and access checks do not establish published awards.",
+    "audited_on": "2026-10-13",
+    "live_data_refreshed": false
+  },
+  {
+    "country": "United Arab Emirates",
+    "portal": "Abu Dhabi GPG",
+    "url": "https://adgpg.gov.ae/",
+    "coverage": "listing and audit adapter",
+    "scripts": [
+      "memory_sources/TURMECA/tender_memory_run_2026-09-30/missing_source_refresh/execution/uae/20260930T131832Z/adapters/adgpg_adapter.py"
+    ],
+    "before": {
+      "personal": "no source code in cataloged paths",
+      "organization": "no source code in cataloged paths"
+    },
+    "limitation": "September continuation found all 294 examined details Pending Award; no new confirmed awards were added.",
+    "audited_on": "2026-10-13",
+    "live_data_refreshed": false
+  },
+  {
+    "country": "United Arab Emirates",
+    "portal": "Federal DPP",
+    "url": "https://procurement.gov.ae/",
+    "coverage": "access probe only",
+    "scripts": [
+      "memory_sources/TURMECA/tender_memory_run_2026-09-30/missing_source_refresh/execution/uae/20260930T131832Z/adapters/federal_dpp_adapter.py"
+    ],
+    "before": {
+      "personal": "no source code in cataloged paths",
+      "organization": "no source code in cataloged paths"
+    },
+    "limitation": "September source-discovery/access code only; no complete awarded item dataset established. Use URLs inside the adapter for exact probed routes.",
+    "audited_on": "2026-10-13",
+    "live_data_refreshed": false
+  },
+  {
+    "country": "United Arab Emirates",
+    "portal": "Rafed",
+    "url": "https://www.rafeduae.ae/",
+    "coverage": "access probe only",
+    "scripts": [
+      "memory_sources/TURMECA/tender_memory_run_2026-09-30/missing_source_refresh/execution/uae/20260930T131832Z/adapters/rafed_adapter.py"
+    ],
+    "before": {
+      "personal": "no source code in cataloged paths",
+      "organization": "no source code in cataloged paths"
+    },
+    "limitation": "September source-discovery/access code only; no complete awarded item dataset established. Use URLs inside the adapter for exact probed routes.",
+    "audited_on": "2026-10-13",
+    "live_data_refreshed": false
+  },
+  {
+    "country": "United Arab Emirates",
+    "portal": "Bayanat",
+    "url": "https://bayanat.ae/",
+    "coverage": "access probe only",
+    "scripts": [
+      "memory_sources/TURMECA/tender_memory_run_2026-09-30/missing_source_refresh/execution/uae/20260930T131832Z/adapters/bayanat_adapter.py"
+    ],
+    "before": {
+      "personal": "no source code in cataloged paths",
+      "organization": "no source code in cataloged paths"
+    },
+    "limitation": "September source-discovery/access code only; no complete awarded item dataset established. Use URLs inside the adapter for exact probed routes.",
+    "audited_on": "2026-10-13",
+    "live_data_refreshed": false
+  },
+  {
+    "country": "United Arab Emirates",
+    "portal": "Emirates Health Services",
+    "url": "https://www.ehs.gov.ae/",
+    "coverage": "access probe only",
+    "scripts": [
+      "memory_sources/TURMECA/tender_memory_run_2026-09-30/missing_source_refresh/execution/uae/20260930T131832Z/adapters/ehs_adapter.py"
+    ],
+    "before": {
+      "personal": "no source code in cataloged paths",
+      "organization": "no source code in cataloged paths"
+    },
+    "limitation": "September source-discovery/access code only; no complete awarded item dataset established. Use URLs inside the adapter for exact probed routes.",
+    "audited_on": "2026-10-13",
+    "live_data_refreshed": false
+  },
+  {
+    "country": "United Arab Emirates",
+    "portal": "Ajman Tawreed",
+    "url": "https://www.ajman.ae/",
+    "coverage": "access probe only",
+    "scripts": [
+      "memory_sources/TURMECA/tender_memory_run_2026-09-30/missing_source_refresh/execution/uae/20260930T131832Z/adapters/ajman_adapter.py"
+    ],
+    "before": {
+      "personal": "no source code in cataloged paths",
+      "organization": "no source code in cataloged paths"
+    },
+    "limitation": "September source-discovery/access code only; no complete awarded item dataset established. Use URLs inside the adapter for exact probed routes.",
+    "audited_on": "2026-10-13",
+    "live_data_refreshed": false
+  },
+  {
+    "country": "United Arab Emirates",
+    "portal": "Sharjah Finance",
+    "url": "https://www.sfd.gov.ae/",
+    "coverage": "access probe only",
+    "scripts": [
+      "memory_sources/TURMECA/tender_memory_run_2026-09-30/missing_source_refresh/execution/uae/20260930T131832Z/adapters/sharjah_adapter.py"
+    ],
+    "before": {
+      "personal": "no source code in cataloged paths",
+      "organization": "no source code in cataloged paths"
+    },
+    "limitation": "September source-discovery/access code only; no complete awarded item dataset established. Use URLs inside the adapter for exact probed routes.",
+    "audited_on": "2026-10-13",
+    "live_data_refreshed": false
+  },
+  {
+    "country": "United Arab Emirates",
+    "portal": "Ras Al Khaimah",
+    "url": "https://www.rak.ae/",
+    "coverage": "access probe only",
+    "scripts": [
+      "memory_sources/TURMECA/tender_memory_run_2026-09-30/missing_source_refresh/execution/uae/20260930T131832Z/adapters/rak_adapter.py"
+    ],
+    "before": {
+      "personal": "no source code in cataloged paths",
+      "organization": "no source code in cataloged paths"
+    },
+    "limitation": "September source-discovery/access code only; no complete awarded item dataset established. Use URLs inside the adapter for exact probed routes.",
+    "audited_on": "2026-10-13",
+    "live_data_refreshed": false
+  },
+  {
+    "country": "United States",
+    "portal": "FPDS",
+    "url": "https://www.fpds.gov/",
+    "coverage": "notebook",
+    "scripts": [
+      "united-states-fpds/FPDS_Awards_Scraper.ipynb"
+    ],
+    "before": {
+      "personal": "no source code in cataloged paths",
+      "organization": "source present"
+    },
+    "limitation": "Notebook-only workflow; current endpoint compatibility and full historical completeness were not rerun.",
+    "audited_on": "2026-10-13",
+    "live_data_refreshed": false
+  },
+  {
+    "country": "Vietnam",
+    "portal": "VNEPS / muasamcong",
+    "url": "https://muasamcong.mpi.gov.vn/",
+    "coverage": "browser extractor",
+    "scripts": [
+      "Vietnam_VNEPS/extractor/vneps_console_extractor.js",
+      "vietnam-vneps/vneps_scraper.py",
+      "vietnam-muasamcong/muasamcong_scraper.py",
+      "Vietnam/scripts/vietnam_tender_scraper_from_notebook.py"
+    ],
+    "before": {
+      "personal": "source present; additional implementation missing",
+      "organization": "source present; additional implementation missing"
+    },
+    "limitation": "Preserved current browser-console extractor plus earlier portal/notebook variants; taxonomy mapping is a separate workflow.",
+    "audited_on": "2026-10-13",
+    "live_data_refreshed": false
+  },
+  {
+    "country": "European Union",
+    "portal": "TED",
+    "url": "https://ted.europa.eu/",
+    "coverage": "extractor",
+    "scripts": [
+      "european-union-ted/ted_colab_scraper.py"
+    ],
+    "before": {
+      "personal": "no source code in cataloged paths",
+      "organization": "source present"
+    },
+    "limitation": "Regional source and Hungary/Romania fallback; not an additional country or a substitute for national below-threshold coverage.",
+    "audited_on": "2026-10-13",
+    "live_data_refreshed": false
+  }
+]

@@ -40,6 +40,10 @@ from Kuwait.CAPT.capt_verified_seeds import MEDICAL_SCOPE_EXCLUDED_NOTICE_IDS, V
 
 BASE_URL = "https://capt.gov.kw/en/tenders/winning-bids/"
 SAVED_BROWSER_CAPTURE_PATH = ROOT_DIR / "Kuwait" / "CAPT" / "output" / "capt_winning_bids_browser_response.html"
+SAVED_BROWSER_CAPTURE_PATTERNS = (
+    "capt_winning_bids_browser_response.html",
+    "capt_winning_bids_browser_response_page*.html",
+)
 SAVED_POPUP_CAPTURE_PATTERNS = (
     "capt_popup_eval*.json",
     "capt*_popup*_eval*.json",
@@ -285,10 +289,21 @@ def parse_award_rows(html: str, page_url: str) -> List[Dict[str, str]]:
 
 
 def load_saved_browser_capture_rows() -> List[Dict[str, str]]:
-    if not SAVED_BROWSER_CAPTURE_PATH.exists():
-        return []
-    html = SAVED_BROWSER_CAPTURE_PATH.read_text(encoding="utf-8", errors="replace")
-    return parse_award_rows(html, str(SAVED_BROWSER_CAPTURE_PATH))
+    paths: List[Path] = []
+    seen = set()
+    for pattern in SAVED_BROWSER_CAPTURE_PATTERNS:
+        for path in sorted(SAVED_BROWSER_CAPTURE_PATH.parent.glob(pattern)):
+            resolved = path.resolve()
+            if resolved in seen or not path.is_file():
+                continue
+            seen.add(resolved)
+            paths.append(path)
+
+    rows: List[Dict[str, str]] = []
+    for path in paths:
+        html = path.read_text(encoding="utf-8", errors="replace")
+        rows.extend(parse_award_rows(html, str(path)))
+    return rows
 
 
 def discover_saved_popup_capture_paths() -> List[Path]:

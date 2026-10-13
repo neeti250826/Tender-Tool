@@ -7,4 +7,4 @@ South Africa contains Clearstate ACEE source notes and reports for the national 
 - `docs/data-etenders-gov-za_notes.md`
 - `docs/data-etenders-gov-za_report.html`
 
-No runnable South Africa scraper source was found in the curated Clearstate scan.
+The earlier scan missed the shared harness. Current modules in [ACEE/harness/sources](../ACEE/harness/sources/) cover eTenders, national Health, Eastern Cape, North West Premier, Limpopo, and KZN tender and quotation awards. See [the harness README](../ACEE/README.md) for commands and evidence requirements.

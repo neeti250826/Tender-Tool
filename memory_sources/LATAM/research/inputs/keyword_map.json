@@ -1,0 +1,2550 @@
+{
+  "Sources & filters": [
+    [
+      "TENDER DATA EXTRACTION – EL SALVADOR & HONDURAS",
+      null
+    ],
+    [
+      "Scope: Core Lab (CDx), POC, MDx, TDx, NGS, Diabetes Care (BGM, CGM) – every row in the 'Keyword map' tab. Tag each tender with the most specific indicator code.",
+      null
+    ],
+    [
+      null,
+      null
+    ],
+    [
+      "SOURCES – EL SALVADOR",
+      null
+    ],
+    [
+      "COMPRASAL (national e-procurement, run by DINAC – Dirección Nacional de Compras Públicas)",
+      "https://www.comprasal.gob.sv"
+    ],
+    [
+      "MINSAL – Ministerio de Salud",
+      "http://salud.gob.sv"
+    ],
+    [
+      "MINSAL – regulation / ASP portal",
+      "http://asp.salud.gob.sv/regulacion"
+    ],
+    [
+      "Portal de Transparencia (institution pages: MINSAL, ISSS, hospitals → 'Contrataciones y adquisiciones')",
+      "http://transparencia.gob.sv"
+    ],
+    [
+      "ISSS – Instituto Salvadoreño del Seguro Social (buys separately from MINSAL)",
+      "https://www.isss.gob.sv"
+    ],
+    [
+      "Key buyers: MINSAL, ISSS, Hospital Rosales, Hospital Bloom, Hospital de la Mujer, Hospital Zacamil, Laboratorio Nacional de Referencia, Programa Nacional de Sangre, FOSALUD, Instituto de Medicina Legal, Hospital Militar (COSAM)",
+      null
+    ],
+    [
+      null,
+      null
+    ],
+    [
+      "SOURCES – HONDURAS",
+      null
+    ],
+    [
+      "HonduCompras 1 (legacy portal)",
+      "https://honducompras.gob.hn/"
+    ],
+    [
+      "HonduCompras 2 (current portal)",
+      "https://h2.honducompras.gob.hn"
+    ],
+    [
+      "ONCAE open data (tender documents & awards)",
+      "https://datosabiertos.oncae.gob.hn"
+    ],
+    [
+      "Portal Único de Transparencia – IAIP",
+      "https://portalunico.iaip.gob.hn/"
+    ],
+    [
+      "Portal Único – section 363/13",
+      "https://portalunico.iaip.gob.hn/363/13/"
+    ],
+    [
+      "IHSS – Instituto Hondureño de Seguridad Social",
+      "https://www.ihss.hn"
+    ],
+    [
+      "SESAL – Secretaría de Salud",
+      "https://www.salud.gob.hn"
+    ],
+    [
+      "World Bank document (Honduras)",
+      "https://documents.worldbank.org/en/publication/documents-reports/documentdetail/099091926083023302"
+    ],
+    [
+      "Key buyers: SESAL, IHSS, Hospital Escuela, Hospital Mario Catarino Rivas, Laboratorio Nacional de Vigilancia, Cruz Roja Hondureña (blood programme), regional hospitals, Ministerio Público / Medicina Forense",
+      null
+    ],
+    [
+      null,
+      null
+    ],
+    [
+      "INTERNATIONAL / DONOR-FUNDED (both countries)",
+      null
+    ],
+    [
+      "World Bank procurement notices",
+      "https://projects.worldbank.org/en/projects-operations/procurement"
+    ],
+    [
+      "IDB / BID procurement",
+      "https://www.iadb.org/en/how-we-can-work-together/procurement"
+    ],
+    [
+      "UNGM (UN agencies incl. UNDP, UNOPS, UNICEF)",
+      "https://www.ungm.org"
+    ],
+    [
+      "PAHO Strategic Fund (pooled purchase of HIV, TB, HPV, dengue, malaria diagnostics)",
+      "https://www.paho.org/en/paho-strategic-fund"
+    ],
+    [
+      "Global Fund data explorer (HIV/TB grants – PR purchases)",
+      "https://data.theglobalfund.org"
+    ],
+    [
+      "Please add any other source you find.",
+      null
+    ],
+    [
+      null,
+      null
+    ],
+    [
+      "FILTERS",
+      null
+    ],
+    [
+      "Period: 2019–2026 (catches multi-year contracts, renewals and COVID-era emergency buys)",
+      null
+    ],
+    [
+      "Status: awarded / contracted (Adjudicado, Contratado, Orden de compra) – also note open tenders separately",
+      null
+    ],
+    [
+      "El Salvador procedure types: Licitación Competitiva, Licitación Pública (old LACAP), Comparación de Precios, Libre Gestión (old), Contratación Directa, Baja Cuantía, Subasta Inversa, Emergencia",
+      null
+    ],
+    [
+      "Honduras procedure types: Licitación Pública Nacional (LPN), Licitación Pública Internacional (LPI), Licitación Privada, Concurso, Compra Menor, Contratación Directa, Catálogo Electrónico, Compra de Emergencia",
+      null
+    ],
+    [
+      null,
+      null
+    ],
+    [
+      "CONTRACT-TYPE WORDS (catch bundled lab tenders)",
+      null
+    ],
+    [
+      "comodato; equipo en comodato; pago por prueba; precio por prueba; costo por prueba; pruebas efectivamente realizadas; entrega según demanda; suministro según demanda; contrato abierto; solución integral; consignación; arrendamiento de equipo; prorrogable; contrato marco; cuadro básico de insumos de laboratorio",
+      null
+    ],
+    [
+      null,
+      null
+    ],
+    [
+      "EXCLUDE results containing",
+      null
+    ],
+    [
+      "construcción; remodelación; alquiler de local; arrendamiento de inmueble; mantenimiento de edificio; aire acondicionado; gases medicinales; oxígeno; análisis de agua; laboratorio de suelos; control de calidad de alimentos; veterinaria; MAG / sanidad animal; pruebas psicológicas; reactivos químicos de laboratorio escolar; laboratorio de computación",
+      null
+    ],
+    [
+      null,
+      null
+    ],
+    [
+      "WATCH-OUTS",
+      null
+    ],
+    [
+      "'PCR' in Spanish = both proteína C reactiva (CRP → IACRP/PCCRP) and polymerase chain reaction (MDx). Read the description.",
+      null
+    ],
+    [
+      "'Tiras reactivas' = urine strips (URQUA) or glucose strips (DIBST). Read the description.",
+      null
+    ],
+    [
+      "For según demanda / pago por prueba contracts the amount is often a unit price – capture quantity and unit price separately.",
+      null
+    ],
+    [
+      "Retail pharmacy & e-commerce lines (BGM/CGM) are not in public tenders – leave blank.",
+      null
+    ]
+  ],
+  "Keyword map": [
+    [
+      "Indicator code",
+      "Segment code",
+      "Segment name",
+      "Spanish search keywords",
+      "English / abbreviations",
+      "Brands & analysers to look for",
+      "Notes"
+    ],
+    [
+      "CDXZZ",
+      "1",
+      "Centralized diagnostics (CDx)",
+      "reactivos de laboratorio clínico; insumos de laboratorio; equipo de laboratorio clínico; analizador automatizado; comodato; equipo en comodato; arrendamiento de equipo de laboratorio; pago por prueba; precio por prueba; pruebas efectivamente realizadas; entrega según demanda; solución integral; consignación; contrato abierto; suministro de reactivos",
+      "reagents; laboratory supplies; clinical laboratory analyzer; reagent rental; cost per test",
+      "Roche, Abbott, Siemens Healthineers, Beckman Coulter, Mindray, Sysmex, Snibe, Wiener, Ortho/QuidelOrtho, Bio-Rad, bioMérieux, Werfen",
+      "Parent row. Contract-type words (comodato, pago por prueba, según demanda) catch bundled lab tenders that don't name the segment."
+    ],
+    [
+      "CCHEM",
+      "1.1",
+      "Clinical Chemistry",
+      "química clínica; química sanguínea; bioquímica clínica; química seca; química húmeda; analizador de química; perfil bioquímico; perfil lipídico; perfil hepático; perfil renal; glucosa; creatinina; urea; nitrógeno ureico; ácido úrico; colesterol; triglicéridos; HDL; LDL; transaminasas; TGO; TGP; AST; ALT; bilirrubina; fosfatasa alcalina; GGT; amilasa; lipasa; proteínas totales; albúmina; calcio; fósforo; magnesio; electrolitos; sodio; potasio; cloro; ISE; LDH; CK; CK-MB; hierro sérico",
+      "clinical chemistry; biochemistry; ISE",
+      "Roche cobas c; Abbott Architect c / Alinity c; Siemens Atellica CH / Dimension; Beckman AU; Mindray BS; Wiener; Spinreact; BioSystems; Human; Randox; Vitros (QuidelOrtho)",
+      null
+    ],
+    [
+      "CCINS",
+      "1.1.1",
+      "CC Instruments",
+      "analizador de química clínica; equipo de química; equipo automatizado de química; adquisición de analizador; compra de equipo de química; comodato de equipo de química; mantenimiento preventivo y correctivo de analizador",
+      "chemistry analyzer; instrument purchase; service contract",
+      "cobas c 311/501/503/701; Architect c4000/c8000/c16000; Alinity c; Atellica CH; Dimension EXL; AU480/AU680/AU5800; BS-200/BS-480/BS-800; Vitros 5600",
+      "Often bundled into reagent tenders as 'equipo en comodato'; capture separately if priced."
+    ],
+    [
+      "CCSAI",
+      "1.1.1.1",
+      "CC Standalone Instruments",
+      "analizador de química independiente; analizador de química semiautomático; analizador de química automático; espectrofotómetro clínico; fotómetro",
+      "standalone chemistry analyzer; semi-automated",
+      "Mindray BS; BioSystems A15/A25/BA200; Wiener CM; Human HumaStar; Rayto; cobas c 111",
+      null
+    ],
+    [
+      "CCIAS",
+      "1.1.1.2",
+      "CCIA Combo systems",
+      "sistema integrado química e inmunoensayo; plataforma consolidada; analizador modular; sistema combinado química-inmunología; serum work area",
+      "integrated chemistry-immunoassay system; consolidated platform; modular",
+      "cobas 6000/8000/pro; Architect ci4100/ci8200/ci16200; Alinity ci; Atellica Solution; Dimension EXL + LOCI; Vitros 5600 XT",
+      null
+    ],
+    [
+      "CCRRR",
+      "1.1.2",
+      "CC Reagents",
+      "reactivos de química clínica; reactivos de bioquímica; calibradores; controles de calidad química; sueros control; kits de química; insumos para analizador de química",
+      "chemistry reagents; calibrators; QC controls",
+      "As CCHEM; Bio-Rad / Randox (controles)",
+      null
+    ],
+    [
+      "CCROU",
+      "1.1.2.1",
+      "CC Routine",
+      "pruebas de rutina; química de rutina; glucosa; urea; creatinina; ácido úrico; colesterol; triglicéridos; HDL; LDL; TGO; TGP; bilirrubina total y directa; fosfatasa alcalina; GGT; amilasa; lipasa; proteínas totales; albúmina; calcio; fósforo; magnesio; sodio; potasio; cloro; electrolitos; LDH; CPK; CK-MB; hierro; capacidad de fijación de hierro; microalbuminuria; depuración de creatinina; lactato; amonio",
+      "routine chemistry; general chemistry",
+      "As CCHEM",
+      null
+    ],
+    [
+      "CCDOA",
+      "1.1.2.2",
+      "CC Drugs of Abuse",
+      "drogas de abuso; drogas de abuso en orina; toxicología; detección de drogas; cannabinoides; THC; cocaína; anfetaminas; metanfetaminas; opiáceos; benzodiacepinas; barbitúricos; alcohol en sangre; etanol; tamizaje toxicológico; medicina legal",
+      "drugs of abuse; DOA; toxicology",
+      "Roche, Siemens (EMIT/Syva), Abbott, Thermo (CEDIA/DRI)",
+      "Also check Instituto de Medicina Legal (ES) and Dirección de Medicina Forense / Ministerio Público (HN)."
+    ],
+    [
+      "CCTDM",
+      "1.1.2.3",
+      "CC TDM",
+      "monitoreo terapéutico de fármacos; niveles séricos de fármacos; dosificación de medicamentos; digoxina; vancomicina; gentamicina; amikacina; fenitoína; carbamazepina; ácido valproico; valproato; fenobarbital; litio; teofilina; metotrexato; paracetamol; salicilatos",
+      "therapeutic drug monitoring; TDM",
+      "Roche, Abbott, Siemens, Thermo (QMS)",
+      "Immunosuppressants (tacrolimus, ciclosporina) go to IAISD."
+    ],
+    [
+      "CCHBA",
+      "1.1.2.4",
+      "CC HbA1c",
+      "hemoglobina glicosilada; hemoglobina glucosilada; hemoglobina A1c; HbA1c; A1C; glicohemoglobina; control de diabetes",
+      "HbA1c; glycated hemoglobin",
+      "Bio-Rad D-10 / Variant II; Tosoh G8/G11; Arkray Adams; Roche Tina-quant; Abbott; Sebia Capillarys",
+      null
+    ],
+    [
+      "CHPLC",
+      "1.1.2.4.1",
+      "HPLC",
+      "HbA1c por HPLC; cromatografía líquida de alta resolución; HPLC hemoglobina glicosilada; intercambio iónico; analizador HPLC; variantes de hemoglobina; electroforesis de hemoglobina",
+      "HPLC HbA1c",
+      "Bio-Rad D-10 / D-100 / Variant II Turbo; Tosoh G8/G11; Arkray Adams HA-8180",
+      null
+    ],
+    [
+      "COHBA",
+      "1.1.2.4.2",
+      "Non-HPLC",
+      "HbA1c por inmunoturbidimetría; HbA1c enzimático; HbA1c en analizador de química; HbA1c por afinidad de boronato; inhibición turbidimétrica",
+      "Non-HPLC HbA1c; immunoturbidimetric",
+      "Roche Tina-quant HbA1c; Abbott Alinity/Architect HbA1c; Siemens; Mindray; Sebia Capillarys (electroforesis capilar)",
+      null
+    ],
+    [
+      "CCSPE",
+      "1.1.2.5",
+      "CC Specific Proteins",
+      "proteínas específicas; nefelometría; turbidimetría; inmunoglobulinas; IgG; IgA; IgM; IgE total; complemento C3; complemento C4; proteína C reactiva; PCR ultrasensible; factor reumatoideo; antiestreptolisina O; ASO; ASLO; transferrina; prealbúmina; haptoglobina; ceruloplasmina; cadenas ligeras libres; kappa; lambda; beta-2 microglobulina; cistatina C; microalbúmina; alfa-1 antitripsina; lipoproteína a; apolipoproteína A1; apolipoproteína B",
+      "specific proteins; nephelometry; turbidimetry",
+      "Siemens BN II / BN ProSpec; Beckman Immage; Binding Site Optilite; Roche; Abbott",
+      null
+    ],
+    [
+      "IAZZZ",
+      "1.2",
+      "Immunoassay (IA)",
+      "inmunoensayo; inmunología; quimioluminiscencia; electroquimioluminiscencia; CLIA; ECLIA; ELISA; inmunofluorescencia; pruebas especiales de inmunología; inmunoanálisis; hormonas; marcadores tumorales; serología",
+      "immunoassay; chemiluminescence; ELISA",
+      "Roche cobas e / Elecsys; Abbott Architect i / Alinity i; Siemens Atellica IM / Centaur / Immulite; Beckman Access / DxI; DiaSorin Liaison; Snibe Maglumi; Mindray CL; Ortho Vitros; bioMérieux Vidas; Tosoh AIA; Autobio",
+      null
+    ],
+    [
+      "IAINS",
+      "1.2.1",
+      "IA Instruments",
+      "analizador de inmunoensayo; analizador de quimioluminiscencia; equipo de inmunología; lector de ELISA; lavador de microplacas; procesador de ELISA; equipo en comodato de inmunología",
+      "immunoassay analyzer; ELISA reader/washer",
+      "cobas e 411/601/801; Architect i1000/i2000; Alinity i; Atellica IM; Centaur XP; Immulite 2000; Access 2; DxI 800; Liaison XL; Maglumi 800/2000/X8; Vidas; Mindray CL-900i/CL-2000i",
+      null
+    ],
+    [
+      "IABSC",
+      "1.2.2",
+      "IA Blood Screening",
+      "tamizaje de donantes; banco de sangre; serología de donantes; tamizaje serológico; marcadores infecciosos en donantes; VIH-1/2 Ag/Ac; HBsAg; anti-HBc; anti-VHC; sífilis; Chagas; Trypanosoma cruzi; HTLV I/II; centro nacional de sangre; hemocentro; servicio de transfusión",
+      "blood screening; donor screening; blood bank serology",
+      "Abbott Alinity s / Prism / Architect; Roche cobas e; Ortho Vitros; Grifols / Bio-Rad ELISA; Wiener Chagatest",
+      "ES: Banco Nacional de Sangre / Programa Nacional de Sangre (MINSAL), ISSS banco de sangre. HN: Cruz Roja Hondureña (Programa Nacional de Sangre), bancos de sangre de hospitales SESAL/IHSS."
+    ],
+    [
+      "IARRR",
+      "1.2.3",
+      "IA Reagents",
+      "reactivos de inmunoensayo; reactivos de quimioluminiscencia; reactivos de inmunología; kits ELISA; calibradores y controles de inmunoensayo; pruebas especiales",
+      "immunoassay reagents",
+      "As IAZZZ",
+      null
+    ],
+    [
+      "IATHY",
+      "1.2.3.1",
+      "IA Thyroid",
+      "pruebas tiroideas; perfil tiroideo; hormonas tiroideas; TSH; hormona estimulante de la tiroides; T3; T4; T3 libre; T4 libre; FT3; FT4; T3 total; T4 total; anti-TPO; anticuerpos antiperoxidasa; antitiroglobulina; tiroglobulina; TSH neonatal; tamizaje neonatal",
+      "thyroid; TSH; FT4",
+      "As IAZZZ; PerkinElmer/Revvity GSP / DELFIA (neonatal)",
+      "Neonatal TSH screening (tamizaje neonatal) is a separate programme tender in both countries."
+    ],
+    [
+      "IAANE",
+      "1.2.3.2",
+      "IA Anemia",
+      "anemia; ferritina; vitamina B12; cianocobalamina; ácido fólico; folato; folato eritrocitario; transferrina; receptor soluble de transferrina; eritropoyetina; EPO; perfil de anemia; perfil de hierro",
+      "anemia panel; ferritin; B12; folate",
+      "As IAZZZ",
+      null
+    ],
+    [
+      "IAHOR",
+      "1.2.3.3",
+      "IA Hormones",
+      "hormonas; perfil hormonal; pruebas hormonales; endocrinología; hormonas sexuales; hormonas reproductivas",
+      "hormones; endocrinology",
+      "As IAZZZ",
+      "Children cover growth, diabetes and adrenal hormones; fertility hormones (FSH, LH, prolactina, estradiol) under IAFER."
+    ],
+    [
+      "IAGRH",
+      "1.2.3.3.1",
+      "IA Growth Hormones",
+      "hormona de crecimiento; GH; somatotropina; IGF-1; somatomedina C; IGFBP-3",
+      "growth hormone; IGF-1",
+      "As IAZZZ (Immulite, Liaison strong here)",
+      null
+    ],
+    [
+      "IADBT",
+      "1.2.3.3.2",
+      "IA Diabetes Hormones",
+      "insulina; péptido C; proinsulina; anticuerpos anti-insulina; anti-GAD; anticuerpos antiislotes; hormonas de diabetes",
+      "insulin; C-peptide",
+      "As IAZZZ",
+      null
+    ],
+    [
+      "IAADH",
+      "1.2.3.3.3",
+      "IA Adrenocortical Hormones",
+      "cortisol; cortisol sérico; cortisol en orina; cortisol salival; ACTH; hormona adrenocorticotropa; aldosterona; renina; DHEA; DHEA-S; 17-hidroxiprogesterona; 17-OH progesterona; androstenediona",
+      "adrenal hormones; cortisol; ACTH",
+      "As IAZZZ",
+      null
+    ],
+    [
+      "IAONC",
+      "1.2.3.4",
+      "IA Oncology",
+      "marcadores tumorales; marcadores oncológicos; antígeno prostático específico; PSA total; PSA libre; CEA; antígeno carcinoembrionario; CA 125; CA 15-3; CA 19-9; CA 72-4; alfafetoproteína; AFP; beta-HCG cuantitativa; HE4; ROMA; NSE; enolasa; Cyfra 21-1; calcitonina; SCC; PIVKA-II; proGRP",
+      "tumor markers; oncology",
+      "As IAZZZ",
+      null
+    ],
+    [
+      "IAINF",
+      "1.2.3.5",
+      "IA Infectious Diseases",
+      "serología; enfermedades infecciosas; pruebas infecciosas por inmunoensayo; marcadores virales; anticuerpos IgG IgM",
+      "infectious disease serology",
+      "As IAZZZ",
+      null
+    ],
+    [
+      "IAHIV",
+      "1.2.3.5.1",
+      "HIV",
+      "VIH; virus de inmunodeficiencia humana; VIH 1+2; VIH Ag/Ac; VIH combo; prueba de cuarta generación; antígeno p24; Western blot; inmunoblot confirmatorio; ELISA VIH; ITS/VIH",
+      "HIV Ag/Ab; HIV combo",
+      "As IAZZZ; Bio-Rad Geenius (confirmatoria)",
+      "Check Global Fund (Fondo Mundial) HIV/TB grants – procured via PR (in HN often via UNDP / CHF, in ES via Plan International / MINSAL)."
+    ],
+    [
+      "IASTI",
+      "1.2.3.5.2",
+      "STI",
+      "sífilis; Treponema pallidum; anticuerpos treponémicos; TPHA; TPPA; FTA-ABS; RPR; VDRL; clamidia serología; herpes simple 1 y 2 IgG IgM; ITS; infecciones de transmisión sexual",
+      "syphilis; STI serology",
+      "As IAZZZ; Wiener / Spinreact (RPR/VDRL)",
+      null
+    ],
+    [
+      "IAHBV",
+      "1.2.3.5.3",
+      "HBV",
+      "hepatitis B; HBsAg; antígeno de superficie; anti-HBs; anti-HBc total; anti-HBc IgM; HBeAg; anti-HBe; marcadores de hepatitis B; perfil de hepatitis",
+      "hepatitis B serology",
+      "As IAZZZ",
+      null
+    ],
+    [
+      "IAHCV",
+      "1.2.3.5.4",
+      "HCV",
+      "hepatitis C; anti-VHC; anti-HCV; anticuerpos contra hepatitis C; antígeno core de hepatitis C; HCV Ag",
+      "hepatitis C serology",
+      "As IAZZZ",
+      null
+    ],
+    [
+      "IAMTB",
+      "1.2.3.5.5",
+      "TB",
+      "tuberculosis; IGRA; interferón gamma; QuantiFERON; T-SPOT; tuberculosis latente; LAM",
+      "TB; IGRA; QuantiFERON",
+      "Qiagen QuantiFERON-TB Gold Plus; Oxford Immunotec T-SPOT; Abbott Determine TB LAM",
+      "Microscopy/culture (baciloscopía, cultivo) go to MICRO; GeneXpert to MTBZZ."
+    ],
+    [
+      "IADEN",
+      "1.2.3.5.6",
+      "Dengue",
+      "dengue; antígeno NS1; dengue IgG; dengue IgM; dengue NS1 ELISA; arbovirus; zika; chikungunya; serología de dengue",
+      "dengue NS1/IgM/IgG",
+      "Bio-Rad Platelia; Euroimmun; Panbio (Abbott); SD Bioline; InBios",
+      "High priority for both countries (endemic). Also check vigilancia epidemiológica / Laboratorio Nacional de Referencia purchases."
+    ],
+    [
+      "TORCH",
+      "1.2.3.5.7",
+      "TORCH",
+      "TORCH; toxoplasma IgG IgM; toxoplasmosis; rubéola IgG IgM; citomegalovirus; CMV IgG IgM; herpes simple; avidez de toxoplasma; avidez de CMV; perfil prenatal; control prenatal",
+      "TORCH panel",
+      "As IAZZZ (Liaison, Vidas strong)",
+      null
+    ],
+    [
+      "IAIOT",
+      "1.2.3.5.8",
+      "Others",
+      "Epstein-Barr; EBV; mononucleosis; VCA; sarampión IgM; paperas; varicela zóster; Helicobacter pylori serología; Helicobacter antígeno; brucella; leptospira; leptospirosis; rickettsia; hepatitis A IgM; anti-VHA; hepatitis E; Chagas (diagnóstico clínico); amebiasis; leishmaniasis; malaria antígeno; Mycoplasma; Legionella; Aspergillus; galactomanano; Candida",
+      "other infectious serology",
+      "As IAZZZ",
+      null
+    ],
+    [
+      "IAFER",
+      "1.2.3.6",
+      "IA Fertility/Pregnancy",
+      "fertilidad; embarazo; hormona gonadotropina coriónica; beta HCG; HCG cuantitativa; prueba de embarazo en sangre; FSH; LH; hormona folículo estimulante; hormona luteinizante; prolactina; estradiol; progesterona; testosterona total; testosterona libre; SHBG; hormona antimülleriana; AMH; perfil ginecológico",
+      "fertility; pregnancy; reproductive hormones",
+      "As IAZZZ",
+      "Urine pregnancy rapid tests go to PHCGT."
+    ],
+    [
+      "IACAR",
+      "1.2.3.7",
+      "IA Cardiac",
+      "marcadores cardíacos; perfil cardíaco; enzimas cardíacas; troponina; péptido natriurético; BNP; NT-proBNP; CK-MB masa; mioglobina; infarto agudo de miocardio; insuficiencia cardíaca",
+      "cardiac markers",
+      "As IAZZZ",
+      "Lab-based; cartridge/handheld cardiac tests go to PCARZ."
+    ],
+    [
+      "IATRO",
+      "1.2.3.7.1",
+      "Troponin",
+      "troponina; troponina I; troponina T; troponina ultrasensible; troponina de alta sensibilidad; hs-cTnI; hs-cTnT; cTnI; cTnT",
+      "troponin; hs-troponin",
+      "Roche Elecsys TnT hs; Abbott Architect/Alinity hs-TnI; Siemens Atellica TnIH; Beckman Access hsTnI",
+      null
+    ],
+    [
+      "IABNN",
+      "1.2.3.7.2",
+      "BNP",
+      "BNP; péptido natriurético tipo B; péptido natriurético cerebral",
+      "BNP",
+      "Abbott Architect BNP; Siemens Centaur BNP; Beckman Access BNP",
+      null
+    ],
+    [
+      "IABPP",
+      "1.2.3.7.3",
+      "ProBNP",
+      "NT-proBNP; pro-BNP; propéptido natriurético tipo B N-terminal; proBNP",
+      "NT-proBNP",
+      "Roche Elecsys proBNP II; Siemens; Abbott Alinity; Ortho Vitros",
+      null
+    ],
+    [
+      "IACOT",
+      "1.2.3.7.4",
+      "Other IA Cardiac",
+      "CK-MB masa; mioglobina; dímero D cardíaco; galectina-3; ST2; homocisteína; lipoproteína asociada",
+      "other cardiac markers",
+      "As IAZZZ",
+      null
+    ],
+    [
+      "IACRC",
+      "1.2.3.8",
+      "IA Critical Care",
+      "cuidados críticos; sepsis; marcadores de sepsis; marcadores de inflamación; procalcitonina; proteína C reactiva; interleucina 6; IL-6; presepsina",
+      "critical care; sepsis markers",
+      "As IAZZZ",
+      null
+    ],
+    [
+      "IACRP",
+      "1.2.3.8.1",
+      "CRP",
+      "proteína C reactiva; PCR cuantitativa; PCR ultrasensible; hs-CRP; CRP",
+      "CRP; hs-CRP",
+      "As IAZZZ / CCHEM (often run on chemistry analyzers)",
+      "Spanish 'PCR' = both CRP and polymerase chain reaction – read description to tag correctly."
+    ],
+    [
+      "IAPCT",
+      "1.2.3.8.2",
+      "PCT",
+      "procalcitonina; PCT; marcador de sepsis; BRAHMS",
+      "procalcitonin",
+      "Thermo B·R·A·H·M·S licensed on Roche, Abbott, Siemens, Beckman, bioMérieux Vidas, DiaSorin, Snibe",
+      null
+    ],
+    [
+      "IAIAO",
+      "1.2.3.8.3",
+      "Other IA Critical Care",
+      "interleucina 6; IL-6; presepsina; lactato; ferritina (cuidado crítico); proadrenomedulina; MR-proADM",
+      "other critical care",
+      "As IAZZZ",
+      null
+    ],
+    [
+      "IABON",
+      "1.2.3.9",
+      "IA Bone Health",
+      "salud ósea; metabolismo óseo; vitamina D; 25-hidroxivitamina D; 25-OH vitamina D; paratohormona; PTH; PTH intacta; osteocalcina; beta-crosslaps; CTX; P1NP; fosfatasa alcalina ósea; calcitonina",
+      "bone health; vitamin D; PTH",
+      "As IAZZZ",
+      null
+    ],
+    [
+      "IAAUI",
+      "1.2.3.10",
+      "IA Autoimmune",
+      "autoinmunidad; enfermedades autoinmunes; anticuerpos antinucleares; ANA; anti-DNA; anti-dsDNA; ENA; anti-Sm; anti-RNP; anti-Ro; anti-La; anti-CCP; péptido citrulinado; ANCA; anticardiolipina; anti-beta2 glicoproteína; anticoagulante lúpico; antitransglutaminasa; celiaquía; inmunofluorescencia indirecta; HEp-2",
+      "autoimmune; ANA; anti-CCP",
+      "Euroimmun; Inova (Werfen); Bio-Rad BioPlex; Phadia EliA (Thermo); Aesku; Orgentec",
+      null
+    ],
+    [
+      "IACOV",
+      "1.2.3.11",
+      "IA Sars-Cov2",
+      "SARS-CoV-2 anticuerpos; COVID-19 serología; anticuerpos IgG IgM COVID; anticuerpos neutralizantes; antígeno SARS-CoV-2 por inmunoensayo; coronavirus",
+      "SARS-CoV-2 antibody/antigen immunoassay",
+      "As IAZZZ",
+      "Peak 2020–2022; many emergency purchases (contratación directa / emergencia)."
+    ],
+    [
+      "IAALG",
+      "1.2.3.12",
+      "IA Allergy",
+      "alergia; IgE específica; IgE total; panel de alérgenos; pruebas de alergia; alérgenos alimentarios; alérgenos respiratorios; ImmunoCAP",
+      "allergy; specific IgE",
+      "Thermo Phadia ImmunoCAP; Siemens Immulite 3gAllergy; Euroimmun; Hycor",
+      null
+    ],
+    [
+      "IAISD",
+      "1.2.3.13",
+      "IA Immunosuppressants",
+      "inmunosupresores; tacrolimus; ciclosporina; sirolimus; everolimus; micofenolato; niveles de tacrolimus; trasplante renal",
+      "immunosuppressant drug monitoring",
+      "Abbott Architect; Roche; Siemens; Thermo QMS",
+      null
+    ],
+    [
+      "IANEU",
+      "1.2.3.14",
+      "IA Neurology",
+      "neurología; biomarcadores neurológicos; S100; enolasa neuroespecífica; NSE; neurofilamento; beta amiloide; proteína tau; Alzheimer",
+      "neurology markers",
+      "As IAZZZ (Roche, Fujirebio, Siemens)",
+      null
+    ],
+    [
+      "IALFB",
+      "1.2.3.15",
+      "IA Liver Fibrosis",
+      "fibrosis hepática; marcadores de fibrosis; ácido hialurónico; ELF; Enhanced Liver Fibrosis; M2BPGi; FibroTest",
+      "liver fibrosis",
+      "Siemens ELF",
+      null
+    ],
+    [
+      "IAOTH",
+      "1.2.3.16",
+      "IA Others",
+      "otras pruebas de inmunoensayo; pruebas especiales; gastrina; pepsinógeno; calprotectina fecal; elastasa fecal; sangre oculta inmunológica; FIT; anticuerpos anti-receptor de TSH; inmunoglobulina E",
+      "other immunoassay",
+      "As IAZZZ",
+      null
+    ],
+    [
+      "LCOAG",
+      "1.3",
+      "Coagulation",
+      "coagulación; hemostasia; pruebas de coagulación; tiempo de protrombina; TP; INR; tiempo de tromboplastina parcial activado; TTP; TTPa; PTT; fibrinógeno; tiempo de trombina; dímero D; factores de coagulación; coagulómetro",
+      "coagulation; hemostasis",
+      "Stago STA; Werfen/IL ACL TOP; Siemens Sysmex CS/CN; Wiener; Mindray; Diagnostica Stago",
+      null
+    ],
+    [
+      "COISR",
+      "1.3.1",
+      "Instruments & service revenue",
+      "coagulómetro; analizador de coagulación; analizador de hemostasia; equipo de coagulación automatizado; semiautomático; comodato coagulación; mantenimiento de coagulómetro",
+      "coagulation analyzer; service",
+      "Stago STA Compact Max / STA R Max / Satellite; ACL TOP 350/550/750; ACL Elite; Sysmex CS-2500/CS-5100/CA-600; Wiener Coagulómetro",
+      null
+    ],
+    [
+      "COTRA",
+      "1.3.2",
+      "Traditional tests",
+      "tiempo de protrombina; tromboplastina; TP; INR; TTPa; tiempo de tromboplastina parcial; cefalina; fibrinógeno; tiempo de trombina; pruebas básicas de coagulación; plasma control",
+      "PT; aPTT; fibrinogen; TT",
+      "As LCOAG",
+      null
+    ],
+    [
+      "COOTH",
+      "1.3.3",
+      "Others",
+      "factores de coagulación; factor VIII; factor IX; factor von Willebrand; antitrombina; proteína C; proteína S; anti-Xa; heparina; anticoagulante lúpico; resistencia a proteína C activada; plasminógeno; agregación plaquetaria; tromboelastografía; tromboelastometría; TEG; ROTEM",
+      "special coagulation; factors",
+      "As LCOAG; Haemonetics TEG; Werfen ROTEM",
+      null
+    ],
+    [
+      "CODMR",
+      "1.3.4",
+      "D-Dimer",
+      "dímero D; dímero-D; D-dimer; productos de degradación de fibrina; PDF",
+      "D-dimer",
+      "As LCOAG; Roche cobas; bioMérieux Vidas",
+      null
+    ],
+    [
+      "URINE",
+      "1.4",
+      "Urinalysis",
+      "uroanálisis; examen general de orina; EGO; análisis de orina; tiras reactivas para orina; tiras de orina; sedimento urinario; analizador de orina",
+      "urinalysis",
+      "Siemens Clinitek / Multistix; Roche cobas u / Combur; Sysmex UF / UC; Arkray Aution; Beckman Iris; Dirui; 77 Elektronika; Mindray",
+      null
+    ],
+    [
+      "URISR",
+      "1.4.1",
+      "Instruments & service revenue",
+      "analizador de orina; analizador de tiras reactivas de orina; analizador de sedimento urinario; equipo de uroanálisis; mantenimiento",
+      "urine analyzer",
+      "Clinitek Status / Advantus / Novus; cobas u 411 / u 601 / u 701; Sysmex UF-1500/UF-5000; Aution Max; Iris iQ200 / DxU",
+      null
+    ],
+    [
+      "URQUA",
+      "1.4.2",
+      "Qualitative",
+      "tiras reactivas para orina; tiras de uroanálisis; tiras de 10 parámetros; tira reactiva de orina 11 parámetros; química urinaria; microalbuminuria tiras",
+      "urine dipsticks; strips",
+      "Multistix; Combur-Test; Uritest; Dirui; Mission",
+      "Note: 'tiras reactivas' alone also hits glucose strips (DIBST) – check description."
+    ],
+    [
+      "URSED",
+      "1.4.3",
+      "Sedimentation",
+      "sedimento urinario; microscopía de orina; citometría de orina; análisis de partículas urinarias; cámara de recuento; portaobjetos para sedimento",
+      "urine sediment",
+      "Sysmex UF; Beckman Iris iQ200 / DxU; Arkray AU; Dirui FUS; 77 Elektronika",
+      null
+    ],
+    [
+      "HEMEZ",
+      "1.5",
+      "Hematology",
+      "hematología; hemograma; hemograma completo; biometría hemática; citometría hemática; recuento sanguíneo; contador hematológico; analizador hematológico; reactivos de hematología",
+      "hematology; CBC",
+      "Sysmex XN / XS / XP; Beckman DxH; Abbott Cell-Dyn / Alinity h; Mindray BC; Siemens Advia; Horiba Yumizen / Pentra; Nihon Kohden; Dymind",
+      null
+    ],
+    [
+      "HMISR",
+      "1.5.1",
+      "Instruments & service revenue",
+      "analizador hematológico; contador hematológico; equipo de hematología de 3 partes; 5 partes; 3 diferenciales; 5 diferenciales; comodato hematología; mantenimiento",
+      "hematology analyzer; 3-part/5-part",
+      "Sysmex XN-1000/XN-550/XS-1000i/XP-300; DxH 500/900; Cell-Dyn Ruby/Emerald; BC-5150/BC-6000/BC-20s; Yumizen H500",
+      null
+    ],
+    [
+      "HMCBC",
+      "1.5.2",
+      "Blood cell count (CBC)",
+      "hemograma; biometría hemática completa; recuento de glóbulos rojos; glóbulos blancos; plaquetas; hemoglobina; hematocrito; reticulocitos; diluyente hematológico; lisante; reactivos de hematología; control hematológico; velocidad de eritrosedimentación; VES; VSG",
+      "CBC reagents; diluent; lyse; ESR",
+      "As HEMEZ; Alifax / Streck (VES)",
+      null
+    ],
+    [
+      "HMCIA",
+      "1.5.3",
+      "Cell imaging analysis",
+      "morfología digital; análisis de imágenes celulares; frotis de sangre periférica automatizado; extendedor y teñidor de láminas; diferencial digital",
+      "cell imaging; digital morphology; slide maker/stainer",
+      "Sysmex CellaVision DI-60 / DC-1; SP-50; Mindray MC-80; Scopio",
+      null
+    ],
+    [
+      "FLOWC",
+      "1.6",
+      "Flow Cytometry",
+      "citometría de flujo; citómetro de flujo; inmunofenotipaje; CD4; recuento de CD4; linfocitos CD4/CD8; subpoblaciones linfocitarias; leucemia inmunofenotipo; anticuerpos monoclonales para citometría",
+      "flow cytometry; CD4",
+      "BD FACSCanto / FACSLyric / FACSCount; Beckman Navios / DxFLEX / CytoFLEX; Sysmex; Abbott Pima / BD FACSPresto (POC CD4)",
+      "CD4 counts for HIV programme often via Global Fund."
+    ],
+    [
+      "IMMHM",
+      "1.7",
+      "Immunohematology",
+      "inmunohematología; banco de sangre; medicina transfusional; grupo sanguíneo; tipaje; prueba cruzada; Coombs; tarjetas de gel; microplaca de gel; columnas de aglutinación",
+      "immunohematology; blood bank",
+      "Grifols (DG Gel / Erytra / Wadiana); Bio-Rad (DiaMed ID-System / IH-1000 / IH-500); Ortho (Vision / BioVue); Immucor (Neo / Echo); Diagast",
+      null
+    ],
+    [
+      "BGNTZ",
+      "1.7.1",
+      "Blood Grouping & Typing",
+      "grupo sanguíneo; tipificación sanguínea; tipaje ABO; factor Rh; RhD; antisueros; anti-A; anti-B; anti-D; anti-AB; hemoclasificación; tarjetas ABO/Rh; grupo inverso; células A1 y B",
+      "blood grouping and typing; ABO/RhD",
+      "As IMMHM; Lorne; Wiener (antisueros)",
+      null
+    ],
+    [
+      "IMABS",
+      "1.7.2",
+      "Antibody Screening And Identification",
+      "rastreo de anticuerpos irregulares; detección de anticuerpos; identificación de anticuerpos; panel de células; células de pantalla; células panel; anticuerpos irregulares",
+      "antibody screening and identification",
+      "As IMMHM",
+      null
+    ],
+    [
+      "IMATY",
+      "1.7.3",
+      "Antigen Typing",
+      "fenotipo eritrocitario; tipaje de antígenos; antígenos Kell; Duffy; Kidd; Rh fenotipo; C, c, E, e; antisueros raros",
+      "antigen typing; phenotyping",
+      "As IMMHM",
+      null
+    ],
+    [
+      "ATITR",
+      "1.7.4",
+      "Antibody Titration",
+      "titulación de anticuerpos; título de anticuerpos; título anti-D; titulación de isohemaglutininas",
+      "antibody titration",
+      "As IMMHM",
+      null
+    ],
+    [
+      "IHISR",
+      "1.7.5",
+      "Instruments",
+      "equipo de inmunohematología; analizador automatizado de banco de sangre; centrífuga para tarjetas de gel; incubador de tarjetas; lector de tarjetas",
+      "blood bank analyzer; gel card centrifuge/incubator",
+      "Erytra / Erytra Eflexis / Wadiana; IH-1000 / IH-500; Ortho Vision / Vision Max; Neo Iris / Echo Lumena",
+      null
+    ],
+    [
+      "IMCCY",
+      "1.7.6",
+      "Crossmatch Compatibility",
+      "prueba cruzada; pruebas de compatibilidad; prueba cruzada mayor; prueba cruzada menor; compatibilidad transfusional",
+      "crossmatch; compatibility testing",
+      "As IMMHM",
+      null
+    ],
+    [
+      "IMGLO",
+      "1.7.7",
+      "Direct Antiglobulin Test",
+      "Coombs directo; prueba de antiglobulina directa; PAD; antiglobulina humana; suero de Coombs; Coombs indirecto",
+      "DAT; direct antiglobulin; Coombs",
+      "As IMMHM",
+      null
+    ],
+    [
+      "MICRO",
+      "1.8",
+      "Microbiology",
+      "microbiología; bacteriología; cultivo; antibiograma; identificación bacteriana; susceptibilidad antimicrobiana; medios de cultivo; agar; placas de agar; discos de antibiótico; hemocultivo; urocultivo; coprocultivo; baciloscopía; cultivo de micobacterias",
+      "microbiology; culture; ID/AST",
+      "bioMérieux (Vitek, BacT/ALERT, Vitek MS); BD (Phoenix, BACTEC, MGIT); Beckman MicroScan; Bruker MALDI Biotyper; Liofilchem; Oxoid (Thermo); Merck; HiMedia; Britania",
+      null
+    ],
+    [
+      "AIDST",
+      "1.8.1",
+      "Automated ID/ AST",
+      "identificación y susceptibilidad automatizada; sistema automatizado de identificación bacteriana; tarjetas de identificación; tarjetas de susceptibilidad; paneles de identificación; MALDI-TOF; espectrometría de masas para microbiología; CMI",
+      "automated ID/AST",
+      "bioMérieux Vitek 2 (tarjetas GN/GP/AST); BD Phoenix M50; Beckman MicroScan WalkAway; Bruker MALDI Biotyper; Vitek MS; Thermo Sensititre",
+      null
+    ],
+    [
+      "ABDCL",
+      "1.8.2",
+      "Automated Blood Culture",
+      "hemocultivo automatizado; frascos de hemocultivo; botellas de hemocultivo; sistema de hemocultivo; incubador de hemocultivo; cultivo de micobacterias automatizado; MGIT",
+      "automated blood culture",
+      "bioMérieux BacT/ALERT 3D / Virtuo; BD BACTEC FX / 9050; BD MGIT 960",
+      null
+    ],
+    [
+      "MIDCL",
+      "1.8.3",
+      "Manual ID/ AST + Culture",
+      "medios de cultivo; agar sangre; agar MacConkey; agar chocolate; agar Mueller-Hinton; agar Sabouraud; caldo; medios deshidratados; medios preparados; discos de sensibilidad antimicrobiana; galerías de identificación; API; pruebas bioquímicas; tinción de Gram; Ziehl-Neelsen; baciloscopía; Löwenstein-Jensen; hisopos con medio de transporte",
+      "manual ID/AST; culture media",
+      "bioMérieux API; Oxoid; BD BBL / Difco; Liofilchem; HiMedia; Merck; Britania; Copan",
+      null
+    ],
+    [
+      "DGSOL",
+      "1.9",
+      "Digital Solutions",
+      "software de laboratorio; sistema de información de laboratorio; LIS; SIL; middleware; interfaz de equipos; conectividad de laboratorio; gestión de laboratorio; sistema informático de laboratorio",
+      "LIS; middleware; digital solutions",
+      "Roche navify / cobas infinity; Abbott AlinIQ; Siemens Atellica Data Manager; Beckman DxONE; Orion/Dedalus; Werfen GEMweb",
+      "Often embedded in reagent comodato contracts as 'incluye sistema de interfaz'."
+    ],
+    [
+      "PPRTN",
+      "1.10",
+      "Plasma Proteins",
+      "proteínas plasmáticas; electroforesis de proteínas; inmunofijación; electroforesis capilar; proteinograma; bandas monoclonales; cadenas ligeras libres",
+      "plasma proteins; protein electrophoresis",
+      "Sebia Capillarys / Hydrasys; Helena; Binding Site; Siemens BN",
+      null
+    ],
+    [
+      "MASSP",
+      "1.11",
+      "Mass spectrometry",
+      "espectrometría de masas; espectrómetro de masas; cromatografía líquida acoplada a masas; LC-MS/MS; GC-MS; tamizaje neonatal ampliado por masas; MALDI-TOF",
+      "mass spectrometry; LC-MS/MS",
+      "Waters; Sciex; Thermo; Agilent; Shimadzu; Bruker; bioMérieux Vitek MS",
+      "MALDI for microbiology may also be tagged AIDST – note which."
+    ],
+    [
+      "LABAU",
+      "1.12",
+      "Lab Automation",
+      "automatización de laboratorio; cadena de automatización; línea automatizada; sistema preanalítico; decapador; destapador; alicuotador; sorter de tubos; clasificador de muestras; track; sistema de transporte de muestras; tubo neumático",
+      "lab automation; TLA; pre-analytical",
+      "Roche cobas 8100 / p 512 / p 612; Abbott GLP / Accelerator a3600; Siemens Aptio / Atellica; Beckman DxA / Power Express; Inpeco FlexLab",
+      null
+    ],
+    [
+      "POCZZ",
+      "2",
+      "Point of Care (POCt)",
+      "punto de atención; pruebas en el punto de atención; prueba rápida; pruebas rápidas; pruebas de diagnóstico rápido; PDR; inmunocromatografía; casete; tira; cartucho; equipo portátil; analizador portátil; cabecera del paciente",
+      "point of care; POCT; rapid diagnostic test; RDT",
+      "Abbott (i-STAT, Afinion, Determine, Panbio, Bioline, ID NOW); Roche (cobas b, CoaguChek, Accu-Chek Inform); Siemens (epoc, DCA Vantage); Radiometer; Werfen GEM; QuidelOrtho; SD Biosensor; Wondfo; Standard Diagnostics; Chembio; OraSure; Atomo",
+      "Primary health care (Unidades Comunitarias de Salud Familiar – ES; Establecimientos de Salud / UAPS – HN) buys most rapid tests."
+    ],
+    [
+      "PCARZ",
+      "2.1",
+      "POC Cardiac",
+      "marcadores cardíacos rápidos; prueba rápida de troponina; prueba cardíaca en punto de atención; cartuchos cardíacos; analizador cardíaco portátil",
+      "POC cardiac",
+      "Abbott i-STAT cTnI / BNP; Roche cobas h 232; Siemens Stratus CS; Radiometer AQT90 Flex; Quidel Triage; Boditech ichroma; Getein; LumiraDx",
+      null
+    ],
+    [
+      "PCART",
+      "2.1.1",
+      "Troponin",
+      "troponina rápida; prueba rápida de troponina I; cartucho troponina; troponina en punto de atención; troponina cualitativa",
+      "POC troponin",
+      "i-STAT cTnI; cobas h 232 Trop T; AQT90 TnI/TnT; Triage; ichroma; Getein; Wondfo; SD Bioline",
+      null
+    ],
+    [
+      "PCARP",
+      "2.1.2",
+      "BNP",
+      "BNP rápido; BNP en punto de atención; cartucho BNP",
+      "POC BNP",
+      "i-STAT BNP; Quidel Triage BNP",
+      null
+    ],
+    [
+      "PCABN",
+      "2.1.3",
+      "ProBNP",
+      "NT-proBNP rápido; NT-proBNP en punto de atención",
+      "POC NT-proBNP",
+      "cobas h 232 NT-proBNP; AQT90 NT-proBNP; ichroma; Getein",
+      null
+    ],
+    [
+      "PCARX",
+      "2.1.4",
+      "Other POC Cardiac",
+      "CK-MB rápido; mioglobina rápida; dímero D rápido (cardíaco); panel cardíaco rápido; triple marcador cardíaco",
+      "other POC cardiac",
+      "Triage Cardiac Panel; ichroma; Getein; SD Bioline",
+      null
+    ],
+    [
+      "BGEZZ",
+      "2.2",
+      "POC Bloodgas & Electrolytes",
+      "gases arteriales; gasometría; gases sanguíneos; analizador de gases; electrolitos; cartuchos de gases; sensores de gases; pH pCO2 pO2; lactato; co-oximetría; calcio iónico; jeringas para gases arteriales; electrolitos en punto de atención",
+      "blood gas; electrolytes; BGE",
+      "Werfen GEM Premier 3500/4000/5000; Radiometer ABL 80/90/800/9; Roche cobas b 121/b 221; Siemens RAPIDPoint 500 / epoc; Abbott i-STAT CG4+/CG8+/Chem8+; Nova Stat Profile Prime; Edan; Medica EasyLyte (electrolitos)",
+      "Very common in ICU/emergency tenders; usually cartridge-based comodato."
+    ],
+    [
+      "STRZZ",
+      "2.3",
+      "POC Urinalysis",
+      "tiras reactivas de orina en punto de atención; lector de tiras de orina portátil; uroanálisis rápido; tira de orina para consulta",
+      "POC urinalysis; urine strip reader",
+      "Siemens Clinitek Status+; Roche Urisys 1100 / cobas u 411; Arkray PocketChem UA",
+      "Overlaps URQUA – tag POC if reader is a benchtop/handheld for clinics/wards."
+    ],
+    [
+      "HGNZZ",
+      "2.4",
+      "POC Hospital Glucose (non connected)",
+      "glucómetro hospitalario; tiras de glucosa para hospital; glucemia capilar en sala; glucometría; control glucémico hospitalario; tiras reactivas de glucosa (uso hospitalario)",
+      "hospital glucose (non-connected)",
+      "Accu-Chek Performa / Instant; FreeStyle Optium; Contour; OneTouch; On Call Plus; Bionime; Sinocare",
+      "Distinguish from patient self-test BGM (DIBST) – hospital use in wards/ICU = here."
+    ],
+    [
+      "HGCZZ",
+      "2.5",
+      "POC Hospital Glucose (connected to LIS)",
+      "glucómetro conectado; glucómetro hospitalario con conectividad; glucómetro con interfaz al LIS; sistema de glucosa conectado; glucómetro profesional; Accu-Chek Inform",
+      "hospital glucose (connected to LIS)",
+      "Roche Accu-Chek Inform II; Abbott FreeStyle Precision Pro; Nova StatStrip; Siemens",
+      null
+    ],
+    [
+      "PCHEZ",
+      "2.6",
+      "POC Chemistry + HbA1c",
+      "química en punto de atención; perfil lipídico rápido; HbA1c rápida; analizador portátil de química",
+      "POC chemistry + HbA1c",
+      "Abbott Afinion 2 / Cholestech LDX; Siemens DCA Vantage; Roche cobas b 101; PTS CardioChek; Abaxis Piccolo; SD LipidoCare",
+      null
+    ],
+    [
+      "POCCZ",
+      "2.6.1",
+      "POC Chemistry",
+      "perfil lipídico en punto de atención; colesterol rápido; creatinina portátil; química sanguínea portátil; tiras de colesterol; ácido úrico rápido; hemoglobina portátil; hemoglobinómetro; HemoCue",
+      "POC chemistry; lipids; hemoglobin",
+      "Cholestech LDX; CardioChek; Piccolo Xpress; cobas b 101 lípidos; HemoCue Hb 201/301; StatSensor creatinina",
+      null
+    ],
+    [
+      "POCHZ",
+      "2.6.2",
+      "POC HbA1c",
+      "HbA1c en punto de atención; hemoglobina glicosilada rápida; A1C rápida; cartuchos HbA1c",
+      "POC HbA1c",
+      "Abbott Afinion HbA1c; Siemens DCA Vantage; Roche cobas b 101; A1CNow; Quo-Lab; ichroma HbA1c",
+      null
+    ],
+    [
+      "PCHIZ",
+      "2.6.3",
+      "POC Chemistry + HbA1c Combo Instruments",
+      "analizador combinado HbA1c y química; analizador multiparámetro portátil; equipo portátil HbA1c y lípidos",
+      "POC chemistry + HbA1c combo instrument",
+      "Afinion 2; cobas b 101; SD LipidoCare/A1cCare",
+      null
+    ],
+    [
+      "PCOAG",
+      "2.7",
+      "POC Patient Monitoring / Coagulation",
+      "coagulación en punto de atención; INR portátil; tiras de INR; monitoreo de anticoagulación; tiempo de coagulación activado; ACT; coagulómetro portátil; tromboelastografía en quirófano",
+      "POC coagulation; INR; ACT",
+      "Roche CoaguChek XS / Pro II; Abbott i-STAT PT/INR / ACT; Werfen Hemochron; Medtronic HMS Plus; Siemens Xprecia; Haemonetics TEG 6s; ROTEM sigma",
+      null
+    ],
+    [
+      "PIDZZ",
+      "2.8",
+      "POC Infectious Diseases",
+      "pruebas rápidas de enfermedades infecciosas; prueba rápida inmunocromatográfica; prueba rápida de antígeno; prueba rápida de anticuerpos",
+      "POC infectious disease RDT",
+      "Abbott Determine / Bioline / Panbio; SD Biosensor; Chembio DPP; OraSure OraQuick; Trinity Uni-Gold; Atomo; Wondfo; Biosynex; Premier Medical",
+      null
+    ],
+    [
+      "PHIVS",
+      "2.8.1",
+      "HIV",
+      "prueba rápida de VIH; VIH 1/2 prueba rápida; prueba rápida VIH cuarta generación; autoprueba de VIH; prueba de VIH en saliva; prueba rápida dual VIH/sífilis",
+      "HIV RDT; HIV self-test",
+      "Determine HIV-1/2 / HIV Early Detect; Uni-Gold; Bioline HIV; OraQuick; Chembio DPP; Insti; Atomo",
+      "Big Global Fund / PEPFAR / PAHO Strategic Fund buyer."
+    ],
+    [
+      "PSTDZ",
+      "2.8.2",
+      "STD",
+      "pruebas rápidas de ITS; infecciones de transmisión sexual prueba rápida",
+      "POC STD",
+      "As PIDZZ",
+      null
+    ],
+    [
+      "PSYPH",
+      "2.8.2.1",
+      "Syphilis",
+      "prueba rápida de sífilis; sífilis treponémica rápida; prueba dual VIH sífilis; RPR rápido; prueba rápida de sífilis para embarazadas",
+      "syphilis RDT; HIV/syphilis duo",
+      "Determine Syphilis TP; Bioline Syphilis 3.0 / HIV-Syphilis Duo; Chembio DPP; SD; Wondfo",
+      "Prenatal (control prenatal) and EMTCT programmes."
+    ],
+    [
+      "PCTNZ",
+      "2.8.2.2",
+      "CT/NG",
+      "prueba rápida de clamidia; prueba rápida de gonorrea; Chlamydia trachomatis rápida; Neisseria gonorrhoeae rápida",
+      "CT/NG RDT",
+      "Various",
+      "Molecular POC CT/NG (GeneXpert) → MCTNP."
+    ],
+    [
+      "PHEPZ",
+      "2.8.3",
+      "Hepatitis",
+      "pruebas rápidas de hepatitis; hepatitis prueba rápida",
+      "POC hepatitis",
+      "As PIDZZ",
+      null
+    ],
+    [
+      "PHAVZ",
+      "2.8.3.1",
+      "HAV / HEV",
+      "prueba rápida hepatitis A; hepatitis A IgM rápida; prueba rápida hepatitis E",
+      "HAV/HEV RDT",
+      "SD Bioline; Wondfo; CTK",
+      null
+    ],
+    [
+      "PHBVZ",
+      "2.8.3.2",
+      "HBV",
+      "prueba rápida hepatitis B; HBsAg rápido; prueba rápida de antígeno de superficie",
+      "HBsAg RDT",
+      "Determine HBsAg 2; Bioline HBsAg; Wondfo",
+      null
+    ],
+    [
+      "PHCVZ",
+      "2.8.3.3",
+      "HCV",
+      "prueba rápida hepatitis C; anti-VHC rápido; prueba rápida HCV; autoprueba hepatitis C",
+      "HCV RDT",
+      "Bioline HCV; OraQuick HCV; First Response",
+      null
+    ],
+    [
+      "PVBDZ",
+      "2.8.4",
+      "VBD",
+      "enfermedades transmitidas por vectores; pruebas rápidas de arbovirus; enfermedades tropicales; vectores",
+      "vector-borne disease RDT",
+      "As PIDZZ",
+      null
+    ],
+    [
+      "PDENG",
+      "2.8.4.1",
+      "Dengue",
+      "prueba rápida de dengue; dengue NS1 rápido; dengue IgG/IgM rápido; dengue Duo; prueba rápida dengue combo",
+      "dengue RDT",
+      "SD Bioline Dengue Duo; Panbio Dengue; Wondfo; CTK; Standard Q",
+      "Very important in ES & HN – outbreak years (2019, 2023, 2024) had emergency purchases."
+    ],
+    [
+      "PMALA",
+      "2.8.4.2",
+      "Malaria",
+      "prueba rápida de malaria; paludismo prueba rápida; Plasmodium falciparum; Plasmodium vivax; PDR malaria; HRP2; pLDH",
+      "malaria RDT",
+      "Bioline Malaria Ag P.f/Pan; First Response; CareStart; Standard Q",
+      "Low volumes in ES (malaria-free cert.) – higher in HN (Gracias a Dios / La Mosquitia)."
+    ],
+    [
+      "PVBDX",
+      "2.8.4.3",
+      "Other tropical",
+      "prueba rápida de chikungunya; zika rápido; leptospira rápido; leishmania rápido; Chagas prueba rápida; Trypanosoma cruzi rápido; enfermedades tropicales",
+      "other tropical RDT",
+      "Various; Chembio DPP; InBios",
+      null
+    ],
+    [
+      "PGASZ",
+      "2.8.5",
+      "Gastrointestinal",
+      "prueba rápida de rotavirus; adenovirus en heces; Helicobacter pylori antígeno en heces rápido; sangre oculta en heces; FOB; FIT rápido; norovirus rápido; Giardia; Cryptosporidium; Clostridium difficile rápido",
+      "GI RDT",
+      "Various; Certest; Meridian; Abbott",
+      null
+    ],
+    [
+      "PRESZ",
+      "2.8.6",
+      "Respiratory",
+      "prueba rápida respiratoria; influenza prueba rápida; VSR rápido; estreptococo grupo A rápido",
+      "POC respiratory",
+      "As PIDZZ; Quidel Sofia; BD Veritor; Abbott BinaxNOW",
+      null
+    ],
+    [
+      "PCOVD",
+      "2.8.6.1",
+      "Sars-Cov2",
+      "prueba rápida de antígeno SARS-CoV-2; prueba de antígeno COVID-19; prueba rápida COVID; hisopado nasofaríngeo antígeno; autoprueba COVID; prueba rápida de anticuerpos COVID",
+      "SARS-CoV-2 Ag RDT",
+      "Panbio COVID-19 Ag; Standard Q; BinaxNOW; Roche/SD; Wondfo; Lepu; Flowflex",
+      "Peak 2020–2022; many purchases under emergency (decreto de emergencia / compra directa)."
+    ],
+    [
+      "PCOVH",
+      "2.8.6.1.1",
+      "Hospitals",
+      "prueba rápida COVID hospitales",
+      "COVID RDT – hospitals",
+      null,
+      "Tag by buyer: hospitals (Hospital Nacional ..., hospitales regionales, ISSS/IHSS hospitals)."
+    ],
+    [
+      "PCOVC",
+      "2.8.6.1.2",
+      "Community (Clinics, GPs, health centers)",
+      "prueba rápida COVID unidades de salud; centros de salud; clínicas comunales",
+      "COVID RDT – community",
+      null,
+      "Tag by buyer: UCSF (ES), UAPS/CIS/CESAMO (HN), clínicas comunales."
+    ],
+    [
+      "PCOVN",
+      "2.8.6.1.3",
+      "Non-HC: CDC / NGOs, Airports, workplace",
+      "prueba rápida COVID aeropuerto; migración; fronteras; centros de trabajo; escuelas; ONG",
+      "COVID RDT – non-healthcare",
+      null,
+      "Tag by buyer: CEPA / aeropuertos, Migración, Protección Civil, COPECO (HN), ministerios, municipalidades, ONGs."
+    ],
+    [
+      "PCOVR",
+      "2.8.6.1.4",
+      "Retail",
+      "autoprueba COVID farmacia",
+      "COVID RDT – retail",
+      null,
+      "Not tendered publicly (retail/online sales). Use import data or pharmacy audits; skip in tender search."
+    ],
+    [
+      "PRESX",
+      "2.8.6.2",
+      "Others",
+      "prueba rápida de influenza A/B; virus sincitial respiratorio rápido; VSR; estreptococo A rápido; Streptococcus pyogenes rápido; Mycoplasma rápido; Legionella antígeno urinario; neumococo antígeno urinario; prueba rápida combo COVID/influenza",
+      "flu/RSV/Strep A RDT",
+      "Quidel Sofia; BD Veritor; BinaxNOW; Standard Q; Wondfo; Certest",
+      null
+    ],
+    [
+      "PCCZZ",
+      "2.9",
+      "POC Critical Care",
+      "cuidados críticos en punto de atención; sepsis rápida",
+      "POC critical care",
+      "Boditech ichroma; Radiometer AQT90; Getein",
+      null
+    ],
+    [
+      "PCCRP",
+      "2.9.1",
+      "CRP",
+      "PCR rápida; proteína C reactiva rápida; CRP en punto de atención; PCR semicuantitativa",
+      "POC CRP",
+      "Abbott Afinion CRP / NycoCard; ichroma CRP; QuikRead go (Aidian); Eurolyser",
+      "Spanish 'PCR rápida' may also mean rapid molecular test – read description."
+    ],
+    [
+      "PCPCT",
+      "2.9.2",
+      "PCT",
+      "procalcitonina rápida; PCT en punto de atención; PCT semicuantitativa",
+      "POC PCT",
+      "ichroma PCT; AQT90 PCT; B·R·A·H·M·S PCT-Q; Getein",
+      null
+    ],
+    [
+      "POCXZ",
+      "2.10",
+      "POC Others",
+      "otras pruebas rápidas",
+      "POC others",
+      null,
+      null
+    ],
+    [
+      "PDOAB",
+      "2.10.1",
+      "Drug of Abuse",
+      "prueba rápida de drogas; drogas de abuso en orina rápida; multidrogas panel; casete multidrogas; prueba de alcohol",
+      "DOA RDT",
+      "Abbott (Alere) iCup; Wondfo; ACON; Premier",
+      "Also Policía Nacional / Medicina Legal / centros penales."
+    ],
+    [
+      "PHCGT",
+      "2.10.2",
+      "Pregnancy",
+      "prueba de embarazo; prueba rápida de embarazo; HCG en orina; beta HCG cualitativa; tira de embarazo",
+      "pregnancy test; hCG",
+      "Various; ACON; Wondfo; Clearblue",
+      null
+    ],
+    [
+      "POTXX",
+      "2.10.3",
+      "Others",
+      "prueba rápida de Helicobacter; prueba rápida de toxoplasma; prueba rápida de tuberculosis; prueba rápida de leptospira; prueba rápida de troponina (general); otras pruebas rápidas",
+      "other POC",
+      "Various",
+      null
+    ],
+    [
+      "MDXZZ",
+      "3",
+      "Routine Molecular Diagnostics (MDx)",
+      "biología molecular; diagnóstico molecular; PCR; reacción en cadena de la polimerasa; PCR en tiempo real; qPCR; RT-PCR; amplificación de ácidos nucleicos; NAAT; extracción de ácidos nucleicos; extracción de ADN/ARN; carga viral; genotipificación",
+      "molecular diagnostics; MDx; PCR",
+      "Roche cobas 4800/5800/6800/8800 & Liat; Abbott m2000 / Alinity m; Cepheid GeneXpert; Hologic Panther; Qiagen; bioMérieux BioFire; Seegene; Bio-Rad CFX; Thermo QuantStudio; BD MAX; Altona",
+      "Laboratorio Nacional de Referencia (ES) and Laboratorio Nacional de Vigilancia (HN) are main buyers."
+    ],
+    [
+      "MDXIZ",
+      "3.1",
+      "MDx Instruments",
+      "termociclador; equipo de PCR en tiempo real; termociclador en tiempo real; extractor automatizado de ácidos nucleicos; plataforma molecular; analizador molecular; equipo GeneXpert; módulos GeneXpert; cabina de bioseguridad (PCR)",
+      "PCR instrument; thermocycler; extractor",
+      "Roche cobas 5800/6800/z 480; Abbott m2000sp/rt / Alinity m; GeneXpert IV/XVI/Infinity; Panther; QuantStudio 5/7; CFX96 Opus; Rotor-Gene Q; QIAsymphony; MagNA Pure; KingFisher; BD MAX",
+      null
+    ],
+    [
+      "NATZZ",
+      "3.2",
+      "Blood Screening (NAT)",
+      "NAT; tamizaje molecular de donantes; pruebas de ácidos nucleicos en banco de sangre; NAT VIH VHC VHB; multiplex NAT donantes",
+      "blood screening NAT",
+      "Roche cobas MPX / 6800; Grifols Procleix Panther; Abbott Alinity s NAT",
+      null
+    ],
+    [
+      "HPVZZ",
+      "3.3",
+      "HPV",
+      "virus del papiloma humano; VPH; HPV; prueba molecular de VPH; tamizaje de cáncer cervicouterino; tamizaje de cáncer de cérvix; detección de VPH de alto riesgo; autotoma VPH",
+      "HPV DNA test",
+      "Roche cobas HPV; Hologic Aptima HPV; Qiagen careHPV / digene HC2; Cepheid Xpert HPV; BD Onclarity; Abbott RealTime HR HPV; Seegene Anyplex",
+      "Cervical cancer elimination programmes – PAHO Strategic Fund often buys HPV tests."
+    ],
+    [
+      "HPVSZ",
+      "3.3.1",
+      "HPV Screening",
+      "tamizaje VPH; VPH alto riesgo; detección de VPH; captura híbrida; prueba de VPH primaria; autotoma",
+      "HPV screening",
+      "As HPVZZ",
+      null
+    ],
+    [
+      "HPVCZ",
+      "3.3.2",
+      "HPV Genotyping",
+      "genotipificación de VPH; genotipos VPH 16 y 18; tipificación de VPH; VPH 16/18/45",
+      "HPV genotyping",
+      "As HPVZZ; Seegene; Anyplex",
+      null
+    ],
+    [
+      "MSTDZ",
+      "3.4",
+      "STD",
+      "infecciones de transmisión sexual molecular; PCR de ITS; panel de ITS molecular",
+      "STD molecular",
+      "As MDXZZ",
+      null
+    ],
+    [
+      "MCTNZ",
+      "3.4.1",
+      "CT/NG",
+      "Chlamydia trachomatis y Neisseria gonorrhoeae PCR; CT/NG molecular; clamidia gonorrea PCR; Xpert CT/NG",
+      "CT/NG NAAT",
+      "Cepheid Xpert CT/NG; Roche cobas CT/NG; Hologic Aptima Combo 2; Abbott; BD",
+      null
+    ],
+    [
+      "MCTNL",
+      "3.4.1.1",
+      "Lab",
+      "clamidia gonorrea PCR laboratorio",
+      "CT/NG – lab",
+      null,
+      "Lab version: same keywords + \"laboratorio\", \"automatizado\", \"analizador\", \"plataforma\"."
+    ],
+    [
+      "MCTNP",
+      "3.4.1.2",
+      "POC",
+      "clamidia gonorrea prueba molecular rápida",
+      "CT/NG – POC",
+      null,
+      "POC version: same keywords + \"punto de atención\", \"prueba rápida molecular\", \"cartucho\", \"GeneXpert\", \"ID NOW\", \"cobas Liat\", \"BioFire Spotfire\"."
+    ],
+    [
+      "MSTDX",
+      "3.4.2",
+      "Other STD",
+      "Trichomonas vaginalis PCR; Mycoplasma genitalium PCR; herpes genital PCR; sífilis PCR; vaginosis molecular",
+      "other STD NAAT",
+      "Cepheid Xpert TV; Hologic Aptima TV / MG; Seegene STI panels",
+      null
+    ],
+    [
+      "MSTXL",
+      "3.4.2.1",
+      "Lab",
+      "otras ITS PCR laboratorio",
+      "other STD – lab",
+      null,
+      "Lab version: same keywords + \"laboratorio\", \"automatizado\", \"analizador\", \"plataforma\"."
+    ],
+    [
+      "MSTXP",
+      "3.4.2.2",
+      "POC",
+      "otras ITS prueba molecular rápida",
+      "other STD – POC",
+      null,
+      "POC version: same keywords + \"punto de atención\", \"prueba rápida molecular\", \"cartucho\", \"GeneXpert\", \"ID NOW\", \"cobas Liat\", \"BioFire Spotfire\"."
+    ],
+    [
+      "MBACT",
+      "3.5",
+      "Bacteriology",
+      "bacteriología molecular; PCR bacteriana; detección molecular de bacterias; resistencia antimicrobiana molecular",
+      "bacteriology NAAT",
+      "As MDXZZ",
+      null
+    ],
+    [
+      "MTBZZ",
+      "3.5.1",
+      "MTB",
+      "tuberculosis molecular; Xpert MTB/RIF; Xpert MTB/RIF Ultra; Xpert MTB/XDR; cartuchos GeneXpert; detección molecular de Mycobacterium tuberculosis; resistencia a rifampicina; LPA; line probe assay; GenoType MTBDRplus; Truenat",
+      "MTB NAAT; Xpert MTB/RIF",
+      "Cepheid GeneXpert; Hain/Bruker GenoType; Molbio Truenat; Roche cobas MTB; Abbott RealTime MTB",
+      "Check Global Fund / GDF (Global Drug Facility via Stop TB) purchases."
+    ],
+    [
+      "MTBLZ",
+      "3.5.1.1",
+      "Lab",
+      "tuberculosis PCR laboratorio",
+      "MTB – lab",
+      null,
+      "Lab version: same keywords + \"laboratorio\", \"automatizado\", \"analizador\", \"plataforma\"."
+    ],
+    [
+      "MTBPZ",
+      "3.5.1.2",
+      "POC",
+      "tuberculosis prueba molecular en punto de atención; GeneXpert Edge; Truenat",
+      "MTB – POC",
+      null,
+      "POC version: same keywords + \"punto de atención\", \"prueba rápida molecular\", \"cartucho\", \"GeneXpert\", \"ID NOW\", \"cobas Liat\", \"BioFire Spotfire\"."
+    ],
+    [
+      "MHAIZ",
+      "3.5.2",
+      "Hospital Acquired Infections",
+      "infecciones asociadas a la atención en salud; IAAS; infecciones nosocomiales PCR; vigilancia de resistencias; carbapenemasas PCR; KPC; NDM",
+      "HAI NAAT",
+      "Cepheid Xpert Carba-R / MRSA / C. diff; BD MAX; BioFire",
+      null
+    ],
+    [
+      "CDIFF",
+      "3.5.2.1",
+      "C. difficile",
+      "Clostridioides difficile PCR; Clostridium difficile toxina B PCR; C. difficile molecular",
+      "C. difficile NAAT",
+      "Cepheid Xpert C. difficile; BD MAX Cdiff; Hologic",
+      null
+    ],
+    [
+      "HAIXX",
+      "3.5.2.2",
+      "Others",
+      "carbapenemasas PCR; KPC; NDM; VIM; OXA-48; Xpert Carba-R; enterococo resistente a vancomicina PCR; VRE; Candida auris PCR",
+      "other HAI NAAT",
+      "Cepheid Xpert Carba-R / vanA/vanB; BD MAX; Seegene",
+      null
+    ],
+    [
+      "MMRSA",
+      "3.5.2.3",
+      "MRSA",
+      "Staphylococcus aureus resistente a meticilina PCR; SARM; MRSA PCR; Xpert MRSA; Xpert SA Nasal",
+      "MRSA NAAT",
+      "Cepheid Xpert MRSA NxG / SA Complete; BD MAX MRSA",
+      null
+    ],
+    [
+      "MGABS",
+      "3.5.3",
+      "GAS and GBS",
+      "estreptococo grupo A PCR; estreptococo grupo B PCR; Streptococcus agalactiae molecular; Xpert GBS; Xpert Xpress Strep A",
+      "GAS/GBS NAAT",
+      "Cepheid Xpert GBS / Strep A; Abbott ID NOW Strep A; BD MAX GBS; Hologic",
+      null
+    ],
+    [
+      "VIRZZ",
+      "3.6",
+      "Virology",
+      "virología molecular; carga viral; PCR viral; genotipificación viral",
+      "virology NAAT",
+      "As MDXZZ",
+      null
+    ],
+    [
+      "MHCVZ",
+      "3.6.1",
+      "HCV",
+      "hepatitis C molecular; VHC PCR; ARN VHC",
+      "HCV NAAT",
+      "Roche cobas HCV; Abbott RealTime HCV / Alinity m; Cepheid Xpert HCV VL / VL Fingerstick",
+      null
+    ],
+    [
+      "MHCVQ",
+      "3.6.1.1",
+      "HCV Qual",
+      "VHC cualitativo PCR; ARN de hepatitis C cualitativo; detección de ARN VHC",
+      "HCV qualitative",
+      "As MHCVZ",
+      null
+    ],
+    [
+      "MHCVV",
+      "3.6.1.2",
+      "HCV Viral Load",
+      "carga viral de hepatitis C; carga viral VHC; cuantificación de ARN VHC",
+      "HCV viral load",
+      "As MHCVZ",
+      null
+    ],
+    [
+      "MHCVG",
+      "3.6.1.3",
+      "HCV Genotyping",
+      "genotipificación de hepatitis C; genotipo VHC",
+      "HCV genotyping",
+      "Abbott RealTime HCV Genotype II; Siemens Versant LiPA",
+      null
+    ],
+    [
+      "MHBVZ",
+      "3.6.2",
+      "HBV",
+      "hepatitis B molecular; VHB PCR; ADN VHB",
+      "HBV NAAT",
+      "Roche cobas HBV; Abbott RealTime HBV; Cepheid Xpert HBV VL",
+      null
+    ],
+    [
+      "MHBVQ",
+      "3.6.2.1",
+      "HBV Qual",
+      "VHB cualitativo PCR; ADN de hepatitis B cualitativo",
+      "HBV qualitative",
+      "As MHBVZ",
+      null
+    ],
+    [
+      "MHBVV",
+      "3.6.2.2",
+      "HBV Viral Load",
+      "carga viral de hepatitis B; carga viral VHB; cuantificación ADN VHB",
+      "HBV viral load",
+      "As MHBVZ",
+      null
+    ],
+    [
+      "MHBVG",
+      "3.6.2.3",
+      "HBV Genotyping",
+      "genotipificación de hepatitis B; genotipo VHB; mutaciones de resistencia VHB",
+      "HBV genotyping",
+      "Various",
+      null
+    ],
+    [
+      "MHIVZ",
+      "3.6.3",
+      "HIV",
+      "VIH molecular; PCR VIH; ARN VIH; ADN proviral VIH",
+      "HIV NAAT",
+      "Roche cobas HIV-1 (5800/6800/8800 & Liat); Abbott RealTime HIV-1 / Alinity m; Cepheid Xpert HIV-1 VL / Qual; Hologic Aptima HIV-1",
+      "Global Fund / PEPFAR / PAHO; national HIV programme (Programa Nacional de ITS/VIH)."
+    ],
+    [
+      "MHIVQ",
+      "3.6.3.1",
+      "HIV Qual",
+      "VIH cualitativo PCR; diagnóstico infantil temprano; DIT; diagnóstico temprano en lactantes; PCR VIH en recién nacidos; ADN proviral",
+      "HIV qualitative; EID",
+      "Cepheid Xpert HIV-1 Qual; Roche cobas HIV-1/2 Qual; Abbott m-PIMA",
+      null
+    ],
+    [
+      "HIVQL",
+      "3.6.3.1.1",
+      "Lab",
+      "VIH cualitativo PCR laboratorio",
+      "HIV qual – lab",
+      null,
+      "Lab version: same keywords + \"laboratorio\", \"automatizado\", \"analizador\", \"plataforma\"."
+    ],
+    [
+      "HIVQP",
+      "3.6.3.1.2",
+      "POC",
+      "VIH cualitativo prueba molecular en punto de atención; m-PIMA; Xpert HIV-1 Qual",
+      "HIV qual – POC",
+      null,
+      "POC version: same keywords + \"punto de atención\", \"prueba rápida molecular\", \"cartucho\", \"GeneXpert\", \"ID NOW\", \"cobas Liat\", \"BioFire Spotfire\"."
+    ],
+    [
+      "MHIVV",
+      "3.6.3.2",
+      "HIV Viral Load",
+      "carga viral de VIH; carga viral VIH-1; cuantificación de ARN VIH; supresión viral",
+      "HIV viral load",
+      "As MHIVZ",
+      null
+    ],
+    [
+      "HIVVL",
+      "3.6.3.2.1",
+      "Lab",
+      "carga viral VIH laboratorio",
+      "HIV VL – lab",
+      null,
+      "Lab version: same keywords + \"laboratorio\", \"automatizado\", \"analizador\", \"plataforma\"."
+    ],
+    [
+      "HIVVP",
+      "3.6.3.2.2",
+      "POC",
+      "carga viral VIH en punto de atención; carga viral rápida",
+      "HIV VL – POC",
+      null,
+      "POC version: same keywords + \"punto de atención\", \"prueba rápida molecular\", \"cartucho\", \"GeneXpert\", \"ID NOW\", \"cobas Liat\", \"BioFire Spotfire\". Also m-PIMA HIV-1/2 VL."
+    ],
+    [
+      "MHIVG",
+      "3.6.3.3",
+      "HIV Genotyping",
+      "genotipificación de VIH; resistencia a antirretrovirales; prueba de resistencia VIH; secuenciación VIH",
+      "HIV genotyping / drug resistance",
+      "Thermo/ABI; Siemens TruGene; Illumina; Vela",
+      null
+    ],
+    [
+      "MRESP",
+      "3.6.4",
+      "Respiratory",
+      "virus respiratorios PCR; panel respiratorio PCR; PCR influenza; vigilancia de virus respiratorios",
+      "respiratory NAAT",
+      "As MDXZZ; CDC Flu kits",
+      "Vigilancia centinela de IRAG/ETI (PAHO-supported)."
+    ],
+    [
+      "MFLUA",
+      "3.6.4.1",
+      "Influenza (A/B)",
+      "influenza A y B PCR; influenza molecular; RT-PCR influenza; subtipificación de influenza; H1N1; H3N2; H5N1",
+      "influenza A/B NAAT",
+      "Cepheid Xpert Xpress Flu/RSV; Roche cobas Liat; Abbott ID NOW Flu; CDC Flu RT-PCR kits",
+      null
+    ],
+    [
+      "MFLUL",
+      "3.6.4.1.1",
+      "Lab",
+      "influenza PCR laboratorio",
+      "influenza – lab",
+      null,
+      "Lab version: same keywords + \"laboratorio\", \"automatizado\", \"analizador\", \"plataforma\"."
+    ],
+    [
+      "MFLUP",
+      "3.6.4.1.2",
+      "POC",
+      "influenza prueba molecular rápida",
+      "influenza – POC",
+      null,
+      "POC version: same keywords + \"punto de atención\", \"prueba rápida molecular\", \"cartucho\", \"GeneXpert\", \"ID NOW\", \"cobas Liat\", \"BioFire Spotfire\"."
+    ],
+    [
+      "MRSVZ",
+      "3.6.4.2",
+      "RSV",
+      "virus sincitial respiratorio PCR; VSR molecular; RSV PCR",
+      "RSV NAAT",
+      "As MFLUA",
+      null
+    ],
+    [
+      "MRSVL",
+      "3.6.4.2.1",
+      "Lab",
+      "VSR PCR laboratorio",
+      "RSV – lab",
+      null,
+      "Lab version: same keywords + \"laboratorio\", \"automatizado\", \"analizador\", \"plataforma\"."
+    ],
+    [
+      "MRSVP",
+      "3.6.4.2.2",
+      "POC",
+      "VSR prueba molecular rápida",
+      "RSV – POC",
+      null,
+      "POC version: same keywords + \"punto de atención\", \"prueba rápida molecular\", \"cartucho\", \"GeneXpert\", \"ID NOW\", \"cobas Liat\", \"BioFire Spotfire\"."
+    ],
+    [
+      "MADNZ",
+      "3.6.4.3",
+      "Adenovirus",
+      "adenovirus PCR; adenovirus molecular",
+      "adenovirus NAAT",
+      "Various; Seegene; Altona",
+      null
+    ],
+    [
+      "MADNL",
+      "3.6.4.3.1",
+      "Lab",
+      "adenovirus PCR laboratorio",
+      "adenovirus – lab",
+      null,
+      "Lab version: same keywords + \"laboratorio\", \"automatizado\", \"analizador\", \"plataforma\"."
+    ],
+    [
+      "MADNP",
+      "3.6.4.3.2",
+      "POC",
+      "adenovirus prueba molecular rápida",
+      "adenovirus – POC",
+      null,
+      "POC version: same keywords + \"punto de atención\", \"prueba rápida molecular\", \"cartucho\", \"GeneXpert\", \"ID NOW\", \"cobas Liat\", \"BioFire Spotfire\"."
+    ],
+    [
+      "MCOVD",
+      "3.6.4.4",
+      "Sars-Cov2",
+      "SARS-CoV-2 PCR; COVID-19 RT-PCR; prueba PCR COVID; kits de PCR COVID; extracción de ARN; hisopos y medio de transporte viral",
+      "SARS-CoV-2 PCR",
+      "Roche cobas SARS-CoV-2; Abbott; Cepheid Xpress SARS-CoV-2; Seegene Allplex; Thermo TaqPath; Sansure; BGI; Da An",
+      "Peak 2020–2022 – emergency purchases."
+    ],
+    [
+      "MCOVL",
+      "3.6.4.4.1",
+      "Lab",
+      "PCR COVID laboratorio",
+      "SARS-CoV-2 – lab",
+      null,
+      "Lab version: same keywords + \"laboratorio\", \"automatizado\", \"analizador\", \"plataforma\"."
+    ],
+    [
+      "MCOVP",
+      "3.6.4.4.2",
+      "POC",
+      "PCR COVID prueba molecular rápida",
+      "SARS-CoV-2 – POC",
+      null,
+      "POC version: same keywords + \"punto de atención\", \"prueba rápida molecular\", \"cartucho\", \"GeneXpert\", \"ID NOW\", \"cobas Liat\", \"BioFire Spotfire\"."
+    ],
+    [
+      "MHERP",
+      "3.6.5",
+      "Herpes",
+      "herpes simple PCR; VHS-1; VHS-2; varicela zóster PCR; citomegalovirus PCR (diagnóstico); virus de Epstein-Barr PCR",
+      "herpes NAAT",
+      "Various; Altona RealStar; Qiagen artus",
+      null
+    ],
+    [
+      "MVIRX",
+      "3.6.6",
+      "Others",
+      "otros virus PCR",
+      "other virology",
+      "As MDXZZ",
+      null
+    ],
+    [
+      "MVIRF",
+      "3.6.6.1",
+      "Tropical fever",
+      "fiebres tropicales PCR; arbovirus PCR; zika PCR; chikungunya PCR; fiebre amarilla PCR; trioplex; leptospira PCR; Oropouche PCR",
+      "tropical fever NAAT",
+      "CDC Trioplex; Altona RealStar; Bio-Manguinhos ZDC; Seegene",
+      null
+    ],
+    [
+      "PTRAN",
+      "3.6.6.2",
+      "Transplant",
+      "trasplante; carga viral citomegalovirus; CMV cuantitativo; BK virus; virus Epstein-Barr cuantitativo; monitoreo post trasplante",
+      "transplant virology (CMV/EBV/BKV)",
+      "Roche cobas CMV / BKV / EBV; Abbott Alinity m CMV / EBV; Qiagen artus; Altona",
+      null
+    ],
+    [
+      "MDENG",
+      "3.6.6.3",
+      "PCR Dengue",
+      "dengue PCR; dengue RT-PCR; serotipificación de dengue; DENV 1-4; detección molecular de dengue",
+      "dengue PCR",
+      "CDC DENV-1-4 RT-PCR; Altona RealStar Dengue; Bio-Manguinhos",
+      null
+    ],
+    [
+      "MGAST",
+      "3.7",
+      "Gastrointestinal",
+      "patógenos gastrointestinales PCR; norovirus PCR; rotavirus PCR; Salmonella PCR; Shigella PCR; Campylobacter PCR; E. coli diarreogénica; Vibrio cholerae PCR",
+      "GI NAAT",
+      "Cepheid Xpert Norovirus; BD MAX Enteric; Seegene",
+      null
+    ],
+    [
+      "MPANL",
+      "3.8",
+      "Panels (>2 targets)",
+      "paneles multiplex; panel sindrómico; PCR múltiple; FilmArray; panel multiplex",
+      "syndromic panels; multiplex",
+      "bioMérieux BioFire FilmArray / Spotfire; Qiagen QIAstat-Dx; Seegene Allplex; Luminex NxTAG; Roche cobas eplex (GenMark)",
+      null
+    ],
+    [
+      "PMENI",
+      "3.8.1",
+      "Meningitis panel",
+      "panel de meningitis/encefalitis; panel ME; meningitis PCR; líquido cefalorraquídeo PCR multiplex",
+      "meningitis/encephalitis panel",
+      "BioFire ME; QIAstat-Dx ME",
+      null
+    ],
+    [
+      "PGAST",
+      "3.8.2",
+      "Gastrointestinal panel",
+      "panel gastrointestinal; panel GI; panel de diarreas PCR multiplex",
+      "GI panel",
+      "BioFire GI; QIAstat-Dx GI; Seegene Allplex GI; BD MAX",
+      null
+    ],
+    [
+      "PRESP",
+      "3.8.3",
+      "Respiratory panel",
+      "panel respiratorio; panel respiratorio multiplex; panel respiratorio 2.1; panel neumonía; RP2.1",
+      "respiratory panel; pneumonia panel",
+      "BioFire RP2.1 / Pneumonia; QIAstat-Dx Respiratory; Allplex RV; ePlex RP",
+      null
+    ],
+    [
+      "PSTDP",
+      "3.8.4",
+      "STD panel",
+      "panel de ITS multiplex; panel de infecciones de transmisión sexual; STI panel",
+      "STD panel",
+      "Seegene Allplex STI; BD MAX",
+      null
+    ],
+    [
+      "PBCID",
+      "3.8.5",
+      "Blood culture identification panel",
+      "panel de identificación de hemocultivo; BCID; identificación rápida de hemocultivo positivo; genes de resistencia",
+      "blood culture ID panel",
+      "BioFire BCID2; ePlex BCID; Accelerate Pheno",
+      null
+    ],
+    [
+      "GOCZZ",
+      "3.9",
+      "Genetics, Oncology & Coagulation",
+      "genética molecular; oncología molecular; farmacogenética; mutaciones",
+      "genetics, oncology & coagulation molecular",
+      "As MDXZZ; Qiagen therascreen; Roche cobas mutation tests",
+      null
+    ],
+    [
+      "MGENZ",
+      "3.9.1",
+      "Genetics",
+      "genética; pruebas genéticas; estudios genéticos; cariotipo molecular; fibrosis quística; X frágil; HLA molecular; tipificación HLA; trombofilia genética; enfermedades hereditarias; tamizaje neonatal molecular",
+      "genetics; HLA typing",
+      "One Lambda; Immucor (HLA); Qiagen; Vela; Bio-Rad",
+      null
+    ],
+    [
+      "MONCZ",
+      "3.9.2",
+      "Oncology",
+      "oncología molecular; mutaciones somáticas; biomarcadores oncológicos; biopsia líquida; BCR-ABL; translocación; reordenamiento",
+      "oncology molecular",
+      "Qiagen therascreen; Roche cobas EGFR/KRAS/BRAF; Biocartis Idylla; Cepheid Xpert BCR-ABL",
+      null
+    ],
+    [
+      "MKRAS",
+      "3.9.2.1",
+      "KRAS",
+      "KRAS; mutación KRAS; KRAS cáncer colorrectal; NRAS; RAS",
+      "KRAS",
+      "Qiagen therascreen KRAS; Idylla KRAS/NRAS-BRAF; cobas KRAS",
+      null
+    ],
+    [
+      "MEGFR",
+      "3.9.2.2",
+      "EGFR",
+      "EGFR; mutación EGFR; EGFR cáncer de pulmón; T790M; biopsia líquida EGFR",
+      "EGFR",
+      "Roche cobas EGFR v2; Qiagen therascreen EGFR; Idylla EGFR",
+      null
+    ],
+    [
+      "MBRAF",
+      "3.9.2.3",
+      "BRAF",
+      "BRAF; mutación BRAF V600; BRAF melanoma",
+      "BRAF",
+      "Roche cobas BRAF V600; Idylla BRAF; Qiagen",
+      null
+    ],
+    [
+      "MONCX",
+      "3.9.2.4",
+      "Others",
+      "BCR-ABL; cromosoma Filadelfia; JAK2 V617F; FLT3; NPM1; PML-RARA; ALK; ROS1; PIK3CA; MSI; BRCA1/2 PCR",
+      "other oncology molecular",
+      "Cepheid Xpert BCR-ABL Ultra; Qiagen ipsogen; Idylla",
+      null
+    ],
+    [
+      "MCOAG",
+      "3.9.3",
+      "Coagulation",
+      "factor V Leiden; mutación de protrombina G20210A; MTHFR; trombofilia molecular",
+      "coagulation molecular",
+      "Cepheid Xpert FII & FV; Vienna Lab; Seegene",
+      null
+    ],
+    [
+      "MLDTZ",
+      "3.10",
+      "LDT (for qPCR)",
+      "reactivos para PCR; master mix; primers; sondas; oligonucleótidos; enzimas de PCR; transcriptasa reversa; kits de extracción; reactivos de investigación molecular; pruebas desarrolladas en laboratorio",
+      "LDT; qPCR reagents; master mix; primers/probes",
+      "Thermo Fisher (TaqMan, SuperScript); Qiagen; Bio-Rad; Promega; IDT; Roche LightCycler",
+      "Laboratorio Nacional de Referencia/Vigilancia, universities (UES, UNAH) – tag research separately."
+    ],
+    [
+      "MNAPZ",
+      "3.11",
+      "NAP",
+      "amplificación isotérmica; LAMP; pruebas de amplificación de ácidos nucleicos no PCR; TMA; NASBA",
+      "NAP / isothermal amplification",
+      "Eiken Loopamp; Abbott ID NOW; Hologic TMA",
+      null
+    ],
+    [
+      "TDXZZ",
+      "4",
+      "Tissue Diagnostics (TDx)",
+      "patología; anatomía patológica; histopatología; citología; histotecnología; laboratorio de patología; inmunohistoquímica; biopsias; diagnóstico tisular",
+      "tissue diagnostics; pathology; histology",
+      "Roche Ventana; Agilent Dako; Leica Biosystems; Sakura; Thermo Fisher (Epredia); Biocare; Bio SB; Cell Marque; Diagnostic BioSystems",
+      "Buyers: servicios de patología de hospitales nacionales, Hospital Rosales / Hospital de la Mujer (ES), Hospital Escuela (HN), ISSS/IHSS."
+    ],
+    [
+      "TDPRE",
+      "4.1",
+      "Pre-analytical",
+      "procesador de tejidos; procesamiento de tejidos; inclusión en parafina; centro de inclusión; parafina; micrótomo; criostato; cuchillas de micrótomo; casetes de inclusión; portaobjetos; cubreobjetos; formol; formalina; xilol; alcohol para histología; fijación",
+      "pre-analytical: tissue processing, embedding, microtomy",
+      "Leica (Peloris, HistoCore, ASP); Sakura Tissue-Tek (VIP, Xpress, TEC); Thermo/Epredia (Excelsior); Milestone",
+      null
+    ],
+    [
+      "TDPRS",
+      "4.2",
+      "Primary Staining",
+      "tinción primaria; tinción de rutina; hematoxilina y eosina; coloraciones",
+      "primary staining",
+      "As TDXZZ",
+      null
+    ],
+    [
+      "HNEZZ",
+      "4.2.1",
+      "H&E",
+      "hematoxilina y eosina; H&E; tinción H-E; hematoxilina; eosina; Papanicolaou; tinción de Papanicolaou; citología cervical",
+      "H&E staining",
+      "Leica; Sakura; Roche Ventana HE 600; Thermo/Epredia; Merck",
+      "Pap stains (citología) often tendered with cervical cancer programme."
+    ],
+    [
+      "HNEIZ",
+      "4.2.1.1",
+      "H&E Instruments",
+      "teñidor automático de láminas; coloreador automático; teñidor y montador de láminas; cubreobjetos automático; montador de láminas",
+      "H&E stainer; coverslipper",
+      "Leica ST5010/ST5020/HistoCore SPECTRA; Sakura Tissue-Tek Prisma / Film; Roche Ventana HE 600; Thermo Gemini",
+      null
+    ],
+    [
+      "HNERZ",
+      "4.2.1.2",
+      "H&E Reagents",
+      "hematoxilina de Harris; hematoxilina de Mayer; eosina Y; floxina; reactivos de tinción H&E; medio de montaje; resina de montaje; Bálsamo",
+      "H&E reagents",
+      "As HNEZZ",
+      null
+    ],
+    [
+      "HNERM",
+      "4.2.1.2.1",
+      "Manual",
+      "tinción manual hematoxilina eosina; colorantes para tinción manual; batería de tinción",
+      "H&E manual reagents",
+      "Merck; Sigma; local",
+      null
+    ],
+    [
+      "HNERA",
+      "4.2.1.2.2",
+      "Automated",
+      "reactivos para teñidor automático; reactivos H&E automatizados; kits de tinción automatizada",
+      "H&E automated reagents",
+      "Leica; Sakura; Roche Ventana",
+      null
+    ],
+    [
+      "TDXSS",
+      "4.2.2",
+      "Special Stains",
+      "tinciones especiales; coloraciones especiales; PAS; tricrómico de Masson; Ziehl-Neelsen tejido; Grocott; plata metenamina; reticulina; hierro de Perls; azul alcián; Giemsa; Gram tisular; rojo Congo; Warthin-Starry",
+      "special stains",
+      "Roche Ventana BenchMark Special Stains; Leica; Dako Artisan; Bio-Optica; Merck",
+      null
+    ],
+    [
+      "TDXSI",
+      "4.2.2.1",
+      "Instruments",
+      "teñidor automático de tinciones especiales; equipo de coloraciones especiales",
+      "special stains instrument",
+      "Ventana BenchMark Special Stains; Dako Artisan Link Pro",
+      null
+    ],
+    [
+      "TDXSR",
+      "4.2.2.2",
+      "Reagents",
+      "kits de tinciones especiales; reactivos de coloración especial",
+      "special stains reagents",
+      "As TDXSS",
+      null
+    ],
+    [
+      "ADSTZ",
+      "4.3",
+      "Advanced Staining",
+      "inmunohistoquímica; IHQ; hibridación in situ; ISH; FISH; CISH; SISH; tinción avanzada; anticuerpos para inmunohistoquímica",
+      "advanced staining; IHC; ISH",
+      "Roche Ventana; Agilent Dako; Leica Bond; Biocare; Bio SB; Cell Marque; Zytovision; Abbott Molecular (Vysis FISH)",
+      null
+    ],
+    [
+      "ADSTI",
+      "4.3.1",
+      "Advanced Staining Instruments",
+      "inmunoteñidor automático; equipo automatizado de inmunohistoquímica; plataforma IHQ automatizada; equipo de hibridación in situ",
+      "IHC/ISH stainer",
+      "Ventana BenchMark ULTRA / XT / GX; Dako Omnis / Autostainer Link 48; Leica Bond-III / Bond RX / Bond MAX; Biocare intelliPATH",
+      null
+    ],
+    [
+      "ADIHC",
+      "4.3.2",
+      "IHC Reagents",
+      "anticuerpos para inmunohistoquímica; anticuerpos primarios; anticuerpos monoclonales IHQ; receptores de estrógeno; receptores de progesterona; RE; RP; HER2; Ki-67; PD-L1; citoqueratinas; CK7; CK20; p16; p53; CD20; CD3; CD45; ALK; sistema de detección; recuperación antigénica",
+      "IHC reagents; antibodies",
+      "Ventana (PATHWAY HER2, SP263, OptiView); Dako (HercepTest, 22C3); Leica Bond; Biocare; Bio SB; Cell Marque",
+      "Breast cancer HER2/ER/PR tenders are typical."
+    ],
+    [
+      "IHCAU",
+      "4.3.2.1",
+      "Automated",
+      "anticuerpos IHQ listos para usar; RTU; anticuerpos prediluidos para equipo automatizado; kits de detección automatizada",
+      "IHC automated reagents",
+      "As ADIHC",
+      null
+    ],
+    [
+      "IHCMA",
+      "4.3.2.2",
+      "Manual",
+      "anticuerpos IHQ concentrados; inmunohistoquímica manual; kit de detección manual; polímero HRP; DAB",
+      "IHC manual reagents",
+      "Dako; Biocare; Bio SB; Abcam; Zeta; Master Diagnóstica",
+      null
+    ],
+    [
+      "ADISH",
+      "4.3.3",
+      "ISH Reagents",
+      "hibridación in situ; FISH; CISH; SISH; sondas de hibridación; HER2 FISH; ALK FISH; EBER",
+      "ISH reagents; probes",
+      "Ventana INFORM HER2 Dual ISH; Abbott Vysis; Zytovision; Leica Bond ISH; Dako",
+      null
+    ],
+    [
+      "ISHAU",
+      "4.3.3.1",
+      "Automated",
+      "hibridación in situ automatizada; sondas ISH para equipo automatizado",
+      "ISH automated",
+      "Ventana; Leica Bond",
+      null
+    ],
+    [
+      "ISHMA",
+      "4.3.3.2",
+      "Manual",
+      "FISH manual; sondas FISH; hibridación in situ manual",
+      "ISH manual",
+      "Abbott Vysis; Zytovision; MetaSystems; Cytocell",
+      null
+    ],
+    [
+      "TDWFS",
+      "4.4",
+      "Workflow Solutions",
+      "solución de flujo de trabajo en patología; trazabilidad de muestras; rotulador de casetes; impresora de casetes; impresora de portaobjetos; sistema de seguimiento",
+      "workflow solutions; cassette/slide printers; tracking",
+      "Leica (HistoCore PERMA, Vantage); Sakura; Thermo/Epredia; Roche Ventana Vantage",
+      null
+    ],
+    [
+      "TDDGP",
+      "4.5",
+      "Digital Pathology",
+      "patología digital; escáner de láminas; escáner de portaobjetos; digitalización de láminas; telepatología; imágenes de lámina completa",
+      "digital pathology; WSI scanner",
+      "Roche Ventana DP 200/600; Leica Aperio; Philips IntelliSite; Hamamatsu NanoZoomer; 3DHistech",
+      null
+    ],
+    [
+      "TDDPI",
+      "4.5.1",
+      "Instrument",
+      "escáner de láminas completas; escáner de patología digital; equipo de telepatología",
+      "digital pathology instrument",
+      "As TDDGP",
+      null
+    ],
+    [
+      "TDDPS",
+      "4.5.2",
+      "Support",
+      "software de patología digital; sistema de gestión de imágenes; análisis de imágenes; algoritmos de inteligencia artificial patología; licencia de software patología",
+      "digital pathology software/support",
+      "Roche navify Digital Pathology; Leica Aperio eSlide Manager; Philips; Sectra; Paige; PathAI",
+      null
+    ],
+    [
+      "SEQZZ",
+      "5",
+      "Sequencing (NGS)",
+      "secuenciación; secuenciación de nueva generación; secuenciación masiva; NGS; secuenciación genómica; secuenciador; vigilancia genómica; genómica",
+      "sequencing; NGS",
+      "Illumina (MiSeq, iSeq, NextSeq, NovaSeq); Thermo Fisher Ion Torrent (Genexus, S5); Oxford Nanopore (MinION, GridION); MGI (DNBSEQ); Thermo ABI (Sanger 3500/SeqStudio)",
+      "Buyers: Laboratorio Nacional de Referencia (ES), Laboratorio Nacional de Vigilancia (HN), universities (UES, UNAH – tag as research), COMISCA/PAHO genomic surveillance network."
+    ],
+    [
+      "SEQIN",
+      "5.1",
+      "Sequencing instruments",
+      "secuenciador; equipo de secuenciación; secuenciador de nueva generación; secuenciador genético; analizador genético; secuenciador Sanger; electroforesis capilar",
+      "sequencer; genetic analyzer",
+      "Illumina MiSeq / iSeq 100 / NextSeq 1000/2000; Ion Torrent Genexus / S5; MinION / GridION; MGI DNBSEQ-G99; ABI 3500 / SeqStudio",
+      null
+    ],
+    [
+      "SEQPR",
+      "5.2",
+      "Sample preparation",
+      "preparación de librerías; kits de librerías; preparación de muestras para secuenciación; kits de enriquecimiento; captura de exoma; extracción de ADN para NGS; cuantificación de ADN; Qubit; fragmentación; indexación; flow cell; celdas de flujo; cartuchos de secuenciación",
+      "library prep; sample prep; flow cells",
+      "Illumina DNA Prep / COVIDSeq / MiSeq Reagent Kit; Thermo Ion AmpliSeq; ONT ligation kits; Qiagen; Twist; Agilent SureSelect; Thermo Qubit",
+      null
+    ],
+    [
+      "SEQRR",
+      "5.3",
+      "Sequencing testing",
+      "pruebas de secuenciación; servicio de secuenciación; análisis genómico; panel de genes por NGS",
+      "sequencing tests/services",
+      "As SEQZZ",
+      "Outsourced lab services (servicio subrogado) count too – tag as services."
+    ],
+    [
+      "SNIPT",
+      "5.3.1",
+      "NIPT",
+      "prueba prenatal no invasiva; NIPT; ADN fetal libre; tamizaje prenatal no invasivo; trisomía 21 ADN fetal",
+      "NIPT",
+      "Illumina VeriSeq; BGI NIFTY; Natera Panorama",
+      "Mostly private / outsourced; rare in public tenders."
+    ],
+    [
+      "SONCO",
+      "5.3.2",
+      "Oncology",
+      "panel oncológico NGS; perfil genómico tumoral; secuenciación tumoral; biopsia líquida NGS; BRCA NGS; Oncomine; panel de cáncer hereditario",
+      "oncology NGS",
+      "Thermo Oncomine Dx / Genexus; Illumina TSO 500; Foundation Medicine (servicio); Roche AVENIO",
+      null
+    ],
+    [
+      "SGENE",
+      "5.3.3",
+      "Genetics",
+      "exoma; secuenciación de exoma; genoma completo; panel de genes; enfermedades raras; genética clínica NGS; tamizaje genético; secuenciación Sanger diagnóstica",
+      "genetics NGS; exome/genome",
+      "Illumina; Thermo; MGI; outsourced (Invitae, Blueprint, GeneDx)",
+      null
+    ],
+    [
+      "SINFD",
+      "5.3.4",
+      "Infectious Diseases",
+      "vigilancia genómica; secuenciación SARS-CoV-2; secuenciación de virus; secuenciación de influenza; secuenciación de dengue; resistencia antimicrobiana por secuenciación; secuenciación de tuberculosis; genotipificación de patógenos; metagenómica",
+      "infectious disease NGS; genomic surveillance",
+      "Illumina COVIDSeq; ONT ARTIC; Ion AmpliSeq SARS-CoV-2; Illumina Respiratory Virus Panel",
+      "PAHO COVIGEN network donations/purchases."
+    ],
+    [
+      "DIACA",
+      "6",
+      "Diabetes Care",
+      "diabetes; insumos para diabéticos; insumos para pacientes diabéticos; autocontrol de glucosa; programa de diabetes; clínica de diabetes; control glucémico",
+      "diabetes care",
+      "Roche Accu-Chek; Abbott FreeStyle; Ascensia Contour; LifeScan OneTouch; Dexcom; Medtronic; i-SENS CareSens; Sinocare; Bionime; Arkray; On Call (ACON)",
+      "Public buyers: MINSAL & ISSS (ES); SESAL & IHSS (HN) – often in medicine/insumo tenders (cuadro básico), not lab tenders."
+    ],
+    [
+      "DICGM",
+      "6.1",
+      "CGM",
+      "monitoreo continuo de glucosa; monitor continuo de glucosa; MCG; sensor de glucosa; sensor de glucosa intersticial; monitoreo flash de glucosa; sistema flash; transmisor; lector de glucosa; FreeStyle Libre; Dexcom; Guardian; bomba de insulina con sensor",
+      "CGM; flash glucose monitoring; sensor",
+      "Abbott FreeStyle Libre 2/3; Dexcom G6/G7/ONE; Medtronic Guardian / Simplera; Roche Accu-Chek SmartGuide; Sinocare iCan",
+      "Look in pediatric/type-1 programmes (Hospital Bloom – ES; Hospital Escuela / IHSS – HN) and insulin-pump tenders."
+    ],
+    [
+      "DICEC",
+      "6.1.1",
+      "E-commerce",
+      "sensor de glucosa venta en línea",
+      "CGM – e-commerce",
+      null,
+      "Not tendered publicly (retail/online sales). Use import data or pharmacy audits; skip in tender search."
+    ],
+    [
+      "DICRP",
+      "6.1.2",
+      "Retail Pharmacy",
+      "sensor de glucosa farmacia",
+      "CGM – retail pharmacy",
+      null,
+      "Not tendered publicly (retail/online sales). Use import data or pharmacy audits; skip in tender search."
+    ],
+    [
+      "DICHP",
+      "6.1.3",
+      "Hospital",
+      "monitoreo continuo de glucosa hospital; sensores de glucosa para pacientes hospitalizados; CGM institucional",
+      "CGM – hospital",
+      "As DICGM",
+      "Tag Public vs Private by buyer."
+    ],
+    [
+      "DICPU",
+      "6.1.3.1",
+      "Public",
+      "sensores de glucosa MINSAL; ISSS; SESAL; IHSS; hospital nacional",
+      "CGM – public hospital",
+      "As DICGM",
+      "Public tenders found on COMPRASAL / HonduCompras = this line."
+    ],
+    [
+      "DICPR",
+      "6.1.3.2",
+      "Private",
+      "sensores de glucosa hospital privado",
+      "CGM – private hospital",
+      "As DICGM",
+      "Private hospitals don't publish tenders – estimate via distributor/import data."
+    ],
+    [
+      "DIBGM",
+      "6.2",
+      "BGM",
+      "glucómetro; glucometro; medidor de glucosa; monitor de glucosa; tiras reactivas para glucosa; tiras de glucosa; tiras para glucómetro; tiras de glucemia; lancetas; lancetero; dispositivo de punción; automonitoreo de glucosa; glucemia capilar",
+      "BGM; blood glucose meter; test strips; lancets",
+      "Accu-Chek (Guide, Instant, Active, Performa); FreeStyle Optium / Freedom Lite; Contour Plus; OneTouch Select / Ultra; CareSens; On Call Plus; Bionime; Sinocare; Glucocard",
+      "Strips often bought 'con glucómetro en comodato/donación' – capture meter terms."
+    ],
+    [
+      "DIBST",
+      "6.2.1",
+      "BGM Strip",
+      "tiras reactivas para glucosa; tiras de glucosa; tiras para glucómetro; tiras de glucemia capilar; tiras reactivas para medición de glucosa en sangre; frasco de 50 tiras; glucómetro (incluido)",
+      "BGM strips",
+      "As DIBGM",
+      "'Tiras reactivas' alone also matches urine strips – check."
+    ],
+    [
+      "DBSEC",
+      "6.2.1.1",
+      "E-commerce",
+      "tiras de glucosa venta en línea",
+      "strips – e-commerce",
+      null,
+      "Not tendered publicly (retail/online sales). Use import data or pharmacy audits; skip in tender search."
+    ],
+    [
+      "DBSRP",
+      "6.2.1.2",
+      "Retail Pharmacy",
+      "tiras de glucosa farmacia",
+      "strips – retail pharmacy",
+      null,
+      "Not tendered publicly (retail/online sales). Use import data or pharmacy audits; skip in tender search."
+    ],
+    [
+      "DBSHP",
+      "6.2.1.3",
+      "Hospital",
+      "tiras de glucosa hospital; tiras reactivas de glucosa para hospital; insumos de diabetes hospital",
+      "strips – hospital",
+      "As DIBGM",
+      "Tag Public vs Private by buyer."
+    ],
+    [
+      "DBSPU",
+      "6.2.1.3.1",
+      "Public",
+      "tiras de glucosa MINSAL; ISSS; SESAL; IHSS; hospital nacional; unidad de salud",
+      "strips – public",
+      "As DIBGM",
+      "Public tenders found on COMPRASAL / HonduCompras = this line."
+    ],
+    [
+      "DBSPR",
+      "6.2.1.3.2",
+      "Private",
+      "tiras de glucosa hospital privado",
+      "strips – private",
+      "As DIBGM",
+      "Private hospitals don't publish tenders – estimate via distributor/import data."
+    ],
+    [
+      "DIBLT",
+      "6.2.2",
+      "BGM Lancet",
+      "lancetas; lancetas estériles; lancetas para glucómetro; lancetas de seguridad; lancetas desechables; dispositivo de punción; lancetero; punción capilar",
+      "lancets",
+      "Accu-Chek Softclix / FastClix / Safe-T-Pro; FreeStyle; Contour Microlet; OneTouch Delica; BD; Owen Mumford Unistik; Greiner",
+      "Safety lancets for hospital (lancetas de seguridad) often bought separately from strips."
+    ],
+    [
+      "DBLEC",
+      "6.2.2.1",
+      "E-commerce",
+      "lancetas venta en línea",
+      "lancets – e-commerce",
+      null,
+      "Not tendered publicly (retail/online sales). Use import data or pharmacy audits; skip in tender search."
+    ],
+    [
+      "DBLRP",
+      "6.2.2.2",
+      "Retail Pharmacy",
+      "lancetas farmacia",
+      "lancets – retail pharmacy",
+      null,
+      "Not tendered publicly (retail/online sales). Use import data or pharmacy audits; skip in tender search."
+    ],
+    [
+      "DBLHP",
+      "6.2.2.3",
+      "Hospital",
+      "lancetas hospital; lancetas de seguridad hospitalarias",
+      "lancets – hospital",
+      "As DIBLT",
+      "Tag Public vs Private by buyer."
+    ],
+    [
+      "DBLPU",
+      "6.2.2.3.1",
+      "Public",
+      "lancetas MINSAL; ISSS; SESAL; IHSS; hospital nacional",
+      "lancets – public",
+      "As DIBLT",
+      "Public tenders found on COMPRASAL / HonduCompras = this line."
+    ],
+    [
+      "DBLPR",
+      "6.2.2.3.2",
+      "Private",
+      "lancetas hospital privado",
+      "lancets – private",
+      "As DIBLT",
+      "Private hospitals don't publish tenders – estimate via distributor/import data."
+    ]
+  ],
+  "Capture template": [
+    [
+      "Country",
+      "Source portal",
+      "Buying institution / hospital",
+      "Tender / procedure no.",
+      "Procedure type",
+      "Tender title / description",
+      "Indicator code",
+      "Segment name",
+      "Product / test",
+      "Brand / analyser",
+      "Awarded supplier (distributor)",
+      "Quantity",
+      "Unit",
+      "Unit price",
+      "Total awarded",
+      "Currency",
+      "Contract type (comodato, por prueba, según demanda…)",
+      "Contract duration & extensions",
+      "Publication date",
+      "Award date",
+      "Status",
+      "Funding (national / World Bank / IDB / Global Fund / PAHO)",
+      "Source link",
+      "Comments"
+    ],
+    [
+      "El Salvador",
+      "COMPRASAL",
+      "ISSS – Hospital General",
+      "(example) LC-xx/2025",
+      "Licitación Competitiva",
+      "Suministro de reactivos de química clínica con equipo en comodato",
+      "CCROU",
+      "CC Routine",
+      "Creatinina",
+      "Roche cobas c 503",
+      "(distributor name)",
+      12000,
+      "pruebas",
+      0.45,
+      5400,
+      "USD",
+      "Pago por prueba + comodato",
+      "12 months, extendable 12",
+      "2025-02-10",
+      "2025-04-15",
+      "Adjudicado",
+      "National",
+      "(link)",
+      "Example row – replace"
+    ],
+    [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+    ],
+    [
+      "Row 2 is an example – one row per product line awarded. Total = Quantity × Unit price where only unit price is published.",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+    ]
+  ]
+}

@@ -7,4 +7,4 @@ Romania contains Clearstate ACEE source notes and reports for SEAP/SICAP.
 - `docs/seap-sicap_notes.md`
 - `docs/seap-sicap_report.html`
 
-No runnable Romania scraper source was found in the curated Clearstate scan.
+Current source is in [romania-seap](../romania-seap/) and [the ACEE harness](../ACEE/README.md), including a TED fallback runner. The repository audit repaired the standalone scraper's Python 3.11 CPV-query syntax. A live full-country extraction has not been revalidated by this audit.

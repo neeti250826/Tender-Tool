@@ -50,6 +50,7 @@ FIELDNAMES = [
     "query_text_english",
     "scraped_at_utc",
     "dedup_key",
+    "target_category_matches",
 ]
 
 DEFAULT_MEDICAL_KEYWORDS = [
@@ -668,6 +669,23 @@ def ensure_fieldnames(row: Dict[str, str]) -> Dict[str, str]:
         status = clean_text(normalized.get("status", "")).lower()
         if amount and status in {"awarded", "loi issued", "contracted", "completed"}:
             normalized["awarded_value_detail"] = f"{currency} {amount}".strip()
+    if not clean_text(normalized.get("target_category_matches", "")):
+        matches = matched_keywords(
+            " | ".join(
+                clean_text(normalized.get(field, ""))
+                for field in (
+                    "title",
+                    "description",
+                    "buyer",
+                    "classification",
+                    "item_description",
+                    "query_text",
+                    "query_text_english",
+                )
+            ),
+            DEFAULT_MEDICAL_KEYWORDS,
+        )
+        normalized["target_category_matches"] = ", ".join(matches)
     return {field: clean_text(normalized.get(field, "")) for field in FIELDNAMES}
 
 

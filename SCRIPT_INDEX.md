@@ -1,5 +1,9 @@
 # Script Index
 
+## Current Inventory (2026-10-13)
+
+Use [the country/website audit](docs/country_website_audit_2026-10-13.md) for current source locations and gaps. The command inventory below preserves the earlier country-folder layout; portal packages, ACEE modules, and memory adapters added later are indexed in [country_website_catalog.json](docs/country_website_catalog.json).
+
 Run commands assume you are in the repository root.
 
 ## Shared Runners And Verification Scripts

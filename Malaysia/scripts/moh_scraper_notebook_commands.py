@@ -21,7 +21,15 @@ SOURCE_LABEL = 'Malaysia MOH'  # @param {type:'string'}
 REGION = 'EMEA'  # @param ['EMEA','LATAM']
 
 # @title Advanced filters help
-!python "moh_scraper.py" --list-advanced-filters
+if __name__ == "__main__":
+    import subprocess
+    import sys
+    from pathlib import Path
+
+    subprocess.run(
+        [sys.executable, str(Path(__file__).with_name("moh_scraper.py")), "--list-advanced-filters"],
+        check=True,
+    )
 
 # Notebook shell command cell:
 # !python "moh_scraper.py" \

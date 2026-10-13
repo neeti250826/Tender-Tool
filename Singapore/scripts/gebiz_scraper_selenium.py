@@ -7,82 +7,42 @@ import importlib
 import json
 import logging
 import re
-import sys
 import time
 from datetime import datetime, timezone
 from html import unescape
 from pathlib import Path
-from typing import TYPE_CHECKING, Dict, List, Optional, Sequence, Tuple
+from typing import Dict, List, Optional
 
-if TYPE_CHECKING:
-    import pandas as pd_types
-
-
-ROOT_DIR = Path(__file__).resolve().parents[1]
-if str(ROOT_DIR) not in sys.path:
-    sys.path.insert(0, str(ROOT_DIR))
-
+from bs4 import BeautifulSoup
+from dateutil import parser as date_parser
 
 pd = importlib.import_module("pandas")
-requests = importlib.import_module("requests")
-
-latam_defaults = importlib.import_module("latam_spec_defaults")
-TranslationConfig = getattr(latam_defaults, "TranslationConfig")
-add_standard_colab_args = getattr(latam_defaults, "add_standard_colab_args")
-build_query_text = getattr(latam_defaults, "build_query_text")
-build_run_keywords = getattr(latam_defaults, "build_run_keywords")
-build_run_output_stem = getattr(latam_defaults, "build_run_output_stem")
-ensure_spec_folder_layout = getattr(latam_defaults, "ensure_spec_folder_layout")
-resolve_date_range = getattr(latam_defaults, "resolve_date_range")
-resolve_output_base_dir = getattr(latam_defaults, "resolve_output_base_dir")
-save_spec_outputs = getattr(latam_defaults, "save_spec_outputs")
-translate_dataframe_to_english = getattr(latam_defaults, "translate_dataframe_to_english")
-
-mdt_schema = importlib.import_module("mdt_schema")
-to_mdt_schema = getattr(mdt_schema, "to_mdt_schema")
-
-mdt_export = importlib.import_module("mdt_export")
-save_mdt_outputs = getattr(mdt_export, "save_mdt_outputs")
 
 logger = logging.getLogger("gebiz_scraper")
 
-try:
-    selenium_webdriver = importlib.import_module("selenium.webdriver")
-    selenium_by = importlib.import_module("selenium.webdriver.common.by")
-    selenium_options = importlib.import_module("selenium.webdriver.chrome.options")
-    selenium_service = importlib.import_module("selenium.webdriver.chrome.service")
-    selenium_wait = importlib.import_module("selenium.webdriver.support.ui")
-    selenium_ec = importlib.import_module("selenium.webdriver.support.expected_conditions")
-    selenium_exceptions = importlib.import_module("selenium.common.exceptions")
+selenium_webdriver = importlib.import_module("selenium.webdriver")
+selenium_by = importlib.import_module("selenium.webdriver.common.by")
+selenium_options = importlib.import_module("selenium.webdriver.chrome.options")
+selenium_service = importlib.import_module("selenium.webdriver.chrome.service")
+selenium_wait = importlib.import_module("selenium.webdriver.support.ui")
 
-    webdriver = getattr(selenium_webdriver, "Chrome")
-    By = getattr(selenium_by, "By")
-    Options = getattr(selenium_options, "Options")
-    Service = getattr(selenium_service, "Service")
-    WebDriverWait = getattr(selenium_wait, "WebDriverWait")
-    EC = getattr(selenium_ec, "expected_conditions", selenium_ec)
-    TimeoutException = getattr(selenium_exceptions, "TimeoutException")
-    WebDriverException = getattr(selenium_exceptions, "WebDriverException")
-except Exception:
-    webdriver = None
-    By = None
-    Options = None
-    Service = None
-    WebDriverWait = None
-    EC = None
-    TimeoutException = Exception
-    WebDriverException = Exception
+webdriver = getattr(selenium_webdriver, "Chrome")
+By = getattr(selenium_by, "By")
+Options = getattr(selenium_options, "Options")
+Service = getattr(selenium_service, "Service")
+WebDriverWait = getattr(selenium_wait, "WebDriverWait")
 
-
-NORMALIZED_COLUMNS: List[str] = [
+NORMALIZED_COLUMNS = [
     "source",
     "country",
     "country_code",
     "publication_date",
+    "closing_date",
     "title",
     "description",
     "buyer",
     "classification",
+    "status",
     "currency",
     "amount",
     "notice_id",
@@ -92,6 +52,8 @@ NORMALIZED_COLUMNS: List[str] = [
     "dedup_key",
 ]
 
+LISTING_URL = "https://www.gebiz.gov.sg/ptn/opportunity/BOListing.xhtml?origin=menu"
+
 
 def _strip_tags(value: str) -> str:
     text = re.sub(r"<br\s*/?>", " ", str(value or ""), flags=re.IGNORECASE)
@@ -99,11 +61,21 @@ def _strip_tags(value: str) -> str:
     return unescape(text).strip()
 
 
+def _normalize_ws(value: str) -> str:
+    return re.sub(r"\s+", " ", str(value or "")).strip()
+
+
 def _parse_gebiz_datetime_to_date(value: str) -> str:
     text = _strip_tags(value)
     if not text:
         return ""
-    for fmt in ["%d %b %Y %I:%M %p", "%d %b %Y %I:%M%p"]:
+    for fmt in [
+        "%d %b %Y %I:%M %p",
+        "%d %b %Y %I:%M%p",
+        "%d %b %Y",
+        "%d %B %Y %I:%M %p",
+        "%d %B %Y",
+    ]:
         try:
             return datetime.strptime(text, fmt).date().isoformat()
         except Exception:
@@ -111,74 +83,27 @@ def _parse_gebiz_datetime_to_date(value: str) -> str:
     return ""
 
 
-def parse_bolisting_html(html: str) -> List[Dict[str, str]]:
-    text = str(html or "")
-    anchor_re = re.compile(
-        r'href="(?P<href>/ptn/opportunity/directlink\.xhtml\?docCode=(?P<code>[^&\"]+)[^\"]*)"[^>]*>(?P<title>[^<]+)</a>',
-        flags=re.IGNORECASE,
-    )
-    matches = list(anchor_re.finditer(text))
-    rows: List[Dict[str, str]] = []
+def _parse_any_date_to_iso(value: str) -> str:
+    text = _normalize_ws(_strip_tags(value))
+    if not text:
+        return ""
 
-    for idx, match in enumerate(matches):
-        start = match.start()
-        end = matches[idx + 1].start() if idx + 1 < len(matches) else min(len(text), start + 20000)
-        block = text[start:end]
+    text = re.sub(
+        r"^(closing date|closing date & time|closing/opening date|published)\s*[:\-]?\s*",
+        "",
+        text,
+        flags=re.I,
+    ).strip()
 
-        code = str(match.group("code") or "").strip()
-        href = str(match.group("href") or "").strip()
-        title = _strip_tags(match.group("title") or "")
+    direct = _parse_gebiz_datetime_to_date(text)
+    if direct:
+        return direct
 
-        def extract(label: str) -> str:
-            m = re.search(
-                rf"<span>\s*{re.escape(label)}\s*</span>.*?formOutputText_VALUE-DIV[^>]*>(.*?)</div>",
-                block,
-                flags=re.IGNORECASE | re.DOTALL,
-            )
-            return _strip_tags(m.group(1)) if m else ""
-
-        buyer = extract("Agency")
-        published_raw = extract("Published")
-        publication_date = _parse_gebiz_datetime_to_date(published_raw)
-        classification = extract("Procurement Category")
-
-        if not code:
-            continue
-
-        rows.append(
-            {
-                "notice_id": code,
-                "notice_url": f"https://www.gebiz.gov.sg{href}",
-                "title": title,
-                "buyer": buyer,
-                "publication_date": publication_date,
-                "classification": classification,
-            }
-        )
-    return rows
-
-
-def fetch_bolisting_requests(*, query_text: str, years: Sequence[int]) -> "pd_types.DataFrame":
-    url = "https://www.gebiz.gov.sg/ptn/opportunity/BOListing.xhtml?origin=menu"
-    response = requests.get(url, timeout=30)
-    response.raise_for_status()
-    rows = parse_bolisting_html(response.text)
-
-    tokens = [t.lower() for t in re.split(r"\s+", str(query_text or "").strip()) if t]
-    if tokens:
-        rows = [row for row in rows if any(t in str(row.get("title", "")).lower() for t in tokens)]
-
-    allowed_years = {int(y) for y in years if str(y).isdigit() or isinstance(y, int)}
-    if allowed_years:
-        filtered: List[Dict[str, str]] = []
-        for row in rows:
-            pub = str(row.get("publication_date", ""))
-            year = int(pub[:4]) if len(pub) >= 4 and pub[:4].isdigit() else None
-            if year is None or year in allowed_years:
-                filtered.append(row)
-        rows = filtered
-
-    return _rows_to_normalized_df(rows=rows, query_text=query_text)
+    try:
+        dt = date_parser.parse(text, dayfirst=True, fuzzy=True)
+        return dt.date().isoformat()
+    except Exception:
+        return ""
 
 
 def _utc_now_iso() -> str:
@@ -190,26 +115,35 @@ def _stable_dedup_key(*parts: str) -> str:
     return hashlib.sha1(payload.encode("utf-8")).hexdigest()
 
 
-def _timestamp_token() -> str:
-    return datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%SZ")
+def _build_chrome_driver(headless: bool = True, timeout_seconds: int = 30):
+    chrome_options = Options()
+    if headless:
+        chrome_options.add_argument("--headless=new")
+    chrome_options.add_argument("--no-sandbox")
+    chrome_options.add_argument("--disable-dev-shm-usage")
+    chrome_options.add_argument("--disable-gpu")
+    chrome_options.add_argument("--window-size=1920,3000")
+    chrome_options.add_argument("--disable-blink-features=AutomationControlled")
+    chrome_options.add_argument("--remote-debugging-port=9222")
+    chrome_options.add_argument(
+        "--user-agent=Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 "
+        "(KHTML, like Gecko) Chrome/133.0.0.0 Safari/537.36"
+    )
 
+    for candidate in ["/usr/bin/google-chrome", "/usr/bin/google-chrome-stable"]:
+        if Path(candidate).exists():
+            chrome_options.binary_location = candidate
+            break
 
-def _merge_rows_by_notice_id(existing: List[Dict[str, str]], new_rows: List[Dict[str, str]]) -> List[Dict[str, str]]:
-    seen = {str(row.get("notice_id", "")).strip() for row in existing}
-    for row in new_rows:
-        notice_id = str(row.get("notice_id", "")).strip()
-        if not notice_id or notice_id in seen:
-            continue
-        existing.append(row)
-        seen.add(notice_id)
-    return existing
-
-
-def _driver_page_html(driver) -> str:
     try:
-        return str(driver.page_source or "")
+        driver = webdriver(options=chrome_options)
     except Exception:
-        return ""
+        webdriver_manager = importlib.import_module("webdriver_manager.chrome")
+        ChromeDriverManager = getattr(webdriver_manager, "ChromeDriverManager")
+        driver = webdriver(service=Service(ChromeDriverManager().install()), options=chrome_options)
+
+    driver.set_page_load_timeout(timeout_seconds)
+    return driver
 
 
 def _wait_for_dom_ready(driver, timeout_seconds: int) -> None:
@@ -221,76 +155,19 @@ def _wait_for_dom_ready(driver, timeout_seconds: int) -> None:
         pass
 
 
-def _find_first_displayed(driver, css_selector: str):
+def _driver_page_html(driver) -> str:
     try:
-        elements = driver.find_elements(By.CSS_SELECTOR, css_selector)
+        return str(driver.page_source or "")
     except Exception:
-        return None
-    for element in elements:
-        try:
-            if element.is_displayed():
-                return element
-        except Exception:
-            continue
-    return None
-
-
-def _get_current_page_number(driver) -> str:
-    selectors = [
-        ".ui-paginator-page.ui-state-active",
-        ".ui-paginator-page.ui-state-highlight",
-        ".ui-state-active",
-        "[aria-current='page']",
-        ".p-paginator-page.p-highlight",
-    ]
-    for selector in selectors:
-        try:
-            element = _find_first_displayed(driver, selector)
-            if element is None:
-                continue
-            text = (element.text or "").strip()
-            if text.isdigit():
-                return text
-        except Exception:
-            pass
-    return ""
+        return ""
 
 
 def _scroll_to_bottom(driver) -> None:
     try:
         driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
-        time.sleep(2)
+        time.sleep(1.5)
     except Exception:
         pass
-
-
-def _debug_paginator(driver) -> None:
-    selectors = [
-        ".formRepeatPagination2_NAVIGATION-BUTTONS-DIV input",
-        ".formRepeatPagination2_NAVIGATION-BUTTONS-DIV *",
-        ".ui-paginator-page",
-        ".p-paginator-page",
-        "a[href='#']",
-        "button",
-    ]
-    for selector in selectors:
-        try:
-            elements = driver.find_elements(By.CSS_SELECTOR, selector)
-            total = len(elements)
-            logger.info("Paginator debug selector=%s count=%s", selector, total)
-            for i, item in enumerate(elements[:30]):
-                try:
-                    txt = (item.text or "").strip()
-                except Exception:
-                    txt = ""
-                try:
-                    cls = item.get_attribute("class") or ""
-                except Exception:
-                    cls = ""
-                if txt:
-                    logger.info("  [%s] text=%r class=%r", i, txt, cls)
-        except Exception:
-            pass
 
 
 def _click_element(driver, element) -> bool:
@@ -310,163 +187,81 @@ def _click_element(driver, element) -> bool:
             return False
 
 
-def _click_page_number(driver, target_page: int, timeout_seconds: int = 15) -> bool:
-    target_text = str(target_page)
-    _scroll_to_bottom(driver)
+def _wait_for_html_change(driver, before_html_sig: str, timeout_seconds: int = 15) -> bool:
+    end_time = time.time() + timeout_seconds
+    while time.time() < end_time:
+        time.sleep(1)
+        _wait_for_dom_ready(driver, 3)
+        after_html_sig = hashlib.sha1(_driver_page_html(driver)[:50000].encode("utf-8")).hexdigest()
+        if after_html_sig != before_html_sig:
+            return True
+    return False
 
-    selectors = [
-        ".ui-paginator-page",
-        ".p-paginator-page",
-        "a",
-        "button",
-        "span",
-    ]
 
-    before_active = _get_current_page_number(driver)
+def _text_or_value(element) -> str:
+    try:
+        txt = _normalize_ws(element.text)
+        if txt:
+            return txt
+    except Exception:
+        pass
+
+    for attr in ["value", "title", "aria-label", "alt"]:
+        try:
+            val = _normalize_ws(element.get_attribute(attr) or "")
+            if val:
+                return val
+        except Exception:
+            pass
+    return ""
+
+
+def _click_target_by_candidates(driver, candidates, label: str, timeout_seconds: int = 20) -> bool:
     before_html_sig = hashlib.sha1(_driver_page_html(driver)[:50000].encode("utf-8")).hexdigest()
 
-    scoped_selectors = [
-        f".formRepeatPagination2_NAVIGATION-BUTTONS-DIV input[id$='_First_{target_page}']",
-        f".formRepeatPagination2_NAVIGATION-BUTTONS-DIV input[id*='_First_{target_page}']",
-        ".formRepeatPagination2_NAVIGATION-BUTTONS-DIV input[onclick]",
-        ".formRepeatPagination2_NAVIGATION-BUTTONS-DIV input",
-    ]
+    logger.info("Found %s %s candidates", len(candidates), label)
 
-    for selector in scoped_selectors:
+    for idx, item in enumerate(candidates, start=1):
         try:
-            items = driver.find_elements(By.CSS_SELECTOR, selector)
-        except Exception:
-            continue
-
-        for item in items:
-            try:
-                item_id = item.get_attribute("id") or ""
-            except Exception:
-                item_id = ""
-            try:
-                item_name = item.get_attribute("name") or ""
-            except Exception:
-                item_name = ""
-            try:
-                item_value = (item.get_attribute("value") or "").strip()
-            except Exception:
-                item_value = ""
-            try:
-                item_onclick = item.get_attribute("onclick") or ""
-            except Exception:
-                item_onclick = ""
-            try:
-                item_class = (item.get_attribute("class") or "").lower()
-            except Exception:
-                item_class = ""
-
-            matches_target = (
-                item_value == target_text
-                or item_id.endswith(f"_First_{target_page}")
-                or f"_First_{target_page}" in item_id
-                or item_name.endswith(f"_First_{target_page}")
-                or f"_First_{target_page}" in item_name
-                or re.search(rf"(?:^|[^0-9]){re.escape(target_text)}(?:[^0-9]|$)", item_onclick) is not None
-            )
-            if not matches_target:
-                continue
-            if "disabled" in item_class:
-                continue
-
+            txt = _text_or_value(item).upper()
+            item_id = item.get_attribute("id") or ""
+            item_name = item.get_attribute("name") or ""
+            item_class = item.get_attribute("class") or ""
+            item_value = item.get_attribute("value") or ""
+            outer_html = (item.get_attribute("outerHTML") or "")[:500]
             logger.info(
-                "Clicking paginator input id=%r name=%r value=%r onclick=%r",
+                "Trying %s candidate %s text=%r id=%r name=%r class=%r value=%r html=%r",
+                label,
+                idx,
+                txt,
                 item_id,
                 item_name,
+                item_class,
                 item_value,
-                item_onclick[:200],
+                outer_html,
             )
-
-            try:
-                driver.execute_script("arguments[0].scrollIntoView({block:'center'});", item)
-            except Exception:
-                pass
-
-            clicked = _click_element(driver, item)
-            if not clicked and item_onclick:
-                try:
-                    driver.execute_script(item_onclick)
-                    clicked = True
-                except Exception:
-                    clicked = False
-            if not clicked:
-                continue
-
-            time.sleep(3)
-            _wait_for_dom_ready(driver, timeout_seconds)
-            time.sleep(2)
-
-            after_active = _get_current_page_number(driver)
-            after_html_sig = hashlib.sha1(_driver_page_html(driver)[:50000].encode("utf-8")).hexdigest()
-            if after_active == target_text:
-                return True
-            if before_active != after_active and after_active:
-                return True
-            if before_html_sig != after_html_sig:
-                return True
-
-    input_selectors = [
-        f"input[id$='_First_{target_page}']",
-        f"input[id*='_First_{target_page}']",
-        "input[onclick]",
-        "input[type='submit']",
-        "input[type='button']",
-    ]
-
-    for selector in input_selectors:
-        try:
-            items = driver.find_elements(By.CSS_SELECTOR, selector)
         except Exception:
+            pass
+
+        if not _click_element(driver, item):
             continue
 
-        for item in items:
-            try:
-                item_id = item.get_attribute("id") or ""
-            except Exception:
-                item_id = ""
-            try:
-                item_value = (item.get_attribute("value") or "").strip()
-            except Exception:
-                item_value = ""
-            try:
-                item_onclick = item.get_attribute("onclick") or ""
-            except Exception:
-                item_onclick = ""
-            try:
-                item_class = (item.get_attribute("class") or "").lower()
-            except Exception:
-                item_class = ""
+        time.sleep(2)
+        _wait_for_dom_ready(driver, timeout_seconds)
+        time.sleep(2)
 
-            matches_target = (
-                item_value == target_text
-                or item_id.endswith(f"_First_{target_page}")
-                or f"_First_{target_page}" in item_id
-                or re.search(rf"\b{re.escape(target_text)}\b", item_onclick) is not None
-            )
-            if not matches_target:
-                continue
-            if "disabled" in item_class:
-                continue
+        if _wait_for_html_change(driver, before_html_sig, timeout_seconds=8):
+            logger.info("Successfully clicked %s", label)
+            return True
 
-            if not _click_element(driver, item):
-                continue
+    logger.warning("Could not click %s", label)
+    return False
 
-            time.sleep(3)
-            _wait_for_dom_ready(driver, timeout_seconds)
-            time.sleep(2)
 
-            after_active = _get_current_page_number(driver)
-            after_html_sig = hashlib.sha1(_driver_page_html(driver)[:50000].encode("utf-8")).hexdigest()
-            if after_active == target_text:
-                return True
-            if before_active != after_active and after_active:
-                return True
-            if before_html_sig != after_html_sig:
-                return True
+def _find_tab_candidates(driver, target_text: str, selectors: List[str]):
+    target = str(target_text or "").strip().upper()
+    found = []
+    seen_keys = set()
 
     for selector in selectors:
         try:
@@ -476,18 +271,99 @@ def _click_page_number(driver, target_page: int, timeout_seconds: int = 15) -> b
 
         for item in items:
             try:
-                text = (item.text or "").strip()
+                text = _text_or_value(item).upper()
+                if target not in text:
+                    continue
+
+                key = (
+                    item.get_attribute("id") or "",
+                    item.get_attribute("name") or "",
+                    item.get_attribute("class") or "",
+                    item.get_attribute("value") or "",
+                    text,
+                )
+                if key in seen_keys:
+                    continue
+                seen_keys.add(key)
+                found.append(item)
             except Exception:
-                text = ""
-            if text != target_text:
                 continue
 
+    return found
+
+
+def _click_main_status_tab(driver, status_filter: str, timeout_seconds: int = 20) -> bool:
+    status = str(status_filter or "").strip().upper()
+    if status not in {"OPEN", "CLOSED"}:
+        return False
+
+    selectors = [
+        "div[class*='formTabBar_TAB-BAR-DIV'] input",
+        "div[id*='formTabBar_TAB-BAR-DIV'] input",
+        "div[class*='formTabBar_TAB-BAR-DIV'] button",
+        "div[id*='formTabBar_TAB-BAR-DIV'] button",
+        "div[class*='formTabBar_TAB-BAR-DIV'] a",
+        "div[id*='formTabBar_TAB-BAR-DIV'] a",
+        "div[class*='formTabBar_TAB-BAR-DIV'] *",
+        "div[id*='formTabBar_TAB-BAR-DIV'] *",
+        "div[class*='formTabBar_TAB-BAR'] *",
+        "div[id*='formTabBar_TAB-BAR'] *",
+    ]
+    candidates = _find_tab_candidates(driver, status, selectors)
+    return _click_target_by_candidates(driver, candidates, f"main-{status}", timeout_seconds=timeout_seconds)
+
+
+def _click_closed_subtab(driver, status_filter: str, timeout_seconds: int = 20) -> bool:
+    status = str(status_filter or "").strip().upper()
+    if status != "CLOSED":
+        return False
+
+    selectors = [
+        "span[id='contentForm:j_idt895_commandLink-SPAN']",
+        "span[id*='contentForm:j_idt895_commandLink-SPAN']",
+        "span[id$='_commandLink-SPAN']",
+        "span[id*='_commandLink-SPAN']",
+        "a[id*='_commandLink']",
+        "input",
+        "button",
+        "span",
+        "a",
+    ]
+    candidates = _find_tab_candidates(driver, "CLOSED", selectors)
+    return _click_target_by_candidates(driver, candidates, "inner-CLOSED", timeout_seconds=timeout_seconds)
+
+
+def _click_page_number(driver, target_page: int, timeout_seconds: int = 15) -> bool:
+    target_text = str(target_page)
+    _scroll_to_bottom(driver)
+    before_html_sig = hashlib.sha1(_driver_page_html(driver)[:50000].encode("utf-8")).hexdigest()
+
+    selectors = [
+        f".formRepeatPagination2_NAVIGATION-BUTTONS-DIV input[id$='_{target_page}_{target_page}']",
+        ".formRepeatPagination2_NAVIGATION-BUTTONS-DIV input",
+    ]
+
+    for selector in selectors:
+        try:
+            items = driver.find_elements(By.CSS_SELECTOR, selector)
+        except Exception:
+            continue
+
+        for item in items:
             try:
-                cls = (item.get_attribute("class") or "").lower()
+                item_value = (item.get_attribute("value") or "").strip()
+                item_id = item.get_attribute("id") or ""
             except Exception:
-                cls = ""
-            if "disabled" in cls:
                 continue
+
+            if not (
+                item_value == target_text
+                or item_id.endswith(f"_{target_page}_{target_page}")
+                or f"_{target_page}_{target_page}" in item_id
+            ):
+                continue
+
+            logger.info("Clicking page %s using id=%s value=%s", target_page, item_id, item_value)
 
             if not _click_element(driver, item):
                 continue
@@ -496,142 +372,348 @@ def _click_page_number(driver, target_page: int, timeout_seconds: int = 15) -> b
             _wait_for_dom_ready(driver, timeout_seconds)
             time.sleep(2)
 
-            after_active = _get_current_page_number(driver)
             after_html_sig = hashlib.sha1(_driver_page_html(driver)[:50000].encode("utf-8")).hexdigest()
-
-            if after_active == target_text:
-                return True
-            if before_active != after_active and after_active:
-                return True
             if before_html_sig != after_html_sig:
                 return True
 
     return False
 
 
-def _click_next_page(driver, current_loop_page: int, timeout_seconds: int = 15) -> bool:
-    next_selectors = [
-        ".formRepeatPagination2_NAVIGATION-BUTTONS-DIV input[id*='Next']",
-        ".formRepeatPagination2_NAVIGATION-BUTTONS-DIV input[title='Next']",
-        ".formRepeatPagination2_NAVIGATION-BUTTONS-DIV input[onclick]",
-        ".ui-paginator-next",
-        ".p-paginator-next",
-        "a[aria-label='Next Page']",
-        "button[aria-label='Next Page']",
-        "a[title='Next']",
-        "button[title='Next']",
+def _extract_block_value(block: str, label: str) -> str:
+    patterns = [
+        rf"<span>\s*{re.escape(label)}\s*</span>.*?formOutputText_VALUE-DIV[^>]*>(.*?)</div>",
+        rf"<label[^>]*>\s*{re.escape(label)}\s*</label>.*?(?:formOutputText_VALUE-DIV|div)[^>]*>(.*?)</div>",
+        rf">{re.escape(label)}<.*?(?:formOutputText_VALUE-DIV|div)[^>]*>(.*?)</div>",
+        rf"{re.escape(label)}.*?(?:formOutputText_VALUE-DIV|div)[^>]*>(.*?)</div>",
     ]
-
-    for selector in next_selectors:
-        try:
-            next_btn = _find_first_displayed(driver, selector)
-            if next_btn is None:
-                continue
-
-            cls = (next_btn.get_attribute("class") or "").lower()
-            aria_disabled = (next_btn.get_attribute("aria-disabled") or "").lower()
-            title = (next_btn.get_attribute("title") or "").lower()
-            value = (next_btn.get_attribute("value") or "").lower()
-            onclick = (next_btn.get_attribute("onclick") or "").lower()
-            if selector.endswith("input[onclick]") and "next" not in title and "next" not in value and "next" not in onclick:
-                continue
-            if "disabled" in cls or aria_disabled == "true":
-                break
-
-            _scroll_to_bottom(driver)
-            before_html_sig = hashlib.sha1(_driver_page_html(driver)[:50000].encode("utf-8")).hexdigest()
-
-            if not _click_element(driver, next_btn):
-                continue
-
-            time.sleep(3)
-            _wait_for_dom_ready(driver, timeout_seconds)
-            time.sleep(2)
-
-            after_html_sig = hashlib.sha1(_driver_page_html(driver)[:50000].encode("utf-8")).hexdigest()
-            if before_html_sig != after_html_sig:
-                return True
-        except Exception:
-            continue
-
-    return _click_page_number(driver, current_loop_page + 1, timeout_seconds=timeout_seconds)
+    for pattern in patterns:
+        m = re.search(pattern, block, flags=re.IGNORECASE | re.DOTALL)
+        if m:
+            return _normalize_ws(_strip_tags(m.group(1)))
+    return ""
 
 
-def _apply_query_if_present(driver, query_text: str) -> None:
-    q = str(query_text or "").strip()
-    if not q:
-        return
+def _extract_listing_closing_date_bs4(block_html: str) -> str:
+    soup = BeautifulSoup(block_html or "", "html.parser")
 
-    input_selectors = [
-        "input[type='text']",
-        "input[placeholder*='Search']",
-        "input[placeholder*='search']",
-    ]
-    for selector in input_selectors:
-        try:
-            element = _find_first_displayed(driver, selector)
-            if element is None:
-                continue
-            element.clear()
-            element.send_keys(q)
-            element.submit()
-            time.sleep(4)
-            return
-        except Exception:
-            continue
-
-
-def _build_chrome_driver(*, headless: bool, timeout_seconds: int):
-    if webdriver is None:
-        raise RuntimeError("Selenium is not installed. Run: pip install selenium webdriver-manager")
-
-    chrome_options = Options()
-    if headless:
-        chrome_options.add_argument("--headless=new")
-    chrome_options.add_argument("--no-sandbox")
-    chrome_options.add_argument("--disable-dev-shm-usage")
-    chrome_options.add_argument("--disable-gpu")
-    chrome_options.add_argument("--window-size=1600,2200")
-    chrome_options.add_argument("--disable-blink-features=AutomationControlled")
-    chrome_options.add_argument(
-        "--user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
-        "(KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+    # exact green hidden-label blocks
+    green_nodes = soup.select(
+        "div.formOutputText_HIDDEN-LABEL.outputText_DATE-GREEN, "
+        "span.formOutputText_HIDDEN-LABEL.outputText_DATE-GREEN"
     )
 
-    try:
-        webdriver_manager = importlib.import_module("webdriver_manager.chrome")
-        ChromeDriverManager = getattr(webdriver_manager, "ChromeDriverManager")
-        service = Service(ChromeDriverManager().install())
-        driver = webdriver(service=service, options=chrome_options)
-    except Exception:
-        driver = webdriver(options=chrome_options)
+    for node in green_nodes:
+        txt = _normalize_ws(node.get_text(" ", strip=True))
+        iso = _parse_any_date_to_iso(txt)
+        if iso:
+            return iso
 
-    driver.set_page_load_timeout(timeout_seconds)
-    return driver
+    # look around each col-md-12 section
+    for container in soup.select("div.col-md-12"):
+        container_text = _normalize_ws(container.get_text(" ", strip=True))
+        if "CLOSING DATE" in container_text.upper():
+            # first try the green value block inside this section
+            for node in container.select(
+                "div.formOutputText_HIDDEN-LABEL.outputText_DATE-GREEN, "
+                "span.formOutputText_HIDDEN-LABEL.outputText_DATE-GREEN, "
+                "div.formOutputText_MAIN.shaded_BLUE, "
+                "span.formOutputText_MAIN.shaded_BLUE"
+            ):
+                txt = _normalize_ws(node.get_text(" ", strip=True))
+                iso = _parse_any_date_to_iso(txt)
+                if iso:
+                    return iso
+
+            # fallback to whole container text
+            iso = _parse_any_date_to_iso(container_text)
+            if iso:
+                return iso
+
+    # looser fallback: any green date block
+    for node in soup.find_all(["div", "span"]):
+        classes = " ".join(node.get("class", []))
+        if "outputText_DATE-GREEN" in classes:
+            txt = _normalize_ws(node.get_text(" ", strip=True))
+            iso = _parse_any_date_to_iso(txt)
+            if iso:
+                return iso
+
+    return ""
 
 
-def _rows_to_normalized_df(*, rows: List[Dict[str, str]], query_text: str) -> "pd_types.DataFrame":
+def _extract_detail_value(text: str, label: str) -> str:
+    patterns = [
+        rf"<span>\s*{re.escape(label)}\s*</span>.*?formOutputText_VALUE-DIV[^>]*>(.*?)</div>",
+        rf"<label[^>]*>\s*{re.escape(label)}\s*</label>.*?(?:formOutputText_VALUE-DIV|div)[^>]*>(.*?)</div>",
+        rf"{re.escape(label)}\s*</span>.*?(?:formOutputText_VALUE-DIV|div)[^>]*>(.*?)</div>",
+        rf">{re.escape(label)}<.*?(?:formOutputText_VALUE-DIV|div)[^>]*>(.*?)</div>",
+        rf"{re.escape(label)}.*?(?:formOutputText_VALUE-DIV|div)[^>]*>(.*?)</div>",
+    ]
+    for pattern in patterns:
+        m = re.search(pattern, text, flags=re.IGNORECASE | re.DOTALL)
+        if m:
+            return _normalize_ws(_strip_tags(m.group(1)))
+    return ""
+
+
+def _extract_status_from_label_divs(text: str) -> str:
+    patterns = [
+        r'<div[^>]*class="[^"]*\blabel_MAIN\b[^"]*\blabel_WHITE-ON-GRAY\b[^"]*"[^>]*>(.*?)</div>',
+        r'<div[^>]*class="[^"]*\blabel_MAIN\b[^"]*\blabel_WHITE-ON-LIGHT-GRAY\b[^"]*"[^>]*>(.*?)</div>',
+        r'<div[^>]*id="[^"]*label_MAIN[^"]*"[^>]*class="[^"]*\blabel_WHITE-ON-GRAY\b[^"]*"[^>]*>(.*?)</div>',
+        r'<div[^>]*id="[^"]*label_MAIN[^"]*"[^>]*class="[^"]*\blabel_WHITE-ON-LIGHT-GRAY\b[^"]*"[^>]*>(.*?)</div>',
+    ]
+
+    for pattern in patterns:
+        for m in re.finditer(pattern, text, flags=re.IGNORECASE | re.DOTALL):
+            value = _normalize_ws(_strip_tags(m.group(1))).upper()
+            if "CLOSED" in value:
+                return "CLOSED"
+            if "OPEN" in value:
+                return "OPEN"
+
+    if "CANCELLED" in text.upper():
+        return "CANCELLED"
+
+    return ""
+
+
+def _extract_amount_and_currency(text: str) -> Dict[str, str]:
+    candidates = [
+        "Award Amount",
+        "Estimated Award Value",
+        "Estimated Procurement Value",
+        "Value of Award",
+        "Amount",
+        "Tender Value",
+        "Contract Value",
+        "Total Awarded Amount",
+    ]
+
+    raw_value = ""
+    for label in candidates:
+        raw_value = _extract_detail_value(text, label)
+        if raw_value:
+            break
+
+    raw_value = _normalize_ws(raw_value)
+    currency = ""
+    amount = ""
+
+    if raw_value:
+        m = re.search(r"\b([A-Z]{3})\b", raw_value)
+        if m:
+            currency = m.group(1)
+        amt = re.search(r"([0-9][0-9,]*(?:\.[0-9]+)?)", raw_value)
+        if amt:
+            amount = amt.group(1).replace(",", "")
+
+    if not currency:
+        for cur in ["SGD", "USD", "EUR", "GBP", "AUD", "JPY"]:
+            if re.search(rf"\b{cur}\b", text, flags=re.IGNORECASE):
+                currency = cur
+                break
+
+    return {"currency": currency, "amount": amount}
+
+
+def parse_bolisting_html(html: str) -> List[Dict[str, str]]:
+    text = str(html or "")
+    anchor_re = re.compile(
+        r'href="(?P<href>/ptn/opportunity/directlink\.xhtml\?docCode=(?P<code>[^&"]+)[^"]*)"[^>]*>(?P<title>[^<]+)</a>',
+        flags=re.IGNORECASE,
+    )
+    matches = list(anchor_re.finditer(text))
+    rows: List[Dict[str, str]] = []
+
+    for idx, match in enumerate(matches):
+        start = match.start()
+        end = matches[idx + 1].start() if idx + 1 < len(matches) else min(len(text), start + 25000)
+        block = text[start:end]
+
+        code = str(match.group("code") or "").strip()
+        href = str(match.group("href") or "").strip()
+        title = _normalize_ws(_strip_tags(match.group("title") or ""))
+
+        buyer = _extract_block_value(block, "Agency")
+        publication_date = _parse_gebiz_datetime_to_date(_extract_block_value(block, "Published"))
+        classification = _extract_block_value(block, "Procurement Category")
+
+        # NEW: closing date from main listing block
+        closing_date = _extract_listing_closing_date_bs4(block)
+
+        if code:
+            rows.append(
+                {
+                    "notice_id": code,
+                    "notice_url": f"https://www.gebiz.gov.sg{href}",
+                    "title": title,
+                    "buyer": buyer,
+                    "publication_date": publication_date,
+                    "closing_date": closing_date,
+                    "classification": classification,
+                    "status": "",
+                    "description": "",
+                    "currency": "",
+                    "amount": "",
+                }
+            )
+    return rows
+
+
+def _extract_detail_closing_date_bs4(html: str) -> str:
+    soup = BeautifulSoup(html or "", "html.parser")
+
+    for node in soup.select(
+        "div.formOutputText_MAIN.shaded_BLUE, span.formOutputText_MAIN.shaded_BLUE, "
+        "div.formOutputText_HIDDEN-LABEL.outputText_NAME-BLACK, span.formOutputText_HIDDEN-LABEL.outputText_NAME-BLACK"
+    ):
+        txt = _normalize_ws(node.get_text(" ", strip=True))
+        if not txt:
+            continue
+
+        parent_text = ""
+        if node.parent is not None:
+            parent_text = _normalize_ws(node.parent.get_text(" ", strip=True)).upper()
+
+        if "CLOSING DATE" in txt.upper() or "CLOSING DATE" in parent_text:
+            iso = _parse_any_date_to_iso(txt if "CLOSING DATE" not in txt.upper() else parent_text)
+            if iso:
+                return iso
+
+    for tag in soup.find_all(["div", "span", "tr", "section"]):
+        group_text = _normalize_ws(tag.get_text(" ", strip=True))
+        if "CLOSING DATE" not in group_text.upper():
+            continue
+        iso = _parse_any_date_to_iso(group_text)
+        if iso:
+            return iso
+
+    return ""
+
+
+def parse_detail_html(html: str) -> Dict[str, str]:
+    text = str(html or "")
+
+    status = _extract_status_from_label_divs(text)
+    if not status:
+        for label in ["Status", "Notice Status", "Opportunity Status"]:
+            status = _extract_detail_value(text, label)
+            if status:
+                status = _normalize_ws(status).upper()
+                break
+
+    closing_date = _extract_detail_closing_date_bs4(text)
+    if not closing_date:
+        for label in ["Closing Date", "Closing Date & Time", "Closing/Opening Date"]:
+            raw = _extract_detail_value(text, label)
+            closing_date = _parse_any_date_to_iso(raw)
+            if closing_date:
+                break
+
+    description = ""
+    for label in ["Description", "Procurement Description", "Tender Description", "Requirement Specifications"]:
+        description = _extract_detail_value(text, label)
+        if description:
+            break
+
+    classification = ""
+    for label in ["Procurement Category", "Category", "Notice Type"]:
+        classification = _extract_detail_value(text, label)
+        if classification:
+            break
+
+    buyer = ""
+    for label in ["Agency", "Buyer", "Procuring Entity"]:
+        buyer = _extract_detail_value(text, label)
+        if buyer:
+            break
+
+    amount_parts = _extract_amount_and_currency(text)
+
+    return {
+        "closing_date": closing_date,
+        "status": status,
+        "description": description,
+        "classification": classification,
+        "buyer": buyer,
+        "currency": amount_parts.get("currency", ""),
+        "amount": amount_parts.get("amount", ""),
+    }
+
+
+def enrich_rows_from_detail_pages(
+    driver,
+    rows: List[Dict[str, str]],
+    timeout_seconds: int = 30,
+    detail_limit: Optional[int] = None,
+    sleep_seconds: float = 1.5,
+) -> List[Dict[str, str]]:
+    enriched: List[Dict[str, str]] = []
+
+    total = len(rows)
+    for idx, row in enumerate(rows, start=1):
+        if detail_limit is not None and idx > detail_limit:
+            enriched.append(row)
+            continue
+
+        url = str(row.get("notice_url", "")).strip()
+        if not url:
+            enriched.append(row)
+            continue
+
+        try:
+            logger.info("Opening detail %s/%s: %s", idx, total, url)
+            driver.get(url)
+            _wait_for_dom_ready(driver, timeout_seconds)
+            time.sleep(sleep_seconds)
+
+            html = _driver_page_html(driver)
+            details = parse_detail_html(html)
+
+            logger.info(
+                "DETAIL PARSED notice_id=%s closing_date=%r status=%r currency=%r amount=%r",
+                row.get("notice_id", ""),
+                details.get("closing_date", ""),
+                details.get("status", ""),
+                details.get("currency", ""),
+                details.get("amount", ""),
+            )
+
+            merged = dict(row)
+            for key in ["closing_date", "status", "description", "classification", "buyer", "currency", "amount"]:
+                if details.get(key):
+                    merged[key] = details[key]
+            enriched.append(merged)
+        except Exception as exc:
+            logger.warning("Failed detail parse for %s: %s", url, exc)
+            enriched.append(row)
+
+    return enriched
+
+
+def _rows_to_normalized_df(rows: List[Dict[str, str]], query_text: str):
     scraped_at_utc = _utc_now_iso()
-    out_rows: List[Dict[str, str]] = []
+    out_rows = []
+
     for row in rows:
         notice_id = str(row.get("notice_id", "")).strip()
         notice_url = str(row.get("notice_url", "")).strip()
-        title = str(row.get("title", "")).strip()
-        buyer = str(row.get("buyer", "")).strip()
-        publication_date = str(row.get("publication_date", "")).strip()
-        classification = str(row.get("classification", "")).strip()
+
         out_rows.append(
             {
                 "source": "SG_GEBIZ",
                 "country": "Singapore",
                 "country_code": "SG",
-                "publication_date": publication_date,
-                "title": title,
-                "description": "",
-                "buyer": buyer,
-                "classification": classification,
-                "currency": "",
-                "amount": "",
+                "publication_date": str(row.get("publication_date", "")).strip(),
+                "closing_date": str(row.get("closing_date", "")).strip(),
+                "title": _normalize_ws(row.get("title", "")),
+                "description": _normalize_ws(row.get("description", "")),
+                "buyer": _normalize_ws(row.get("buyer", "")),
+                "classification": _normalize_ws(row.get("classification", "")),
+                "status": _normalize_ws(row.get("status", "")).upper(),
+                "currency": _normalize_ws(row.get("currency", "")).upper(),
+                "amount": _normalize_ws(row.get("amount", "")),
                 "notice_id": notice_id,
                 "notice_url": notice_url,
                 "query_text": str(query_text or "").strip(),
@@ -640,369 +722,210 @@ def _rows_to_normalized_df(*, rows: List[Dict[str, str]], query_text: str) -> "p
             }
         )
 
-    if not out_rows:
-        return pd.DataFrame([]).reindex(columns=list(NORMALIZED_COLUMNS)).fillna("")
-    return pd.DataFrame(out_rows).reindex(columns=list(NORMALIZED_COLUMNS)).fillna("")
+    df = pd.DataFrame(out_rows)
+    if df.empty:
+        df = pd.DataFrame(columns=NORMALIZED_COLUMNS)
+    else:
+        df = df.reindex(columns=NORMALIZED_COLUMNS).fillna("")
+    return df
 
 
 def fetch_bolisting_selenium(
-    *,
     query_text: str,
-    years: Sequence[int],
-    max_pages: int = 100,
+    max_pages: int = 3,
     timeout_seconds: int = 30,
     headless: bool = True,
-    save_debug_pages: bool = False,
-    output_target: str = "",
-    region: str = "EMEA",
-    website_id: str = "SG_GEBIZ",
-) -> "pd_types.DataFrame":
-    url = "https://www.gebiz.gov.sg/ptn/opportunity/BOListing.xhtml?origin=menu"
+    detail_limit: Optional[int] = None,
+    status_filter: str = "",
+):
     all_rows: List[Dict[str, str]] = []
-    debug_dir: Optional[Path] = None
-
-    if save_debug_pages:
-        base_dir = resolve_output_base_dir(
-            output_target=output_target,
-            region=region,
-            website_id=website_id,
-        )
-        layout = ensure_spec_folder_layout(base_dir)
-        debug_dir = Path(layout["web"]) / "pagination_debug"
-        debug_dir.mkdir(parents=True, exist_ok=True)
-
     driver = _build_chrome_driver(headless=headless, timeout_seconds=timeout_seconds)
+
     try:
-        logger.info("Opening BOListing page: %s", url)
-        driver.get(url)
+        logger.info("Opening BOListing page: %s", LISTING_URL)
+        driver.get(LISTING_URL)
         _wait_for_dom_ready(driver, timeout_seconds)
         time.sleep(4)
 
-        _apply_query_if_present(driver, query_text)
+        _click_main_status_tab(driver, status_filter=status_filter, timeout_seconds=timeout_seconds)
+        _wait_for_dom_ready(driver, timeout_seconds)
+        time.sleep(3)
 
-        _scroll_to_bottom(driver)
-        _debug_paginator(driver)
+        _click_closed_subtab(driver, status_filter=status_filter, timeout_seconds=timeout_seconds)
+        _wait_for_dom_ready(driver, timeout_seconds)
+        time.sleep(3)
 
-        page_num = 1
-        seen_page_signatures = set()
-
-        while page_num <= max_pages:
+        for page_num in range(1, max_pages + 1):
             html = _driver_page_html(driver)
-
-            if debug_dir is not None:
-                (debug_dir / f"page_{page_num:03d}.html").write_text(html, encoding="utf-8")
-
             page_rows = parse_bolisting_html(html)
-            before_count = len(all_rows)
-            all_rows = _merge_rows_by_notice_id(all_rows, page_rows)
-            added_count = len(all_rows) - before_count
+            logger.info("PAGE %s listing rows=%s", page_num, len(page_rows))
 
-            current_page_label = _get_current_page_number(driver)
-            logger.info(
-                "Parsed page loop=%s paginator_label=%s rows_on_page=%s newly_added=%s total=%s",
-                page_num,
-                current_page_label or "?",
-                len(page_rows),
-                added_count,
-                len(all_rows),
-            )
+            seen = {str(r.get("notice_id", "")).strip() for r in all_rows}
+            for row in page_rows:
+                nid = str(row.get("notice_id", "")).strip()
+                if nid and nid not in seen:
+                    all_rows.append(row)
+                    seen.add(nid)
 
-            signature = hashlib.sha1(html[:50000].encode("utf-8")).hexdigest()
-            if signature in seen_page_signatures:
-                logger.info("Detected repeated page content. Stopping pagination.")
-                break
-            seen_page_signatures.add(signature)
+            logger.info("TOTAL LISTING ROWS SO FAR=%s", len(all_rows))
 
-            _scroll_to_bottom(driver)
-            current_page_label = _get_current_page_number(driver)
-            logger.info("Current paginator page label before move: %s", current_page_label or "?")
+            if page_num < max_pages:
+                moved = _click_page_number(driver, page_num + 1, timeout_seconds=timeout_seconds)
+                if not moved:
+                    logger.info("Could not move to page %s", page_num + 1)
+                    break
+                time.sleep(4)
 
-            target_next_page = page_num + 1
-            moved = _click_page_number(
+        logger.info("FINAL LISTING RAW ROW COUNT=%s", len(all_rows))
+        if all_rows:
+            logger.info("LISTING SAMPLE=%s", json.dumps(all_rows[:3], ensure_ascii=False))
+
+        if all_rows:
+            all_rows = enrich_rows_from_detail_pages(
                 driver,
-                target_page=target_next_page,
+                all_rows,
                 timeout_seconds=timeout_seconds,
+                detail_limit=detail_limit,
+                sleep_seconds=1.5,
             )
 
-            if not moved:
-                logger.info("Could not click page number %s. Trying next-button fallback.", target_next_page)
-                moved = _click_next_page(
-                    driver,
-                    current_loop_page=page_num,
-                    timeout_seconds=timeout_seconds,
-                )
+        logger.info("DETAIL ENRICHMENT COMPLETE. ROW COUNT=%s", len(all_rows))
+        if all_rows:
+            logger.info("ENRICHED SAMPLE=%s", json.dumps(all_rows[:3], ensure_ascii=False))
 
-            if not moved:
-                logger.info("No next page available. Pagination finished.")
-                break
-
-            time.sleep(4)
-            page_num += 1
     finally:
         try:
             driver.quit()
         except Exception:
             pass
 
-    tokens = [t.lower() for t in re.split(r"\s+", str(query_text or "").strip()) if t]
-    if tokens:
-        all_rows = [row for row in all_rows if any(t in str(row.get("title", "")).lower() for t in tokens)]
+    if query_text.strip():
+        tokens = [t.lower() for t in re.split(r"\s+", query_text.strip()) if t]
+        if tokens:
+            all_rows = [
+                row
+                for row in all_rows
+                if any(tok in str(row.get("title", "")).lower() for tok in tokens)
+                or any(tok in str(row.get("description", "")).lower() for tok in tokens)
+            ]
 
-    allowed_years = {int(y) for y in years if str(y).isdigit() or isinstance(y, int)}
-    if allowed_years:
-        filtered: List[Dict[str, str]] = []
-        for row in all_rows:
-            pub = str(row.get("publication_date", ""))
-            year = int(pub[:4]) if len(pub) >= 4 and pub[:4].isdigit() else None
-            if year is None or year in allowed_years:
-                filtered.append(row)
-        all_rows = filtered
-
-    return _rows_to_normalized_df(rows=all_rows, query_text=query_text)
+    return _rows_to_normalized_df(all_rows, query_text=query_text)
 
 
-def build_placeholder_normalized_df(*, query_text: str) -> "pd_types.DataFrame":
-    scraped_at_utc = _utc_now_iso()
-    notice_id = "GEBIZ_PLACEHOLDER"
-    notice_url = ""
-    title = "GeBIZ scaffold placeholder"
-    description = "Not implemented: SG_GEBIZ fetch/normalize pipeline is scaffolded only."
+def apply_filters(
+    df,
+    date_from: str = "",
+    date_to: str = "",
+    date_field: str = "publication_date",
+    status_filter: str = "",
+):
+    out = df.copy()
 
-    row = {
-        "source": "SG_GEBIZ",
-        "country": "Singapore",
-        "country_code": "SG",
-        "publication_date": "",
-        "title": title,
-        "description": description,
-        "buyer": "",
-        "classification": "",
-        "currency": "",
-        "amount": "",
-        "notice_id": notice_id,
-        "notice_url": notice_url,
-        "query_text": str(query_text or "").strip(),
-        "scraped_at_utc": scraped_at_utc,
-        "dedup_key": _stable_dedup_key("SG_GEBIZ", notice_id, str(query_text or "").strip()),
-    }
-    return pd.DataFrame([row]).reindex(columns=list(NORMALIZED_COLUMNS)).fillna("")
+    if status_filter.strip():
+        sf = status_filter.strip().upper()
+        out["status"] = out["status"].fillna("").astype(str).str.upper().str.strip()
+        out = out[out["status"] == sf].copy()
 
+    if date_field not in out.columns:
+        out[date_field] = ""
 
-def parse_args(argv: Optional[Sequence[str]] = None) -> argparse.Namespace:
-    parser = argparse.ArgumentParser(description="Selenium scraper for Singapore GeBIZ (SG_GEBIZ)")
-    parser.add_argument("--date-from", default=None, help="Start date (YYYY-MM-DD).")
-    parser.add_argument("--date-to", default=None, help="End date (YYYY-MM-DD).")
-    parser.add_argument("--query", default="", help="Optional keyword search.")
-    parser.add_argument("--output-target", default="", help="Google Drive URL or local output folder.")
-    parser.add_argument("--disable-deduplication", action="store_true", help="Disable default deduplication.")
-    parser.add_argument("--discover-only", action="store_true", help="Open the page and write discovery artifacts, then exit.")
-    parser.add_argument("--max-pages", type=int, default=100, help="Maximum BOListing pages to paginate.")
-    parser.add_argument("--headful", action="store_true", help="Run Selenium with visible browser for debugging.")
-    parser.add_argument("--save-debug-pages", action="store_true", help="Save paginated listing HTML pages into the web output folder.")
-    parser.add_argument("--use-requests-fallback", action="store_true", help="Use old first-page-only requests fetch instead of Selenium pagination.")
-    parser.add_argument("--project-name", default="MDT_2026", help="Project name token in outputs (PROJECT_NAME_YEAR).")
-    parser.add_argument("--website-id", default="SG_GEBIZ", help="Website ID (uppercase underscore).")
-    parser.add_argument("--source-label", default="Singapore GeBIZ", help="Human readable source label.")
-    parser.add_argument("--region", default="EMEA", choices=["EMEA", "LATAM"], help="Regional output routing.")
-    add_standard_colab_args(parser, default_country="SG")
-    return parser.parse_args(list(argv) if argv is not None else None)
+    out[date_field] = pd.to_datetime(out[date_field], errors="coerce")
+
+    if str(date_from).strip():
+        out = out[out[date_field] >= pd.to_datetime(date_from)].copy()
+
+    if str(date_to).strip():
+        out = out[out[date_field] <= pd.to_datetime(date_to)].copy()
+
+    out[date_field] = out[date_field].dt.strftime("%Y-%m-%d").fillna("")
+    return out
 
 
-def discover_endpoints_selenium(
-    *,
-    query_text: str,
-    output_target: str,
-    region: str,
-    website_id: str,
-    timeout_seconds: int = 30,
-) -> Tuple[str, int, str]:
-    base_dir = resolve_output_base_dir(
-        output_target=output_target,
-        region=region,
-        website_id=website_id,
+def parse_args():
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--output-target", default=".")
+    parser.add_argument("--max-pages", type=int, default=3)
+    parser.add_argument("--detail-limit", type=int, default=0, help="0 means scrape all detail pages")
+    parser.add_argument("--query", default="")
+    parser.add_argument("--date-from", default="")
+    parser.add_argument("--date-to", default="")
+    parser.add_argument("--date-field", default="publication_date", choices=["publication_date", "closing_date"])
+    parser.add_argument("--status-filter", default="", choices=["", "OPEN", "CLOSED"])
+    parser.add_argument("--project-name", default="MDT_2026")
+    parser.add_argument("--website-id", default="SG_GEBIZ")
+    parser.add_argument("--source-label", default="Singapore GeBIZ")
+    parser.add_argument("--region", default="EMEA")
+    parser.add_argument("--headful", action="store_true")
+    parser.add_argument("--disable-deduplication", action="store_true")
+    return parser.parse_args()
+
+
+def main():
+    logging.basicConfig(level=logging.INFO, format="%(asctime)s [%(levelname)s] %(message)s")
+    args = parse_args()
+
+    print("RUNNING SCRIPT FILE:", __file__)
+
+    detail_limit = None if int(args.detail_limit or 0) <= 0 else int(args.detail_limit)
+
+    df = fetch_bolisting_selenium(
+        query_text=args.query,
+        max_pages=args.max_pages,
+        timeout_seconds=30,
+        headless=not bool(args.headful),
+        detail_limit=detail_limit,
+        status_filter=args.status_filter,
     )
-    layout = ensure_spec_folder_layout(base_dir)
-    web_dir = Path(layout["web"])
-    artifact_path = web_dir / f"gebiz_discovery_{_timestamp_token()}.jsonl"
 
-    records: List[dict] = []
-    error_message = ""
-    url = "https://www.gebiz.gov.sg/ptn/opportunity/BOAdvancedSearch.xhtml?origin=advanced"
+    logger.info("NORMALIZED ROWS BEFORE FILTERS=%s", len(df))
+    if len(df):
+        for col in ["notice_id", "title", "publication_date", "closing_date", "status", "currency", "amount"]:
+            non_empty = df[col].fillna("").astype(str).str.strip().ne("").sum()
+            logger.info("COLUMN %s NON EMPTY=%s/%s", col, non_empty, len(df))
+        logger.info(
+            "DF HEAD BEFORE FILTERS\n%s",
+            df[
+                ["notice_id", "title", "publication_date", "closing_date", "status", "currency", "amount", "notice_url"]
+            ].head(10).to_string(index=False),
+        )
 
-    try:
-        driver = _build_chrome_driver(headless=True, timeout_seconds=timeout_seconds)
-        try:
-            driver.get(url)
-            _wait_for_dom_ready(driver, timeout_seconds)
-            time.sleep(5)
-
-            q = str(query_text or "").strip()
-            if q:
-                _apply_query_if_present(driver, q)
-
-            records.append(
-                {
-                    "ts_utc": _utc_now_iso(),
-                    "url": driver.current_url,
-                    "title": driver.title,
-                    "html_preview": _driver_page_html(driver)[:1000],
-                }
-            )
-        finally:
-            driver.quit()
-    except Exception as exc:
-        error_message = f"selenium_error: {exc}"
-
-    artifact_path.parent.mkdir(parents=True, exist_ok=True)
-    with artifact_path.open("w", encoding="utf-8") as handle:
-        header = {
-            "ts_utc": _utc_now_iso(),
-            "source": "SG_GEBIZ",
-            "query_text": str(query_text or ""),
-            "record_count": len(records),
-            "error": error_message,
-        }
-        handle.write(json.dumps({"type": "summary", **header}, ensure_ascii=True) + "\n")
-        for record in records:
-            handle.write(json.dumps({"type": "response", **record}, ensure_ascii=True) + "\n")
-
-    return str(artifact_path), len(records), error_message
-
-
-def fetch_records_requests(*, endpoint_hint: str = "") -> "pd_types.DataFrame":
-    _ = endpoint_hint
-    return pd.DataFrame([])
-
-
-def run(args: argparse.Namespace) -> Dict[str, object]:
-    date_from, date_to, normalized_years = resolve_date_range(
+    filtered_df = apply_filters(
+        df,
         date_from=args.date_from,
         date_to=args.date_to,
-        years=args.years,
-    )
-    query_text = build_query_text(args.query, args.keywords)
-    keywords = build_run_keywords(keywords=args.keywords, query_text=query_text)
-
-    discover_summary: Dict[str, object] = {}
-    if bool(getattr(args, "discover_only", False)):
-        artifact_path, record_count, error = discover_endpoints_selenium(
-            query_text=query_text,
-            output_target=args.output_target,
-            region=args.region,
-            website_id=args.website_id,
-        )
-        discover_summary = {
-            "artifact_path": artifact_path,
-            "record_count": record_count,
-            "error": error,
-        }
-
-    normalized_df = pd.DataFrame()
-    if not bool(getattr(args, "discover_only", False)):
-        try:
-            if bool(getattr(args, "use_requests_fallback", False)):
-                normalized_df = fetch_bolisting_requests(
-                    query_text=query_text,
-                    years=normalized_years,
-                )
-            else:
-                normalized_df = fetch_bolisting_selenium(
-                    query_text=query_text,
-                    years=normalized_years,
-                    max_pages=args.max_pages,
-                    timeout_seconds=30,
-                    headless=not bool(args.headful),
-                    save_debug_pages=bool(args.save_debug_pages),
-                    output_target=args.output_target,
-                    region=args.region,
-                    website_id=args.website_id,
-                )
-        except Exception as exc:
-            logger.warning("GeBIZ BOListing fetch failed: %s", exc)
-            normalized_df = pd.DataFrame()
-
-    if normalized_df is None or len(getattr(normalized_df, "index", [])) == 0:
-        normalized_df = build_placeholder_normalized_df(query_text=query_text)
-
-    normalized_df = normalized_df.copy()
-    normalized_df["date_from"] = date_from
-    normalized_df["date_to"] = date_to
-
-    translated_df = translate_dataframe_to_english(
-        normalized_df,
-        TranslationConfig(
-            enabled=bool(args.enable_google_translation),
-            project_id=args.google_project_id,
-            target_language=args.translation_target_language,
-            columns=args.translate_columns,
-        ),
-        only_when_missing=not args.translate_all,
+        date_field=args.date_field,
+        status_filter=args.status_filter,
     )
 
-    spec_summary = save_spec_outputs(
-        translated_df,
-        output_target=args.output_target,
-        region=args.region,
-        website_id=args.website_id,
-        source_label=args.source_label,
-        project_name=args.project_name,
-        years=normalized_years,
-        keywords=keywords,
-        deduplicate_results=not args.disable_deduplication,
-    )
+    logger.info("ROWS AFTER FILTERS=%s", len(filtered_df))
 
-    base_dir = resolve_output_base_dir(
-        output_target=args.output_target,
-        region=args.region,
-        website_id=args.website_id,
-    )
-    layout = ensure_spec_folder_layout(base_dir)
-    run_stem = build_run_output_stem(
-        project_name=args.project_name,
-        years=list(normalized_years),
-        keywords=list(keywords),
-    )
+    dedup_before = len(filtered_df)
+    if not args.disable_deduplication and "dedup_key" in filtered_df.columns:
+        filtered_df = filtered_df.drop_duplicates(subset=["dedup_key"]).copy()
+    dedup_after = len(filtered_df)
 
-    mdt_df = to_mdt_schema(translated_df)
-    mdt_prefix = Path(layout["tender_data_tool"]) / run_stem
-    mdt_paths = save_mdt_outputs(mdt_df, mdt_prefix)
+    output_dir = Path(args.output_target)
+    output_dir.mkdir(parents=True, exist_ok=True)
 
-    return {
-        "date_from": date_from,
-        "date_to": date_to,
-        "query_text": query_text,
-        "keywords": keywords,
-        "normalized_rows": len(translated_df),
-        "discover": discover_summary,
-        "spec": spec_summary,
-        "mdt": mdt_paths,
-    }
+    csv_path = output_dir / "run_output.csv"
+    json_path = output_dir / "run_output.json"
+    filtered_csv_path = output_dir / "gebiz_filtered.csv"
+    filtered_json_path = output_dir / "gebiz_filtered.json"
 
+    df.to_csv(csv_path, index=False, encoding="utf-8")
+    df.to_json(json_path, orient="records", force_ascii=False, indent=2)
 
-def main(argv: Optional[Sequence[str]] = None) -> None:
-    logging.basicConfig(level=logging.INFO, format="%(asctime)s [%(levelname)s] %(message)s")
-    args = parse_args(argv)
-    result = run(args)
+    filtered_df.to_csv(filtered_csv_path, index=False, encoding="utf-8")
+    filtered_df.to_json(filtered_json_path, orient="records", force_ascii=False, indent=2)
 
-    spec = result.get("spec")
-    if not isinstance(spec, dict):
-        spec = {}
-    mdt = result.get("mdt")
-    if not isinstance(mdt, dict):
-        mdt = {}
-    logger.info(
-        "Dedup before/after: %s -> %s (removed=%s)",
-        spec.get("dedup_before"),
-        spec.get("dedup_after"),
-        spec.get("dedup_removed"),
-    )
-    logger.info("Run output: %s", spec.get("run_csv"))
-    logger.info("Consolidated output: %s", spec.get("consolidated_csv"))
-    logger.info("MDT CSV: %s", mdt.get("csv_path"))
-
-    discover = result.get("discover")
-    if isinstance(discover, dict) and discover.get("artifact_path"):
-        logger.info("Discovery artifact: %s", discover.get("artifact_path"))
+    print("SAVED RAW CSV:", csv_path)
+    print("SAVED RAW JSON:", json_path)
+    print("SAVED FILTERED CSV:", filtered_csv_path)
+    print("SAVED FILTERED JSON:", filtered_json_path)
+    print("RAW ROWS:", len(df))
+    print("FILTERED ROWS:", len(filtered_df))
+    print("DEDUP BEFORE:", dedup_before)
+    print("DEDUP AFTER:", dedup_after)
 
 
 if __name__ == "__main__":
